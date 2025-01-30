@@ -1,0 +1,765 @@
+\chapter{The State Vector and the Quantum State Problem}
+In the previous Chapter, we discovered two radical results of the early quantum experiments which completely invalidated the Newtonian model of classical mechanics. These were:
+\begin{enumerate}
+    \item The probabilistic state: there exist at the very least some measurements for which we can never predict the result with certainty because the very state itself depends on probability.
+    \item The superposition principle: the reason why probabilistic states exist is because they are in some superposition of different possible physical states to which there correspond separate probabilities. In fact, any superposition of physical states should create a new possible physical state!
+\end{enumerate} 
+A third result might be that there could be observables for which a state cannot hold simultaneous values, but this will come as a natural consequence after we set out the quantum mechanical model, as we will see in Chapter 4. All these new principles are offensive to our usual intuition, but are undoubtedly present in the Stern Gerlach experiment, as well is in other famous experiments such as the Davisson-Germer modification of Young's Double Slit and needed to be accounted for in a whole new model of physics. With these ideas laid out, pertaining in particular to the quantum state problem, in this chapter we will meet the first, and most fundamental, postulate of quantum mechanics-- what I call the state postulate-- and our study of the model has begun.
+\section{The First Postulate: Necessities}
+\subsection{Complications of the Quantum State} 
+The classical model of Newtonian mechanics deals so trivially with the state problem that to those only classically trained the state problem does not even seem like much of a problem at all-- much less one of the two most important problems in physics. One measures the momentum of a ball, the mass of the ball, the radius of the ball and angle it is travelling. This completes the classical state problem-- at least from the point of view of its basic trajectory: we could also measure its electric charge or angular momentum if we wanted to approach the state problem from a different angle. The measured momentum, mass, radius, angle are the characteristics of the state: which we call values of its observables. We can use equations like $p=mv$ to find further quantities like the velocity when we so desire-- or, just find a way to measure them as well. After this, the problem shifts to calculating collisions or terminal velocities or whatever the situation calls for: and all of these problems are of course time evolution questions because we are to predict the future state given events which happen over time (eg, the ball hits another ball, swings on a string or falls down a ramp). With quantum phenomena, however, a certain measurement might tell you everything about that state, if that state happened to have probability 1 of having that measurement result, but it might also tell you absolutely nothing, such as for some state where that measurement actually was comparatively incredibly improbable and just happened to take an unlikely value out of countless other possible values. The Newtonian way of dealing with the state problem -- which is to assume a state always has some value for each observable and what only remains is to measure and record it at specific times of interest -- is far too simplistic to account for these results.
+\\\\
+So the main complication to the state problem, of course, comes with the notion of inherent probability in a given state. This notion would have been inconceivable in Newtonian mechanics. Probability could only ever be introduced, into experiments by human made contrivances (such as probabilistic machinery) and the current state would remain unchanged until a probabilistic action changed it into a future state. However, even in these cases, these probabilistic differences are not really pertaining to the inherent state problem. As far as the state problem is concerned, having a probabilistic state destroys the classical approach. For one, due to the superposition principle, very few states in quantum mechanics can be said to possess a value for an observable: we can no longer measure a particle's momentum and say that is the relevant momentum value of the state if that value is only one of an infinite collection of possible momenta we could have originally measured. We saw this in the Stern Gerlach experiment, where attempting to say a single electron had up spin failed miserably when we realised successive measurements (with a $x$ magnetic field in the middle) could yield down spin measurements as well. The problem of encapsulation is therefore rendered by the results much more difficult than with only classical intuition: because we now have the extra complication of needing to find a concise way to not only store information on far more possibilities for the same state, but also their respective probabilities. The question of being able to store information on infinite (so by definition, impossible to list) possibilities is another concern in itself, and it should be clear to the reader that the classical approach will be insufficient.
+\\\\
+Fortunately, contemporary and historic developments and concepts in mathematics were far from useless when trying to deal with these new modelling complications. Probability and how to handle it itself was certainly not unexplored by mathematicians, and the burgeoning field of vector spaces would prove to be useful in answering the superposition principle. With an intellectual jump whose magic we cannot underestimate, Heisenberg, Born and almost simultaneously Dirac realised that they could incorporate these areas of mathematics into a new quantum model of reality. Thus were born the postulates of quantum mechanics, and with them, this seminal new physical model.
+\subsection{One-to-One Correspondences}
+There was a detail in the previous chapter on Stern Gerlach experiments, which, though commanding little attention, pertains to a key concept which will be central to this chapter. That was the idea of \apos{state denomination}. If we recall, we invented a strange notation-- while desperately and futilely attempting to cling onto normal classical intuition--  in our early attempt to track the spins of different particles. There are many things wrong with the attempted equation:
+$$
+500\elec=250\uspin + 250\dspin
+$$
+--not least the fact that it is useless in taking into account superpositions and inherent probability. One asks therefore why it was included? This was to introduce a much more useful idea: we will need to start introducing abstract entities to represent \textit{states} themselves. In classical mechanics, we do not do this at all, because the state is treated like a simple background from which to pick attributes rather than anything worth studying in itself. We do not need to add classical states, or calculate probabilities. If we really need to distinguish between them, we treat them like situations or mathematical cases, where symbols are given to observable qualities like velocity $v$. We might use subscripts like $v_{a}$ to help us identify which case we are working with-- eg, the velocity of ball $a$. We would never mathematically represent the state itself, however, when we could simply list its physical properties and put those values into equations. On the other hand, because of these new quantum ideas of summing states together (superposition) and including measurement probabilities in the state, it will be extremely important to have mathematical entities representing quantum states themselves. What is the value of such abstractions? The answer is two--fold: the meaning of such abstractions is none, but the functionality of such abstractions are extremely powerful. Just like the futile $\uspin$, any abstraction we use to describe the state is only valued on how \textit{convenient} it is. The $\uspin$ state denomination was a very deficient example of trying to find a convenient way to describe states, because, for one, it includes no information on any observables other than spin. However, in this abject failure, we do learn something: the symbols themselves are only our chosen way to make the mathematics simpler and more concise. Precisely being able to show how superficial the notation we used was is exactly why it was introduced in the first place. $\uspin$ and $\dspin$ notation is not superior to an alternative like $(\Uparrow)$ and $(\Downarrow)$-- this is easy to see-- because the notation is not revealing in any new ways, or easier to write. In what follows we will label states with abstract mathematical objects, so we can extract information about them. What is hoped will be remembered throughout, though, is this idea that the notation could be changed if we so desire-- our choice of symbols is not sacred: only conventional and useful. So when we switch notation in Chapter 6, and subtly change the labels we use, we aren't creating a new model-- only changing the model's written appearance a little! Our only need still is to define some mathematical entities and rules, keep the definitions consistent, and manipulate the value these abstractions will hold as labels in place of long verbal phrases describing states.
+\\\\
+What is more important will be to consider how to mathematically operate with states so that we will be able to perform physical computations. The first step, as we tackle how to do this, is to learn about vector spaces. Yet before all that, we will give a mathematical definition for the idea of \sapos{labelling} something. It may seem strange to do so, but having these clarifications will be immensely useful because very quickly from now we will need to understand this idea to navigate through labels of labels of labels of objects and being able to track how these things exactly are mathematically connected to each other is very useful.
+\\\\
+We have already started using the word \sapos{abstractions} in this text. When we speak of an abstraction, we mean something which is not physical-- in other words, a mathematical entity we indirectly use to describe something physical. This goes beyond labelling with symbols, and can be extended to the use of real mathematically manipulable objects to connect to states as well. The way this is done is through one-to-one correspondences.
+%This paragraph is good. Here, you are pointing towards a much more sophisticated appreciation of the difference betweeen physical reality and the mathematics used to describe that physical reality.
+\\\\
+A one-to-one correspondence strictly occurs between two sets. It is defined to be the relationship between two sets where for every element in one set, there is one element in the other set, and for every element in the other set, there is an element in the set. Intuitively, the idea is not hard to imagine. Each element can be mapped to a single element in another set, and vice versa, without any elements left out. The conventional way to prove there is a one-to-one correspondence between two sets is to introduce a one-to-one mapping -- also known as a bijection -- whose existence can be proved if we can prove that for every element in the first set there is a corresponding element in the second, and for every element in the second set there is an element in the first. Take for example
+$$
+A=\{2,3,5,7\}
+$$
+to be the single digit primes. We could set up a one to one mapping with the set 
+$$
+B=\{9,27,243,2187\}
+$$
+by using the rule \apos{take 3 to the power of the element} to map an element of $A$ to an element of $B$ and the rule \apos{take the element log base 3} to map an element of $B$ to an element of $A$. Then there is a one-to-one correspondence between sets $A$ and $B$ there are two maps, one $A$ to $B$ and one $B$ to $A$ which set up a pairing between elements in $A$ and $B$ such that each pair is unique and no element in either set in left out.
+\\\\
+Now we can talk about the uses of one-to-one correspondences, which will be a common point in this book, as quantum mechanics enjoys very many one-to-one correspondences. The first use we will see is in label sets. The idea is simple. If there is a one-to-one correspondence between two sets, we can use elements in one set to label elements in the other set. We know that every label will have something it represents (since each element in the set of \sapos{labels} is mapped to another element in the other set); no label will represent more than one element and cause confusion (since it is a one-to-one mapping); no element will be unlabelled (since for every element in the other set there is a corresponding element in the set of \sapos{labels}); no element will be labelled by two different labels from the same label set and cause confusion (since it is a one-to-one mapping). Another even more important use we will see is as substitutes: if a one-to-one correspondence exists between two sets, we can substitute the elements of one set for the elements of the other set, since again the correspondence makes it very easy to identify which substitutes are connected to which originals we are trying to describe.
+\\\\
+With the two example sets of single digit primes and the results of raising them to the power of 3  above, it makes absolutely no sense to use sets $B$ or $A$ as either labels or substitutes for each other, since they are both sets of numbers, and we do not need to label numbers with other different numbers, and it is equally difficult to see why we might want to substitute numbers for other numbers in any scenario. However, there will be uses later on for one-to-one correspondences for both labelling and substituting for different objects in quantum mechanics. Specifically, one important one-to-one correspondence will be between functions and states. This is because, if we define a certain set of functions properly and have a one-to-one correspondence with physical states, we will be able to extract information and values about that state with certain operations on that function representing it. Clearly, we cannot perform mathematical operations on physical states directly, which are not mathematical objects at all. Nor do we want to describe states in words all the time, as this would be beyond verbose and time-consuming. Thus these mathematical objects both labelling and substituting for physical states is a complete necessity in our new world away from the classical method of ignoring states and towards our new realisation that states are very much important objects in themselves.
+%Good stuff. There is a really deep point here, which is all too often overlooked in considerations of QM and physics generally. Indeed, the entire of Western civilisation fails to make this distinction: between things and the words and symbols used to describe those things.
+\\\\
+Thus we understand the goal of this chapter, and the first postulate of quantum mechanics. We cannot perform mathematical operations on a state, but we will need to find some way to achieve this in order to navigate the complex superpositions and probabilities which never existed in the classical model. Thus we want to set up some mathematical entities which can be operated on and which are in one-to-one correspondence with physical states! After that, we can perform mathematical operations on those entities, and interpret the values which result as information about the states they represent. The importance of the substitution and labelling functions of one-to-one correspondences belie nearly all of the quantum mechanical postulates, so having read this section, the reader should now be prepared to handle these ideas without any more confusion. So now, we are ready go through this process of searching for mathematical objects to represent states by one-to-one correspondences in the following section, on vector spaces. One final note before we do so: one-to-one correspondences will in the future be referred to by their mathematical name: \textbf{bijections}.
+\section{Vector Spaces}
+\begin{center}
+\begin{figure} [b]
+\begin{tikzpicture}
+\draw [thick] [-stealth] (-6,-4) -- (-4,-3);
+\node at (-4.75,-3.75) {$\vec{V_1}$};
+\draw [thick][-stealth] (-2,-4) -- (0,-3);
+\node at (-0.75,-3.75) {$\vec{V_1}$};
+\draw [thick] [-stealth] (0,-3) -- (0.5,-1);
+\node at (0.625,-2) {$\vec{V_2}$};
+\draw [thick] [-stealth] (-2,-4) -- (0.5,-1);
+\node at (-1.25,-2) {$\vec{V_1}+\vec{V_2}$};
+\draw [thick] [-stealth] (2,-4) -- (3.5,-2.125);
+\node at (3,-3.25) {$\vec{V_3}$};
+\draw [dotted] [-stealth] (2,-4) -- (5,-0.25);
+\node at (4.75,-1) {$k\vec{V_3}$};
+\end{tikzpicture}
+\caption{Vector operations in the arrow representation. The scalar $k \in \mathbb{R}$ since otherwise the stretching by scale factor $k$ would not make sense; if it were negative, the direction would simply reverse.}
+\end{figure}
+\end{center}
+The reader will be vaguely familiar already with the notion of vectors, which may have been mentioned in physics and coordinate geometry. However, they probably will have usually thought of them as objects with magnitude (length) and direction; in particular, geometrically one might have represented vectors with arrows and extrapolated this idea to include the basic operations of vector addition and scalar multiplication of vectors (Figure 1).
+\\\\
+This concept of all vectors as geometric arrows is not very helpful here, and must be for the purpose of starting to learn quantum mechanics completely discarded. Instead, we must think of them simply as \textbf{objects which can be summed}, which exist in collections which form a vector space. Numbers can be summed, but vectors can be objects which are not numbers but which still need to be added to each other; for the purpose of quantum mechanics, having this full space of \apos{things which can be added}, but which are not just simply numbers, will prove invaluable. This is because we we need mathematical objects to form bijections (one-to-one correspondences) with physical states: but by the superposition principle these states must be able to be superposed in some new physical state, and therefore the mathematical objects representing them must be able to be summed together to make a new such mathematical object which represents this new physical state. So it is absolutely essential to bear in mind that functions like $x^2$ or $(5x-3)^{3}$ can be vectors just as much as arrows in a coordinate system can be vectors: so long as there is a system where they can be added together and a collection of other objects which fit together into the system. We call this system of objects able to be summed together a vector space, and those objects constituent vectors. To support this new idea of vectors, we will therefore be replacing the misleading arrow notation of $\vec{V}$  with simply ${V}$. At first, vectors will feel extremely intangible given that they are only represented by letters giving no indication what they are, but this is fine. Learning about the mathematical system which contains the vectors which will represent physical states is what matters, for now, because there are many operations and ideas to work through.
+\\\\
+For a self-contained system working through the lens of linear algebra there exists a need for a vector space: that is, the space containing all relevant vectors where certain mathematical operations can be run without ever requiring any vectors outside the vector space. Similarly, for quantum mechanics there also exists a vector space for specific vectors of interest, (which is called state space). If we can understand this vector space we can then understand the component vectors a lot better: in other words, our formalism of quantum mechanics becomes defined at its farthest boundaries. Therefore, we will start by introducing the definitions mathematicians use to define a valid vector space so we can start to move towards this goal. 
+\\\\
+A vector space $\mathbb{V}$ is a set of vectors with the following properties:
+\begin{enumerate}
+    \item \textit{Null Vector}: Every vector space contains the unique null vector $0$, with properties
+    $$
+    \forall \alpha \in \mathbb{V}, \:\:\: \alpha + 0 = \alpha
+    $$
+    and
+    $$
+    \forall \alpha \in \mathbb{V}, \:\:\: 0\times\alpha = 0.
+    $$
+    Note that this is not a number, but a vector (though it could be a number if our vector spaces consisted of numbers as constituent vectors). The reason we write the number 0 to denote it is because it is the most sensible notation. Similarly, the identity vector $I$ (sometimes, 1) is defined to be the vector such that
+    $$
+    \forall \alpha \in \mathbb{V}, \:\:\: 1\times\alpha = \alpha.
+    $$
+    Indeed, the labels $0$ and $1$ are reasonable since they are very clearly the vector analogs of the numbers $0$ and $1$.
+    \item \textit{Additive closure}: For a defined rule for producing a sum of two vectors, 
+    $$
+    \forall \alpha,\beta\in\mathbb{V}, \btab \alpha + \beta \in \mathbb{V}.
+    $$
+    The fact that the sum of any of the vectors in the vector space is another vector in the vector space means the set is \textbf{complete}, and will be a very important point for our requirements, owing to the superposition principle.
+    \item \textit{Commutative property of addition}: For a defined rule for producing a sum of two vectors, 
+    $$
+    \alpha + \beta =  \beta +  \alpha.
+    $$
+    \item \textit{Associative property of addition}: For a defined rule for producing a sum of two vectors, 
+    $$
+    \alpha + (\beta +\gamma) =  (\alpha + \beta) +\gamma.
+    $$
+    \item \textit{Additive inverses}: For every vector $\alpha$, there exists a unique additive inverse vector $-\alpha$ such that
+    $$
+    \alpha + -\alpha = 0.
+    $$
+    \item \textit{Distributive property of scalar multiplication}: For a defined rule for vector multiplication by scalars, 
+    $$
+    c(\alpha+ \beta) = c\alpha + c\beta.
+    $$ 
+    is the requisite distributive property for vectors of scalar multiplication of vectors. There is also a distributive property for scalars in scalar multiplication of vectors, which is similar:
+    $$
+    (c_1+c_2)\alpha = c_1\alpha + c_2 \alpha.
+    $$
+    \item \textit{Associative property of scalar multiplication}: For a defined rule for vector multiplication by scalars, 
+    $$
+    c_1(c_2\alpha)=c_1c_2\alpha.
+    $$
+\end{enumerate} 
+Most of these properties are hardly unusual to us and do not require much thought, such as the associative properties, because it is unlikely the reader will have worked with mathematical objects which do not follow them before (note the arithmetic numbers certainly do). The closure of addition is the critical point, however, because it allows us to get a sense of why vectors are a useful way to denote objects which one might want to add together: they can fit into a vector space which then provides an mathematical enclosure so one knows that no matter how many different constituent vectors they add together, they will never \apos{break} the vector space and end up with a new type of vector outside of the vector space which might not have the same characteristics as the constituent vectors anymore. This enclosed space of objects will be useful for quantum mechanics as we want to be able to superpose \textit{any} number of states without creating a non-physical state-- and therefore, we want to be able to add the mathematical objects which represent physical states without creating a mathematical object which is not in that set of mathematical objects representing physical states.
+\\\\
+There exists one final property of vector spaces which make them crucial to quantum mechanics. It pertains to the problem of defining a vector space. One can imagine that in order for additive closure to be a property of a vector space one needs a huge number of vectors to constitute most vector spaces, since we need every possible sum between two or three or any number of vectors in the space. Thus trying to list constituent vectors as a set in order to specify a vector space would be useless and impossible. We need a shorter way to specify a vector space we are working with. The elegant solution to this problem, of accounting for any possible combination of different vectors, is through the concept of a \textbf{basis}.
+\subsection{Dimensions of a Vector Space}
+We have expressed the definition of a vector space through comprehensive discussion, but are no closer yet to having a concrete understanding of what examples might actually be. We will now consider the most common vector space we work with: the Cartesian 2-dimensional plane (figure 2).
+\\\\
+There is no need to further explain the coordinate system-- only that clearly it does satisfy all the rules above for a vector space (including that of additive inverses, when we include the negative y and x axis). This vector space is known as the coordinate representation of $\mathbb{R}^2$: the 2-dimensional (hence the exponent 2) real-valued (taking real values only) vector space: where the constituent vectors are numbers!
+\\\\
+How do we define the dimensions here? Qualitatively, we are familiar with the concept of the x-axis and y-axis, but mathematically it is less easy to say why they qualify as dimensions. The answer lies in the definition of \textbf{linear independence}, where from will follow this idea of a basis we need.
+\\\\
+A set of $n$ linearly independent vectors $\alpha_{i}$ is defined mathematically as follows:
+$$
+\sum_{i=1}^{n}c_{i}\alpha_{i}=0 \Rightarrow\:\:\: \forall i, \:\:\: c_{i}=0.
+$$
+In words, there is no nontrivial combination of linearly independent vectors which equals $0$ when summed together-- a trivial combination would occur where all the multiplicative coefficients are 0. If a linear combination of linearly independent vectors sums to zero then it implies that the coefficients in the combination must be zero. If there exists some combination without all the coefficients equalling 0, then the vectors are not linearly independent. 
+\\\\
+Let's consider a few examples, using $2\times2$ square matrices as vectors and the $2\times2$ null matrix as the 0 vector. If
+$$
+\alpha_{1} = \begin{bmatrix}
+    1 & 0 \\
+    0 & 0 \\
+    \end{bmatrix}, \:\:
+\alpha_{2} = \begin{bmatrix}
+    0 & 2 \\
+    0 & 0 \\
+    \end{bmatrix}, \:\:
+\alpha_{3}= \begin{bmatrix}
+    0 & 0 \\
+    3 & 0 \\
+    \end{bmatrix}, \:\:
+\alpha_{4} = \begin{bmatrix}
+    0 & 0 \\
+    0 & 4 \\
+    \end{bmatrix}
+$$
+and we set some combination with coefficients $\setof{c_{i}}$
+$$
+\sum_{i=0}^{4}c_{i}\alpha_{i} = 0,
+$$
+then
+$$
+\begin{aligned}
+c_{1}\alpha_{1} &= c_{1}\begin{bmatrix}
+    1 & 0 \\
+    0 & 0 \\
+    \end{bmatrix}, \:\:
+c_{2}\alpha_{2} = c_{2}\begin{bmatrix}
+    0 & 2 \\
+    0 & 0 \\
+    \end{bmatrix}, \:\:
+c_{3}\alpha_{3} = c_{3}\begin{bmatrix}
+    0 & 0 \\
+    3 & 0 \\
+    \end{bmatrix}, \\
+c_{4}\alpha_{4} &= c_{4}\begin{bmatrix}
+    0 & 0 \\
+    0 & 4 \\
+    \end{bmatrix} \\
+\Rightarrow \:\: \sum_{i=0}^{4}c_{i}\alpha_{i}&= \begin{bmatrix}
+c_{1} & 2c_{2} \\
+3c_{3} & 4c_{4} \\
+\end{bmatrix} 
+\Rightarrow \:\: \begin{bmatrix}
+c_{1} & 2c_{2} \\
+3c_{3} & 4c_{4} 
+\end{bmatrix} =
+\begin{bmatrix}
+0 & 0 \\
+0 & 0 \\
+\end{bmatrix}\\
+\end{aligned} 
+$$
+so we can see that we necessarily must have
+$$
+c_{1}=c_{2}=c_{3}=c_{4}=0
+$$
+and therefore 
+$$
+\alpha_{1} = \begin{bmatrix}
+    1 & 0 \\
+    0 & 0 \\
+    \end{bmatrix}, \:\:
+\alpha_{2} = \begin{bmatrix}
+    0 & 2 \\
+    0 & 0 \\
+    \end{bmatrix}, \:\:
+\alpha_{3} = \begin{bmatrix}
+    0 & 0 \\
+    3 & 0 \\
+    \end{bmatrix}, \:\:
+\alpha_{4} = \begin{bmatrix}
+    0 & 0 \\
+    0 & 4 \\
+    \end{bmatrix}
+$$
+are linearly independent vectors.
+\\\\
+On the contrary, if
+$$
+\beta_{1} = \begin{bmatrix}
+    -1 & 0 \\
+    5 & 10 \\
+    \end{bmatrix}, \:\:
+\beta_{2} = \begin{bmatrix}
+    1 & 3 \\
+    1 & -1 \\
+    \end{bmatrix}, \:\:
+\beta_{3}= \begin{bmatrix}
+    2 & 7 \\
+    4 & 1 \\
+    \end{bmatrix}
+$$
+Then $c_1=1, \:\: c_2=7, \:\: c_{3}=-3$ gives
+$$
+\begin{aligned}
+c_{1}\beta_{1}+c_2\beta_{2}+c_3\beta_{3}
+&=  1\begin{bmatrix}
+    -1 & 0 \\
+    5 & 10 \\
+    \end{bmatrix} + 7\begin{bmatrix}
+    1 & 3 \\
+    1 & -1 \\
+    \end{bmatrix} -3\begin{bmatrix}
+    2 & 7 \\
+    4 & 1 \\
+    \end{bmatrix}\\
+&= \begin{bmatrix}
+    -1 & 0 \\
+    5 & 10 \\
+    \end{bmatrix}+
+\begin{bmatrix}
+    7 & 21 \\
+    7 & -7 \\
+    \end{bmatrix}+
+\begin{bmatrix}
+    -6 & -21 \\
+    -12 & -3 \\
+    \end{bmatrix}\\
+&=\begin{bmatrix}
+0 & 0 \\
+0 & 0 \\
+\end{bmatrix}=0
+\end{aligned}
+$$
+which is a nontrivial combination of the vectors $\beta_{1}$, $\beta_{2}$, $\beta_{3}$ as the coefficients are not all 0. Therefore,
+$$
+\beta_{1} = \begin{bmatrix}
+    -1 & 0 \\
+    5 & 10 \\
+    \end{bmatrix}, \:\:
+\beta_{2} = \begin{bmatrix}
+    1 & 3 \\
+    1 & -1 \\
+    \end{bmatrix}, \:\:
+\beta_{3} = \begin{bmatrix}
+    2 & 7 \\
+    4 & 1 \\
+    \end{bmatrix}
+$$
+are not linearly independent vectors (we say therefore they are linearly dependent) since there exists at least one nontrivial linear combination of them which sums to make the $0$ vector.
+\\\\
+Now that we have established this definition of linear dependence, defining the dimensions of a vector space is simple. We have 3 crucial definitions and theorems:
+\begin{enumerate}
+    \item An $n$-dimensional vector space contains $n$ linearly independent vectors.
+    \item The set of $n$ linearly independent vectors in the $n$-dimensional vector space is called the \textbf{basis} of the vector space.
+    \item Each vector $V$ in an $n$-dimensional vector space with basis \\ $\mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\}$ can be expressed as 
+    $$
+    V=\sum_{i=0}^{n}c_{i}\alpha_{i},
+    $$
+    a unique linear combination of the linearly independent basis vectors. The coefficients $c_{i}$ of the expansion for $V$ are called the \textbf{components} of the vector $V$ in the basis.
+\end{enumerate}
+Definition $3$ contains two assertions. The first statement is that each vector $V$ in an $n$-dimensional vector space with basis $\mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\}$ can be expressed as 
+$$
+V=\sum_{i=0}^{n}c_{i}\alpha_{i}
+$$ for some scalar coefficients $\setof{c_{i}}$. This can be proved by contradiction. Assume that in the $n$-dimensional vector space with basis $\mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\}$ there exists some vector $V$ which is not a linear combination of the basis vectors. Clearly $\forall j, \:\:\: V \neq \alpha_{j} \in \mathbb{B}$ since otherwise the linear combination 
+$$
+1\times\alpha_{j}(x)+ \sum_{i=0\neq j}^{n}0\times\alpha_{i}=V
+$$ would immediately violate the assumptions about $V$ not being able to be expressed as a linear combination of the basis vectors.  But then this would mean that all the coefficients $c_{i}$ are $0$ since any coefficient being nonzero would create a valid linear combination of basis vectors equalling the vector ${V}$, and so
+$$
+V=\sum_{i=0}^{n}0\times\alpha_{i} + V
+$$
+but then:
+$$
+\sum_{i=0}^{n}c_{i}\alpha_{i} + c_{n+1}V= 0 \Rightarrow\:\:\: c_{n+1}V=-\sum_{i=0}^{n}c_{i}\alpha_{i},
+$$
+which is,
+$$
+V=-\sum_{i=0}^{n}\left(\frac{c_{i}}{c_{n+1}}\right)\alpha_{i}.
+$$
+This then violates the assumption that $V$ cannot be expressed as a linear combination of the basis vectors since the coefficients $c_{i}/c_{n+1}$ corresponding to basis vectors $\alpha_{i}$ would give a valid linear combination producing $V$. The only way this would not be true would be if $c_{n+1}=0$. In other words, if we want our assumption to hold true, we get
+$$
+\sum_{i=0}^{n}c_{i}\alpha_{i} + c_{n+1}V= 0 \Rightarrow\:\:\: c_{n+1}=0\Rightarrow\:\:\:\sum_{i=0}^{n}c_{i}\alpha_{i}=0\Rightarrow\:\:\:\forall\stab i, c_{i}=0.
+$$
+By definition, therefore, in order for the assumption to be true $V$ must be a vector linearly independent from the other basis vectors since there is no non-trivial combination of the linearly independent basis vectors and the new vector $V$ which sums to the null vector. This however means there is a contradiction since we defined $V$ to be a vector in the $n$-dimensional space, but adding the new vector $V$ would mean there are $n+1$ linearly independent vectors in an $n$-dimensional space: defined in Definition 1 to be impossible. Therefore any vector ${V}$ which is not a linear combination of the basis vectors cannot exist in the vector space; all the vectors in the vector space must be able to be expressed by a linear combination of the basis vectors. We say that the basis (which we must remember is the \textit{set} of vectors and so is be treated as a singular entity in reference) \textbf{spans} the vector space, because all vectors in the vector space can be created by some linear combination of the constituent basis vectors of that basis.
+\\\\
+The second simple but important theorem to prove is that the expansion for any given vector $V$
+$$
+V = \sum_{i=0}^{n}c_{i}\alpha_{i}
+$$
+is unique. We again prove this by contradiction. Assume
+$$
+V = \sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}c'_{i}\alpha_{i}
+$$
+for $\setof{c_{i}} \neq \setof{c'_{i}}$. Then, for basis vectors $\alpha_{i} \neq 0$,
+$$
+\begin{aligned}
+V - V = 0= &\sum_{i=0}^{n}c_{i}\alpha_{i}-\sum_{i=0}^{n}c'_{i}\alpha_{i}=\sum_{i=0}^{n}(c_{i}-c'_{i})\alpha_{i}.
+\end{aligned}
+$$
+However, this combination of basis vectors is equal to ${0}$, but the basis vectors $\setof{\alpha_{i}}$ are linearly independent so necessarily this implies the new coefficients $\setof{c_{i}-c'_{i}}$ are $0$. So
+$$
+\forall i, \:\: (c_{i}-c'_{i})=0 \Rightarrow\:\: c_{i} = c'_{i}
+$$
+a clear contradiction with the original assumption that the coefficients could be different and thereby produce more than one unique way of expressing a vector in the basis. So indeed, each vector in a vector space is uniquely specified by one single linear combination of the basis vectors of the vector space. 
+\\\\
+New definitions follow:
+\begin{enumerate}
+    \item The basis is the set of vectors spanning the vector space.
+    \item For each constituent vector in the vector space with basis $\setof{\alpha_{i}}$ defined to be $V:=\sum_{i=0}^{n}c_{i}\alpha_{i}$, we call the coefficients $\setof{c_{i}}$ the \textbf{components} of the vector in that basis.
+    \item The sum which uniquely defines a vector of the vector space in a given basis is called its \textbf{expansion} in that basis.
+\end{enumerate}
+Critically, note that we always talk about components \textit{in a basis} and expansions \textit{in a basis}. Without some underlying basis, none of those concepts make sense. In vector spaces with multiple possible bases-- which we shall see very much exist-- expansions and thereby components for the same vector are very different depending on which of the bases we are working in.
+\\\\
+It is now clear why a basis is powerful for its original role-- to describe a vector space. This is because with simply the basis vectors (which can be chosen quite easily for some vector spaces) and the components of \textit{any} constituent vector in the space spanned by that basis, we can uniquely specify that vector. Then, with this knowledge of unique expansions in mind, we can define the rules for the simple operations addition, subtraction and multiplication in a vector space:
+\\\\
+To multiply a vector $V$ by scalar $k$, we multiply its components each by scalar $k$:
+$$
+kV = k\sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}kc_{i}\alpha_{i}.
+$$
+\\
+To sum two vectors $V=\sum_{i=0}^{n}c_{i}\alpha_{i}$ and $W=\sum_{i=0}^{n}c'_{i}\alpha_{i}$ we sum their components:
+$$
+V + W = \sum_{i=0}^{n}c_{i}\alpha_{i}+\sum_{i=0}^{n}c'_{i}\alpha_{i} = \sum_{i=0}^{n}(c_{i}+c'_{i})\alpha_{i},
+$$
+which is a new expansion uniquely specifying a new vector in the vector space, and for subtraction of $W$ from $V$ we subtract the components of $W$ from the corresponding components of $V$:
+$$
+V - W = \sum_{i=0}^{n}c_{i}\alpha_{i}-\sum_{i=0}^{n}c'_{i}\alpha_{i} = \sum_{i=0}^{n}(c_{i}-c'_{i})\alpha_{i}
+$$
+which is also a new expansion uniquely specifying a new vector in the vector space. The additive inverse is obtained by multiplying a vector by the negative identity:
+$$
+W=\sum_{i=0}^{n}c'_{i}\alpha_{i} \implies -W=\sum_{i=0}^{n}-c'_{i}\alpha_{i},
+$$
+multiplying by the null vector means multiplying all the coefficients by $0$ (creating the null vector, as expected), and multiplying by the identity means doing nothing to the components, resulting in the same vector.
+
+\subsection{Component Functions}
+When we started working on vector spaces, the idea was introduced of vectors simply being objects which could be summed together in a vector space where there was additive closure. No other attributes were specified. We saw numbers could be vectors in a vector space; matrices and column vectors could be vectors in a vector space. However, with some abstract vector it can be difficult to tell whether it can ever have an explicit form we can understand and work with mathematically, or whether it remains abstract and intangible forever without any useful forms.
+\\\\
+The answer is that this idea of abstract vectors is enduringly important and that looking for explicit forms like matrices with values is a approach which will be severely limited in quantum mechanics. We do have to accept some level of abstraction because it will give us flexibility to approach problems defined in abstract space first before only trying to find some explicit for it later towards the end of the problem. Nevertheless, it is here useful to learn of one way to turn any vector whose expansion in a certain basis is known into a tangible form, and this method exists for all vectors in any vector space so long as there is a basis. This is through the idea of component functions, which exploit the fact that all vectors have unique expansion in some given basis. Such functional forms will be useful for some vectors more than others, but for quantum mechanics this functional form will come in extremely handy as it will be our link to performing calculations after that we have solved the state problem for a given state with conditions. We also know that different bases give different forms of the same vector, because the components and hence expansions are different, so the component functions will change based on what basis we pick to express them in. This idea will also be important and will give us many options to be flexible in algebraic manipulation by allowing us to pick certain bases which are easier to work in.
+\\\\
+We know that in any linearly independent basis the expansion of a vector in the basis of the vector space is unique. It turns out, rather surprisingly, that components, which still seem like random arrays of numbers specifying some arbitrary vector in some arbitrary space, will become absolutely vital to quantum mechanics in many different ways. This is difficult to fully explain right now, but let us take note of it and attempt to produce this \apos{component function} which allows us to take any abstract vector and give it an explicit form.
+\\\\
+%#FUNCTION ARGUMENT IN PRELIM
+Components correspond to basis vectors, so the component function will be governed by:
+\begin{itemize}
+    \item Input: Basis vector.
+    \item Output: Component corresponding to the input basis vector.
+    \item Domain: All vectors in the basis.
+    \item Range: Complex numbers (the components).
+\end{itemize}
+We could write the component function as 
+$$
+f(x) 
+$$
+with the argument represented by $x$ as most functions tend to be expressed without $x$ needing to represent anything in particular other than just being an input from the domain from the function. The reader understands and despite the new mathematics remembers, of course, that the function $f(x)=x^2$ is simply the quadratic function and the $x$ is nothing but the placeholder variable. In quantum mechanics, the arbitrary argument $x$ will become potentially confusing when we work with the position observable, also represented by $x$. Therefore, I will add a subscript to the component function which is the \sapos{letter} of our basis vectors: in a basis consisting of vectors $\setof{\alpha_{i}}$, the letter is $\alpha$, and for basis vectors $\setof{\gamma_{i}}$ the letter would be $\gamma$. So we can define the function $\kappa_{\alpha}(x)$ to be the component function in the so called $\alpha$-basis. The rules would be 
+$$
+\kappa_{\alpha}(x):\setof{\alpha_{i}}\mapsto\mathbb{C},\mtab \kappa_{\alpha}(\alpha_{j})=c_{j}
+$$
+where this component function must be linked to some vector (otherwise $c_{j}$ would not be defined) which here is
+$$
+V:=\sum_{i=1}^{n}c_{i}\alpha_{i}
+$$
+The most important thing to remember is that the inputs of component functions linked to vectors are always basis vectors, rather than numerical values as we are used to. It should be clear that it still qualifies as a function, because it has a mapping, a domain and a range.
+\\\\
+The sum term in the earlier expansion of the vector $V$ clearly indicated we were working in a discrete basis. This, we shall see, is a limitation we will keep all the way until Chapter 7, because it makes everything much simpler and more controlled, and dealing with the continuous case is best tackled with a complete understanding of the discrete case.
+\\\\
+This is one of the instances of something seeming unimportant but being worth much more in the very close future. We will keep an idea of a component function in mind, to give abstract vectors explicit and useful forms, as it will resurface shortly and its physical meaning for quantum mechanics will follow that. Thus completes our definition of a vector space, which is crucial for understanding the algebraic backdrop of quantum mechanics. 
+\\\\
+Now, having completed this review of vector spaces, we begin the first formal step of the quantum mechanical journey.
+\section{The State Vector}
+We are finally ready to introduce the mathematical objects chosen to be in bijection with physical states, having hinted heavily that with additive closure vectors in some vector spaces are the answer. This is the First Postulate of Quantum Mechanics.
+\\\\
+\Answer
+\underline{\textbf{Postulate 1: The State Vector and its Wavefunctions}}\\\\
+Any physical states at time $t$ can be represented by a state vector $\Psi_{t}$. State vectors are complex-valued vectors which stand in a bijection with vectors in a Hilbert space, which we call the state space; state vectors can be transformed into unique probability distribution functions, called wavefunctions, to give probabilities of different measurements of different observables occurring.
+\Answerend
+So there we have it: the mathematical objects we have been alluding to, which are in a bijection with physical states and can therefore be used as substitutes for them in order to perform physical computations. There is a lot to unpack with this postulate, which is central to quantum mechanics and the state problem, so we will now do this systematically.
+\\\\
+The state vector is a vector in the vector space we call the state space. While we will cover the state space subsequently, it is absolutely crucial at this point to remember the previous section on vector spaces, which showed us that all we need chiefly is additive closure and a set of objects can be considered vectors in a vector space. The additive closure property is critical for superpositions, which as previously explained, make this necessary because we need to be able to add any number of states without making an unphysical state, and therefore also need to be able to add any number of state vectors without creating a vector outside of the state space.
+\\\\
+The state vector is also a powerful mathematical tool because it can be broken up into basis vectors; an infinite dimensional space like the state space has infinite bases of infinite cardinality. The importance of this pertains to the second part of the postulate. The second part tells us that from the state vector we can generate different unique probability distribution functions, called wavefunctions, to give probabilities of different measurements \textit{for different observables}: the ability to express the state vector in different bases will later be shown to be essential for considering the state represented by the state vector with respect to the different observables we are concerned with. These wavefunctions are the part of the Postulate which are most tangible to us, because we will directly be able to achieve numerical values from them. 
+\\\\
+We continue now by dealing with this postulate and the rest of its assertions with a bit more detail. This book will not have such a verbose discourse on any other postulate of quantum mechanics than that which is to follow, and there is a serious reason for making so many clarifications prior to starting to consider the mathematics of state vectors-- everything else is predicated on this postulate!
+\begin{enumerate}
+    \item The function of the state vector is very important to understand fully. We recall that in our section on bijections there were two important employments of this relationship between two sets: the first, for labelling, and the second, for substituting. The labelling function of the state vector is very clear. Normally a capital Psi, $\Psi$, is used, and we can simply say \apos{the state $\Psi$}, just like we can say \apos{ball $a$}. We know that every $\Psi$ is unique and in bijection to each state, so it acts well as a unique label.
+    \\\\
+    As a substitute for physical states, we have said that the main goal of this chapter is to produce something mathematically manipulable since physical states are not. The main operation we will perform on it-- called the inner product-- which will be shown imminently, will be useful for multiple purposes: but the most useful will be to transform the state vector into the probability distribution functions called wavefunctions. We recall from the preliminary on probability that a probability distribution function is a function we can use to encapsulate different possibilities and their probabilities in a single function, so the operation which produces a probability distribution function from the state vector representing a state will be essentially the final step of considering that state with respect to certain observables. Achieving these wavefunctions is normally the final goal of solving a problem in quantum mechanics.
+    \item Time is an important factor, of course, to the state problem, but it represented here by a subscript rather than a variable in $\Psi_{t}$. The subscript is also helpful to remember that each state vector represents a physical state at an instantaneous time $t$ (since any state only exists at a single time before it transforms into a new state). Mainly because we are still covering the state problem, it is unwise to consider time too much while there is so much to learn with regards to the encapsulation and extraction of information; therefore, all of the discussion on quantum states we will have takes place at one instance of time.
+    \\\\
+    However, there is more commonly in quantum mechanics the notation
+    $$
+    \Psi(t),
+    $$
+    representing the state vector as a function of time. This doesn't mean the state vector is something like 
+    $$
+    \Psi(t)=t^2,
+    $$
+    but rather that 
+    $$
+    \Psi(t)=\Psi_{t}.
+    $$
+    In other words, the function notation is just a shorthand of referring to the same isolated system across different moments in time, where inputting a time value gives the state vector at that time. This is the same idea that we are using, but just more concise, so there is no need to get confused if we see this written elsewhere. Again, we are dealing with stationary states, so the notation 
+    $\Psi_{t}$ is valid, intuitive and sufficient especially in these stationary cases.
+    \item A mathematical vector and a physical circumstance is not the same thing, naturally. Nevertheless, we often call a state vector \apos{a state}. The reason is because of the bijection. In those cases, we should say \apos{one represents the other}. However, we will still sometimes end up saying \apos{one \textit{is} the other} when this bijection exists-- even though they might technically be different types of objects which therefore cannot \textit{be} each other. Such grammatical simplifications are simply because having the bijection eliminates ambiguity. For a physical state, we cannot really say \apos{the hydrogen electron in a magnetic field with one third probability of having momentum $x$, one seven-hundred and eighth probability of having momentum $y$...} since there would be infinite things to say. Thus, a mathematical representation like the state vector encapsulates all these details of a state concisely while being linked to that state with no ambiguity; we therefore call it the state. 
+    %Yes, I couldn't agree more, and I think you're right to make a big fuss of this fact. It ties back in to my earlier point, that, by making a clear separation of state vectors from states, you don't have to assume the total truth of the mapping between them to work wholeheartedly with the mathematics of the state vectors. You simply have to work within the model.    
+    \\\\
+    This seems like a terribly semantically pedantic discussion, but there will be times where readers get confused by the difference between $A$ is $B$ and $A$ is in a bijection with $B$. With this clarification it is hoped such confusions are eliminated in the mind of the reader. So long as one follows the mathematics, the answer to the difference discussed above will always be clear, and this needn't ever evolve into a massive obstacle in understanding. When two things are deemed \textbf{equivalent}, the reader should simply consider closely how they may be related to each other, rather than jump to conclusions that they have somehow misunderstood different types of objects. Remember the failed state denomination during the Stern Gerlach experiment: we should not get attached to trying to make mathematical symbols sacred, and should only concern ourselves with the functionalities they provide. Therefore, the phrase \sapos{the state $\Psi_{1}$} would be perfectly acceptable.
+    \item This book will use the letter $\psi$ ubiquitously both in its upper case form ($\Psi$) and its lower case form ($\psi$). When a reader sees the capital letter $\Psi$, we are referring to a state vector. The capital $\Psi$ will never be used to denote anything which is not a state.
+    \item Though I have said the state space is infinite dimensional, we will be working under the assumption that everything we are doing takes place in a discrete space until chapter 7. This doesn't violate the conditions of the postulate, though explaining why exactly this is takes us to discussion of infinities (cf. Chapter 6) which is wholly unnecessary. We just have to accept the assumption that we are working in discrete cases, and it will be enough for us to build up our understanding of what we actually need to understand at this moment. The fact we are working in discrete cases, for example, means that we can use our sigma summation notation very comfortably whilst postponing integrals to another chapter where will be much better prepared and disposed to deal with them.
+\end{enumerate}
+Now that these clarifications about state vectors have been made, we can move onto studying the state space, as well as the all-important inner product operation, in more detail.
+\subsection{The State Space}
+The vector space relevant to quantum mechanics is a Hilbert space $\mathscr{H}$, which contains all the state vectors corresponding to possible states. It turns out that we do not have to worry about the name of the space too much: even though Hilbert spaces very much constitute their own mathematical field with much deep analysis and theory, these analyses are matters of mathematical rigor and for our purposes we do not have the luxury to be so pendantic. In general, therefore, we will call it, by convention, the state space-- since it is the vector space of state vectors-- to avoid the exotic \sapos{Hilbert space} name getting in our way and drawing more attention than it needs to.
+\\\\
+There is an important idea to understand about the state space and therefore the state vector, however. The human perspective is to try and imagine the vector space and its components in some sort of physical form. It is expected that, despite warnings not to, any reader who has seen the arrow representation of 2 dimensional vectors will be thinking of something similar every time they think about vectors-- or perhaps even envisaging other melodramatic depictions of  quantum mechanics in popular media.
+\\\\
+However, we need to be extremely careful here. Vectors are abstract entities which cannot be imagined physically \textit{until we choose a basis}; this point must be hugely emphasised. In different bases, the vector takes different forms: based on its unique expansions in those bases! Without picking a basis, the state vector very much exists: it just simply isn't given an explicit form yet. It is usually impossible to predict which form a vector will take in different bases until we know what the bases are and perform some operations, because there is no set pattern each vector follows. To fully deliver this idea of a state vector being able to exist without an explicit mathematical form, a vernacular analogy will be given-- to consolidate an understanding for the reader at the cost of temporarily violating the rigorous nature of the text. 
+\\\\
+Take a vector we probably have seen before in common use: the velocity vector of a moving car. If one asked whether it exists, then obviously the answer would be the affirmative: a moving car (or even a stationary one) must have a velocity vector. However, if someone were to point to a moving car and ask you to write down its velocity vector on a piece of paper, then you would find it impossible. This is because it can take a wide variety of forms depending on how we define our coordinate system-- we can use an axis where moving to the left of us is negative, but we can also use one where moving to the right of us is negative (changing the values of the velocity vector we are employing); we can consider it with respect to another moving car or our sedentary selves, but we can also consider it with respect to any fixed point as an origin of movement; in any case we could pick any moving car or any origin of movement and this would give us different \textit{forms} of the velocity vector: because the numbers are different depending on what we are considering the car's motion with respect to. However-- no matter what coordinate system we choose, the vector exists. We do not need an origin of displacement for a velocity vector to exist-- we only need an origin of displacement for the velocity vector to take a form! It should be clear that to exist as a mathematical object which can take multiple forms depending on the underlying frame of reference we used is different from taking one specific form. For the state vector, we have the very same idea: we choose a basis, analogous to defining an axes in the above example, and we specify its components, analogous to the familiar process of specifying coordinates. Both the basis and the components are necessary for us to \sapos{pinpoint} the state vector, but it exists to be expressed in infinite different bases and sets of components regardless of whether or not we give it a certain algebraic specification.  %This is a very useful and important point you're making here. I find it particularly useful to make a distinction between ``basis vectors'' and ``coordinates'', keeping clear that the vector itself -- that which is to be described -- requires both, and that only in combination does the vector itself emerge.
+\\\\
+The example of the car velocity vector should enforce a crucial idea of abstract mathematical objects existing but being impossible to express explicitly. In the exact same way, a state vector always exists no matter how we choose to see it or portray it, and to give it a single specific form, we need to pick a basis, which is equivalent to picking a coordinate system in the example above. It does not have a form until we pick a basis. So if we ever see the statement that the state vector is 
+$$
+\Psi(x)=cx^{2}
+$$
+(for example), then we should immediately realise that this statement implies some underlying basis, because there must be some basis in order for it to have this explicit algebraic form. Otherwise, there would be no way we could express the state vector as a function of some variable in this way. Any mathematical equation we run with state vectors will always be implicitly taking place in some basis; that does not at all mean things would look that way in all bases, but one can assume that the basis picked will be the most convenient one-- just like we would not pick the Tokyo Tower to be the origin of displacement for the velocity vector of a London motorway car, because that form would be inconvenient and uninformative. Choosing bases intelligently, we will see, is already in itself an important problem solving tool in quantum mechanics.  
+\subsection{Discrete Wavefunctions}
+The natural question we will ask next is how to convert the state vector into some form given the basis we want to  express it in. However, recall 3.2.2. We already know that the \sapos{component function}, allows us to create a function given an abstract vector so long as we have the basis decided, because it is related to the basis we have chosen (since the inputs are the basis vectors themselves), and outputs the components in the basis-- thereby giving the state vector a unique form since the components it outputs necessarily provide a unique expansion which cannot be obtained for any other vector in the vector space. Then, if we are working in the state space, the component function of a state vector must also be in yet another bijection with the state vector, since a state vector has a unique expansion, and a unique expansion corresponds to a single vector, and only one. 
+\\\\
+The component function of a state vector is called a \textbf{wavefunction}, denoted by a lower case $\psi$. This, because it outputs scalar components, will be how we give the abstract state vector explicit forms.
+\\\\
+As the form of a wavefunction changes based on which basis we have picked to express it in, there are many different wavefunctions, which are usually also named with some reference to their bases (more on this later). The bijection with a state vector, which itself is in bijection with a physical state, means that any basis wavefunction is in bijection with a physical state. Therefore, just as we sometimes call a state vector \sapos{a state}, we may also call a basis wavefunction \sapos{a state}: the only caveat being that a basis wavefunction is the physical state represented in one specific basis, so it can be more limited than the state vector. On the other hand, by giving a state vector an explicit form, while we limit our operations to being in one single basis, we are then able to perform more mathematical operations on it and in fact obtain true numerical values. 
+\\\\
+Now beyond simple operations like scalar multiplication, quantum mechanics employs another operation, which will be extremely central to all of quantum mechanics. This is the inner product, which will be as common in quantum mechanics as multiplication in arithmetic.
+\subsection{Inner Products}
+Suppose we are working in a basis. There then exists a new operation, called the \textbf{inner product},
+between two state vectors $\Psi_{1}$ and $\Psi_{2}$ in the state space. This inner product is denoted as $\oip{\Psi_{1}}{\Psi_{2}}$ and is defined to be:
+$$
+\oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{x\}}\bar{\psi}_{1}^{\ast}\bar{\psi}_{2}\equiv\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i}
+$$
+for components $\setof{c^{(1)}_{i}}$ for $\Psi_{1}$ and components $\setof{c^{(2)}_{i}}$ for $\Psi_{2}$ .
+\\\\
+We will see more often 
+$$
+\oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i}
+$$
+because there is no need to involve the discrete wavefunction in things when components are easy to track in the discrete case. This form is also very illustrative: it shows us that all the inner product is doing is producing a sum of the products of matching components, with one its complex conjugate. Many readers of this book will be able to understand what I refer to when I say this is essentially the quantum mechanical (really, simply complex valued) equivalent of a vector dot product. However, for less advanced readers who have not met the latter before, this point is not important.
+\\\\
+Next, most of the time the inner product is non-commutative- the order matters. In fact, since we have the definition above, it is very easy to see that what we must have is the relationship
+$$
+\oip{\Psi_{1}}{\Psi_{2}}=\oip{\Psi_{2}}{\Psi_{1}}^{\ast}.
+$$
+regardless if we try to see this in the discrete case or continuous case. This is an essential short-form fact to memorise, as it will return in algebraic manipulations. Now we list a few more facts about the inner product:
+\begin{enumerate}
+    \item[IP1.] There is a kind of ``constant multiple rule" which comes with the inner product. We will always use the short-form of it, but expressing the inner product in sum form makes everything completely clear:
+    $$
+    \oip{\Psi_{1}}{c\Psi_{2}}=\sum_{i=1}^{n}c^{(1)\ast}_{i}cc^{(2)}_{i} = c\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(2)}_{i}=c\oip{\Psi_{1}}{\Psi_{2}}
+    $$
+    and
+    $$
+    \oip{c\Psi_{1}}{\Psi_{2}}=\sum_{i=1}^{n}c^{\ast}c^{(1)\ast}_{i}c^{(2)}_{i} = c^{\ast}\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(2)}_{i}=c^{\ast}\oip{\Psi_{1}}{\Psi_{2}}.
+    $$
+    The short-form facts are simply
+    $$
+    \oip{\Psi_{1}}{c\Psi_{2}}=c\oip{\Psi_{1}}{\Psi_{2}},\:\:\:\: \oip{c\Psi_{1}}{\Psi_{2}}=c^{\ast}\oip{\Psi_{1}}{\Psi_{2}}.
+    $$
+    \item[IP2.]
+    We now define the \textbf{norm} of a vector to be the inner product of the vector with itself:
+    $$
+    \oip{\Psi_{1}}{\Psi_{1}}:=\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(1)}_{i}=\sum_{i=1}^{n}|c^{(1)}_{i}|^2.
+    $$
+    The modulus squared of a complex number is always real nonnegative so the same applies here. The norm of a vector being $0$ also would imply that the vector is the null vector since all the components would be 0. Taking this further, we require that every vector in the state space $\mathscr{H}$ must have finite norm, and that every vector which satisfies the other conditions and does have finite norm is a vector in the state space.
+    That is,
+    $$
+    \oip{\Psi_{1}}{\Psi_{1}}=\sum_{i=1}^{n}|c^{(1)}_{i}|^2<\infty.
+    $$
+    Next, as 
+    $$
+    \oip{\psi_{1}}{\psi_{2}}=\oip{\psi_{2}}{\psi_{1}}^{\ast},
+    $$
+    we must have 
+    $$
+    \oip{\psi}{\psi}=\oip{\psi}{\psi}^{\ast}\implies \oip{\psi}{\psi}\in\R.
+    $$
+    The \textit{positive semidefinite metric} postulate further states that:
+    $$
+    \oip{\psi}{\psi} \geq 0
+    $$ and
+    $$
+    \oip{\psi}{\psi} = 0 \iff\:\: \psi = 0.
+    $$
+    \item[IP3.]\label{LDip} Another important rule which is immensely helpful in solving quantum mechanical problems is that inner products can distribute linearly over a sum. This can be again shown by writing out the sum form:
+    $$
+    \begin{aligned}
+    \oip{\Psi_{1}}{a\Psi_{2}+b\Psi_{3}}&=\sum_{i=1}^{n}c^{(1)\ast}_{i}(ac^{(2)}_{i}+bc^{(3)}_{i})=\sum_{i=1}^{n}c^{(1)\ast}_{i}ac^{(2)}_{i}+\sum_{i=1}^{n}c^{(1)\ast}_{i}bc^{(3)}_{i}\\
+    &=\oip{\Psi_{1}}{a\Psi_{2}}+\oip{\Psi_{1}}{b\Psi_{3}}=a\oip{\Psi_{1}}{\Psi_{2}}+b\oip{\Psi_{1}}{\Psi_{3}}.
+    \end{aligned}
+    $$
+    Similarly,
+    $$
+    \begin{aligned}
+    \oip{\Psi_{1}}{a\Psi_{2}+b\Psi_{3}}&=\sum_{i=1}^{n}(ac^{(2)}_{i}+bc^{(3)}_{i})^{\ast}c^{(1)}_{i}=\sum_{i=1}^{n}a^{\ast}c^{(2)\ast}_{i}c^{(1)}_{i}+\sum_{i=1}^{n}b^{\ast}c^{(3)\ast}_{i}c^{(1)}_{i}\\
+    &=\oip{\Psi_{1}}{a\Psi_{2}}+\oip{\Psi_{1}}{b\Psi_{3}}=a\oip{\Psi_{1}}{\Psi_{2}}+b\oip{\Psi_{1}}{\Psi_{3}}.
+    \end{aligned}
+    $$
+    As the sigma summation continues to distribute over any sum, the facts above can be extended to include more than three vectors in an inner product. The short-form facts are:
+    $$
+    \obip{\Psi_{1}}{\sum_{i} c_{i}\Psi_{i}}=\sum_{i}[c_{i}\oip{\Psi_{1}}{\Psi_{i}}]
+    $$
+    and
+    $$
+    \obip{\sum_{i} c_{i}\Psi_{i}}{\Psi_{1}}=\sum_{i}[c_{i}^{\ast}\oip{\Psi_{i}}{\Psi_{1}}]
+    $$
+    \item[S4.] The above then leads to more implications. If we define a linear combination of state space vectors $\psi_{1}$ and $\psi_{2}$ with coefficients $c_{1}$ and $c_{2}$, then 
+    $$
+    c_{1}\Psi_{1}+c_{2}\Psi_{2}:=\Psi
+    $$
+    is in the state space as 
+    $$
+    \begin{aligned}
+    \oip{\Psi}{\Psi}&=\oip{c_{1}\Psi_{1}+c_{2}\Psi_{2}}{c_{1}\Psi_{1}+c_{2}\Psi_{2}}\\
+    &=c_{1}^{\ast}c_{1}\oip{\Psi_{1}}{\Psi_{1}}+c_{1}^{\ast}c_{2}\oip{\Psi_{1}}{\Psi_{2}}+c_{2}^{\ast}c_{1}\oip{\Psi_{2}}{\Psi_{1}}+ c_{2}^{\ast}c_{2}\oip{\Psi_{2}}{\Psi_{2}}
+    \end{aligned}
+    $$
+    by separating the summation into the sum of these separate inner products (sum) by rule IP 3 of inner products,
+    all the constants and inner products above must be finite so the norm of $\Psi$, a linear combination of state space vectors, is finite. This therefore means that for any basis vectors of the state space, a linear combination of them is also in the state space. This is the formal mathematical justification for why in the state space all possible state vector additions and therefore physical state superpositions are possible.
+    \end{enumerate}
+\subsection{Orthonormality}
+The inner product is an operation which is defined for state space vectors in a set basis, matching-and-multiplying their components in the basis -- or, alternatively, the values of their component functions, or wavefunctions, and producing a finite number. As it is so critical to all quantum mechanical calculation, it is necessary to be fluent with the above rules of the inner product as they will not always be repeated. If in doubt, writing out an inner product into the explicit sum form should be revelatory for those who are not yet so fluent.
+\\\\
+Now we return to the idea that if we were working in an infinite dimensional vector space, like the state space, there are infinite bases which can span the vector space. This then poses the question of how to choose which bases we want to work in. Ultimately, the answer to this question cannot be given until we reach discussion on the representations of observables, since we want most of the time to work from the perspective of different observables when we are solving a problem; however, to every basis we have a process can be undertaken to make the basis substantially more convenient to work with, while still spanning the same space as a basis. The concept is of an \textbf{orthonormal basis}: the attribute of basis vectors being orthogonal to each other and also normalised. To understand how these vectors span the  we will need to break down these two characteristics into simple definitions.
+\\\\
+Two  vectors $\alpha$ and $\beta$ are \textbf{orthogonal} if the following is true:
+$$
+\oip{\alpha}{\beta} =  0
+$$
+we also know that this means that
+$$
+\oip{\beta}{\alpha} = \oip{\alpha}{\beta}^{\ast} = 0
+$$
+and therefore the order of the inner product does not matter for orthogonal vectors, since the complex conjugate of $0$ is still $0$. Meanwhile, a singular vector $\tilde{\alpha}$ is said to be \textbf{normalised} if it has norm $1$:
+$$
+\oip{\tilde{\alpha}}{\tilde{\alpha}} = 1.
+$$
+So for an \textbf{orthonormal basis} of a vector space $\mathbb{O}=\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...,\tilde{\alpha_{n}}\}$:
+$$
+\forall\:\: \tilde{\alpha}_{i},\tilde{\alpha}_{j} \in \mathbb{O}, \:\:\:\:
+\oip{\tilde{\alpha}_{i}}{\tilde{\alpha}_{j}}= \delta_{ij}
+$$
+where $\delta_{ij}$ is the \textbf{Kronecker delta} (which will appear often in quantum mechanics): 
+$$
+\delta_{ij}=
+\begin{cases}
+1, &\text{if}\ i=j\\
+0, &\text{if}\ i \neq j
+\end{cases}.
+$$
+In other words, an orthonormal basis set is a basis where all the vectors are orthogonal to each other and themselves are normalised (note that orthogonality is a property shared by two or more vectors, while normalisation is a property of single vectors). If it is not clear now how an orthonormal basis will make manipulating inner products and therefore wavefunctions much easier, it will become clear in the close future. First, though, we will prove that every basis of linearly independent vectors can be converted to an orthonormal basis. This is in fact a famous theorem: the Gram-Schmidt Theorem, and it is a highly-useful fact to know that we can perform it on any set of linearly independent vectors.
+\\\\\\
+\underline{\textbf{Gram-Schmidt Theorem}}: Every basis of linearly independent vectors can be transformed by a defined procedure into an orthonormal set.
+\\\\
+\textbf{Proof- The Gram Schmidt Process}: Let $\{\alpha_{1},\alpha_{2},... \alpha_{n}\}$ be a linearly independent basis. We will start by normalising the first vector using a simple procedure. 
+\\\\
+Take the first vector, denoted without loss of generality as $\alpha_{1}$. Take the norm of the vector,
+$$
+|\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}.
+$$
+By the positive semidefinite metric,
+$$
+\begin{aligned}
+\oip{\alpha_{1}}{\alpha_{1}} \geq 0 &\implies \:\: \sqrt{\oip{\alpha_{1}}{\alpha_{1}}} \in \mathbb{R}\\
+&\implies \:\: |\alpha_1|^{\ast}=\left(\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}\right)^{\ast}= \sqrt{\oip{\alpha_{1}}{\alpha_{1}}} =|\alpha_1|
+\end{aligned}
+$$
+Then, if we define
+$$
+\tilde{\alpha}_{1} := \frac{\alpha_{1}}{|\alpha_{1}|}
+$$
+we clearly get
+$$
+\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} = \frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{\ast}|\alpha_{1}|}=\frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{2}}=1
+$$
+because
+$$
+|\alpha_{1}|^2= \sqrt{\oip{\alpha_{1}}{\alpha_{1}}}^2 = \oip{\alpha_{1}}{\alpha_{1}}.
+$$
+Therefore, we indeed verify that for any arbitrary vector $\alpha_{1}$ dividing it by its norm $|\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}$ creates a normalised vector $\tilde{\alpha}_{1}$ whose inner product with itself is equal to 1. If the vector was already normalised such that $\oip{\alpha_{1}}{\alpha_{1}}=1$ then division by its norm $\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}$ is equal to division by $\sqrt{1}=1$, so it would simply be unchanged by this process and remain normalised.
+\\\\
+Now that we have normalised the first vector in our basis, we move on to consider the second vector $\alpha_{2}$. Define
+$$
+\alpha'_{2}:= \alpha_{2}-\tilde{\alpha}_{1} \oip{\tilde{\alpha}_{1}}{\alpha_{2}}.
+$$
+Is it orthogonal to $\tilde{\alpha}_{1}$? We can verify, remembering fact IP 3 that the inner product distributes linearly:
+$$
+\oip{{\tilde{\alpha}_{1}}}{\alpha'_{2}}=\oip{\tilde{\alpha}_{1}}{\alpha_{2}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} \oip{\tilde{\alpha}_{1}}{\alpha_{2}}
+$$
+and since $\tilde{\alpha}_{1}$ is normalised, $\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}=1$, so
+$$
+\oip{{\tilde{\alpha}_{1}}}{\alpha'_{2}}= \oip{\tilde{\alpha}_{1}}{\alpha_{2}}- \oip{\tilde{\alpha}_{1}}{\alpha_{2}}= 0
+$$
+Therefore $\alpha'_{2}$ is indeed orthogonal to $\tilde{\alpha}_{1}$. Now we can run the normalisation procedure:
+$$
+\tilde{{\alpha_{2}}}:= \frac{\alpha'_{2}}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}
+$$
+This is still clearly orthogonal to $\tilde{\alpha}_{1}$ because of how we defined $\alpha'_{2}$. This time, we just get instead:
+$$
+\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{2}}=\frac{\oip{\tilde{\alpha}_{1}}{\alpha'_{2}}}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}=\frac{0}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}=0.
+$$
+\\\\
+The process from now continues in the same way for as many basis vectors we need to convert into this orthonormal basis. Orthogonal vector $\alpha'_{3}$ is introduced by
+$$
+\begin{aligned}
+\alpha'_{3}&=\alpha'_{3}-\tilde{\alpha}_{1}\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\tilde{\alpha}_{2}\oip{\tilde{\alpha}_{2}}{\alpha_{3}} \\ 
+\Rightarrow\:\: \oip{\tilde{\alpha}_{1}}{\alpha'_{3}}&=\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{2}}\oip{\tilde{\alpha}_{2}}{\alpha_{3}}\\
+&= \oip{\tilde{\alpha}_{1}}{\alpha_{3}}-1\times\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-0\times\oip{\tilde{\alpha}_{2}}{\alpha_{3}}\\
+&=0\\
+\end{aligned}
+$$
+After that, it can be normalised by dividing by its norm as already proven for all vectors. This orthonormalisation process can run forever, regardless of which other normalised basis vector we are taking the inner product with.  We prove this rigorously in general form by induction.
+\\\\
+\textbf{Claim}: For a set of orthonormal vectors $\mathbb{O}$ = $\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...\tilde{\alpha}_{n-1}\}$, the vector
+$$
+\alpha'_{n}= \alpha_{n}-\left(\sum_{i=0}^{n-1}\tilde{\alpha}_{i}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right)
+$$
+is orthogonal to all the vectors in $\mathbb{O}$.
+\\\\
+\textbf{Proof}:
+The base case is for $n=3$, which we have already proved above. The inductive step is:
+$$
+\begin{aligned}
+&\text{Assume we have an orthonormal set}\: 
+\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...\tilde{\alpha}_{n-1}\}. \:\:\: \forall\:\tilde{{\alpha}}_{j < n}, \\
+&\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\tilde{\alpha_{j}}\left(\sum_{i=0}^{n-1}\tilde{\alpha_{i}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right)\\
+\Rightarrow\:&\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\oip{\tilde{\alpha_{j}}}{\tilde{\alpha_{j}}}\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq j}^{n-1}\oip{\tilde{\alpha}_{j}}{\tilde{\alpha_{i}}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\\
+\Rightarrow\:&\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}}=\oip{\tilde{\alpha}_{j}}{\alpha_{n}}-1\times\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq j}^{n-1}0\times\oip{\tilde{\alpha_{i}}}{\alpha_{n}}=0
+{\end{aligned}
+$$
+
+This is true since our assumption that all $\tilde{\alpha_j}$ for $j<n$ is normalised and orthogonal to all other $\tilde{\alpha}_{i\neq j}$ for $i<n$ (an assumption which is valid as it follows from the base case) necessitates that 
+$$
+\forall\:\: i,j < n, \:\: \oip{\tilde{\alpha}_{j}}{\tilde{\alpha}_{i}}= \delta_{ij}
+$$
+Therefore, by induction, our orthogonalisation process works for as many basis vectors as we need to convert to our orthonormal basis.
+\\\\
+Then, after we obtain $\alpha'_{n}$,
+$$
+\tilde{\alpha_{n}}=\frac{\alpha'_{n}(x)}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}
+$$
+is normalised and does not affect the orthogonality condition:
+$$
+\left(\tilde{\alpha}_{j\neq n}, \frac{\alpha'_{n}}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}\right)=\frac{\oip{\tilde{\alpha}_{j\neq n}}{\alpha'_{n}}}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}= \frac{0}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}=0.
+$$
+\\
+We have now fully mathematically proven a procedure which allows us to take a linearly independent basis of any size and convert it to an orthonormal basis. It obviously is a tedious process if you have a large number of basis vectors, but its theoretical importance is twofold: the first, that once you have converted to an orthonormal basis, the inner product will become much easier to evaluate; the second, that we now know there is a valid process which exists-- no matter if we choose to perform it or not. Therefore, we can assume \textit{without loss of generality} that all bases we use are orthonormal, since if they weren't we would easily theoretically be able to orthonormalise them. This procedure is the elegant \textbf{Gram-Schmidt Process}: a hugely powerful weapon in linear algebra and indeed therefore in quantum mechanics.
+\\\\
+The original point of this section was to further define a vector space in terms of its dimensions. Now, having defined orthonormality, we will go full circle back to the first vector space we considered-- the Cartesian x,y plane, or, $\mathbb{R}^2$. In our most basic study of this vector space, we associate the numbers of dimensions with the number of perpendicular directions. We will find that in fact the natural way to come back to this assertion is to look at it not in terms of linearly independent vectors, but, in a very subtle change, in terms of the number of mutually orthogonal vectors. Let's see why this is an appropriate replacement from our earlier definition of dimensions in terms of linearly independent vectors.
+\\\\
+\textbf{Theorem}: All mutually orthogonal vectors are also linearly independent.
+\\\\
+This is very easy to prove. Suppose we have a set of mutually orthogonal vectors $\mathbb{O}=\{\alpha_{1}, \alpha_{2}, ..., \alpha_{n}\}$. They are linearly independent if no nontrivial combination of these vectors is equal to $0$. Let us write a generalised form of a linear combination of these vectors, and set it equal to the null vector:
+$$
+\sum_{i=1}^{n}c_{i}\alpha_{i}=0
+$$
+Now we can manipulate the mutual orthogonality of these vectors. 
+$$
+\begin{aligned}
+\forall\: j \in [1,n], \:\: \left(\alpha_{j},\sum_{i=1}^{n}c_{i}\alpha_{i}\right) &=\oip{\alpha_{j}}{0} \\ 
+\Rightarrow\:\:  c_{j}\oip{\alpha_{j}}{\alpha_{j}}+\sum_{i=1\neq j}^{n}c_{i}\oip{\alpha_{j}}{\alpha_{i}} &= 0 \\
+\Rightarrow\:\: c_{j}\oip{\alpha_{j}}{\alpha_{j}}+\sum_{i=1\neq j}^{n}0\times c_{i} &= 0 \\ 
+\Rightarrow\:\:  c_{j}(\alpha_{j},\alpha_{j})= 0 \Rightarrow\:\:c_{j} &= 0
+\end{aligned}
+$$
+unless $\oip{\alpha_{j}}{\alpha_{j}}=0$ which is impossible unless it is the null vector, which is irrelevant in these discussions as it is never considered a basis vector. This proof clearly works without loss of generality for each of the constants $c_{i}$, so it implies that every constant $c_{i}=0$. Therefore the only possible linear combination of a set of mutually orthogonal vectors equal to the null vector is the trivial combination-- and so they are all linearly independent if they are all mutually orthogonal.
+\\\\
+Our final definition of dimensionality is therefore the number of mutually orthogonal vectors which can reside in a vector space. This number cannot be exceeded, since it is also the maximum number of linearly independent vectors which can be accommodated, and every new mutually orthogonal vector is in itself a new linearly independent vector. 
+\\\\
+Finally, comes the inner product punchline, which really shows why the operation, combined with an orthonormal basis, is so powerful. If we recall, for a given basis $\setof{\alpha_{i}}$ of the state space it spans the space and therefore all state vectors can be expressed in the form:
+$$
+\Psi=\sum_{i}c_{i}\alpha_{i}.
+$$
+The coefficients $c_{i}$ are called the components of the vector in that basis $\setof{\alpha_{i}}$, and are seemingly difficult to determine for the given basis depending on which vector we choose. However, consider the case when the basis chosen is orthonormal, or was not orthonormal but has now undergone orthonormalisation under the Gram-Schmidt Process. Now, consider the inner product
+$$
+\oip{\alpha_{j}}{\Psi}
+$$
+for some given basis vector $\alpha_{j}$. This is, according to the above expansion,
+$$
+\oip{\alpha_{j}}{\Psi}=\oip{\alpha_{j}}{\sum_{\{i\}}c_{i}\alpha_{i}}.
+$$
+Then by the fact S2 of the constant multiple rule and IP 3 of linear distributivity again, this is:
+$$
+\sum_{\{i\}}c_{i}\oip{\alpha_{j}}{\alpha_{i}}
+$$
+which by the Kronecker delta results in just 
+$$
+\oip{\alpha_{j}}{\Psi}=\biggl(\sum_{i\neq j}\oip{\alpha_{j}}{\alpha_{i}}\biggr)+c_{i}\oip{\alpha_{j}}{\alpha_{j}}=0+c_{j}\times 1=c_{j}.
+$$
+This is critical, as we see that these components $c_{i}$ in an orthonormal basis are not mathematically random: the component corresponding to a basis vector can be obtained through the inner product of that basis vector with the state vector! The much more eye-opening form of a state vector is after you make this substitution for the components:
+$$
+\Psi=\sum_{\{i\}}\oip{\alpha_{i}}{\psi}\alpha_{i}.
+$$
+If we find a basis of the state space, we can immediately orthonormalise it by the Gram-Schmidt process, and if we can find an orthonormal basis for the state space and understand the vectors which form it we can then theoretically define any vector in that basis exceptionally easily. We therefore always assume we are working with an orthonormal basis: such an assumption is valid since the Gram-Schmidt procedure exists, and is useful because orthonormality can often make algebraic manipulations like the above.
+\\\\
+There is a final note to make. If 
+$$
+{\psi}_{\alpha}(\alpha_{i})=c_{i}
+$$
+and 
+$$
+\oip{\alpha_{i}}{\Psi}=c_{i}
+$$
+for an orthonormal basis, we therefore have 
+$$
+{\psi}_{\alpha}(\alpha_{i})=\oip{\alpha_{i}}{\Psi}.
+$$
+In the continuous case, we have 
+$$
+\oip{x}{\Psi}=\psi_{\alpha}(x)
+$$
+where $x$ is the continuously variable orthonormal basis vector. This is dramatic, because it tells us exactly how to form the discrete and continuous wavefunctions given some basis-- convert it into an orthonormal basis, and find the inner product of the state vector with the basis vectors to produce the wavefunction! So, we are done with everything we need to know about the state vector. We have an object which represents physical states, and we have a way to transform it into a tangible wavefunction by which we can obtain probabilities of measurements in a way shortly to follow.
+\subsection{Scaling State Vectors}
+A brief clarification should follow at this point in our work. We know that any linear combination of state vectors must create a new state vector, because it is a superposition of states. What then, happens if we take a state vector and multiply it by a scalar without adding any other state vectors to it? 
+\\\\
+The answer is simply that the resulting state vector represents exactly the same state. In other words, for any state vector $\Psi$, the state vector $k\Psi$ for some scalar $k$ is deemed equivalent to the state vector $\Psi$. This is simply part of the state vector postulate. What the postulate sometimes is described as is that every \textit{ray} in the Hilbert space corresponds to a physical state, where this word ray refers to the idea that a unique expansion would specify theoretically a unique \sapos{direction} in the Hilbert space, just like no two coordinates specify the same direction vector in the 2-dimensional Cartesian plane, unless one is a scalar multiple of the other. Of course, we cannot visualise what this `direction' looks like given it is in far greater dimensionality vector spaces then we could geometrically imagine, but the rationale is the same. Such discussions, though important to clarify, are less important to remember. The idea that a scalar multiple of a state vector does not create a truly different state vector is good enough for us; of course, the components and expansions would be different if one was a scaled version of the other, but indeed, the components would be able to be scaled back down to the original state vector so the difference is not significant.
+\\\\
+What this does mean, however, is that for a whole infinity of different scalar multiples of the same state vector, they all represent the same state. So the one which is chosen to be used in quantum mechanical calculations is simply the normalised state vector! By our Gram-Schmidt Process, this entails taking a state vector $\Psi$ and scaling it by the reciprocal of its norm:
+$$
+\frac{\Psi}{\sqrt{\oip{\Psi}{\Psi}}}
+$$
+has norm $1$ and is a scaling of the state vector because the norm is a real number and thus the reciprocal of it is also a real number. We shall see that, due to the fact we will want to be interpreting the state vector from the perspective of generating probability distribution functions with probabilities we want to sum to $1$, that having a normalised state vector is far superior to any other scalar multiples of the normalised state vector. Thus, just like we will usually assume that all the bases we are working with are orthonormal (since if they weren't we would just orthonormalise them), we will also work with the assumption that our state vectors are automatically normalised, without needing any notation to show they are. In the end, the scalar multiple does not matter in making it represent a different physical state, so assuming that we would just normalise it is a completely safe and clean assumption. This idea of directions is one we can keep, however: we can imagine different vectors in some arrow representation now that we understand that it is not forced to take this form, and rotating directions corresponds to switching between vectors, while stretching the arrows corresponds to scaling the vector without changing its direction, which determines which state it represents.
+\subsection{Summary}
+We have begun our study of the quantum state problem. We know that there is a state vector in bijection with physical states, and how to develop functional forms of it. One can now move onto the next chapter, where we will subsequently be expanding this theory, especially with regards to observables. Most importantly, we need to understand which bases are useful for us in quantum mechanics; to do this, we will need to fit observables into the picture and very fruitful results will follow. 
+\section{Exercises from Chapter 3$\ast$}
+\begin{enumerate}
+    \item 
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+\end{enumerate}
