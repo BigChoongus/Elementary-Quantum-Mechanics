@@ -1,0 +1,878 @@
+<script type="text/javascript">
+MathJax = {
+  tex: {
+    packages: {'[+]': ['ams']},  // Enable AMS packages
+    macros: {
+      Answer: "{\\begin{tcolorbox}}",
+      Answerend: "{\\end{tcolorbox}}",
+      ket: ["|#1\\rangle", 1],
+      bra: ["\\langle#1|", 1],
+      ip: ["\\langle#1|#2\\rangle", 2],
+      bip: ["\\left\\langle#1\\middle|#2\\right\\rangle", 2],
+      qexp: ["\\langle#1\\rangle", 1],
+      apos: ["``#1''", 1],
+      sapos: ["`#1'", 1],
+      elec: "e^{-}",
+      uspin: "(\\uparrow)",
+      dspin: "(\\downarrow)",
+      lspin: "(\\leftarrow)",
+      rspin: "(\\rightarrow)",
+      ulspin: "(\\uparrow\\leftarrow)",
+      urspin: "(\\uparrow\\rightarrow)",
+      dlspin: "(\\downarrow\\leftarrow)",
+      drspin: "(\\downarrow\\rightarrow)",
+      R: "\\mathbb{R}",
+      stab: "\\:\\:",
+      mtab: "\\:\\:\\:",
+      btab: "\\:\\:\\:",
+      imp: "\\Rightarrow",
+      doubimp: "\\Leftrightarrow",
+      setof: ["\\{#1\\}", 1],
+      infint: "\\int_{-\\infty}^{\\infty}",
+      trans: ["\\mathcal{T}(#1)", 1],
+      dd: ["\\delta(#1-#2)", 2],
+      ipbig: ["\\langle#1|#2\\rangle", 2],
+      talpha: "\\tilde{\\alpha}",
+      op: ["|#1\\rangle\\langle#2|", 2],
+      sop: ["|#1\\rangle\\langle#1|", 1],
+      prop: ["\\mathcal{U}(#1,#2)", 2],
+      propdagg: ["\\mathcal{U}^{\\dagger}(#1,#2)", 2],
+      sip: ["\\langle#1|#1\\rangle", 1],
+      optrip: ["\\langle#1|\\hat{#2}|#3\\rangle", 3],
+      nhoptrip: ["\\langle#1|{#2}|#3\\rangle", 3],
+      northexp: ["\\sum_{i=1}^{n}|#2\\rangle\\langle#2|#1\\rangle", 2],
+      orthexp: ["\\sum_{#3=1}^{#4}|#2\\rangle\\langle#2|#1\\rangle", 4],
+      schrodeq: "i\\hbar\\frac{\\partial \\Psi(x,t)}{\\partial t}=\\hat{H}\\Psi(x,t)",
+      nd: ["\\frac{d#1}{d #2}", 2],
+      snd: ["\\frac{d^{2}#1}{d#2^2}", 2],
+      pd: ["\\frac{\\partial#1}{\\partial #2}", 2],
+      spd: ["\\frac{\\partial^{2}#1}{\\partial #2^2}", 2],
+      duac: "\\leftrightarrow",
+      oip: ["\\left(#1,#2\\right)", 2],
+      obip: ["\\left(#1,#2\\right)", 2],
+
+      // Replacements for LaTeX Packages
+      mathscr: ["\\mathscr{#1}", 1],  // From mathrsfs
+      bbm: ["\\mathbbm{#1}", 1],  // From bbm
+      bm: ["\\boldsymbol{#1}", 1],  // From bm
+      gensymb: "\\degree",  // From gensymb
+      indentfirst: "",  // No direct equivalent; use extra line breaks in Markdown
+
+      // Handling Theorem Environments (From amsthm)
+      theorem: ["\\textbf{Theorem:} \\textit{#1}", 1],
+      lemma: ["\\textbf{Lemma:} \\textit{#1}", 1],
+      corollary: ["\\textbf{Corollary:} \\textit{#1}", 1],
+      definition: ["\\textbf{Definition:} \\textit{#1}", 1],
+      proof: ["\\textbf{Proof:} #1", 1]
+    }
+  }
+};
+</script>
+
+# Problems in Quantum Mechanics
+
+This chapter, and the next, will practice all the concepts we have
+learnt with physical problems. The algebraic labour involved will be
+extensive, but how could it be otherwise? I have kept all the solutions
+in Dirac notation, because this is conventional and because manipulation
+with Dirac notation is more powerful and fruitful.
+
+## The Propagator
+
+We have mentioned how one can use energy eigenstates to conveniently
+find solutions for the Schrödinger equation. However, beyond this
+algebraic method there is another method, the method of the propagator,
+which is used ubiquitously by those more advanced in quantum mechanics.
+In this book, it might seem even at the end counterintuitive to have
+learnt both the energy eigenstate method and the propagator method, but
+the crucial point is that for more difficult problems only the latter is
+viable; while we might not have the full mathematical tools to realise
+how useful it is, no mature treatment of quantum mechanics is complete
+without it, and we can still use it for the simpler problems we cover
+even if its formulation might seem to contribute nothing for these basic
+examples. It is also, mathematics aside, a conceptually valuable thing
+to study even at an expository level.\
+\
+At time $t_{0}$ the state must be able to be represented by a ket in the
+ket space. At any other time $t$ the state must also be able to be
+represented by a ket in the ket space. One therefore might be led to
+consider whether there is an operator which governs the mapping of one
+state ket to another state ket given some input time $t-t_{0}$ which has
+passed.\
+\
+There is, and it is called the propagator (or time evolution operator).
+More importantly, the operator turns out to be the same over all time
+**given the same Hamiltonian** (i.e, given the system is not perturbed).
+We can try to formulate it, as we know some conditions we expect to be
+fulfilled.\
+\
+Denote the operator $\prop{t}{t_{0}}$ to be the propagator which carries
+a state ket from time $t_{0}$ to a ket at time $t$. The first condition
+we expect the propagator to satisfy is the property of composition:
+$$\forall\: t_{0}\leq t_{1} \leq t_{2}, \btab \prop{t_{2}}{t_{0}}=\prop{t_{2}}{t_{1}}\prop{t_{1}}{t_{0}}.$$
+This is because the propagator of a system carrying a ket from $t_{0}$
+to $t_{1}$ to $t_{2}$ should be an equivalent transformation to carrying
+a ket from $t_{0}$ to $t_{2}$ directly since the start and end kets are
+the same.\
+\
+The second condition is subtle but important. Take a ket
+$\ket{\Psi,{t_{0}}}$, We expect that for a proper physical ket it is
+normalised, so that the total sum of probabilities is always $1$ for any
+measurements of a given observable. Now, if we consider
+$$\prop{t}{t_{0}}\ket{\Psi,{t_{0}}}:=\ket{\Psi,{t}},$$ then the norm at
+time $t$ of the state ket becomes
+$$\ip{\Psi,{t}}{\Psi,{t}}= \bra{\Psi,{t_{0}}}\:{\propdagg{t}{t_{0}}\prop{t}{t_{0}}}\:\ket{\Psi,{t_{0}}}.$$
+We expect that the ket at times IS still normalised, or the sums of
+probabilities for measurements will not equal $1$. Therefore we have
+$$\sip{\Psi,t_{0}}=\sip{\Psi,t}=1=\bra{\Psi,{t_{0}}}\:{\propdagg{t}{t_{0}}\prop{t}{t_{0}}}\:\ket{\Psi,{t_{0}}}.$$
+This means we must have: $${\propdagg{t}{t_{0}}\prop{t}{t_{0}}}=1.$$
+Otherwise stated, the propagator is unitary! In fact this is a
+requirement for operators which map a physical state onto another
+physical state, due to the necessity of **conservation of
+probability**-- really, conservation of normalisation--, which unitary
+operators always fulfil because they preserve the norm of any ket they
+act on.\
+\
+Finally, we expect that $$\lim_{dt\to0}\prop{t_{0}+dt}{t_{0}}=1$$ (the
+identity operator), due to the continuity of time. Now, we do know that
+the Schrödinger Equation must still apply- in other words, we know that
+$$i\hbar\frac{\partial}{\partial t}\ket{\Psi,{t}}=\hat{H}\ket{\Psi,{t}}.$$
+Assume the state $\ket{\Psi,t_{0}}$ was a precedent state to
+$\ket{\Psi,t}$. We therefore have
+$$i\hbar\frac{\partial}{\partial t}\prop{t}{t_{0}}\ket{\Psi,{t_{0}}}=\hat{H}\prop{t}{t_{0}}\ket{\Psi,{t_{0}}}$$
+so we can equate the two operators since it holds true for any
+$\ket{\Psi,t_{0}}$:
+$$i\hbar\frac{\partial}{\partial t}\prop{t}{t_{0}}=\hat{H}\prop{t}{t_{0}}.$$
+This is called the Schrödinger Equation for the time evolution
+operator.\
+\
+We would like there to be a very simple way to find the propagator,
+because having an explicit representation of the propagator is
+sufficient to solving the time evolution problem (we can apply it to any
+initial state $\ket{\Psi,t_{0}}$). We can try to induce its form through
+looking at equations we know must hold, since we understand its usage
+and what properties it must have.\
+\
+The reader might be relieved to know our starting point is the energy
+eigenfunction method of solving the Schrödinger Equation, which is not
+incorrect at all (we derived it very soundly from the Schödinger
+Equation, and the reader may go back to review that proof if they need
+do so before continuing) and need not be discarded. In our function
+formulation, we had
+$$\psi_{t}^{(n)}:=e^{-iE_{n}t/\hbar}\varepsilon_{n}$$ as the stationary
+states of any given system- in other words, where time evolution does
+not change the states at all. In our Dirac notation this is
+$$\ket{\Psi_{n},t}=e^{-iE_{n}t/\hbar}\ket{E_{n}}$$ where we have
+labelled kets by their eigenvalues as is customary. The derivation
+$$\Psi_{t}=\sum_{n}(\varepsilon_{n},\Psi_{0})\psi_{t}^{(n)}$$ was made
+where $\Psi_{t}$ is any arbitrary state at time $t$ and $\Psi_{0}$ was
+the state at time $0$. We translate this to Dirac notation as well:
+$$\ket{\Psi, t}=\sum_{n}\ket{\Psi_{n}}\ip{E_{n}}{\Psi,0}=\sum_{n}e^{-iE_{n}t/\hbar}\ket{E_{n}}\ip{E_{n}}{\Psi,0}.$$
+However, this allows us to induce the form of the propagator:
+$$\ket{\Psi, t}=\sum_{n}e^{-iE_{n}t/\hbar}\ket{E_{n}}\ip{E_{n}}{\Psi,0}=\biggl(\sum_{n}e^{-iE_{n}t/\hbar}\ket{E_{n}}\bra{E_{n}}\biggr)\ket{\Psi,0}$$
+and $$\ket{\Psi,t}=\prop{t}{0}\ket{\Psi,0}$$ so therefore
+$$\prop{t}{0}=\sum_{n}e^{-iE_{n}t/\hbar}\ket{E_{n}}\bra{E_{n}}\stab.$$
+This form of the propagator of course applies when the energy eigenkets
+are discrete: a phenomenon which does often occur in problems, as we
+will see shortly. It should be noted that $e^{-iE_{n}t/\hbar}$ is not a
+constant, as its value depends on the eigenvalue $E_{n}$ which varies
+over the different indexes $n$, so trying to pull it out of the sum term
+is invalid. Furthermore, the continuous analog (for continuous energies,
+which also occur) should be equally clear, as we can simply take an
+integral:
+$$\prop{t}{0}=\infint e^{-iE_{n}t/\hbar}\ket{E_{n}}\bra{E_{n}}\,dn.$$ In
+reality, using $n$ as an index for a continuously varying entity, and
+integrating with respect to that contrived $n$, is somewhat hideous.
+However, the idea is that we integrate over the changing values of
+$E_{n}$, which correspond to the labelled kets $\ket{E_{n}}$. Finally,
+we will not consider time varying Hamiltonians as they are extremely
+difficult.
+
+### The Free Particle Propagator
+
+We can now formulate the propagator for the free particle, whose
+solution we studied without a propagator already in chapter 5. The
+energy eigenkets of the Hamiltonian, which commutes with the momentum
+operator, are of the form $$\ket{E_{n};+}=\ket{p=\sqrt{2mE_{n}}\:}$$ and
+$$\ket{E_{n};-}=\ket{p=-\sqrt{2mE_{n}}\:}.$$ The $+$ and $-$ inner
+labels summarise the fact that these energy eigenvalues are degenerate:
+they apply to two distinct eigenkets- but with different momenta
+corresponding to them (the reader should probably revise the section on
+the Free Particle to recall this). We therefore label the eigenkets by
+their nondegenerate momenta instead of using the natural $E$ label. This
+means for the propagator:
+$$\prop{t}{0}=\infint e^{-iE_{n}t/\hbar}\ket{E_{n}}\bra{E_{n}}\,dn$$ we
+can write it for the free particle as
+$$\prop{t}{0}=\infint e^{-ip^{2}t/2m\hbar}\ket{p}\bra{p}\,dp.$$ Note
+that, while we before were unscrupulously using an index $n$ to vary
+over the continuous eigenkets since it made the analog from discrete to
+continuous clearer, we have replaced that with the continuous index $p$,
+which makes far more sense in any case. The term $p^2/2m$ has replaced
+the term $E_{n}$ since it is the energy value corresponding to the
+eigenstate with eigenmomentum $p$.\
+\
+We now may choose a basis to work in to evaluate the propagator
+elements. Evaluating the position space matrix elements
+$$\bra{x}\prop{t}{0}\ket{x_{0}}$$ makes more sense than evaluating the
+momentum space matrix elements, $$\bra{p}{\prop{t}{0}}\ket{p'}$$ since
+the latter clearly is going to involve delta functions and we might
+prefer to avoid this for an operator we want to readily apply. In the
+position space the elements are
+$$\bra{x}\prop{t}{0}\ket{x_{0}}=\infint e^{-ip^{2}t/2m\hbar}\ip{x}{p}\ip{p}{x_{0}}\,dp$$
+and this can be readily written in terms of the position space momentum
+eigenfunctions:
+$$\bra{x}\prop{t}{0}\ket{x_{0}}=\infint e^{-ip^{2}t/2m\hbar} \psi_{p}(x)\psi^{\ast}_{p}(x_{0})\,dp.$$
+The eigenfunctions are given by
+$$\psi_{p}(x)=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx}$$ so the above is
+$$\begin{aligned}
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\infint e^{-ip^{2}t/2m\hbar} \psi_{p}(x)\psi^{\ast}_{p}(x_{0})\,dp\\
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\infint e^{-ip^{2}t/2m\hbar} \biggl(\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}\biggr)\biggl(\frac{1}{\sqrt{2\pi\hbar}}e^{-ipx_{0}/\hbar}\biggr)\,dp\\
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\frac{1}{2\pi\hbar}\infint e^{-ip^{2}t/2m\hbar} e^{ip(x-x_{0})/\hbar}\,dp\\
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\frac{1}{2\pi\hbar}\infint e^{-(it/2m\hbar)p^{2}+(i(x-x_{0})/\hbar)p}\,dp\\
+\end{aligned}$$ While to the inexperienced mathematician this integral
+is not straightforward, in the wider scope of things this integral is in
+fact trivial, because of the relatively simple fact we can quote that
+$$\infint e^{-ax^2+bx}\,dx=e^{b^2/4a}\sqrt{\frac{\pi}{a}}.$$ Plugging in
+$a:=it/2m\hbar$ and $b:=i(x-x_{0})/\hbar$, and changing the integral to
+be with respect to $p$ rather than $x$, we get: $$\begin{aligned}
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\frac{1}{2\pi\hbar}\infint e^{-(it/2m\hbar)p^{2}+(i(x-x_{0})/\hbar)p}\,dp\\
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\frac{1}{2\pi\hbar}e^{i(x-x_{0})/\hbar)^2/4(it/2m\hbar)}\sqrt{\frac{\pi}{it/2m\hbar}}\\
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\biggl(\frac{1}{2\pi\hbar}\biggr)e^{-m(x-x_{0})/2it\hbar}\sqrt{\frac{2m\pi\hbar}{it}}\\
+\bra{x}\prop{t}{0}\ket{x_{0}}&=\sqrt{\frac{m}{2i\pi\hbar t}}\:e^{im(x-x_{0})/2\hbar t}\stab.
+\end{aligned}$$ It appears laborious, but actually requires neither
+advanced mathematical skills nor obscure mathematical facts to evaluate.
+The benefit is now we can plug in any state vector $\Psi$ and we will
+have a perfect understanding of how it will evolve with time. Thus such
+a process (with proof of the momentum energy relationship) would be
+sufficient to solve the problem of the free particle.\
+\
+To prepare for the next section, we will look at a small modification of
+the free particle question, and see that it vastly changes the result we
+get so far as to even discretise the energy spectrum. We will from now
+onwards continue to use the propagator, as it is ubiquitous in
+post-expository quantum mechanics texts.
+
+## Particle on an Ellipse
+
+Let's start with an interesting modification to the free particle
+problem. Consider the ellipse below (which could be a circle-- the
+difference does not here matter): $$\\
+\\
+\\
+$$
+
+::: center
+:::
+
+\
+Say that a free particle $\mathfrak{p}$ is confined to be on that
+ellipse at all times. Consider position $x$ as the particle's starting
+point, and imagine the particle moving anticlockwise around the ellipse
+infinitely many times. Now we can draw a helpful visual representation
+of the linear distance $\mathfrak{p}$ has travelled:
+
+::: center
+:::
+
+\
+\...and so on infinitely many times. Take L to be the perimeter of the
+ellipse. Then it is clear that after moving in a perfect cycle for the
+length of one perimeter of the ellipse the particle will end back at
+position $x$ once more. In other words, we write: $$x \sim x+L$$ This
+means that the position $x$ is equivalent to position $x+L$, and the
+relation carries on until infinity as $x+L\sim x+2L$ and so on.\
+\
+Now, considering the the system using Schrodinger's equation, we expect
+$$\psi(x) = \psi(x+L)$$ for all positions $x$. Now, the free particle
+time independent Schrödinger Equation is familiar to us:
+$$\hat{H}\Psi = \frac{\hat{P}^2}{2m}\Psi = E\Psi$$ and we also know
+$\psi(x)=\psi(x+L)$. Note that the $\phisi(x)$ indicates we are working
+in position space, which makes perfect sense considering the interesting
+cyclic behaviour of varying position along the ellipse meaning we want
+$x$ to be the central changing variable.\
+\
+We can come to a solution for the particle on an ellipse quite
+organically. We first note that due to the form of the Hamiltonian
+energy and momentum must still be compatible observables, since neither
+operators are changed by the periodic behaviour bestowed by the
+elliptical setup. Therefore, the energy eigenkets we derived before are
+still correct:
+$$\ket{E;P^{+}}=\ket{p=\sqrt{2mE}\:}, \btab \ket{E;P^{-}}=\ket{p=-\sqrt{2mE}\:}$$
+for each $E$. We again choose the nondegenerate momentum eigenkets to
+represent the energy spectrum, though we do not know whether it is
+discrete or continuous yet. The solution comes from noting facts we
+already know. The momentum eigenkets, which are also energy eigenkets,
+correspond to: $$\ket{p}\duac\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}$$
+and this seems innocuous until we remember the boundary condition:
+$$\Psi(x)=\Psi(x+L)$$ That is, due to there being no external potential,
+we do not expect the wavefunction to change when it travels a length of
+the perimeter of the ellipse and returns to the same position. We
+therefore expect the same bounds to apply to the energy eigenkets- and
+similarly, the momentum eigenkets. However, this means we expect:
+$$\ket{p; x=x}\duac\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}= \ket{p; x=x+L}\duac\frac{1}{\sqrt{2\pi\hbar}}e^{ip(x+L)/\hbar}.$$
+We then expect
+$$\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}=\frac{1}{\sqrt{2\pi\hbar}}e^{ip(x+L)/\hbar} \implies e^{i(p/\hbar)x}=e^{i(p/\hbar)x}e^{i(p/\hbar)L}$$
+and so we must have $$e^{i(p/\hbar)L}=1$$ This is rather dramatic. By
+Euler's equation we get: $$\begin{aligned}
+e^{ix} = \cos(x) + i\sin(x)
+\end{aligned}$$\
+Therefore $$\begin{aligned}
+e^{i(p/\hbar)L} = 1 \Rightarrow\:\: \cos((p/\hbar)L) + i\sin((p/\hbar)L)=1
+\end{aligned}$$\
+We need to get rid of the sine function part which is multiplied by an
+imaginary unit, since the cosine function is real-valued, the sine
+function is real valued, and $1$ is a real number, so we must have
+$\sin((p/\hbar)L)=0$ or we would get a complex but not real left hand
+side and a real right hand side: a contradiction. Then to finish we need
+$\cos{(p/\hbar)L}=1$, which means
+$$pL/\hbar=2n\pi, \:\: n\in\mathbb{Z}.$$\
+We see now that the above equation is quantized- indexed by the integers
+$n$. Therefore momentum $p$ is also quantized and therefore energy must
+also be quantised as the energy eigenvalues are equal to $p^2/2m$. Such
+is a very common theme in quantum mechanics: $\sin(n\pi) = 0$ and
+$\cos{2n\pi}=1$ for $n\in\mathsbb{Z}$, which indexes by integers $n$
+when there is boundary behaviour causing periodic recurrences. Now we
+can index the eigenvalues with $n$, and summarise that:
+$$\begin{aligned}
+p_n= \frac{2\pi n\hbar}{L}, \:\: n\in\mathsbb{Z}.
+\end{aligned}$$ Then, the eigenenergies must be:
+$$E_{n}=(p_n)^2/2m=\frac{2\pi^2n^2\hbar^2}{mL^2}.$$ Now we want to
+evaluate the new propagator for this free particle on an ellipse. To do
+this we could solve the time independent Schrödinger to find the energy
+eigenstates. However, we can also simply solve the momentum eigenvalue
+equations, which are a bit simpler, since we already know that
+$$\hat{P}\ket{\psi_{p}}=p\ket{\psi_{p}}\implies \psi_{p}(x)=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}.$$
+Plugging in the momentum eigenvalues $p_{n}$ and indexing by $n$, we
+have $$\psi_{p}^{(n)}(x)=\frac{1}{\sqrt{2\pi\hbar}}e^{2\pi nix/L}$$
+which are also the position space energy eigenstates corresponding to
+the energy eigenvalues $E_{|n|}$. The propagator can then be expressed:
+$$\prop{t}{0}=\sum_{n}e^{-iE_{n}t/\hbar}\ket{E_{n}}\bra{E_{n}}$$ and we
+are working with discrete energy eigenkets so we can use this form of
+the propagator as well. The position space elements should be clear:
+$$\begin{aligned}
+\bra{x}{\prop{t}{0}}\ket{x_{0}}&=\sum_{n}e^{-iE_{n}t/\hbar}\ip{x}{E_{n}}\ip{E_{n}}{x_{0}}\\
+\bra{x}{\prop{t}{0}}\ket{x_{0}}&=\sum_{n}e^{-iE_{n}t/\hbar}E_{n}(x)E_{n}^{\ast}(x_{0}).
+\end{aligned}$$ Substituting in the energy eigenstates
+$$\bra{x}{\prop{t}{0}}\ket{x_{0}}=\sum_{n}e^{-iE_{n}t/\hbar}\biggl(\frac{1}{\sqrt{2\pi\hbar}}e^{2\pi nix/L}\biggr)\biggl(\frac{1}{\sqrt{2\pi\hbar}}e^{-2\pi nix_{0}/L}\biggr)$$
+and substituting the energy eigenvalue $E_{n}$,
+$$\bra{x}{\prop{t}{0}}\ket{x_{0}}=\frac{1}{2\pi \hbar}\sum_{n}e^{-2i\pi^{2}n^{2}\hbar t/mL^{2}}e^{2\pi nix/L}e^{-2\pi nix_{0}/L}$$
+simplifying,
+$$\bra{x}{\prop{t}{0}}\ket{x_{0}}=\frac{1}{2\pi \hbar}\sum_{n}e^{(2\pi i n)/L[\pi n\hbar t/mL ]}.$$\
+\
+\
+\
+we see that the full set of solutions to Schrodinger's Equation for a
+free particle on a circle can be categorised by:
+$$\Psi_n(x)= Ne^{ik_n x}$$ where N was the normalisation constant
+assumed earlier when we eliminated $\int_{0}^{L}\psi^\ast(x)\psi(x)$.
+Its value can calculated easily: $$\begin{aligned}
+&\Psi_n(x)= Ne^{ik_n x}, \:\: \int_{0}^{L}\psi_n^\ast(x)\psi_n(x)=1\\
+\Rightarrow\:\: &\int_{0}^{L}Ne^{ikx}Ne^{-ikx} = 1\\
+\Rightarrow\:\: &N^2\int_{0}^{L}1 = 1\\
+\Rightarrow\:\: &N^2\int\frac{d}{dx}(x+c)=1\\
+\Rightarrow\:\: &N^2\biggl[x+c\biggr]_{0}^{L} = 1 \Rightarrow\:\: N^2L = 1 \Rightarrow\:\: N= \frac{1}{\sqrt{L}}
+\end{aligned}$$\
+Overall, we have: $$\Psi_n(x)=\frac{1}{\sqrt{L}}e^{ik_nx}$$\
+and since $k_nL=2\pi n \Rightarrow\:\: k_n=\frac{2\pi n}{L}$, we can
+also write this as:
+$$\Psi_n(x)=\frac{1}{\sqrt{L}}e^{\frac{2\pi nix}{L}}.$$ This is a
+normalised set of wavefunctions due to the normalisation coefficient,
+but is it an orthogonal set too? We can verify this.\
+Furthermore, we also know that as $V(x)=0$ then associated energies
+indexed by integers $n$ are:
+$$E_n = \frac{\hat{p}^2}{2m} = \frac{\hbar^2k_n^2}{2m} = \frac{\hbar^2}{2m}\left(\frac{2\pi n}{L}\right)^2$$\
+so they are $$E_n=\frac{2\pi^2\hbar^2n^2}{mL^2}$$\
+Note that despite the fact $n$ can be negative, corresponding to
+negative momentum, the $n^2$ term in the equation for $E$ ensures that
+$E > 0$ as we have earlier shown. Clearly there are infinite energy
+eigenstates as there are infinite integers $n$ to index $E_n$.\
+\
+However, since $E_n$ is a function of $n^2$ it is also clear that all
+the energy eigenstates for a free particle on an ellipse can correspond
+to both $\psi_n$ and $\psi_{-n}$ which both have energy $E_n$, save for
+$E_0$. We say that all these non-zero energy eigenstates are degenerate:
+they can correspond to multiple wavefunctions, here 2. The temptation
+would be to say that we have an issue herein since that would make
+$\psi_n$ and $\psi_{-n}$ indistinguishable from the point of view of
+energy: but of course we very easily know that what distinguishes
+$\psi_n$ and $\psi_{-n}$ is that they have different momenta.
+
+## Bound States
+
+In the last problem, we made one modification-- or really, added one
+constraint-- to the free particle problem, and found this discretised
+the energy spectrum immediately. Physically, the constraint seems rather
+significant, given that we expected the particle's motion to loop around
+in infinite cycles. Mathematically, however, it was only equivalent to
+adding positionwise periodicity. There exists this question now of how
+that discretisation occurred in the first place, and specifically, we
+can point to a specific class of problems which will be valuable to our
+understanding of this: those problems of bound states.
+
+#### A General Discussion
+
+A bound state in quantum mechanics is a state where we have the
+relationship $$|x|\to\infty\implies\Psi(x)\longrightarrow 0.$$ That is,
+the wavefunction is focused on one point, which we can call position
+$0$, and the further away we get from that point the smaller the value
+$\Psi(x)$ (the probability density corresponding to that point) is. The
+most basic example of this would occur if we had some barrier which
+prevented or made it practically very difficult for a particle trying to
+escape outside it. Of course, on a microscopic scale we cannot speak of
+stone walls or physical barriers, but we will see that barriers
+nevertheless can exist based on the potential of the system. We start by
+introducing a fact which exists in classical mechanics and stays valid
+in quantum mechanics- that a particle cannot have energy less than the
+minimum value of the potential of the system at any point. The proof is
+as follows: we know that the Hamiltonian is given by the formula
+$$\hat{H}=\frac{\hat{P}}{2m}+V(x).$$ Now pick a normalised energy
+eigenket $\psi_{E}(x)$ which has energy $E$. We have:
+$$\optrip{\psi_{E}}{H}{\psi_{E}}=E\sip{\psi_{E}}=E$$ but we also have
+$$\optrip{\psi_{E}}{H}{\psi_{E}}=\bra{\psi_{E}}{\hat{T}+V(x)}\ket{\Psi_{E}}=\optrip{\psi_{E}}{{T}}{\psi_{E}}+\bra{\psi_{E}}V(x){\ket{\Psi_{E}}}$$
+and for some minimum value of $V(x)$ we have
+$$\optrip{\psi_{E}}{H}{\psi_{E}}=\optrip{\psi_{E}}{{T}}{\psi_{E}}+\bra{\psi_{E}}V(x){\ket{\Psi_{E}}}\geq\optrip{\psi_{E}}{{T}}{\psi_{E}}+V_{\min}\sip{\psi_{E}}$$
+that is, $$E\geq\optrip{\psi_{E}}{T}{\psi_{E}}+V_{\min}$$\
+\
+using the algebraic form of the momentum operator, the Schrödinger
+Equation is $$-\frac{\hbar^2}{2m}\snd{\Psi}{x}+(V(x)-E)\Psi=0.$$ If
+$E\geq V(x)$ for some point $x$ then $(V(x)-E)$ will clearly be
+nonpositive. However, at the moment $E<V(x)$, we must get the condition
+that $V(x)-E$ is positive. If we put denote this difference as
+$\Delta>0$, then we get the equation
+$$-\frac{\hbar^2}{2m}\snd{\Psi}{x}+\Delta\Psi=0\implies\frac{\hbar^2}{2m}\snd{\Psi}{x}=\Delta\Psi.$$
+This is comparable to the differential equation , whose solution leaks
+out to infinity and does not fit the definition of a bound state.
+Therefore in any bound state we can never have energy less than the
+potential of the system; furthermore, this means that no energy
+eigenstates exist whose corresponding eigenvalues are less than the
+minimum value of the potential at some point.\
+\
+We can now see how we can create a bound state: by setting regions where
+the potential is higher than the energy of the state and where therefore
+the wavefunction must disappear. In particular, a region with infinite
+potential must immediately have the wavefunction vanish as it cannot
+have an energy greater than infinity. Let us use this to investigate a
+classic introductory problem in quantum mechanics which involves a bound
+state, the infinite square well.
+
+## Particle in an Infinite Square Well
+
+Examine the following diagram: $$\\
+\\
+\\
+$$
+
+::: center
+:::
+
+At the shaded regions the potential is defined to be infinite. But
+between positions $x=0$ and $x=L$ it is defined as $V(x)=0$. Due to the
+fact that the energy of a particle must be greater than the potential it
+is experiencing, we have two conditions that within the well it must
+have positive energy, and outside its wavefunction must vanish, so the
+lines $x=0$ and $x=L$ act as hard walls which bind the state to being
+between positions $0$ and $L$.\
+\
+We can list the properties of the system given by the boundary
+conditions:
+
+1.  $\Psi(x)$ does not exist if $x>L$ or $x<0$.
+
+2.  The new normalisation requirement for the system $\Psi$ is
+    $\sip{\Psi}=1=\int_{0}^{L} \Psi^\ast(x)\Psi(x)\,dx$. This is because
+    the boundary conditions require that the probability of the
+    wavefunction being between $0$ and $L$ is $1$, not simply just the
+    probability that it is between negative infinity and infinity.
+
+\
+We know that the wavefunction is continuous. This means actually that it
+must vanish at the walls $x=0$ and $x=L$, or otherwise it couldn't drop
+to $0$ straight afterwards. So $x=0$ and $x=L$ are walls. In other
+words, $$\Psi(0) = 0 = \Psi(L)$$\
+Finally, within the region $x\in(0,L)$, we have $V(x)=0$. Thus the
+problem reduces to the free particle inside the square well.\
+\
+We split the problem into three components: the first, investigating the
+wavefunction inside the well, the second, investigating the wavefunction
+outside the well, and finally, investigating the wavefunction on the
+boundary lines $x=0$ and $x=L$; we will cover these in that order.\
+\
+The first part of the problem, the problem of the wavefunction inside
+the square well, is simply the free particle problem since the potential
+is $0$, within finite position bounds. So, we once again have
+$$\frac{d^2\Psi}{dx^2} = -{\frac{2mE}{\hbar^2}}\Psi$$ which has the
+solution $$\Psi(x)=Ae^{ikx}+Be^{-ikx}$$ for some constants $A,B$, where
+$$k=p/\hbar=\frac{\sqrt{2mE}}{\hbar}.$$ We cannot yet determine these
+constants $A,B$ until we look at the other boundary conditions.\
+\
+The second component of the problem is the problem of the wavefunction
+outside the well. We recall that the wavefunction $$\Psi(x)$$ is a
+probability distribution function which returns a value given a position
+$x$ which is its component in the basis and therefore a probability
+amplitude for achieving that measurement of $x$. Given that outside the
+well we have infinite potential, we must have probability zero of
+finding the particle there. This means that the solution of the
+wavefunction must also be
+$$\Psi(x)=0 \mtab \forall x\in(-\infty,0)\cup(L,\infty)$$\
+The most important part of the problem comes, however, with the third
+component of the problem- that of the wavefunction on the hard walls
+$x=0$ and $x=L$. We have $$\Psi(x) = Ae^{ikx}+Be^{-ikx}$$ for some
+constants $A$ and $B$. We can rewrite this with Euler's formula:
+$$\begin{aligned}
+e^{ix}&=\cos(x)+i\sin(x)\\
+\implies Ae^{ikx}+Be^{-ikx}&=A\cos(kx)+iA\sin(x)+B\cos(-kx)+iB\sin(-kx).
+\end{aligned}$$ The cosine function is even and the sine function is
+odd. Therefore we have
+$$Ae^{ikx}+Be^{-ikx}=(A+B)\cos(kx)+i(A-B)\sin(kx).$$ Now, examining the
+wall conditions, we firstly have: $$\Psi(x=0) = 0$$\
+But since $\sin(0)=0$ this means $$(A+B)\cos(kx)=(A+B)\cos(0)=0.$$
+However, $\cos(0) \neq 0$. Therefore we must conclude that $A+B=0$.
+However, if we conclude this fact then it must be true for all regions,
+not simply just the wall $x=0$, as the wavefunction cannot simply morph
+as soon as it reaches $x=0$. Thus for the wavefunction of the whole
+problem of the infinite square well, which we will now be covering in
+trigonometric form, we can omit the first coefficient entirely and
+therefore vanish the cosine term. We are left with
+$$\Psi(x) = i(A-B)\sin{kx}.$$\
+Note that we have $$A+B=0$$ so neither of the individual constants $A$
+and $B$ can be $0$, or that would imply the other is $0$, and we would
+have (in exponential form) $$\Psi(x)=0e^{ikx}+0e^{-ikx}=0$$ which is
+absurd. Now we can use the other boundary condition.
+$$\psi(x=L)=0 \Rightarrow\:\: i(A-B)\sin{kL}=0.$$\
+If we had $$A-B=0$$ then we would have
+$$A-B=A+B=0 \implies B=0 \implies A=0$$ which is impossible as shown
+above. Therefore we must have $$\sin(kL)=0.$$ This means that we must
+have $kL=n\pi, \:\: n \in \mathbb{Z}$. This means the wave number $k$ is
+again quantized! Thus we can define. $$k_n=\frac{n\pi}{L}$$ which
+therefore means we have discrete momenta:
+$$p_{n}=\hbar k_{n}=\frac{n\pi\hbar}{L}$$ and discrete energy:
+$$E_{n}=\frac{p_{n}^2}{2m}=\frac{\hbar^2\pi^2 n^2}{2mL^2}\stab.$$
+Plugging in to our original general solution for the wavefunction, we
+have the complete set of solutions
+$$\Psi_{n}(x)=N\sin\left(\frac{n\pi x}{L}\right).$$ The constant $N$ is
+a normalisation constant, which incorporates $i(A-B)$, which we had
+before. It must be remembered that $A$ and $B$ are arbitrary constants
+which really are not very important, so rolling them into a new constant
+$N$ is not a big problem. We can restrict ourselves to considering
+$n \in \mathbb{Z}^+$ since the parity of the wavefunction is irrelevant
+in producing the same results. This time, we will solve for the
+normalisation constant $N$.
+$$\int_{0}^{L}\Psi^\ast(x)\Psi(x)\,dx = N^2\int_{0}^{L}\sin^2\left(\frac{n\pi x}{L}\right) \,dx$$
+since the sine function is real valued so its complex conjugate is
+itself. Then,
+$$N^2\int_{0}^{L}\sin^2\left(\frac{n\pi x}{L}\right) \,dx = 1$$\
+The integral requires some algebra to evaluate. Using the trigonometric
+identity $\sin^2{kx}=\frac{1-\cos{2kx}}{2}$, we get: $$\begin{aligned}
+&\sin^2{kx}=\frac{1-\cos{2kx}}{2}\\
+\Rightarrow\:\: &\int_{0}^{L}\sin^2{kx}=\int_{0}^{L}\frac{1-\cos{2kx}}{2}\\
+\Rightarrow\:\: &\int_{0}^{L}\sin^2{kx}=\int_{0}^{L}\frac{1}{2}-\int_{0}^{L}\frac{1}{2}{\cos{2kx}}\\
+\Rightarrow\:\: &\int_{0}^{L}\sin^2{kx}=\int_{0}^{L}\frac{d}{dx}\left(\frac{1}{2}x+c\right)-\frac{1}{2}\int_{0}^{L}\frac{d}{dx}\left({\frac{1}{2k}\sin{2kx}}\right)\\
+\Rightarrow\:\: &\int_{0}^{L}\sin^2{kx}=\biggl[\frac{1}{2}x+c\biggr]_{0}^{L}-\biggl[\frac{1}{2k}\sin{2kx}\biggr]_{0}^{L}\\
+\Rightarrow\:\: &\int_{0}^{L}\sin^2{kx}=\frac{L}{2}-\biggl[\frac{1}{2k}\sin{2kx}\biggr]_{0}^{L}\\
+\end{aligned}$$\
+Now, plugging in $k=\frac{n\pi}{L}$, we get: $$\begin{aligned}
+\int_{0}^{L}\sin^2\left(\frac{n\pi x}{L}\right) \,dx &= \frac{L}{2}-\biggl[\frac{L}{n\pi}\sin\left(\frac{2n\pi a}{L}\right)-\frac{1}{2k}\sin{0}\biggr]\\
+&=\frac{L}{2}-\biggl[\frac{L}{n\pi}\sin{2n\pi}-0\biggr]\\
+&=\frac{L}{2}
+\end{aligned}$$\
+since $\sin{2n\pi}=0$. So for the normalisation constant we have
+evaluated the integral from $0$ to $L$ and get:
+$$N^2\int_{0}^{L}\sin^2\left(\frac{n\pi x}{L}\right) \,dx=\frac{N^2L}{2}=1 \Rightarrow\:\: N=\sqrt{\frac{2}{L}}$$
+as our normalisation constant. That gives us the following set of
+normalised solutions indexed by positive integers $n$:
+$$\Psi_n=\sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right).$$ We can
+confirm these are orthogonal to each other for different $n$ and thus
+create an orthonormal set. The normalised property is covered by the
+normalisation coefficient $\sqrt{{2}/{L}}$, and the orthogonality can be
+proved by considering the inner product- from $x=0$ to $x=L$ since this
+is the domain of the wavefunction without it vanishing.
+$$\begin{aligned}
+    \int_{0}^{L} \psi^\ast_m(x)\psi_n(x) \,dx = \left(\sqrt{\frac{2}{L}}\right)^2\int_{0}^{L}\sin\left(\frac{m\pi x}{L}\right)\sin\left(\frac{n\pi x}{L}\right)\,dx
+    \end{aligned}$$\
+since the complex conjugate of the real valued sine function is itself.
+Then: $$\begin{aligned}
+    \sin{x}\sin{y}&= \frac{1}{2}[\cos(x-y)+\cos(x+y)]\\
+    &\Rightarrow\:\: \frac{2}{L}\int_{0}^{L}\sin\left(\frac{m\pi x}{L}\right)\sin\left(\frac{n\pi x}{L}\right)\,dx\\
+    &=\frac{2}{L}\int_{0}^{L}\frac{1}{2}\biggl[\cos\left(\frac{(m-n)\pi x}{L}\right)+\cos\left(\frac{(m+n)\pi x}{L}\right)\biggr]\\
+    &= \frac{1}{L}\int_{0}^{L}\biggl[\cos\left(\frac{(m-n)\pi x}{L}\right)+\cos\left(\frac{(m+n)\pi x}{L}\right)\biggr]\\
+    \end{aligned}$$\
+Using some chain rule:
+$$\frac{d}{dx}\sin\left(\frac{(m-n)\pi x}{L}\right)= \frac{d}{dg}\sin(g(x))*\frac{d}{dx}\frac{(m-n)\pi}{L}x$$\
+where $g(x) = \frac{(m-n)\pi}{L}x$. Then this means:
+$$\frac{d}{dx}\sin\left(\frac{(m-n)\pi x}{L}\right)=\frac{(m-n)\pi}{L}\cos\left(\frac{(m-n)\pi}{L}x\right)$$
+And therefore,
+$$\cos\left(\frac{(m-n)\pi}{L}x\right)= \frac{L}{(m-n)\pi}\frac{d}{dx}\sin\left(\frac{(m-n)\pi x}{L}\right)$$\
+so we doing something similar with the $\cos(\frac{(m+n)\pi x}{L})$ term
+we can write the integral as:
+$$\frac{1}{L}\int_{0}^{L}\biggl[\left(\frac{L}{(m-n)\pi}\right)\frac{d}{dx}\sin\left(\frac{(m-n)\pi}{L}x\right)+\left(\frac{L}{(m+n)\pi}\right)\frac{d}{dx}\sin\left(\frac{(m+n)\pi}{L}x\right)\biggr]$$\
+then, pulling out constants and using the fundamental theorem of
+calculus to get rid of the integral, we get the expression
+$$\biggl[\frac{1}{(m-n)\pi}\sin\left(\frac{(m-n)\pi}{L}x\right)+\frac{1}{(m+n)\pi}\sin\left(\frac{(m+n)\pi}{L}x\right)\biggr]_{0}^{L}$$\
+clearly at $x=0$ we get a bunch of $\sin(0)$ terms so the large bracket
+is 0. At $x=L$ the value of $x$ cancels with the denominator inside the
+sine function, and so we get the sine values of $m-n\in\mathbb{Z}^{+}$
+lots of $\pi$, which also ends up with 0. So altogether we have proved
+the whole integral and therefore the inner product of $\Psi_m$ and
+$\Psi_n$ is $0$. Note that the whole process is invalid when $m=n$ since
+then the fraction $\frac{L}{(m-n)\pi}$ we see in the expression of
+$\cos(\frac{(m-n)\pi}{L}x)$ as a derivative is clearly invalid due to
+division by $0$. Now we can summarise:
+$$\ip{\Psi_{m}}{\Psi_{n}} = \delta_{n,m}$$ which is our original
+definition of an orthogonal set of wavefunctions $\ket{\Psi}$. So
+indeed, the set of $\Psi_{n}$ indexed by integers $n$ is an orthonormal
+set of states which can then be linearly combined into any superposition
+of states with different probabilities.
+
+#### Analysing solutions
+
+We can summarise our numerical analysis of eigenstates as follows. We
+obtained:
+$$\psi_n=\sqrt{\frac{2}{L}}\sin(\frac{n\pi x}{a}), \:\:\:\:\: E_n=\frac{\hbar^2\pi^2 n^2}{2ma^2}, \:\:\:\:\: n \in \mathbb{Z}^+$$\
+\
+We can now plot the first $\psi_n$ on an axis from $0$ to $a$. This is
+in shown in figure 1. Clearly, we observe a few properties:
+
+1.  We call a zero of $\psi$ inside the domain of $\psi$ a node. Then
+    here we see that $\psi_n$ has $n-1$ nodes: the zeros at $x=0$ and
+    $x=a$ do not count as they are not inside the domain. More
+    importantly, for this set of solutions to $\psi$ for every $1$ that
+    you increase the integer indexing $\psi_n$ you also increase the
+    number of nodes by $1$. This is actually generally true as you go up
+    from the ground state- the lowest energy state and nearly always
+    $\psi_1$ in a set of $\psi_n, \:\: n \in \mathbb{Z}^+$: for any set
+    of solutions $\psi$ we add 1 node every time we move to the next
+    possible energy level.\
+
+2.  The $\psi_n$ are clearly alternately symmetric and asymmetric as you
+    go up index numbers $n$. $\psi_1$ is symmetric, $\psi_2$ is
+    asymmetric, $\psi_3$ is symmetric, etc. Crucially, we call symmetric
+    solutions **even** and the asymmetric solutions **odd**. The
+    definition of an even function $f(x)$ is that $f(x)=f(-x)$. The
+    definition of an odd function is where $f(-x)=-f(x)$. Technically
+    here there are neither even solutions nor odd solutions since this
+    is not true for any $\psi_n$ in the question defined. But if we had
+    taken the midpoint of the well to be $x=0$ then looking at the first
+    few wavefunctions it is clear this would have been true, so the
+    parity of functions we think in is analogous. We will see in our
+    next problem how important discussion of function parity will be in
+    breaking down questions as they get more and more complex and we
+    seek to categorise more and more realistic situations and problems.
+    But there exists a powerful fact: if a particle is in an even
+    potential then all wavefunctions are either odd or even. In this
+    problem again if we had set the middle of the potential well to be
+    $0$ then we would have seen an example of this fact: the potential
+    would be even since it is symmetric about $0$ and the solutions are
+    alternately even and odd. Clearly this is an exceptionally
+    meaningful fact. We can prove it fairly easily for our
+    one-dimensional purposes:
+    $$\text{By Schrodinger}, \:\: -{\frac{\hbar^2}{2m}\frac{d^2}{dx^2}}\psi(x)+V(x)\psi(x)=E\psi(x)$$\
+    when we substitute in $x=-x$, we get:
+    $$-{\frac{\hbar^2}{2m}\frac{d^2}{dx^2}}\psi(-x)+V(-x)\psi(-x)=E\psi(-x)$$\
+    we are considering a question where the potential is even and thus
+    $V(x)=V(-x)$ So then:
+    $$-{\frac{\hbar^2}{2m}\frac{d^2}{dx^2}}\psi(-x)+V(x)\psi(-x)=E\psi(-x)$$\
+    we step back out of the algebraic manipulation and see that clearly
+    this means that if $\psi(x)$ is a solution in an even potential then
+    $\psi(-x)$ is also a solution. This in itself is very important,
+    naturally. But since we are working in the same one-dimensional
+    vector space of solutions to the same Schrodinger then it is
+    impossible for these two functions to be linearly independent, or
+    orthogonal in a one-dimensional space. Therefore we can say
+    $$\psi(x)=a\psi(-x)$$\
+    for some constant $a$. Then $a\psi(-x)=\psi(x)$, so it satisfies the
+    conditions, and therefore is normalised. So we have:
+    $$|a|^2\int_{-\infty}^{\infty}\psi^{\ast}(-x)\psi(-x)\,dx=1$$\
+    But $\psi(-x)$ itself is a normalised solution so the integral is
+    equal to 1. Therefore $$|a|^2=1 \Rightarrow\:\:\:\: a=\pm1$$ By
+    definition when $a=1$ then $\psi$ is even since we get
+    $\psi(x)=\psi(-x)$, and when $a=-1$ then $\psi$ is odd, since we get
+    $\psi(x)=-\psi(x)$. Therefore for an even potential all solutions
+    $\psi$, when normalised, must be even or odd.
+
+## Harmonic Oscillator 
+
+We now introduce a third less fundamental but perhaps more impactful
+problem which must be included in any discussion of quantum mechanics.
+We will take one system we know very well from classical mechanics, the
+spring, which has a potential of $$V(x)=\frac{1}{2}kx^2$$ for the spring
+constant $k$. This can also be written via the angular frequency,
+$\omega=k/m$, as $$V(x)=\frac{1}{2}mX\omega^{2}.$$ There is the standard
+method of solving this problem in the quantum mechanical version, where
+the Hamiltonian is
+$$\hat{H}=\frac{\hat{P}^2}{2m}+\frac{1}{2}m\hat{X}^{2}\omega^{2}.$$ We
+note that for the system the spring constant and mass are both
+constants, and so $\omega=k/m$ is a constant and therefore should not
+and cannot be replaced by an expression in the position and momentum
+operators for the quantum Hamiltonian. Now the conventional method would
+be to solve the problem in position space and implement strategies much
+like we have shown above. But there is a method, courtesy of Dirac,
+which shows that we can use the energy eigenbasis as well.\
+\
+In principle this should be difficult, as to find the energy eigenkets
+which form the energy eigenbasis is tantamount to solving for the
+propagator for time evolution, in which case it is unclear why we would
+ever need to be in the energy eigenbasis after that. However, elegance
+will show in a clever way this limitation is not quite concrete for all
+problems, and the energy eigenbasis can be very useful even before we
+know the eigenvectors.\
+\
+To start, we define the operator
+$$a=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{X}+\frac{i\hat{P}}{m\omega}\right).$$
+Then we consider its hermitian adjoint,
+$$a^{\dagger}=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{X}-\frac{i\hat{P}}{m\omega}\right).$$
+It is clear these operators are not hermitian. What relationship is held
+by the two operators? They turn out not to be unitary either. Instead,
+we get $$[a,a^{\dagger}]=1$$ which can be easily verified:
+$$\begin{aligned}
+[a,a^{\dagger}]&=\frac{m\omega}{2\hbar}\left[\biggl(\hat{X}+\frac{i\hat{P}}{m\omega}\biggr)\biggl(\hat{X}-\frac{i\hat{P}}{m\omega}\biggr)\right]-\frac{m\omega}{2\hbar}\biggl[\left(\hat{X}-\frac{i\hat{P}}{m\omega}\right)\left(\hat{X}+\frac{i\hat{P}}{m\omega}\right)\biggr]\\
+&=\frac{m\omega}{2\hbar}\biggl[\hat{X}^{2}-\frac{i}{m\omega}[\hat{X},\hat{P}]-\left(\frac{i\hat{P}}{m\omega}\right)^2-\hat{X}^2-\frac{i}{m\omega}[\hat{X},\hat{P}]+\left(\frac{i\hat{P}}{m\omega}\right)^2\biggr]\\
+&=\frac{m\omega}{2\hbar}\biggl[-\frac{i}{m\omega}(2i\hbar)\biggr]=\frac{m\omega}{2\hbar}\frac{2\hbar}{m\omega}=1
+\end{aligned}$$ Finally, we can define an operator, $N$, to be
+$a^{\dagger}a:=N$. This operator is hermitian as $a^{\dagger}a$. This
+operator has the form, as seen above: $$\begin{aligned}
+N&=\frac{m\omega}{2\hbar}\biggl[\hat{X}^2+\frac{i}{m\omega}[\hat{X},\hat{P}]-\left(\frac{i\hat{P}}{m\omega}\right)^2\biggr]=\left(\frac{m\omega}{2\hbar}\right)\left[\hat{X^2}+\frac{\hat{P}^2}{m^2\omega^2}+\frac{i}{m\omega}[\hat{X},\hat{P}]\right]\\
+&=\frac{1}{\hbar\omega}\frac{\hat{P}^2}{2m}\frac{1}{2\hbar}+{\hat{X}^2}m\omega+\frac{i}{2\hbar}i\hbar
+\end{aligned}$$ Regarding the Hamiltonian of the system again, this is
+$$N=\frac{\hat{H}}{\hbar\omega}-\frac{1}{2}\implies\hat{H}=\hbar\omega\left(N+\frac{1}{2}\right).$$
+A bit of clever compatibility thinking is again the step here.
+Technically $N$ is not an observable operator, but note that what we
+proved about compatible observables did not hinge on the fact that the
+operators were Hermitian or had real eigenvalues. Only the third
+component, that about successive measurements of different observables
+and whether or not they affect the eigenstate, was contingent on the
+discussion being about observables in the other place. In other words,
+if two operators commute they possess a common eigenbasis; this is not
+simply limited to observable operators, as a review of the proof we gave
+will show.\
+\
+We have seen above that the operator $N$ is a linear combination of the
+Hamiltonian. This means that they will commute. This in turn means that
+they possess a common eigenbasis! Thus there exist energy eigenkets
+$\ket{E}$ which are also eigenkets of the operator $N$. Thus we have the
+relationship $$\hat{H}\ket{E}=E\ket{E}$$ as usual, but also the
+relationship $$N\ket{E}=n\ket{E}$$ for some eigenvalue $n$. We can now
+equate the eigenvalues!
+$$\hat{H}\ket{E}=\hbar\omega\left(N+\frac{1}{2}\right)\ket{E}=\hbar \omega N\ket{E}-\frac{\hbar\omega}{2}\ket{E}=\hbar\omega\left(n+\frac{1}{2}\right)\ket{E}$$
+So the energy eigenvalues are given by
+$$E_{n}=\left(n+\frac{1}{2}\right)\hbar\omega.$$ The author has tried to
+instil a justified suspicion in the reader for indexing by $n$ without
+knowing there is a discrete case which can be indexed by integers;
+indeed, we still do not know anything about the eigenvalues $n$ so
+energy could still well be continuous at this stage, and indexing by $n$
+would be meaningless. However, we will soon prove that in this case this
+step is fine as the eigenvalues of $N$ are in fact nonnegative integers
+$n$! We will from now on refer to $N$ as the counting operator, as is
+widespread convention. Let us consider some more commutation relations.\
+\
+By the commutation relation $$[AB,C]=A[B,C]+[A,C]B$$ we have
+$$[N,a^{\dagger}]=[a^{\dagger}a,a^{\dagger}]=a^{\dagger}[a,a^{\dagger}]+[a^{\dagger},a^{\dagger}]a=a^{\dagger}(1)+0=a^{\dagger}.$$
+Now we also have
+$$[N,a^{\dagger}]=Na^{\dagger}-a^{\dagger}N\implies Na^{\dagger}=a^{\dagger}N+[N,a^{\dagger}]=a^{\dagger}N+a^{\dagger}.$$
+Thus applying the operator to an energy eigenket, now indexed by $n$,
+$$Na^{\dagger}\ket{E_{n}}=(a^{\dagger}N+a^{\dagger})\ket{E_{n}}=a^{\dagger}N\ket{E_{n}}+a^{\dagger}\ket{E_{n}}=(n+1)a^{\dagger}\ket{E_{n}}.$$
+The reader will recognise the above as another eigenvalue equation,
+which states that for the counting operator, we have
+$$N\ket{E_{n}}=n\ket{E_{n}}$$ as one eigenvalue equation, but also the
+ket $a^{\dagger}\ket{E_{n}}$ as an eigenket which has an eigenvalue
+$n+1$ such that as above, the equation
+$$N(a^{\dagger}\ket{E_{n}})=(n+1)(a^{\dagger}\ket{E_{n}})$$ applies. We
+have mentioned that $n$ is a nonnegative integer, so what this is really
+saying is that if we apply the counting operator $\ket{E_{n}}$, we get
+the of an eigenvalue $n$, but if we then change the eigenket by applying
+the operator $a^{\dagger}$ to it first, and then apply the counting
+operator, we will now count the eigenvalue $n+1$. What is the physical
+meaning of $n$? Well, we have
+$$E_{n}=\left(n+\frac{1}{2}\right)\hbar\omega.$$ The meaning of
+$\hbar\omega$ is interesting: one unit we can choose for the Planck's
+constant $\hbar$ is joules per hertz, and the angular frequency, as
+suggested by the name, can be measured in hertz, which means that units
+of $\hbar\omega$ are measured in joules- thereby a measure of energy. Of
+course, the value of $\hbar\omega$ is not $1$ Joule, since the angular
+frequency would have to be unthinkable for this to be true, but we can
+think of $\hbar\omega$ as small of energy (in a loose intuitive manner)
+which we can use to measure the energy of the system it turns out very
+appropriately on the microscopic scale. The basic analogy one has
+already seen in their own studies? Coulombs as a measure of charge,
+which are also technically of electrons (again in a very loose manner)
+which help make the counting process easier!\
+\
+Thus every time we increase $n$ we increase the energy reading. When $n$
+is measured that corresponds to when the counting operator acts on the
+energy eigenket $\ket{E_{n}}$, and the corresponding energy is $n+1/2$
+in units $\hbar\omega$. However, if we apply $a^{\dagger}$ to
+$\ket{E_{n}}$ first, we replace $n$ with $n+1$, thereby replacing the
+corresponding energy $n+1/2$ with the energy $n+1+1/2$. Thus the
+operator $a^{\dagger}$ **creates** one unit of energy, measured in
+$\hbar\omega$- giving it is name. Similarly:
+$$[N,a]=[a^{\dagger}a,a]=a^{\dagger}[a,a]+[a^{\dagger},a]a=a^{\dagger}(-1)+0=-a.$$
+Now we also have $$[N,a]=Na-aN\implies Na=aN+[N,a]=aN-a.$$ Thus applying
+the operator to an energy eigenket, now indexed by $n$,
+$$Na\ket{E_{n}}=(aN-a)\ket{E_{n}}=aN\ket{E_{n}}-a\ket{E_{n}}=(n-1)a\ket{E_{n}}.$$
+Which, by the same argument as above, shows that the operator $a$ acting
+on a energy eigenstate $E_{n}$ **annihilates** (dramatic, but
+conventional) one unit of energy $\hbar\omega$! Thus the names the
+creation operator for $a^{\dagger}$ and the annihilation operator for
+$a$.\
+\
+Next, we wonder if there is an easier way to label the kets
+$a^{\dagger}\ket{E_{n}}$ and $a\ket{E_{n}}$, which we have also noted
+are eigenkets of the counting operator. Well, of course there is-
+$$N\ket{E_{n+1}}=(n+1)\ket{E_{n+1}}, \btab Na^{\dagger}\ket{E_{n}}=(n+1)a^{\dagger}\ket{E_{n}}\implies a^{\dagger}\ket{E_{n}}\equiv \ket{E_{n+1}}.$$
+This is completely reasonable, because $a^{\dagger}$ on the state
+$\ket{E_{n}}$ raises the energy by $1$. However, by the formula
+$$E_{n}=\left(n+\frac{1}{2}\right)\hbar\omega,$$ and the fact we have
+taken it as a given that $n\in\mathbb{Z}^{+}$, we must have
+$E_{n+1}=E_{n}+1\times\hbar\omega$, in which case the equivalence of the
+states $a^{\dagger}\ket{E_{n}}$ and $\ket{E_{n+1}}$ makes perfect sense.
+Similarly, of course, $a\ket{E_{n}}$ and $\ket{E_{n-1}}$ are equivalent
+states. Yet we know that equivalence is not algebraic equality: rather,
+$$a\ket{E_{n}}=c\ket{E_{n-1}}$$ for some multiplicative constant $c$ is
+sufficient for them to be equivalent states. The norm of $a\ket{E_{n}}$
+is
+$$\nhoptrip{E_{n}}{a^{\dagger}\:a}{E_{n}}=\nhoptrip{E_{n}}{N}{E_{n}}$$
+by our correspondence $$\Omega\ket{X}\duac\bra{X}\Omega^{\dagger}.$$
+This is then equal to $$|c|^2\sip{E_{n-1}}=|c|^2$$ given the definition
+of $c$ above and the assumption that $\ket{E_{n+1}}$ has already been
+normalised. So we have
+$$\nhoptrip{E_{n}}{N}{E_{n}}=n\sip{E_{n}}=n=|c|^2\implies c=\sqrt{n}.$$
+Thus we have $$a\ket{E_{n}}=\sqrt{n}\ket{E_{n-1}}.$$ We can do the exact
+same thing for $a^{\dagger}$ to get
+$$a^{\dagger}\ket{E_{n}}=\sqrt{n+1}\ket{E_{n+1}}.$$ By the semidefinite
+metric, the norm of any ket, including $a\ket{E_{n}}$ is positive.
+However, the norm of $a\ket{E_{n}}$ is $n$ as already shown. Thus, $n$
+must be nonnegative. We next realise that all we have covered so far
+means that
+$$(a^{2})\ket{E_{n}}=a\sqrt{n}\ket{E_{n-1}}=\sqrt{n}a\ket{E_{n-1}}=\sqrt{n(n-1)}\:\ket{E_{n-2}}$$
+and so on- in other words, applying the annihilation operator means we
+should be able keep annihilating energy in units of $\hbar\omega$ until
+we reach a negative value of $n$, no matter how great the $n$ and
+therefore energy. The reason this is problematic, however, is that we
+have already proven that the counting operator eigenvalue $n$
+corresponding to the energy and counting simultaneous eigenstate
+$\ket{E_{n}}$ must be nonnegative due to the semidefinite postulate. So
+we cannot expect a negative value of $n$ to appear. As we have
+$$a\ket{E_{n}}=\sqrt{n}\ket{E_{n-1}}$$ We conclude that if we reach a
+$E_{n}$ with $n<0$ the definition means we must have reached an
+eigenvalue $n<0$. The fact above with the sequence of square roots shown
+by repeatedly applying the annihilation operator shows that clearly we
+should be able to reach a state $E_{n}$ with $n<0$. This is unless we
+terminate at a value before we reach below $n=0$. If after annihilating
+a sufficient number of $\hbar\omega$ units of energy we had $n\in(0,1)$
+then we would be able to apply the annihilation operator again to get a
+new $n'=n-1\in(-1,0)$ which is negative. If we had a value of $n>1$
+which was not an integer then we conclude we must be able to keep
+applying the annihilation operator until we get a value in the region
+$(0,1)$, after which the same argument applies that we reach a negative
+$n$. Thus we must have the value $n=1$ occurring, after which reapplying
+the annihilation operator should give $n=0$. What if we now try to
+reapply the annihilation operator? Well then, we have
+$$a\ket{E_{n}}=\sqrt{n}\ket{E_{n-1}}\implies a\ket{E_{0}}=0\ket{E_{-1}}=0.$$
+In other words, all negative index $E_{n}$, and therefore negative $n$
+disappear! This satisfies our condition of being able to apply the
+annihilation operator repeatedly but not ever having states where the
+counting operator eigenvalue $n$ is negative. Thus we have shown with
+this argument, which should be reread if one is not convinced, that all
+we have done thus far on the assumption that the eigenvalues $n$ are
+integers was done on the correct assumption: $n$ must be a nonnegative
+integer, and there is a terminating state $\ket{E_{0}}$ which has energy
+$E_{0}=(0+1/2)\hbar\omega=(1/2)\hbar\omega$.
