@@ -1,5 +1,3 @@
-{% raw %}
-{% raw %}
 ---
 layout: default
 title: Chapter 5
@@ -7,6 +5,8 @@ mathjax: true
 render_with_liquid: false
 ---
 
+
+{% raw %}
 
 <script type="text/javascript">
 MathJax = {
@@ -819,7 +819,5 @@ second, how we extract physical information.\
 8.  
 9.  
 10. 
-
-{% endraw %}
 
 {% endraw %}
