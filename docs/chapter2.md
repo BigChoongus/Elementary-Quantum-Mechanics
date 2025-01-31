@@ -77,7 +77,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
 
 # The Stern Gerlach Experiment
 
