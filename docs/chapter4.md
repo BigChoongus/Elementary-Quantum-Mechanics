@@ -1,3 +1,10 @@
+---
+layout: default
+title: Chapter 4
+mathjax: true
+render_with_liquid: false
+---
+
 <script type="text/javascript">
 MathJax = {
   tex: {
