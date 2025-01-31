@@ -1,5 +1,4 @@
-{% raw %}
-{% raw %}
+
 ---
 layout: default
 title: Chapter 1
@@ -7,6 +6,7 @@ mathjax: true
 render_with_liquid: false
 ---
 
+{% raw %}
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -408,4 +408,3 @@ my task in writing this pragmatic exposition.
 
 {% endraw %}
 
-{% endraw %}
