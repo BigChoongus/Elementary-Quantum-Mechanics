@@ -119,7 +119,7 @@ the point of view of its basic trajectory: we could also measure its
 electric charge or angular momentum if we wanted to approach the state
 problem from a different angle. The measured momentum, mass, radius,
 angle are the characteristics of the state: which we call values of its
-observables. We can use equations like $p=mv$ to find further quantities
+observables. We can use equations like $` p=mv `$ to find further quantities
 like the velocity when we so desire-- or, just find a way to measure
 them as well. After this, the problem shifts to calculating collisions
 or terminal velocities or whatever the situation calls for: and all of
@@ -153,7 +153,7 @@ momentum value of the state if that value is only one of an infinite
 collection of possible momenta we could have originally measured. We saw
 this in the Stern Gerlach experiment, where attempting to say a single
 electron had up spin failed miserably when we realised successive
-measurements (with a $x$ magnetic field in the middle) could yield down
+measurements (with a $` x `$ magnetic field in the middle) could yield down
 spin measurements as well. The problem of encapsulation is therefore
 rendered by the results much more difficult than with only classical
 intuition: because we now have the extra complication of needing to find
@@ -183,7 +183,7 @@ which will be central to this chapter. That was the idea of . If we
 recall, we invented a strange notation-- while desperately and futilely
 attempting to cling onto normal classical intuition-- in our early
 attempt to track the spins of different particles. There are many things
-wrong with the attempted equation: $$500\elec=250\uspin + 250\dspin$$
+wrong with the attempted equation:  ```math 500\elec=250\uspin + 250\dspin ```
 --not least the fact that it is useless in taking into account
 superpositions and inherent probability. One asks therefore why it was
 included? This was to introduce a much more useful idea: we will need to
@@ -193,9 +193,9 @@ treated like a simple background from which to pick attributes rather
 than anything worth studying in itself. We do not need to add classical
 states, or calculate probabilities. If we really need to distinguish
 between them, we treat them like situations or mathematical cases, where
-symbols are given to observable qualities like velocity $v$. We might
-use subscripts like $v_{a}$ to help us identify which case we are
-working with-- eg, the velocity of ball $a$. We would never
+symbols are given to observable qualities like velocity $` v `$. We might
+use subscripts like $` v_{a} `$ to help us identify which case we are
+working with-- eg, the velocity of ball $` a `$. We would never
 mathematically represent the state itself, however, when we could simply
 list its physical properties and put those values into equations. On the
 other hand, because of these new quantum ideas of summing states
@@ -204,17 +204,17 @@ state, it will be extremely important to have mathematical entities
 representing quantum states themselves. What is the value of such
 abstractions? The answer is two--fold: the meaning of such abstractions
 is none, but the functionality of such abstractions are extremely
-powerful. Just like the futile $\uspin$, any abstraction we use to
+powerful. Just like the futile $` \uspin `$, any abstraction we use to
 describe the state is only valued on how *convenient* it is. The
-$\uspin$ state denomination was a very deficient example of trying to
+$` \uspin `$ state denomination was a very deficient example of trying to
 find a convenient way to describe states, because, for one, it includes
 no information on any observables other than spin. However, in this
 abject failure, we do learn something: the symbols themselves are only
 our chosen way to make the mathematics simpler and more concise.
 Precisely being able to show how superficial the notation we used was is
-exactly why it was introduced in the first place. $\uspin$ and $\dspin$
-notation is not superior to an alternative like $(\Uparrow)$ and
-$(\Downarrow)$-- this is easy to see-- because the notation is not
+exactly why it was introduced in the first place. $` \uspin `$ and $` \dspin `$
+notation is not superior to an alternative like $` (\Uparrow) `$ and
+$` (\Downarrow) `$-- this is easy to see-- because the notation is not
 revealing in any new ways, or easier to write. In what follows we will
 label states with abstract mathematical objects, so we can extract
 information about them. What is hoped will be remembered throughout,
@@ -255,13 +255,13 @@ two sets is to introduce a one-to-one mapping -- also known as a
 bijection -- whose existence can be proved if we can prove that for
 every element in the first set there is a corresponding element in the
 second, and for every element in the second set there is an element in
-the first. Take for example $$A=\{2,3,5,7\}$$ to be the single digit
+the first. Take for example  ```math A=\{2,3,5,7\} ``` to be the single digit
 primes. We could set up a one to one mapping with the set
-$$B=\{9,27,243,2187\}$$ by using the rule to map an element of $A$ to an
-element of $B$ and the rule to map an element of $B$ to an element of
-$A$. Then there is a one-to-one correspondence between sets $A$ and $B$
-there are two maps, one $A$ to $B$ and one $B$ to $A$ which set up a
-pairing between elements in $A$ and $B$ such that each pair is unique
+ ```math B=\{9,27,243,2187\} ``` by using the rule to map an element of $` A `$ to an
+element of $` B `$ and the rule to map an element of $` B `$ to an element of
+$` A `$. Then there is a one-to-one correspondence between sets $` A `$ and $` B `$
+there are two maps, one $` A `$ to $` B `$ and one $` B `$ to $` A `$ which set up a
+pairing between elements in $` A `$ and $` B `$ such that each pair is unique
 and no element in either set in left out.\
 \
 Now we can talk about the uses of one-to-one correspondences, which will
@@ -284,7 +284,7 @@ connected to which originals we are trying to describe.\
 \
 With the two example sets of single digit primes and the results of
 raising them to the power of 3 above, it makes absolutely no sense to
-use sets $B$ or $A$ as either labels or substitutes for each other,
+use sets $` B `$ or $` A `$ as either labels or substitutes for each other,
 since they are both sets of numbers, and we do not need to label numbers
 with other different numbers, and it is equally difficult to see why we
 might want to substitute numbers for other numbers in any scenario.
@@ -357,14 +357,14 @@ must be able to be superposed in some new physical state, and therefore
 the mathematical objects representing them must be able to be summed
 together to make a new such mathematical object which represents this
 new physical state. So it is absolutely essential to bear in mind that
-functions like $x^2$ or $(5x-3)^{3}$ can be vectors just as much as
+functions like $` x^2 `$ or $` (5x-3)^{3} `$ can be vectors just as much as
 arrows in a coordinate system can be vectors: so long as there is a
 system where they can be added together and a collection of other
 objects which fit together into the system. We call this system of
 objects able to be summed together a vector space, and those objects
 constituent vectors. To support this new idea of vectors, we will
-therefore be replacing the misleading arrow notation of $\vec{V}$ with
-simply ${V}$. At first, vectors will feel extremely intangible given
+therefore be replacing the misleading arrow notation of $` \vec{V} `$ with
+simply $` {V} `$. At first, vectors will feel extremely intangible given
 that they are only represented by letters giving no indication what they
 are, but this is fine. Learning about the mathematical system which
 contains the vectors which will represent physical states is what
@@ -383,52 +383,52 @@ defined at its farthest boundaries. Therefore, we will start by
 introducing the definitions mathematicians use to define a valid vector
 space so we can start to move towards this goal.\
 \
-A vector space $\mathbb{V}$ is a set of vectors with the following
+A vector space $` \mathbb{V} `$ is a set of vectors with the following
 properties:
 
 1.  *Null Vector*: Every vector space contains the unique null vector
-    $0$, with properties
-    $$\forall \alpha \in \mathbb{V}, \:\:\: \alpha + 0 = \alpha$$ and
-    $$\forall \alpha \in \mathbb{V}, \:\:\: 0\times\alpha = 0.$$ Note
+    $` 0 `$, with properties
+     ```math \forall \alpha \in \mathbb{V}, \:\:\: \alpha + 0 = \alpha ``` and
+     ```math \forall \alpha \in \mathbb{V}, \:\:\: 0\times\alpha = 0. ``` Note
     that this is not a number, but a vector (though it could be a number
     if our vector spaces consisted of numbers as constituent vectors).
     The reason we write the number 0 to denote it is because it is the
-    most sensible notation. Similarly, the identity vector $I$
+    most sensible notation. Similarly, the identity vector $` I `$
     (sometimes, 1) is defined to be the vector such that
-    $$\forall \alpha \in \mathbb{V}, \:\:\: 1\times\alpha = \alpha.$$
-    Indeed, the labels $0$ and $1$ are reasonable since they are very
-    clearly the vector analogs of the numbers $0$ and $1$.
+     ```math \forall \alpha \in \mathbb{V}, \:\:\: 1\times\alpha = \alpha. ```
+    Indeed, the labels $` 0 `$ and $` 1 `$ are reasonable since they are very
+    clearly the vector analogs of the numbers $` 0 `$ and $` 1 `$.
 
 2.  *Additive closure*: For a defined rule for producing a sum of two
     vectors,
-    $$\forall \alpha,\beta\in\mathbb{V}, \btab \alpha + \beta \in \mathbb{V}.$$
+     ```math \forall \alpha,\beta\in\mathbb{V}, \btab \alpha + \beta \in \mathbb{V}. ```
     The fact that the sum of any of the vectors in the vector space is
     another vector in the vector space means the set is **complete**,
     and will be a very important point for our requirements, owing to
     the superposition principle.
 
 3.  *Commutative property of addition*: For a defined rule for producing
-    a sum of two vectors, $$\alpha + \beta =  \beta +  \alpha.$$
+    a sum of two vectors,  ```math \alpha + \beta =  \beta +  \alpha. ```
 
 4.  *Associative property of addition*: For a defined rule for producing
     a sum of two vectors,
-    $$\alpha + (\beta +\gamma) =  (\alpha + \beta) +\gamma.$$
+     ```math \alpha + (\beta +\gamma) =  (\alpha + \beta) +\gamma. ```
 
-5.  *Additive inverses*: For every vector $\alpha$, there exists a
-    unique additive inverse vector $-\alpha$ such that
-    $$\alpha + -\alpha = 0.$$
+5.  *Additive inverses*: For every vector $` \alpha `$, there exists a
+    unique additive inverse vector $` -\alpha `$ such that
+     ```math \alpha + -\alpha = 0. ```
 
 6.  *Distributive property of scalar multiplication*: For a defined rule
     for vector multiplication by scalars,
-    $$c(\alpha+ \beta) = c\alpha + c\beta.$$ is the requisite
+     ```math c(\alpha+ \beta) = c\alpha + c\beta. ``` is the requisite
     distributive property for vectors of scalar multiplication of
     vectors. There is also a distributive property for scalars in scalar
     multiplication of vectors, which is similar:
-    $$(c_1+c_2)\alpha = c_1\alpha + c_2 \alpha.$$
+     ```math (c_1+c_2)\alpha = c_1\alpha + c_2 \alpha. ```
 
 7.  *Associative property of scalar multiplication*: For a defined rule
     for vector multiplication by scalars,
-    $$c_1(c_2\alpha)=c_1c_2\alpha.$$
+     ```math c_1(c_2\alpha)=c_1c_2\alpha. ```
 
 Most of these properties are hardly unusual to us and do not require
 much thought, such as the associative properties, because it is unlikely
@@ -472,7 +472,7 @@ There is no need to further explain the coordinate system-- only that
 clearly it does satisfy all the rules above for a vector space
 (including that of additive inverses, when we include the negative y and
 x axis). This vector space is known as the coordinate representation of
-$\mathbb{R}^2$: the 2-dimensional (hence the exponent 2) real-valued
+$` \mathbb{R}^2 `$: the 2-dimensional (hence the exponent 2) real-valued
 (taking real values only) vector space: where the constituent vectors
 are numbers!\
 \
@@ -482,20 +482,20 @@ easy to say why they qualify as dimensions. The answer lies in the
 definition of **linear independence**, where from will follow this idea
 of a basis we need.\
 \
-A set of $n$ linearly independent vectors $\alpha_{i}$ is defined
+A set of $` n `$ linearly independent vectors $` \alpha_{i} `$ is defined
 mathematically as follows:
-$$\sum_{i=1}^{n}c_{i}\alpha_{i}=0 \Rightarrow\:\:\: \forall i, \:\:\: c_{i}=0.$$
+ ```math \sum_{i=1}^{n}c_{i}\alpha_{i}=0 \Rightarrow\:\:\: \forall i, \:\:\: c_{i}=0. ```
 In words, there is no nontrivial combination of linearly independent
-vectors which equals $0$ when summed together-- a trivial combination
+vectors which equals $` 0 `$ when summed together-- a trivial combination
 would occur where all the multiplicative coefficients are 0. If a linear
 combination of linearly independent vectors sums to zero then it implies
 that the coefficients in the combination must be zero. If there exists
 some combination without all the coefficients equalling 0, then the
 vectors are not linearly independent.\
 \
-Let's consider a few examples, using $2\times2$ square matrices as
-vectors and the $2\times2$ null matrix as the 0 vector. If
-$$\alpha_{1} = \begin{bmatrix}
+Let's consider a few examples, using $` 2\times2 `$ square matrices as
+vectors and the $` 2\times2 `$ null matrix as the 0 vector. If
+ ```math \alpha_{1} = \begin{bmatrix}
     1 & 0 \\
     0 & 0 \\
     \end{bmatrix}, \:\:
@@ -510,9 +510,9 @@ $$\alpha_{1} = \begin{bmatrix}
 \alpha_{4} = \begin{bmatrix}
     0 & 0 \\
     0 & 4 \\
-    \end{bmatrix}$$ and we set some combination with coefficients
-$\setof{c_{i}}$ $$\sum_{i=0}^{4}c_{i}\alpha_{i} = 0,$$ then
-$$\begin{aligned}
+    \end{bmatrix} ``` and we set some combination with coefficients
+$` \setof{c_{i}} `$  ```math \sum_{i=0}^{4}c_{i}\alpha_{i} = 0, ``` then
+ ```math \begin{aligned}
 c_{1}\alpha_{1} &= c_{1}\begin{bmatrix}
     1 & 0 \\
     0 & 0 \\
@@ -541,9 +541,9 @@ c_{1} & 2c_{2} \\
 0 & 0 \\
 0 & 0 \\
 \end{bmatrix}\\
-\end{aligned}$$ so we can see that we necessarily must have
-$$c_{1}=c_{2}=c_{3}=c_{4}=0$$ and therefore
-$$\alpha_{1} = \begin{bmatrix}
+\end{aligned} ``` so we can see that we necessarily must have
+ ```math c_{1}=c_{2}=c_{3}=c_{4}=0 ``` and therefore
+ ```math \alpha_{1} = \begin{bmatrix}
     1 & 0 \\
     0 & 0 \\
     \end{bmatrix}, \:\:
@@ -558,9 +558,9 @@ $$\alpha_{1} = \begin{bmatrix}
 \alpha_{4} = \begin{bmatrix}
     0 & 0 \\
     0 & 4 \\
-    \end{bmatrix}$$ are linearly independent vectors.\
+    \end{bmatrix} ``` are linearly independent vectors.\
 \
-On the contrary, if $$\beta_{1} = \begin{bmatrix}
+On the contrary, if  ```math \beta_{1} = \begin{bmatrix}
     -1 & 0 \\
     5 & 10 \\
     \end{bmatrix}, \:\:
@@ -571,8 +571,8 @@ On the contrary, if $$\beta_{1} = \begin{bmatrix}
 \beta_{3}= \begin{bmatrix}
     2 & 7 \\
     4 & 1 \\
-    \end{bmatrix}$$ Then $c_1=1, \:\: c_2=7, \:\: c_{3}=-3$ gives
-$$\begin{aligned}
+    \end{bmatrix} ``` Then $` c_1=1, \:\: c_2=7, \:\: c_{3}=-3 `$ gives
+ ```math \begin{aligned}
 c_{1}\beta_{1}+c_2\beta_{2}+c_3\beta_{3}
 &=  1\begin{bmatrix}
     -1 & 0 \\
@@ -600,9 +600,9 @@ c_{1}\beta_{1}+c_2\beta_{2}+c_3\beta_{3}
 0 & 0 \\
 0 & 0 \\
 \end{bmatrix}=0
-\end{aligned}$$ which is a nontrivial combination of the vectors
-$\beta_{1}$, $\beta_{2}$, $\beta_{3}$ as the coefficients are not all 0.
-Therefore, $$\beta_{1} = \begin{bmatrix}
+\end{aligned} ``` which is a nontrivial combination of the vectors
+$` \beta_{1} `$, $` \beta_{2} `$, $` \beta_{3} `$ as the coefficients are not all 0.
+Therefore,  ```math \beta_{1} = \begin{bmatrix}
     -1 & 0 \\
     5 & 10 \\
     \end{bmatrix}, \:\:
@@ -613,64 +613,64 @@ Therefore, $$\beta_{1} = \begin{bmatrix}
 \beta_{3} = \begin{bmatrix}
     2 & 7 \\
     4 & 1 \\
-    \end{bmatrix}$$ are not linearly independent vectors (we say
+    \end{bmatrix} ``` are not linearly independent vectors (we say
 therefore they are linearly dependent) since there exists at least one
-nontrivial linear combination of them which sums to make the $0$
+nontrivial linear combination of them which sums to make the $` 0 `$
 vector.\
 \
 Now that we have established this definition of linear dependence,
 defining the dimensions of a vector space is simple. We have 3 crucial
 definitions and theorems:
 
-1.  An $n$-dimensional vector space contains $n$ linearly independent
+1.  An $` n `$-dimensional vector space contains $` n `$ linearly independent
     vectors.
 
-2.  The set of $n$ linearly independent vectors in the $n$-dimensional
+2.  The set of $` n `$ linearly independent vectors in the $` n `$-dimensional
     vector space is called the **basis** of the vector space.
 
-3.  Each vector $V$ in an $n$-dimensional vector space with basis\
-    $\mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\}$ can be expressed
-    as $$V=\sum_{i=0}^{n}c_{i}\alpha_{i},$$ a unique linear combination
-    of the linearly independent basis vectors. The coefficients $c_{i}$
-    of the expansion for $V$ are called the **components** of the vector
-    $V$ in the basis.
+3.  Each vector $` V `$ in an $` n `$-dimensional vector space with basis\
+    $` \mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\} `$ can be expressed
+    as  ```math V=\sum_{i=0}^{n}c_{i}\alpha_{i}, ``` a unique linear combination
+    of the linearly independent basis vectors. The coefficients $` c_{i} `$
+    of the expansion for $` V `$ are called the **components** of the vector
+    $` V `$ in the basis.
 
-Definition $3$ contains two assertions. The first statement is that each
-vector $V$ in an $n$-dimensional vector space with basis
-$\mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\}$ can be expressed as
-$$V=\sum_{i=0}^{n}c_{i}\alpha_{i}$$ for some scalar coefficients
-$\setof{c_{i}}$. This can be proved by contradiction. Assume that in the
-$n$-dimensional vector space with basis
-$\mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\}$ there exists some
-vector $V$ which is not a linear combination of the basis vectors.
-Clearly $\forall j, \:\:\: V \neq \alpha_{j} \in \mathbb{B}$ since
+Definition $` 3 `$ contains two assertions. The first statement is that each
+vector $` V `$ in an $` n `$-dimensional vector space with basis
+$` \mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\} `$ can be expressed as
+ ```math V=\sum_{i=0}^{n}c_{i}\alpha_{i} ``` for some scalar coefficients
+$` \setof{c_{i}} `$. This can be proved by contradiction. Assume that in the
+$` n `$-dimensional vector space with basis
+$` \mathbb{B}= \{\alpha_1, \alpha_2, ...\alpha_n\} `$ there exists some
+vector $` V `$ which is not a linear combination of the basis vectors.
+Clearly $` \forall j, \:\:\: V \neq \alpha_{j} \in \mathbb{B} `$ since
 otherwise the linear combination
-$$1\times\alpha_{j}(x)+ \sum_{i=0\neq j}^{n}0\times\alpha_{i}=V$$ would
-immediately violate the assumptions about $V$ not being able to be
+ ```math 1\times\alpha_{j}(x)+ \sum_{i=0\neq j}^{n}0\times\alpha_{i}=V ``` would
+immediately violate the assumptions about $` V `$ not being able to be
 expressed as a linear combination of the basis vectors. But then this
-would mean that all the coefficients $c_{i}$ are $0$ since any
+would mean that all the coefficients $` c_{i} `$ are $` 0 `$ since any
 coefficient being nonzero would create a valid linear combination of
-basis vectors equalling the vector ${V}$, and so
-$$V=\sum_{i=0}^{n}0\times\alpha_{i} + V$$ but then:
-$$\sum_{i=0}^{n}c_{i}\alpha_{i} + c_{n+1}V= 0 \Rightarrow\:\:\: c_{n+1}V=-\sum_{i=0}^{n}c_{i}\alpha_{i},$$
+basis vectors equalling the vector $` {V} `$, and so
+ ```math V=\sum_{i=0}^{n}0\times\alpha_{i} + V ``` but then:
+ ```math \sum_{i=0}^{n}c_{i}\alpha_{i} + c_{n+1}V= 0 \Rightarrow\:\:\: c_{n+1}V=-\sum_{i=0}^{n}c_{i}\alpha_{i}, ```
 which is,
-$$V=-\sum_{i=0}^{n}\left(\frac{c_{i}}{c_{n+1}}\right)\alpha_{i}.$$ This
-then violates the assumption that $V$ cannot be expressed as a linear
-combination of the basis vectors since the coefficients $c_{i}/c_{n+1}$
-corresponding to basis vectors $\alpha_{i}$ would give a valid linear
-combination producing $V$. The only way this would not be true would be
-if $c_{n+1}=0$. In other words, if we want our assumption to hold true,
+ ```math V=-\sum_{i=0}^{n}\left(\frac{c_{i}}{c_{n+1}}\right)\alpha_{i}. ``` This
+then violates the assumption that $` V `$ cannot be expressed as a linear
+combination of the basis vectors since the coefficients $` c_{i}/c_{n+1} `$
+corresponding to basis vectors $` \alpha_{i} `$ would give a valid linear
+combination producing $` V `$. The only way this would not be true would be
+if $` c_{n+1}=0 `$. In other words, if we want our assumption to hold true,
 we get
-$$\sum_{i=0}^{n}c_{i}\alpha_{i} + c_{n+1}V= 0 \Rightarrow\:\:\: c_{n+1}=0\Rightarrow\:\:\:\sum_{i=0}^{n}c_{i}\alpha_{i}=0\Rightarrow\:\:\:\forall\stab i, c_{i}=0.$$
-By definition, therefore, in order for the assumption to be true $V$
+ ```math \sum_{i=0}^{n}c_{i}\alpha_{i} + c_{n+1}V= 0 \Rightarrow\:\:\: c_{n+1}=0\Rightarrow\:\:\:\sum_{i=0}^{n}c_{i}\alpha_{i}=0\Rightarrow\:\:\:\forall\stab i, c_{i}=0. ```
+By definition, therefore, in order for the assumption to be true $` V `$
 must be a vector linearly independent from the other basis vectors since
 there is no non-trivial combination of the linearly independent basis
-vectors and the new vector $V$ which sums to the null vector. This
-however means there is a contradiction since we defined $V$ to be a
-vector in the $n$-dimensional space, but adding the new vector $V$ would
-mean there are $n+1$ linearly independent vectors in an $n$-dimensional
+vectors and the new vector $` V `$ which sums to the null vector. This
+however means there is a contradiction since we defined $` V `$ to be a
+vector in the $` n `$-dimensional space, but adding the new vector $` V `$ would
+mean there are $` n+1 `$ linearly independent vectors in an $` n `$-dimensional
 space: defined in Definition 1 to be impossible. Therefore any vector
-${V}$ which is not a linear combination of the basis vectors cannot
+$` {V} `$ which is not a linear combination of the basis vectors cannot
 exist in the vector space; all the vectors in the vector space must be
 able to be expressed by a linear combination of the basis vectors. We
 say that the basis (which we must remember is the *set* of vectors and
@@ -679,17 +679,17 @@ space, because all vectors in the vector space can be created by some
 linear combination of the constituent basis vectors of that basis.\
 \
 The second simple but important theorem to prove is that the expansion
-for any given vector $V$ $$V = \sum_{i=0}^{n}c_{i}\alpha_{i}$$ is
+for any given vector $` V `$  ```math V = \sum_{i=0}^{n}c_{i}\alpha_{i} ``` is
 unique. We again prove this by contradiction. Assume
-$$V = \sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}c'_{i}\alpha_{i}$$ for
-$\setof{c_{i}} \neq \setof{c'_{i}}$. Then, for basis vectors
-$\alpha_{i} \neq 0$, $$\begin{aligned}
+ ```math V = \sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}c'_{i}\alpha_{i} ``` for
+$` \setof{c_{i}} \neq \setof{c'_{i}} `$. Then, for basis vectors
+$` \alpha_{i} \neq 0 `$,  ```math \begin{aligned}
 V - V = 0= &\sum_{i=0}^{n}c_{i}\alpha_{i}-\sum_{i=0}^{n}c'_{i}\alpha_{i}=\sum_{i=0}^{n}(c_{i}-c'_{i})\alpha_{i}.
-\end{aligned}$$ However, this combination of basis vectors is equal to
-${0}$, but the basis vectors $\setof{\alpha_{i}}$ are linearly
+\end{aligned} ``` However, this combination of basis vectors is equal to
+$` {0} `$, but the basis vectors $` \setof{\alpha_{i}} `$ are linearly
 independent so necessarily this implies the new coefficients
-$\setof{c_{i}-c'_{i}}$ are $0$. So
-$$\forall i, \:\: (c_{i}-c'_{i})=0 \Rightarrow\:\: c_{i} = c'_{i}$$ a
+$` \setof{c_{i}-c'_{i}} `$ are $` 0 `$. So
+ ```math \forall i, \:\: (c_{i}-c'_{i})=0 \Rightarrow\:\: c_{i} = c'_{i} ``` a
 clear contradiction with the original assumption that the coefficients
 could be different and thereby produce more than one unique way of
 expressing a vector in the basis. So indeed, each vector in a vector
@@ -701,9 +701,9 @@ New definitions follow:
 1.  The basis is the set of vectors spanning the vector space.
 
 2.  For each constituent vector in the vector space with basis
-    $\setof{\alpha_{i}}$ defined to be
-    $V:=\sum_{i=0}^{n}c_{i}\alpha_{i}$, we call the coefficients
-    $\setof{c_{i}}$ the **components** of the vector in that basis.
+    $` \setof{\alpha_{i}} `$ defined to be
+    $` V:=\sum_{i=0}^{n}c_{i}\alpha_{i} `$, we call the coefficients
+    $` \setof{c_{i}} `$ the **components** of the vector in that basis.
 
 3.  The sum which uniquely defines a vector of the vector space in a
     given basis is called its **expansion** in that basis.
@@ -723,22 +723,22 @@ basis, we can uniquely specify that vector. Then, with this knowledge of
 unique expansions in mind, we can define the rules for the simple
 operations addition, subtraction and multiplication in a vector space:\
 \
-To multiply a vector $V$ by scalar $k$, we multiply its components each
-by scalar $k$:
-$$kV = k\sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}kc_{i}\alpha_{i}.$$\
-To sum two vectors $V=\sum_{i=0}^{n}c_{i}\alpha_{i}$ and
-$W=\sum_{i=0}^{n}c'_{i}\alpha_{i}$ we sum their components:
-$$V + W = \sum_{i=0}^{n}c_{i}\alpha_{i}+\sum_{i=0}^{n}c'_{i}\alpha_{i} = \sum_{i=0}^{n}(c_{i}+c'_{i})\alpha_{i},$$
+To multiply a vector $` V `$ by scalar $` k `$, we multiply its components each
+by scalar $` k `$:
+ ```math kV = k\sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}kc_{i}\alpha_{i}. ```\
+To sum two vectors $` V=\sum_{i=0}^{n}c_{i}\alpha_{i} `$ and
+$` W=\sum_{i=0}^{n}c'_{i}\alpha_{i} `$ we sum their components:
+ ```math V + W = \sum_{i=0}^{n}c_{i}\alpha_{i}+\sum_{i=0}^{n}c'_{i}\alpha_{i} = \sum_{i=0}^{n}(c_{i}+c'_{i})\alpha_{i}, ```
 which is a new expansion uniquely specifying a new vector in the vector
-space, and for subtraction of $W$ from $V$ we subtract the components of
-$W$ from the corresponding components of $V$:
-$$V - W = \sum_{i=0}^{n}c_{i}\alpha_{i}-\sum_{i=0}^{n}c'_{i}\alpha_{i} = \sum_{i=0}^{n}(c_{i}-c'_{i})\alpha_{i}$$
+space, and for subtraction of $` W `$ from $` V `$ we subtract the components of
+$` W `$ from the corresponding components of $` V `$:
+ ```math V - W = \sum_{i=0}^{n}c_{i}\alpha_{i}-\sum_{i=0}^{n}c'_{i}\alpha_{i} = \sum_{i=0}^{n}(c_{i}-c'_{i})\alpha_{i} ```
 which is also a new expansion uniquely specifying a new vector in the
 vector space. The additive inverse is obtained by multiplying a vector
 by the negative identity:
-$$W=\sum_{i=0}^{n}c'_{i}\alpha_{i} \implies -W=\sum_{i=0}^{n}-c'_{i}\alpha_{i},$$
+ ```math W=\sum_{i=0}^{n}c'_{i}\alpha_{i} \implies -W=\sum_{i=0}^{n}-c'_{i}\alpha_{i}, ```
 multiplying by the null vector means multiplying all the coefficients by
-$0$ (creating the null vector, as expected), and multiplying by the
+$` 0 `$ (creating the null vector, as expected), and multiplying by the
 identity means doing nothing to the components, resulting in the same
 vector.
 
@@ -796,30 +796,30 @@ be governed by:
 
 -   Range: Complex numbers (the components).
 
-We could write the component function as $$f(x)$$ with the argument
-represented by $x$ as most functions tend to be expressed without $x$
+We could write the component function as  ```math f(x) ``` with the argument
+represented by $` x `$ as most functions tend to be expressed without $` x `$
 needing to represent anything in particular other than just being an
 input from the domain from the function. The reader understands and
 despite the new mathematics remembers, of course, that the function
-$f(x)=x^2$ is simply the quadratic function and the $x$ is nothing but
+$` f(x)=x^2 `$ is simply the quadratic function and the $` x `$ is nothing but
 the placeholder variable. In quantum mechanics, the arbitrary argument
-$x$ will become potentially confusing when we work with the position
-observable, also represented by $x$. Therefore, I will add a subscript
+$` x `$ will become potentially confusing when we work with the position
+observable, also represented by $` x `$. Therefore, I will add a subscript
 to the component function which is the of our basis vectors: in a basis
-consisting of vectors $\setof{\alpha_{i}}$, the letter is $\alpha$, and
-for basis vectors $\setof{\gamma_{i}}$ the letter would be $\gamma$. So
-we can define the function $\kappa_{\alpha}(x)$ to be the component
-function in the so called $\alpha$-basis. The rules would be
-$$\kappa_{\alpha}(x):\setof{\alpha_{i}}\mapsto\mathbb{C},\mtab \kappa_{\alpha}(\alpha_{j})=c_{j}$$
+consisting of vectors $` \setof{\alpha_{i}} `$, the letter is $` \alpha `$, and
+for basis vectors $` \setof{\gamma_{i}} `$ the letter would be $` \gamma `$. So
+we can define the function $` \kappa_{\alpha}(x) `$ to be the component
+function in the so called $` \alpha `$-basis. The rules would be
+ ```math \kappa_{\alpha}(x):\setof{\alpha_{i}}\mapsto\mathbb{C},\mtab \kappa_{\alpha}(\alpha_{j})=c_{j} ```
 where this component function must be linked to some vector (otherwise
-$c_{j}$ would not be defined) which here is
-$$V:=\sum_{i=1}^{n}c_{i}\alpha_{i}$$ The most important thing to
+$` c_{j} `$ would not be defined) which here is
+ ```math V:=\sum_{i=1}^{n}c_{i}\alpha_{i} ``` The most important thing to
 remember is that the inputs of component functions linked to vectors are
 always basis vectors, rather than numerical values as we are used to. It
 should be clear that it still qualifies as a function, because it has a
 mapping, a domain and a range.\
 \
-The sum term in the earlier expansion of the vector $V$ clearly
+The sum term in the earlier expansion of the vector $` V `$ clearly
 indicated we were working in a discrete basis. This, we shall see, is a
 limitation we will keep all the way until Chapter 7, because it makes
 everything much simpler and more controlled, and dealing with the
@@ -846,8 +846,8 @@ the First Postulate of Quantum Mechanics.\
 \
 [**Postulate 1: The State Vector and its Wavefunctions**]{.underline}\
 \
-Any physical states at time $t$ can be represented by a state vector
-$\Psi_{t}$. State vectors are complex-valued vectors which stand in a
+Any physical states at time $` t `$ can be represented by a state vector
+$` \Psi_{t} `$. State vectors are complex-valued vectors which stand in a
 bijection with vectors in a Hilbert space, which we call the state
 space; state vectors can be transformed into unique probability
 distribution functions, called wavefunctions, to give probabilities of
@@ -895,8 +895,8 @@ vectors-- everything else is predicated on this postulate!
     important employments of this relationship between two sets: the
     first, for labelling, and the second, for substituting. The
     labelling function of the state vector is very clear. Normally a
-    capital Psi, $\Psi$, is used, and we can simply say , just like we
-    can say . We know that every $\Psi$ is unique and in bijection to
+    capital Psi, $` \Psi `$, is used, and we can simply say , just like we
+    can say . We know that every $` \Psi `$ is unique and in bijection to
     each state, so it acts well as a unique label.\
     \
     As a substitute for physical states, we have said that the main goal
@@ -917,9 +917,9 @@ vectors-- everything else is predicated on this postulate!
 
 2.  Time is an important factor, of course, to the state problem, but it
     represented here by a subscript rather than a variable in
-    $\Psi_{t}$. The subscript is also helpful to remember that each
+    $` \Psi_{t} `$. The subscript is also helpful to remember that each
     state vector represents a physical state at an instantaneous time
-    $t$ (since any state only exists at a single time before it
+    $` t `$ (since any state only exists at a single time before it
     transforms into a new state). Mainly because we are still covering
     the state problem, it is unwise to consider time too much while
     there is so much to learn with regards to the encapsulation and
@@ -927,15 +927,15 @@ vectors-- everything else is predicated on this postulate!
     quantum states we will have takes place at one instance of time.\
     \
     However, there is more commonly in quantum mechanics the notation
-    $$\Psi(t),$$ representing the state vector as a function of time.
+     ```math \Psi(t), ``` representing the state vector as a function of time.
     This doesn't mean the state vector is something like
-    $$\Psi(t)=t^2,$$ but rather that $$\Psi(t)=\Psi_{t}.$$ In other
+     ```math \Psi(t)=t^2, ``` but rather that  ```math \Psi(t)=\Psi_{t}. ``` In other
     words, the function notation is just a shorthand of referring to the
     same isolated system across different moments in time, where
     inputting a time value gives the state vector at that time. This is
     the same idea that we are using, but just more concise, so there is
     no need to get confused if we see this written elsewhere. Again, we
-    are dealing with stationary states, so the notation $\Psi_{t}$ is
+    are dealing with stationary states, so the notation $` \Psi_{t} `$ is
     valid, intuitive and sufficient especially in these stationary
     cases.
 
@@ -954,7 +954,7 @@ vectors-- everything else is predicated on this postulate!
     \
     This seems like a terribly semantically pedantic discussion, but
     there will be times where readers get confused by the difference
-    between $A$ is $B$ and $A$ is in a bijection with $B$. With this
+    between $` A `$ is $` B `$ and $` A `$ is in a bijection with $` B `$. With this
     clarification it is hoped such confusions are eliminated in the mind
     of the reader. So long as one follows the mathematics, the answer to
     the difference discussed above will always be clear, and this
@@ -968,10 +968,10 @@ vectors-- everything else is predicated on this postulate!
     with the functionalities they provide. Therefore, the phrase would
     be perfectly acceptable.
 
-4.  This book will use the letter $\psi$ ubiquitously both in its upper
-    case form ($\Psi$) and its lower case form ($\psi$). When a reader
-    sees the capital letter $\Psi$, we are referring to a state vector.
-    The capital $\Psi$ will never be used to denote anything which is
+4.  This book will use the letter $` \psi `$ ubiquitously both in its upper
+    case form ($` \Psi `$) and its lower case form ($` \psi `$). When a reader
+    sees the capital letter $` \Psi `$, we are referring to a state vector.
+    The capital $` \Psi `$ will never be used to denote anything which is
     not a state.
 
 5.  Though I have said the state space is infinite dimensional, we will
@@ -994,7 +994,7 @@ product operation, in more detail.
 ### The State Space
 
 The vector space relevant to quantum mechanics is a Hilbert space
-$\mathscr{H}$, which contains all the state vectors corresponding to
+$` \mathscr{H} `$, which contains all the state vectors corresponding to
 possible states. It turns out that we do not have to worry about the
 name of the space too much: even though Hilbert spaces very much
 constitute their own mathematical field with much deep analysis and
@@ -1063,7 +1063,7 @@ matter how we choose to see it or portray it, and to give it a single
 specific form, we need to pick a basis, which is equivalent to picking a
 coordinate system in the example above. It does not have a form until we
 pick a basis. So if we ever see the statement that the state vector is
-$$\Psi(x)=cx^{2}$$ (for example), then we should immediately realise
+ ```math \Psi(x)=cx^{2} ``` (for example), then we should immediately realise
 that this statement implies some underlying basis, because there must be
 some basis in order for it to have this explicit algebraic form.
 Otherwise, there would be no way we could express the state vector as a
@@ -1094,7 +1094,7 @@ unique expansion, and a unique expansion corresponds to a single vector,
 and only one.\
 \
 The component function of a state vector is called a **wavefunction**,
-denoted by a lower case $\psi$. This, because it outputs scalar
+denoted by a lower case $` \psi `$. This, because it outputs scalar
 components, will be how we give the abstract state vector explicit
 forms.\
 \
@@ -1120,15 +1120,15 @@ common in quantum mechanics as multiplication in arithmetic.
 ### Inner Products
 
 Suppose we are working in a basis. There then exists a new operation,
-called the **inner product**, between two state vectors $\Psi_{1}$ and
-$\Psi_{2}$ in the state space. This inner product is denoted as
-$\oip{\Psi_{1}}{\Psi_{2}}$ and is defined to be:
-$$\oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{x\}}\bar{\psi}_{1}^{\ast}\bar{\psi}_{2}\equiv\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i}$$
-for components $\setof{c^{(1)}_{i}}$ for $\Psi_{1}$ and components
-$\setof{c^{(2)}_{i}}$ for $\Psi_{2}$ .\
+called the **inner product**, between two state vectors $` \Psi_{1} `$ and
+$` \Psi_{2} `$ in the state space. This inner product is denoted as
+$` \oip{\Psi_{1}}{\Psi_{2}} `$ and is defined to be:
+ ```math \oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{x\}}\bar{\psi}_{1}^{\ast}\bar{\psi}_{2}\equiv\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i} ```
+for components $` \setof{c^{(1)}_{i}} `$ for $` \Psi_{1} `$ and components
+$` \setof{c^{(2)}_{i}} `$ for $` \Psi_{2} `$ .\
 \
 We will see more often
-$$\oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i}$$
+ ```math \oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i} ```
 because there is no need to involve the discrete wavefunction in things
 when components are easy to track in the discrete case. This form is
 also very illustrative: it shows us that all the inner product is doing
@@ -1142,7 +1142,7 @@ this point is not important.\
 Next, most of the time the inner product is non-commutative- the order
 matters. In fact, since we have the definition above, it is very easy to
 see that what we must have is the relationship
-$$\oip{\Psi_{1}}{\Psi_{2}}=\oip{\Psi_{2}}{\Psi_{1}}^{\ast}.$$ regardless
+ ```math \oip{\Psi_{1}}{\Psi_{2}}=\oip{\Psi_{2}}{\Psi_{1}}^{\ast}. ``` regardless
 if we try to see this in the discrete case or continuous case. This is
 an essential short-form fact to memorise, as it will return in algebraic
 manipulations. Now we list a few more facts about the inner product:
@@ -1151,58 +1151,58 @@ manipulations. Now we list a few more facts about the inner product:
     inner product. We will always use the short-form of it, but
     expressing the inner product in sum form makes everything completely
     clear:
-    $$\oip{\Psi_{1}}{c\Psi_{2}}=\sum_{i=1}^{n}c^{(1)\ast}_{i}cc^{(2)}_{i} = c\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(2)}_{i}=c\oip{\Psi_{1}}{\Psi_{2}}$$
+     ```math \oip{\Psi_{1}}{c\Psi_{2}}=\sum_{i=1}^{n}c^{(1)\ast}_{i}cc^{(2)}_{i} = c\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(2)}_{i}=c\oip{\Psi_{1}}{\Psi_{2}} ```
     and
-    $$\oip{c\Psi_{1}}{\Psi_{2}}=\sum_{i=1}^{n}c^{\ast}c^{(1)\ast}_{i}c^{(2)}_{i} = c^{\ast}\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(2)}_{i}=c^{\ast}\oip{\Psi_{1}}{\Psi_{2}}.$$
+     ```math \oip{c\Psi_{1}}{\Psi_{2}}=\sum_{i=1}^{n}c^{\ast}c^{(1)\ast}_{i}c^{(2)}_{i} = c^{\ast}\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(2)}_{i}=c^{\ast}\oip{\Psi_{1}}{\Psi_{2}}. ```
     The short-form facts are simply
-    $$\oip{\Psi_{1}}{c\Psi_{2}}=c\oip{\Psi_{1}}{\Psi_{2}},\:\:\:\: \oip{c\Psi_{1}}{\Psi_{2}}=c^{\ast}\oip{\Psi_{1}}{\Psi_{2}}.$$
+     ```math \oip{\Psi_{1}}{c\Psi_{2}}=c\oip{\Psi_{1}}{\Psi_{2}},\:\:\:\: \oip{c\Psi_{1}}{\Psi_{2}}=c^{\ast}\oip{\Psi_{1}}{\Psi_{2}}. ```
 
 2.  We now define the **norm** of a vector to be the inner product of
     the vector with itself:
-    $$\oip{\Psi_{1}}{\Psi_{1}}:=\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(1)}_{i}=\sum_{i=1}^{n}|c^{(1)}_{i}|^2.$$
+     ```math \oip{\Psi_{1}}{\Psi_{1}}:=\sum_{i=1}^{n}c^{(1)\ast}_{i}c^{(1)}_{i}=\sum_{i=1}^{n}|c^{(1)}_{i}|^2. ```
     The modulus squared of a complex number is always real nonnegative
-    so the same applies here. The norm of a vector being $0$ also would
+    so the same applies here. The norm of a vector being $` 0 `$ also would
     imply that the vector is the null vector since all the components
     would be 0. Taking this further, we require that every vector in the
-    state space $\mathscr{H}$ must have finite norm, and that every
+    state space $` \mathscr{H} `$ must have finite norm, and that every
     vector which satisfies the other conditions and does have finite
     norm is a vector in the state space. That is,
-    $$\oip{\Psi_{1}}{\Psi_{1}}=\sum_{i=1}^{n}|c^{(1)}_{i}|^2<\infty.$$
+     ```math \oip{\Psi_{1}}{\Psi_{1}}=\sum_{i=1}^{n}|c^{(1)}_{i}|^2<\infty. ```
     Next, as
-    $$\oip{\psi_{1}}{\psi_{2}}=\oip{\psi_{2}}{\psi_{1}}^{\ast},$$ we
+     ```math \oip{\psi_{1}}{\psi_{2}}=\oip{\psi_{2}}{\psi_{1}}^{\ast}, ``` we
     must have
-    $$\oip{\psi}{\psi}=\oip{\psi}{\psi}^{\ast}\implies \oip{\psi}{\psi}\in\R.$$
+     ```math \oip{\psi}{\psi}=\oip{\psi}{\psi}^{\ast}\implies \oip{\psi}{\psi}\in\R. ```
     The *positive semidefinite metric* postulate further states that:
-    $$\oip{\psi}{\psi} \geq 0$$ and
-    $$\oip{\psi}{\psi} = 0 \iff\:\: \psi = 0.$$
+     ```math \oip{\psi}{\psi} \geq 0 ``` and
+     ```math \oip{\psi}{\psi} = 0 \iff\:\: \psi = 0. ```
 
 3.  []{#LDip label="LDip"} Another important rule which is immensely
     helpful in solving quantum mechanical problems is that inner
     products can distribute linearly over a sum. This can be again shown
-    by writing out the sum form: $$\begin{aligned}
+    by writing out the sum form:  ```math \begin{aligned}
         \oip{\Psi_{1}}{a\Psi_{2}+b\Psi_{3}}&=\sum_{i=1}^{n}c^{(1)\ast}_{i}(ac^{(2)}_{i}+bc^{(3)}_{i})=\sum_{i=1}^{n}c^{(1)\ast}_{i}ac^{(2)}_{i}+\sum_{i=1}^{n}c^{(1)\ast}_{i}bc^{(3)}_{i}\\
         &=\oip{\Psi_{1}}{a\Psi_{2}}+\oip{\Psi_{1}}{b\Psi_{3}}=a\oip{\Psi_{1}}{\Psi_{2}}+b\oip{\Psi_{1}}{\Psi_{3}}.
-        \end{aligned}$$ Similarly, $$\begin{aligned}
+        \end{aligned} ``` Similarly,  ```math \begin{aligned}
         \oip{\Psi_{1}}{a\Psi_{2}+b\Psi_{3}}&=\sum_{i=1}^{n}(ac^{(2)}_{i}+bc^{(3)}_{i})^{\ast}c^{(1)}_{i}=\sum_{i=1}^{n}a^{\ast}c^{(2)\ast}_{i}c^{(1)}_{i}+\sum_{i=1}^{n}b^{\ast}c^{(3)\ast}_{i}c^{(1)}_{i}\\
         &=\oip{\Psi_{1}}{a\Psi_{2}}+\oip{\Psi_{1}}{b\Psi_{3}}=a\oip{\Psi_{1}}{\Psi_{2}}+b\oip{\Psi_{1}}{\Psi_{3}}.
-        \end{aligned}$$ As the sigma summation continues to distribute
+        \end{aligned} ``` As the sigma summation continues to distribute
     over any sum, the facts above can be extended to include more than
     three vectors in an inner product. The short-form facts are:
-    $$\obip{\Psi_{1}}{\sum_{i} c_{i}\Psi_{i}}=\sum_{i}[c_{i}\oip{\Psi_{1}}{\Psi_{i}}]$$
+     ```math \obip{\Psi_{1}}{\sum_{i} c_{i}\Psi_{i}}=\sum_{i}[c_{i}\oip{\Psi_{1}}{\Psi_{i}}] ```
     and
-    $$\obip{\sum_{i} c_{i}\Psi_{i}}{\Psi_{1}}=\sum_{i}[c_{i}^{\ast}\oip{\Psi_{i}}{\Psi_{1}}]$$
+     ```math \obip{\sum_{i} c_{i}\Psi_{i}}{\Psi_{1}}=\sum_{i}[c_{i}^{\ast}\oip{\Psi_{i}}{\Psi_{1}}] ```
 
 4.  The above then leads to more implications. If we define a linear
-    combination of state space vectors $\psi_{1}$ and $\psi_{2}$ with
-    coefficients $c_{1}$ and $c_{2}$, then
-    $$c_{1}\Psi_{1}+c_{2}\Psi_{2}:=\Psi$$ is in the state space as
-    $$\begin{aligned}
+    combination of state space vectors $` \psi_{1} `$ and $` \psi_{2} `$ with
+    coefficients $` c_{1} `$ and $` c_{2} `$, then
+     ```math c_{1}\Psi_{1}+c_{2}\Psi_{2}:=\Psi ``` is in the state space as
+     ```math \begin{aligned}
         \oip{\Psi}{\Psi}&=\oip{c_{1}\Psi_{1}+c_{2}\Psi_{2}}{c_{1}\Psi_{1}+c_{2}\Psi_{2}}\\
         &=c_{1}^{\ast}c_{1}\oip{\Psi_{1}}{\Psi_{1}}+c_{1}^{\ast}c_{2}\oip{\Psi_{1}}{\Psi_{2}}+c_{2}^{\ast}c_{1}\oip{\Psi_{2}}{\Psi_{1}}+ c_{2}^{\ast}c_{2}\oip{\Psi_{2}}{\Psi_{2}}
-        \end{aligned}$$ by separating the summation into the sum of
+        \end{aligned} ``` by separating the summation into the sum of
     these separate inner products (sum) by rule IP 3 of inner products,
     all the constants and inner products above must be finite so the
-    norm of $\Psi$, a linear combination of state space vectors, is
+    norm of $` \Psi `$, a linear combination of state space vectors, is
     finite. This therefore means that for any basis vectors of the state
     space, a linear combination of them is also in the state space. This
     is the formal mathematical justification for why in the state space
@@ -1234,23 +1234,23 @@ basis**: the attribute of basis vectors being orthogonal to each other
 and also normalised. To understand how these vectors span the we will
 need to break down these two characteristics into simple definitions.\
 \
-Two vectors $\alpha$ and $\beta$ are **orthogonal** if the following is
-true: $$\oip{\alpha}{\beta} =  0$$ we also know that this means that
-$$\oip{\beta}{\alpha} = \oip{\alpha}{\beta}^{\ast} = 0$$ and therefore
+Two vectors $` \alpha `$ and $` \beta `$ are **orthogonal** if the following is
+true:  ```math \oip{\alpha}{\beta} =  0 ``` we also know that this means that
+ ```math \oip{\beta}{\alpha} = \oip{\alpha}{\beta}^{\ast} = 0 ``` and therefore
 the order of the inner product does not matter for orthogonal vectors,
-since the complex conjugate of $0$ is still $0$. Meanwhile, a singular
-vector $\tilde{\alpha}$ is said to be **normalised** if it has norm $1$:
-$$\oip{\tilde{\alpha}}{\tilde{\alpha}} = 1.$$ So for an **orthonormal
+since the complex conjugate of $` 0 `$ is still $` 0 `$. Meanwhile, a singular
+vector $` \tilde{\alpha} `$ is said to be **normalised** if it has norm $` 1 `$:
+ ```math \oip{\tilde{\alpha}}{\tilde{\alpha}} = 1. ``` So for an **orthonormal
 basis** of a vector space
-$\mathbb{O}=\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...,\tilde{\alpha_{n}}\}$:
-$$\forall\:\: \tilde{\alpha}_{i},\tilde{\alpha}_{j} \in \mathbb{O}, \:\:\:\:
-\oip{\tilde{\alpha}_{i}}{\tilde{\alpha}_{j}}= \delta_{ij}$$ where
-$\delta_{ij}$ is the **Kronecker delta** (which will appear often in
-quantum mechanics): $$\delta_{ij}=
+$` \mathbb{O}=\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...,\tilde{\alpha_{n}}\} `$:
+ ```math \forall\:\: \tilde{\alpha}_{i},\tilde{\alpha}_{j} \in \mathbb{O}, \:\:\:\:
+\oip{\tilde{\alpha}_{i}}{\tilde{\alpha}_{j}}= \delta_{ij} ``` where
+$` \delta_{ij} `$ is the **Kronecker delta** (which will appear often in
+quantum mechanics):  ```math \delta_{ij}=
 \begin{cases}
 1, &\text{if}\ i=j\\
 0, &\text{if}\ i \neq j
-\end{cases}.$$ In other words, an orthonormal basis set is a basis where
+\end{cases}. ``` In other words, an orthonormal basis set is a basis where
 all the vectors are orthogonal to each other and themselves are
 normalised (note that orthogonality is a property shared by two or more
 vectors, while normalisation is a property of single vectors). If it is
@@ -1268,88 +1268,88 @@ independent vectors can be transformed by a defined procedure into an
 orthonormal set.\
 \
 **Proof- The Gram Schmidt Process**: Let
-$\{\alpha_{1},\alpha_{2},... \alpha_{n}\}$ be a linearly independent
+$` \{\alpha_{1},\alpha_{2},... \alpha_{n}\} `$ be a linearly independent
 basis. We will start by normalising the first vector using a simple
 procedure.\
 \
 Take the first vector, denoted without loss of generality as
-$\alpha_{1}$. Take the norm of the vector,
-$$|\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}.$$ By the positive
+$` \alpha_{1} `$. Take the norm of the vector,
+ ```math |\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}. ``` By the positive
 semidefinite metric, 
 {% raw %}
-$$\begin{aligned}
+ ```math \begin{aligned}
 \oip{\alpha_{1}}{\alpha_{1}} \geq 0 &\implies \:\: \sqrt{\oip{\alpha_{1}}{\alpha_{1}}} \in \mathbb{R}\\
 &\implies \:\: |\alpha_1|^{\ast}=\left(\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}\right)^{\ast}= \sqrt{\oip{\alpha_{1}}{\alpha_{1}}} =|\alpha_1|
-\end{aligned}$$ Then, if we define
-$$\tilde{\alpha}_{1} := \frac{\alpha_{1}}{|\alpha_{1}|}$$ we clearly get
-$$\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} = \frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{\ast}|\alpha_{1}|}=\frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{2}}=1$$
+\end{aligned} ``` Then, if we define
+ ```math \tilde{\alpha}_{1} := \frac{\alpha_{1}}{|\alpha_{1}|} ``` we clearly get
+ ```math \oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} = \frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{\ast}|\alpha_{1}|}=\frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{2}}=1 ```
 {% endraw %}
 because
-$$|\alpha_{1}|^2= \sqrt{\oip{\alpha_{1}}{\alpha_{1}}}^2 = \oip{\alpha_{1}}{\alpha_{1}}.$$
-Therefore, we indeed verify that for any arbitrary vector $\alpha_{1}$
+ ```math |\alpha_{1}|^2= \sqrt{\oip{\alpha_{1}}{\alpha_{1}}}^2 = \oip{\alpha_{1}}{\alpha_{1}}. ```
+Therefore, we indeed verify that for any arbitrary vector $` \alpha_{1} `$
 dividing it by its norm
-$|\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}$ creates a normalised
-vector $\tilde{\alpha}_{1}$ whose inner product with itself is equal
+$` |\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}} `$ creates a normalised
+vector $` \tilde{\alpha}_{1} `$ whose inner product with itself is equal
 to 1. If the vector was already normalised such that
-$\oip{\alpha_{1}}{\alpha_{1}}=1$ then division by its norm
-$\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}$ is equal to division by
-$\sqrt{1}=1$, so it would simply be unchanged by this process and remain
+$` \oip{\alpha_{1}}{\alpha_{1}}=1 `$ then division by its norm
+$` \sqrt{\oip{\alpha_{1}}{\alpha_{1}}} `$ is equal to division by
+$` \sqrt{1}=1 `$, so it would simply be unchanged by this process and remain
 normalised.\
 \
 Now that we have normalised the first vector in our basis, we move on to
-consider the second vector $\alpha_{2}$. Define
-$$\alpha'_{2}:= \alpha_{2}-\tilde{\alpha}_{1} \oip{\tilde{\alpha}_{1}}{\alpha_{2}}.$$
-Is it orthogonal to $\tilde{\alpha}_{1}$? We can verify, remembering
+consider the second vector $` \alpha_{2} `$. Define
+ ```math \alpha'_{2}:= \alpha_{2}-\tilde{\alpha}_{1} \oip{\tilde{\alpha}_{1}}{\alpha_{2}}. ```
+Is it orthogonal to $` \tilde{\alpha}_{1} `$? We can verify, remembering
 fact IP 3 that the inner product distributes linearly:
-$$\oip{{\tilde{\alpha}_{1}}}{\alpha'_{2}}=\oip{\tilde{\alpha}_{1}}{\alpha_{2}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} \oip{\tilde{\alpha}_{1}}{\alpha_{2}}$$
-and since $\tilde{\alpha}_{1}$ is normalised,
-$\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}=1$, so
-$$\oip{{\tilde{\alpha}_{1}}}{\alpha'_{2}}= \oip{\tilde{\alpha}_{1}}{\alpha_{2}}- \oip{\tilde{\alpha}_{1}}{\alpha_{2}}= 0$$
-Therefore $\alpha'_{2}$ is indeed orthogonal to $\tilde{\alpha}_{1}$.
+ ```math \oip{{\tilde{\alpha}_{1}}}{\alpha'_{2}}=\oip{\tilde{\alpha}_{1}}{\alpha_{2}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} \oip{\tilde{\alpha}_{1}}{\alpha_{2}} ```
+and since $` \tilde{\alpha}_{1} `$ is normalised,
+$` \oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}=1 `$, so
+ ```math \oip{{\tilde{\alpha}_{1}}}{\alpha'_{2}}= \oip{\tilde{\alpha}_{1}}{\alpha_{2}}- \oip{\tilde{\alpha}_{1}}{\alpha_{2}}= 0 ```
+Therefore $` \alpha'_{2} `$ is indeed orthogonal to $` \tilde{\alpha}_{1} `$.
 Now we can run the normalisation procedure:
-$$\tilde{{\alpha_{2}}}:= \frac{\alpha'_{2}}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}$$
-This is still clearly orthogonal to $\tilde{\alpha}_{1}$ because of how
-we defined $\alpha'_{2}$. This time, we just get instead:
-$$\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{2}}=\frac{\oip{\tilde{\alpha}_{1}}{\alpha'_{2}}}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}=\frac{0}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}=0.$$\
+ ```math \tilde{{\alpha_{2}}}:= \frac{\alpha'_{2}}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}} ```
+This is still clearly orthogonal to $` \tilde{\alpha}_{1} `$ because of how
+we defined $` \alpha'_{2} `$. This time, we just get instead:
+ ```math \oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{2}}=\frac{\oip{\tilde{\alpha}_{1}}{\alpha'_{2}}}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}=\frac{0}{\sqrt{\oip{\alpha'_{2}}{\alpha'_{2}}}}=0. ```\
 \
 The process from now continues in the same way for as many basis vectors
 we need to convert into this orthonormal basis. Orthogonal vector
-$\alpha'_{3}$ is introduced by $$\begin{aligned}
+$` \alpha'_{3} `$ is introduced by  ```math \begin{aligned}
 \alpha'_{3}&=\alpha'_{3}-\tilde{\alpha}_{1}\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\tilde{\alpha}_{2}\oip{\tilde{\alpha}_{2}}{\alpha_{3}} \\ 
 \Rightarrow\:\: \oip{\tilde{\alpha}_{1}}{\alpha'_{3}}&=\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{2}}\oip{\tilde{\alpha}_{2}}{\alpha_{3}}\\
 &= \oip{\tilde{\alpha}_{1}}{\alpha_{3}}-1\times\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-0\times\oip{\tilde{\alpha}_{2}}{\alpha_{3}}\\
 &=0\\
-\end{aligned}$$ After that, it can be normalised by dividing by its norm
+\end{aligned} ``` After that, it can be normalised by dividing by its norm
 as already proven for all vectors. This orthonormalisation process can
 run forever, regardless of which other normalised basis vector we are
 taking the inner product with. We prove this rigorously in general form
 by induction.\
 \
-**Claim**: For a set of orthonormal vectors $\mathbb{O}$ =
-$\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...\tilde{\alpha}_{n-1}\}$, the
+**Claim**: For a set of orthonormal vectors $` \mathbb{O} `$ =
+$` \{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...\tilde{\alpha}_{n-1}\} `$, the
 vector
-$$\alpha'_{n}= \alpha_{n}-\left(\sum_{i=0}^{n-1}\tilde{\alpha}_{i}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right)$$
-is orthogonal to all the vectors in $\mathbb{O}$.\
+ ```math \alpha'_{n}= \alpha_{n}-\left(\sum_{i=0}^{n-1}\tilde{\alpha}_{i}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right) ```
+is orthogonal to all the vectors in $` \mathbb{O} `$.\
 \
-**Proof**: The base case is for $n=3$, which we have already proved
-above. The inductive step is: $$\begin{aligned}
+**Proof**: The base case is for $` n=3 `$, which we have already proved
+above. The inductive step is:  ```math \begin{aligned}
 &\text{Assume we have an orthonormal set}\: 
 \{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...\tilde{\alpha}_{n-1}\}. \:\:\: \forall\:\tilde{{\alpha}}_{j < n}, \\
 &\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\tilde{\alpha_{j}}\left(\sum_{i=0}^{n-1}\tilde{\alpha_{i}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right)\\
 \Rightarrow\:&\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\oip{\tilde{\alpha_{j}}}{\tilde{\alpha_{j}}}\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq j}^{n-1}\oip{\tilde{\alpha}_{j}}{\tilde{\alpha_{i}}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\\
 \Rightarrow\:&\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha}_{j}}{\alpha_{n}}-1\times\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq j}^{n-1}0\times\oip{\tilde{\alpha_{i}}}{\alpha_{n}}=0
-\end{aligned}$$ This is true since our assumption that all
-$\tilde{\alpha}_{j}$ for $j<n$ is normalised and orthogonal to all other
-$\alpha_{i\neq j}$ for $i<n$ (an assumption which is valid as it follows
+\end{aligned} ``` This is true since our assumption that all
+$` \tilde{\alpha}_{j} `$ for $` j<n `$ is normalised and orthogonal to all other
+$` \alpha_{i\neq j} `$ for $` i<n `$ (an assumption which is valid as it follows
 from the base case) necessitates that
-$$\forall\:\: i,j < n, \:\: \oip{\tilde{\alpha}_{j}}{\tilde{\alpha}_{i}}= \delta_{ij}$$
+ ```math \forall\:\: i,j < n, \:\: \oip{\tilde{\alpha}_{j}}{\tilde{\alpha}_{i}}= \delta_{ij} ```
 Therefore, by induction, our orthogonalisation process works for as many
 basis vectors as we need to convert to our orthonormal basis.\
 \
-Then, after we obtain $\alpha'_{n}$,
-$$\tilde{\alpha_{n}}=\frac{\alpha'_{n}(x)}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}$$
+Then, after we obtain $` \alpha'_{n} `$,
+ ```math \tilde{\alpha_{n}}=\frac{\alpha'_{n}(x)}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}} ```
 is normalised and does not affect the orthogonality condition:
-$$\left(\tilde{\alpha}_{j\neq n}, \frac{\alpha'_{n}}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}\right)=\frac{\oip{\tilde{\alpha}_{j\neq n}}{\alpha'_{n}}}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}= \frac{0}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}=0.$$\
+ ```math \left(\tilde{\alpha}_{j\neq n}, \frac{\alpha'_{n}}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}\right)=\frac{\oip{\tilde{\alpha}_{j\neq n}}{\alpha'_{n}}}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}= \frac{0}{\sqrt{\oip{\alpha'_{n}}{\alpha'_{n}}}}=0. ```\
 We have now fully mathematically proven a procedure which allows us to
 take a linearly independent basis of any size and convert it to an
 orthonormal basis. It obviously is a tedious process if you have a large
@@ -1366,7 +1366,7 @@ algebra and indeed therefore in quantum mechanics.\
 The original point of this section was to further define a vector space
 in terms of its dimensions. Now, having defined orthonormality, we will
 go full circle back to the first vector space we considered-- the
-Cartesian x,y plane, or, $\mathbb{R}^2$. In our most basic study of this
+Cartesian x,y plane, or, $` \mathbb{R}^2 `$. In our most basic study of this
 vector space, we associate the numbers of dimensions with the number of
 perpendicular directions. We will find that in fact the natural way to
 come back to this assertion is to look at it not in terms of linearly
@@ -1379,21 +1379,21 @@ terms of linearly independent vectors.\
 independent.\
 \
 This is very easy to prove. Suppose we have a set of mutually orthogonal
-vectors $\mathbb{O}=\{\alpha_{1}, \alpha_{2}, ..., \alpha_{n}\}$. They
+vectors $` \mathbb{O}=\{\alpha_{1}, \alpha_{2}, ..., \alpha_{n}\} `$. They
 are linearly independent if no nontrivial combination of these vectors
-is equal to $0$. Let us write a generalised form of a linear combination
+is equal to $` 0 `$. Let us write a generalised form of a linear combination
 of these vectors, and set it equal to the null vector:
-$$\sum_{i=1}^{n}c_{i}\alpha_{i}=0$$ Now we can manipulate the mutual
-orthogonality of these vectors. $$\begin{aligned}
+ ```math \sum_{i=1}^{n}c_{i}\alpha_{i}=0 ``` Now we can manipulate the mutual
+orthogonality of these vectors.  ```math \begin{aligned}
 \forall\: j \in [1,n], \:\: \left(\alpha_{j},\sum_{i=1}^{n}c_{i}\alpha_{i}\right) &=\oip{\alpha_{j}}{0} \\ 
 \Rightarrow\:\:  c_{j}\oip{\alpha_{j}}{\alpha_{j}}+\sum_{i=1\neq j}^{n}c_{i}\oip{\alpha_{j}}{\alpha_{i}} &= 0 \\
 \Rightarrow\:\: c_{j}\oip{\alpha_{j}}{\alpha_{j}}+\sum_{i=1\neq j}^{n}0\times c_{i} &= 0 \\ 
 \Rightarrow\:\:  c_{j}(\alpha_{j},\alpha_{j})= 0 \Rightarrow\:\:c_{j} &= 0
-\end{aligned}$$ unless $\oip{\alpha_{j}}{\alpha_{j}}=0$ which is
+\end{aligned} ``` unless $` \oip{\alpha_{j}}{\alpha_{j}}=0 `$ which is
 impossible unless it is the null vector, which is irrelevant in these
 discussions as it is never considered a basis vector. This proof clearly
-works without loss of generality for each of the constants $c_{i}$, so
-it implies that every constant $c_{i}=0$. Therefore the only possible
+works without loss of generality for each of the constants $` c_{i} `$, so
+it implies that every constant $` c_{i}=0 `$. Therefore the only possible
 linear combination of a set of mutually orthogonal vectors equal to the
 null vector is the trivial combination-- and so they are all linearly
 independent if they are all mutually orthogonal.\
@@ -1407,29 +1407,29 @@ vector.\
 \
 Finally, comes the inner product punchline, which really shows why the
 operation, combined with an orthonormal basis, is so powerful. If we
-recall, for a given basis $\setof{\alpha_{i}}$ of the state space it
+recall, for a given basis $` \setof{\alpha_{i}} `$ of the state space it
 spans the space and therefore all state vectors can be expressed in the
-form: $$\Psi=\sum_{i}c_{i}\alpha_{i}.$$ The coefficients $c_{i}$ are
-called the components of the vector in that basis $\setof{\alpha_{i}}$,
+form:  ```math \Psi=\sum_{i}c_{i}\alpha_{i}. ``` The coefficients $` c_{i} `$ are
+called the components of the vector in that basis $` \setof{\alpha_{i}} `$,
 and are seemingly difficult to determine for the given basis depending
 on which vector we choose. However, consider the case when the basis
 chosen is orthonormal, or was not orthonormal but has now undergone
 orthonormalisation under the Gram-Schmidt Process. Now, consider the
-inner product $$\oip{\alpha_{j}}{\Psi}$$ for some given basis vector
-$\alpha_{j}$. This is, according to the above expansion,
-$$\oip{\alpha_{j}}{\Psi}=\oip{\alpha_{j}}{\sum_{\{i\}}c_{i}\alpha_{i}}.$$
+inner product  ```math \oip{\alpha_{j}}{\Psi} ``` for some given basis vector
+$` \alpha_{j} `$. This is, according to the above expansion,
+ ```math \oip{\alpha_{j}}{\Psi}=\oip{\alpha_{j}}{\sum_{\{i\}}c_{i}\alpha_{i}}. ```
 Then by the fact S2 of the constant multiple rule and IP 3 of linear
 distributivity again, this is:
-$$\sum_{\{i\}}c_{i}\oip{\alpha_{j}}{\alpha_{i}}$$ which by the Kronecker
+ ```math \sum_{\{i\}}c_{i}\oip{\alpha_{j}}{\alpha_{i}} ``` which by the Kronecker
 delta results in just
-$$\oip{\alpha_{j}}{\Psi}=\biggl(\sum_{i\neq j}\oip{\alpha_{j}}{\alpha_{i}}\biggr)+c_{i}\oip{\alpha_{j}}{\alpha_{j}}=0+c_{j}\times 1=c_{j}.$$
-This is critical, as we see that these components $c_{i}$ in an
+ ```math \oip{\alpha_{j}}{\Psi}=\biggl(\sum_{i\neq j}\oip{\alpha_{j}}{\alpha_{i}}\biggr)+c_{i}\oip{\alpha_{j}}{\alpha_{j}}=0+c_{j}\times 1=c_{j}. ```
+This is critical, as we see that these components $` c_{i} `$ in an
 orthonormal basis are not mathematically random: the component
 corresponding to a basis vector can be obtained through the inner
 product of that basis vector with the state vector! The much more
 eye-opening form of a state vector is after you make this substitution
 for the components:
-$$\Psi=\sum_{\{i\}}\oip{\alpha_{i}}{\psi}\alpha_{i}.$$ If we find a
+ ```math \Psi=\sum_{\{i\}}\oip{\alpha_{i}}{\psi}\alpha_{i}. ``` If we find a
 basis of the state space, we can immediately orthonormalise it by the
 Gram-Schmidt process, and if we can find an orthonormal basis for the
 state space and understand the vectors which form it we can then
@@ -1439,11 +1439,11 @@ an assumption is valid since the Gram-Schmidt procedure exists, and is
 useful because orthonormality can often make algebraic manipulations
 like the above.\
 \
-There is a final note to make. If $${\psi}_{\alpha}(\alpha_{i})=c_{i}$$
-and $$\oip{\alpha_{i}}{\Psi}=c_{i}$$ for an orthonormal basis, we
-therefore have $${\psi}_{\alpha}(\alpha_{i})=\oip{\alpha_{i}}{\Psi}.$$
-In the continuous case, we have $$\oip{x}{\Psi}=\psi_{\alpha}(x)$$ where
-$x$ is the continuously variable orthonormal basis vector. This is
+There is a final note to make. If  ```math {\psi}_{\alpha}(\alpha_{i})=c_{i} ```
+and  ```math \oip{\alpha_{i}}{\Psi}=c_{i} ``` for an orthonormal basis, we
+therefore have  ```math {\psi}_{\alpha}(\alpha_{i})=\oip{\alpha_{i}}{\Psi}. ```
+In the continuous case, we have  ```math \oip{x}{\Psi}=\psi_{\alpha}(x) ``` where
+$` x `$ is the continuously variable orthonormal basis vector. This is
 dramatic, because it tells us exactly how to form the discrete and
 continuous wavefunctions given some basis-- convert it into an
 orthonormal basis, and find the inner product of the state vector with
@@ -1462,9 +1462,9 @@ we take a state vector and multiply it by a scalar without adding any
 other state vectors to it?\
 \
 The answer is simply that the resulting state vector represents exactly
-the same state. In other words, for any state vector $\Psi$, the state
-vector $k\Psi$ for some scalar $k$ is deemed equivalent to the state
-vector $\Psi$. This is simply part of the state vector postulate. What
+the same state. In other words, for any state vector $` \Psi `$, the state
+vector $` k\Psi `$ for some scalar $` k `$ is deemed equivalent to the state
+vector $` \Psi `$. This is simply part of the state vector postulate. What
 the postulate sometimes is described as is that every *ray* in the
 Hilbert space corresponds to a physical state, where this word ray
 refers to the idea that a unique expansion would specify theoretically a
@@ -1485,13 +1485,13 @@ What this does mean, however, is that for a whole infinity of different
 scalar multiples of the same state vector, they all represent the same
 state. So the one which is chosen to be used in quantum mechanical
 calculations is simply the normalised state vector! By our Gram-Schmidt
-Process, this entails taking a state vector $\Psi$ and scaling it by the
-reciprocal of its norm: $$\frac{\Psi}{\sqrt{\oip{\Psi}{\Psi}}}$$ has
-norm $1$ and is a scaling of the state vector because the norm is a real
+Process, this entails taking a state vector $` \Psi `$ and scaling it by the
+reciprocal of its norm:  ```math \frac{\Psi}{\sqrt{\oip{\Psi}{\Psi}}} ``` has
+norm $` 1 `$ and is a scaling of the state vector because the norm is a real
 number and thus the reciprocal of it is also a real number. We shall see
 that, due to the fact we will want to be interpreting the state vector
 from the perspective of generating probability distribution functions
-with probabilities we want to sum to $1$, that having a normalised state
+with probabilities we want to sum to $` 1 `$, that having a normalised state
 vector is far superior to any other scalar multiples of the normalised
 state vector. Thus, just like we will usually assume that all the bases
 we are working with are orthonormal (since if they weren't we would just
@@ -1517,7 +1517,7 @@ observables. Most importantly, we need to understand which bases are
 useful for us in quantum mechanics; to do this, we will need to fit
 observables into the picture and very fruitful results will follow.
 
-## Exercises from Chapter 3$\ast$
+## Exercises from Chapter 3$` \ast `$
 
 1.  
 2.  
@@ -1531,4 +1531,5 @@ observables into the picture and very fruitful results will follow.
 10. 
 
 
-
+$` ` 
+ ` `$

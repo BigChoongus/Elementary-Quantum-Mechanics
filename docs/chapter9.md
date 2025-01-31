@@ -108,94 +108,94 @@ with each other.\
 
       **Symbol**                **Meaning**
   ------------------ ----------------------------------
-         $:=$        
-      $\forall$      
-      $\exists$      
-        $\in$                   (for a set)
-      $\implies$     
-        $\iff$       
+         $` := `$        
+      $` \forall `$      
+      $` \exists `$      
+        $` \in `$                   (for a set)
+      $` \implies `$     
+        $` \iff `$       
                      
-   $\sum_{i\neq j}$  
-    $\sum_{\{i\}}$   
-      $\square$                    Q.E.D
-       $f'(x)$           First Derivative of $f(x)$
-       $f''(x)$         Second Derivative of $f(x)$
-   $\setof{x_{i}}$   
-       $x\to y$      
-     $\mathbb{Z}$         the set of all integers
-     $\mathbb{R}$       the set of all real numbers
-   $\mathbb{Z}^{+}$   the set of all positive integers
-       $\equiv$      
+   $` \sum_{i\neq j} `$  
+    $` \sum_{\{i\}} `$   
+      $` \square `$                    Q.E.D
+       $` f'(x) `$           First Derivative of $` f(x) `$
+       $` f''(x) `$         Second Derivative of $` f(x) `$
+   $` \setof{x_{i}} `$   
+       $` x\to y `$      
+     $` \mathbb{Z} `$         the set of all integers
+     $` \mathbb{R} `$       the set of all real numbers
+   $` \mathbb{Z}^{+} `$   the set of all positive integers
+       $` \equiv `$      
 
 \
 \
 Fluency with basic summation and product notation is assumed. There is
 also interval notation commonly used for inequalities:
 
--   $x\in[a,b)\iff a\leq x < b$
+-   $` x\in[a,b)\iff a\leq x < b `$
 
--   $x\in(a,b]\iff a< x \leq b$
+-   $` x\in(a,b]\iff a< x \leq b `$
 
--   $x\in(a,b) \iff a< x< b$
+-   $` x\in(a,b) \iff a< x< b `$
 
--   $x\in [a,b] \iff a \leq x \leq b$
+-   $` x\in [a,b] \iff a \leq x \leq b `$
 
 and round brackets are always used for any side of the inequality
-bounded by $\pm \infty$.
+bounded by $` \pm \infty `$.
 
-## Probability$\ast$
+## Probability$` \ast `$
 
 In this book, as correct and conventional, probabilities are numbers
-between $0$ and $1$, sometimes represented by fractions.
+between $` 0 `$ and $` 1 `$, sometimes represented by fractions.
 
-For a random $X$ variable which can take multiple values $x_{i}$
+For a random $` X `$ variable which can take multiple values $` x_{i} `$
 
-## Complex Numbers$\ast$
+## Complex Numbers$` \ast `$
 
-Define the imaginary unit, $i$, to be equal to the square root of $-1$.
+Define the imaginary unit, $` i `$, to be equal to the square root of $` -1 `$.
 We then have:
 
--   $i^2= (\sqrt{-1})^2=-1$
+-   $` i^2= (\sqrt{-1})^2=-1 `$
 
--   $\forall\stab k \in \mathbb{R}, \mtab \frac{k}{i}=\frac{ik}{i^2}=\frac{ik}{-1}=-ik$
+-   $` \forall\stab k \in \mathbb{R}, \mtab \frac{k}{i}=\frac{ik}{i^2}=\frac{ik}{-1}=-ik `$
 
--   $\forall\stab k \in \mathbb{R}^+, \mtab \sqrt{-k}\equiv\sqrt{-1} \times \sqrt{k}=i\sqrt{k}$
+-   $` \forall\stab k \in \mathbb{R}^+, \mtab \sqrt{-k}\equiv\sqrt{-1} \times \sqrt{k}=i\sqrt{k} `$
 
--   $\forall\stab a,b \in \mathbb{R}, \mtab ai \pm bi = a\sqrt{-1}\pm b\sqrt{-1}= (a\pm b)\sqrt{-1}=(a\pm b)i$
+-   $` \forall\stab a,b \in \mathbb{R}, \mtab ai \pm bi = a\sqrt{-1}\pm b\sqrt{-1}= (a\pm b)\sqrt{-1}=(a\pm b)i `$
 
-Complex numbers are numbers usually represented in the form $$z:=a+bi$$
-for some $a,b\in\mathbb{R}$. Then there are two functions commonly
+Complex numbers are numbers usually represented in the form  ```math z:=a+bi ```
+for some $` a,b\in\mathbb{R} `$. Then there are two functions commonly
 referred too:
 
--   $\text{Re}(z)$ is called the of the imaginary number $z$, which is,
-    the real number $a$ if $z:=a+bi$.
+-   $` \text{Re}(z) `$ is called the of the imaginary number $` z `$, which is,
+    the real number $` a `$ if $` z:=a+bi `$.
 
--   $\text{Im}(z)$ is called the of the imaginary number $z$, which is,
-    the real number $b$ if $z:=a+bi$. Note that $\text{Im}(z)=b$ and not
-    $\text{Im}(z)=bi$.
+-   $` \text{Im}(z) `$ is called the of the imaginary number $` z `$, which is,
+    the real number $` b `$ if $` z:=a+bi `$. Note that $` \text{Im}(z)=b `$ and not
+    $` \text{Im}(z)=bi `$.
 
 It is then clear that a real number is also a complex number, but with
-imaginary part $0$. Conversely, if a complex number has imaginary part
-$0$, then all that remains is its real part and so it must be a real
+imaginary part $` 0 `$. Conversely, if a complex number has imaginary part
+$` 0 `$, then all that remains is its real part and so it must be a real
 number. Therefore,
 
--   $z \in \mathbb{R} \iff \text{Im}(z)=0$.
+-   $` z \in \mathbb{R} \iff \text{Im}(z)=0 `$.
 
 We may represent any complex number on a real-valued two dimensional
 plane called an Argand diagram (figure). From this figure we can create
 a few more useful definitions:
 
--   The modulus of a complex number $z$ is denoted $|z|$ and defined to
-    be $|z|:=\sqrt{\text{Re}(z)^2+\text{Im}(z)^2}$. This is the
+-   The modulus of a complex number $` z `$ is denoted $` |z| `$ and defined to
+    be $` |z|:=\sqrt{\text{Re}(z)^2+\text{Im}(z)^2} `$. This is the
     application of Pythagoras' Theorem to find the distance from any
-    point $z$ represented on the Argand diagram to the origin.
+    point $` z `$ represented on the Argand diagram to the origin.
 
--   For all complex numbers $z:=a+bi$, we denote with $z^{\ast}$ the
-    complex conjugate of the complex number, defined by $z^{\ast}=a-bi$
+-   For all complex numbers $` z:=a+bi `$, we denote with $` z^{\ast} `$ the
+    complex conjugate of the complex number, defined by $` z^{\ast}=a-bi `$
     (in other words, reversing the sign of the imaginary part).
 
--   For all complex numbers $z$, we define the modulus squared (or
-    square modulus) of that complex number to be $|z|^{2}:=zz^{\ast}$.
+-   For all complex numbers $` z `$, we define the modulus squared (or
+    square modulus) of that complex number to be $` |z|^{2}:=zz^{\ast} `$.
     This modulus squared is always real.
 
     #### Exercises on Complex Numbers\*
@@ -203,24 +203,24 @@ a few more useful definitions:
     1.  Express as a single complex number with distinct real and
         imaginary parts:
 
-        1.  $(4i)^3$\
+        1.  $` (4i)^3 `$\
 
-        2.  $(5-7i)(6-8i)$\
+        2.  $` (5-7i)(6-8i) `$\
 
-        3.  $\frac{3+5i}{2-4i}$\
+        3.  $` \frac{3+5i}{2-4i} `$\
 
-        4.  $(-4-7i)^{\ast}$\
+        4.  $` (-4-7i)^{\ast} `$\
 
-        5.  $|2+3i|^2$\
+        5.  $` |2+3i|^2 `$\
 
     2.  Show, with proof, whether each of the following statements are
         true
 
-        1.  $|z|>|\text{Re}(z)|$ and $|z|\geq|\text{Im}(z)|$\
+        1.  $` |z|>|\text{Re}(z)| `$ and $` |z|\geq|\text{Im}(z)| `$\
 
-        2.  $\forall\stab z\in\mathbb{C}, \mtab |z|^2\in\mathbb{R}$\
+        2.  $` \forall\stab z\in\mathbb{C}, \mtab |z|^2\in\mathbb{R} `$\
 
-    3.  Show that $|r\cos\theta+ir\sin\theta|=r$\
+    3.  Show that $` |r\cos\theta+ir\sin\theta|=r `$\
 
     4.  
 
@@ -232,46 +232,46 @@ mathematically listing values. We shall see that the structure of a
 matrix allows for powerful computations to be done. For now, there are
 many definitions to cover.\
 \
-A matrix with $m$ rows and $n$ columns is said to be an $m\times n$
-matrix. A $n\times n$ matrix is called a square matrix, a $n\times 1$
-matrix is usually called a column vector, and a $1\times n$ matrix is
+A matrix with $` m `$ rows and $` n `$ columns is said to be an $` m\times n `$
+matrix. A $` n\times n `$ matrix is called a square matrix, a $` n\times 1 `$
+matrix is usually called a column vector, and a $` 1\times n `$ matrix is
 usually called a row vector.\
 \
 The values of a matrix are usually called the element of that matrix.
-For a matrix denoted by any symbol, for example $M$, the notation
-$M_{ij}$ usually represents the element in the $i$'th row and $j$'th
+For a matrix denoted by any symbol, for example $` M `$, the notation
+$` M_{ij} `$ usually represents the element in the $` i `$'th row and $` j `$'th
 column of the matrix. Therefore, we can show the four usual types of
 matrices we might often see:
 
-1.  An arbitrary $m\times n$ matrix: $$\begin{bmatrix}
+1.  An arbitrary $` m\times n `$ matrix:  ```math \begin{bmatrix}
             \text{M}_{11} & \text{M}_{12} & \dots &\dots & \text{M}_{1n} \\
             \text{M}_{21} & \ddots & \dots &\dots & \vdots \\
             \vdots & \dots & \ddots & \dots & \vdots \\
             \text{M}_{m1} & \dots & \dots & \dots & \text{M}_{mn} \\
-        \end{bmatrix}$$
+        \end{bmatrix} ```
 
-2.  A $n\times n$ square matrix: $$\begin{bmatrix}
+2.  A $` n\times n `$ square matrix:  ```math \begin{bmatrix}
             \text{M}_{11} & \text{M}_{12} & \dots & \text{M}_{1n} \\
             \text{M}_{21} & \ddots & \dots & \vdots \\
             \vdots & \dots & \ddots  & \vdots \\
             \text{M}_{n1} & \dots & \dots & \text{M}_{nn} \\
-        \end{bmatrix}$$
+        \end{bmatrix} ```
 
-3.  A $n\times 1$ column vector: $$\begin{bmatrix}
+3.  A $` n\times 1 `$ column vector:  ```math \begin{bmatrix}
             \text{M}_{11} \\
             \text{M}_{21} \\
             \vdots \\
             \vdots \\ 
             \text{M}_{n1} \\
-        \end{bmatrix}$$
+        \end{bmatrix} ```
 
-4.  A $1\times n$ row vector: $$\begin{bmatrix}
+4.  A $` 1\times n `$ row vector:  ```math \begin{bmatrix}
             \text{M}_{11} &
             \text{M}_{12} &
             \dots &
             \dots &
             \text{M}_{1n} 
-        \end{bmatrix}$$
+        \end{bmatrix} ```
 
 As shown in the examples, a variety of dots are used often to show the
 idea that we can have a large number of unlisted elements between
@@ -279,9 +279,9 @@ elements explicitly written. This should not be a great worry, since the
 arrangements of elements in a matrix are always in ordered rows and
 columns anyway. We now move onto defining the operations:
 
-1.  Scalar multiplication of a matrix $M$ by a scalar $a$ results in a
-    new matrix $aM$ with each previous element $M_{ij}$ replaced with a
-    new element $aM_{ij}$. So for example, $$-1\times\begin{bmatrix}
+1.  Scalar multiplication of a matrix $` M `$ by a scalar $` a `$ results in a
+    new matrix $` aM `$ with each previous element $` M_{ij} `$ replaced with a
+    new element $` aM_{ij} `$. So for example,  ```math -1\times\begin{bmatrix}
             5 & 4 & -9 \\
             0 & -1 & 6 \\ 
         \end{bmatrix}
@@ -289,15 +289,15 @@ columns anyway. We now move onto defining the operations:
         \begin{bmatrix}
             -5 & -4 & 9 \\
             0 & 1 & -6 \\ 
-        \end{bmatrix}$$
+        \end{bmatrix} ```
 
 2.  Two matrices can be summed iff they are of the same dimensions. If
-    they are of the same dimensions, the sum of two matrices $M$ and $N$
-    are obtained by creating a new matrix $S:=M+N$, of the same
-    dimensions, where each new element of the resultant matrix $S_{ij}$
-    is the result of summing corresponding position elements in $M$: in
-    other words, $\forall\stab i,j,S:=M+N, \mtab S_{ij}=M_{ij}+N_{ij}$.
-    So for example, $$\begin{bmatrix}
+    they are of the same dimensions, the sum of two matrices $` M `$ and $` N `$
+    are obtained by creating a new matrix $` S:=M+N `$, of the same
+    dimensions, where each new element of the resultant matrix $` S_{ij} `$
+    is the result of summing corresponding position elements in $` M `$: in
+    other words, $` \forall\stab i,j,S:=M+N, \mtab S_{ij}=M_{ij}+N_{ij} `$.
+    So for example,  ```math \begin{bmatrix}
             3 & 2 \\
             -1 & 8 \\
             0 & 5
@@ -315,25 +315,25 @@ columns anyway. We now move onto defining the operations:
             10 & -1 \\
             -2 & 8 \\
             0 & 7
-        \end{bmatrix}$$
+        \end{bmatrix} ```
 
 3.  A matrix multiplying another matrix is more complicated. First of
-    all, for two matrices $M$ and $N$ the matrix products $M\times N$
-    and $N\times M$ are rarely the same: whichever matrix is on the left
+    all, for two matrices $` M `$ and $` N `$ the matrix products $` M\times N `$
+    and $` N\times M `$ are rarely the same: whichever matrix is on the left
     of the product changes the result. We say that matrix multiplication
     is non-commutative. The terms left-multiply and right-multiply
     emerge naturally from this non-commutativity, where left-multiplying
-    a matrix $M$ by a matrix $N$ means performing a matrix
-    multiplication with that matrix $N$ on the left of the
+    a matrix $` M `$ by a matrix $` N `$ means performing a matrix
+    multiplication with that matrix $` N `$ on the left of the
     multiplication, and vice versa.\
     \
     Next, matrix multiplication can only be performed if the number of
     columns of the matrix on the left are the same as the number of rows
-    of the matrix on the right. If we have an $a\times b$ matrix $M$ and
-    a $c\times d$ matrix $N$, then the product $M\times N$ is only
-    possible if $b=c$. The result can be best memorised by the crude
-    representation: $$b=c\implies
-        (a\times b) \times (c \times d) = (a\times \cancel{b}) \times (\cancel{b} \times d) = a\times d.$$
+    of the matrix on the right. If we have an $` a\times b `$ matrix $` M `$ and
+    a $` c\times d `$ matrix $` N `$, then the product $` M\times N `$ is only
+    possible if $` b=c `$. The result can be best memorised by the crude
+    representation:  ```math b=c\implies
+        (a\times b) \times (c \times d) = (a\times \cancel{b}) \times (\cancel{b} \times d) = a\times d. ```
     Here, we get the idea that the values when we list the dimensions of
     the two matrices being multiplied together in the correct order must
     match up and then are discarded, leaving the number of rows of the
@@ -344,4 +344,5 @@ columns anyway. We now move onto defining the operations:
 ## Calculus\*
 
 ## Misc.\*
-
+$` ` 
+ ` `$

@@ -207,7 +207,7 @@ and we take the tools we have available to us from mathematics to create
 a system which is to make such predictions without any additional
 predictions which conflict with our desired subject. We choose the rules
 of our model based on what makes sense -- one would never model the
-probability of a train arriving $x$ minutes late with an exponential,
+probability of a train arriving $` x `$ minutes late with an exponential,
 for example, because the probability of a train arriving 100 minutes
 late should not be exponentially greater than it arriving 10 minutes
 late. How perfect are our rules? That would depend on the purpose of the
@@ -406,4 +406,5 @@ their mathematics allows it, and then I will have successfully completed
 my task in writing this pragmatic exposition.
 
 
-
+$` ` 
+ ` `$
