@@ -5,7 +5,7 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
+
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -765,5 +765,5 @@ know that for the ket $\ket{\Psi
 9.  
 10. 
 
-{% endraw %}
+
 
