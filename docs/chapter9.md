@@ -76,6 +76,8 @@ MathJax = {
 };
 </script>
 
+{% raw %}
+
 # A Mathematical Toolbox
 
 This book is designed so that even high schoolers can access quantum
