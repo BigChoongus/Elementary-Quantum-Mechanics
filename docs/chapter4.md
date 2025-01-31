@@ -5,8 +5,6 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
-
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -1128,5 +1126,4 @@ Now, we are ready to move onto time evolution.
 9.  
 10. 
 
-{% endraw %}
 
