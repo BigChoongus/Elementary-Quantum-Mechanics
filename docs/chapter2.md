@@ -204,12 +204,12 @@ have a spin value at all times.\
 \
 In our work, we will focus on the two-dimensional Stern-Gerlach
 experiment. The primary dimension we focus on will be the
-$y$-dimension-- or, as we will think of it, the direction. Here, the two
+$`y`$-dimension-- or, as we will think of it, the direction. Here, the two
 possible spins in our experiment are , and . More interesting things
 come when we consider a second dimension, so we will use the
-$x$-dimension as our secondary dimension, where the two spins are , and
-. Corresponding to these dimensions there are the $y$-dimension magnetic
-fields and $x$-dimension magnetic fields, which deflect electrons in
+$`x`$-dimension as our secondary dimension, where the two spins are , and
+. Corresponding to these dimensions there are the $`y`$-dimension magnetic
+fields and $`x`$-dimension magnetic fields, which deflect electrons in
 those dimensions alone.\
 \
 Let us now take our classical assumption on until we reach a
@@ -222,7 +222,7 @@ like they are performing a physical action on the electrons- which they
 are: they are deflecting them. However, the real purpose of the magnetic
 fields in this experiment is to *reveal* the spin value of electrons
 which we assume they possess. By passing a single electron through the
-$y$-dimension magnetic field it is either deflected down, if it had down
+$`y`$-dimension magnetic field it is either deflected down, if it had down
 spin, or it is deflected up, if it had up spin. In this way, the action
 is of passing an Ag electron through the magnetic field is the action of
 measuring the spin it has.\
@@ -236,18 +236,18 @@ which both splits them into distinguishable groups, and measures
 the magnetic field, we will get these two resulting groups split by
 their initial spin: surely, a useful thing to have.\
 \
-If this is the case, then we expect successive $y$-dimension magnetic
+If this is the case, then we expect successive $`y`$-dimension magnetic
 fields to yield a clear result when applied to a group of electrons. The
-first $y$-dimension magnet separates the group of electrons into
+first $`y`$-dimension magnet separates the group of electrons into
 electrons with up spin and electrons with down spin. If we allow for
 enough distance to distinguish the two separate deflections of up and
 down, and place two new magnetic fields in the up deflection position
 resulting for up spin electrons and the down deflection position
 resulting for down spin electrons, then we therefore expect the second
 line of magnetic fields to perform its measurement function.
-Specifically, the second $y$-dimension magnetic field in the
+Specifically, the second $`y`$-dimension magnetic field in the
 up-deflected position should measure all its electrons to have up spin,
-and the second $y$-dimension magnet in the down-deflection position
+and the second $`y`$-dimension magnet in the down-deflection position
 should measure all its electrons to have down spin. This is of course
 because they have already been separated into two distinct groups and
 measuring the spin of all the electrons in those distinct will only
@@ -256,11 +256,11 @@ we passed them through the first magnetic field, but after we do all our
 revelations are done.\
 \
 This is indeed what we achieve when we do actually perform the
-experiment. The first $y$-dimension magnet splits a group of electrons
+experiment. The first $`y`$-dimension magnet splits a group of electrons
 into two groups corresponding to each spin, and an infinite succession
-of $y$-dimension magnetic fields on each of these deflected trajectories
+of $`y`$-dimension magnetic fields on each of these deflected trajectories
 will continue to measure the same spin by continuing to deflect them in
-the same direction. The same holds for successive $x$-dimension magnetic
+the same direction. The same holds for successive $`x`$-dimension magnetic
 fields: the first separates the electrons into two groups with left and
 right spin respectively, and the subsequent magnetic fields will
 continue to measure the same spins if applied successively along the two
@@ -268,45 +268,45 @@ initial trajectories obtained by the first magnet.\
 \
 Of course, physicists were more inspired than just applying the same
 magnetic field over and over again on the same electrons. We might
-wonder what would happen if we applied some sequence of $y$ and $x$
+wonder what would happen if we applied some sequence of $`y`$ and $`x`$
 magnetic fields. Let us note that electrons passing through a magnetic
 field in a certain dimension are not deflected in anyway in any other
 dimension. We implicitly see this in the fact that electrons passing
-through the $y$ magnetic field follow a straight trajectory with respect
-to the $x$-dimension and therefore still all hit the detector screen a
-certain $x$ distance away from the field.\
+through the $`y`$ magnetic field follow a straight trajectory with respect
+to the $`x`$-dimension and therefore still all hit the detector screen a
+certain $`x`$ distance away from the field.\
 \
 Our assumption is that an electron at all times holds a value for its
 spin. We therefore also posit that an electron may at one time hold two
-simultaneous properties of $x$ spin and $y$ spin, which are independent
+simultaneous properties of $`x`$ spin and $`y`$ spin, which are independent
 of each other: just like a ball may have momentum and acceleration
-values at the same time. We test the relationship between the $x$ and
-$y$ spins of an electron: is an up spin electron more likely to be a
+values at the same time. We test the relationship between the $`x`$ and
+$`y`$ spins of an electron: is an up spin electron more likely to be a
 right spin electron, for example? Understandings like this are
 physically relevant, of course- if a electron passing through magnetic
 fields was more likely to be deflected right and up or left and down
 then this would surely have physical implications.\
 \
-Suppose we isolate a certain $y$-spin and only consider electrons with
-that $y$-spin: say, up spin. To do this experimentally is simple-- pass
-a group of electrons through a $y$-magnetic field, give sufficient
+Suppose we isolate a certain $`y`$-spin and only consider electrons with
+that $`y`$-spin: say, up spin. To do this experimentally is simple-- pass
+a group of electrons through a $`y`$-magnetic field, give sufficient
 distance for the deflected trajectories to diverge, and block the
 down-deflected path so that none of those electrons can keep moving
 forwards and the only ones moving forwards are the up spin electrons.
 Let us suppose we did this. Then, we can investigate what happens when
-we place an $x$-magnetic field in the path of the up-deflected
+we place an $`x`$-magnetic field in the path of the up-deflected
 electrons. The point of blocking out the down-deflected electrons in
 this way is to assure us we will past this point never have to deal with
 down spin electrons during our considerations.\
 \
-The $x$-magnetic field on any ensemble of electrons will not show
+The $`x`$-magnetic field on any ensemble of electrons will not show
 considerable bias towards any spin, in fact. We obtain two new deflected
 trajectories, therefore: up-left and up-right. Again, this all seems
-good, until we add another $y$ magnetic field, after which a bizarre
+good, until we add another $`y`$ magnetic field, after which a bizarre
 phenomenon occurs.\
 \
-If we add another $y$ magnetic field to the trajectory of the up spin
-electrons which we have just deflected left or right with the $x$
+If we add another $`y`$ magnetic field to the trajectory of the up spin
+electrons which we have just deflected left or right with the $`x`$
 magnetic field, we would expect all the electrons to be deflected
 upwards, since these are after all electrons with up spin. We know that
 we have blocked out all the down spin electrons far back, so they cannot
@@ -314,14 +314,14 @@ escape to intervene with the results of our current experiment.\
 \
 Such is not the case. What we get instead is that both the up-left and
 up-right ensembles of electrons have subgroups of electrons which are
-deflected downwards by the new $y$ magnet! This by all means should
+deflected downwards by the new $`y`$ magnet! This by all means should
 absolutely be impossible, given we have filtered out all the down spin
 electrons already. Clearly, something is wrong.\
 \
 To keep track of everything following this revelation, we will use a new
 notation: $\uspin$, $\dspin$, $\lspin$, $\rspin$ for different spins, as
 well as two-fold notations such as $\urspin$ to record when an electron
-has had its $y$ spin and $x$ spin measured. We will call this state
+has had its $`y`$ spin and $`x`$ spin measured. We will call this state
 notation, as we are attempting to label its state-- by considering its
 spin properties. The reason this is so useful is, among other things,
 simply that it saves us a lot of time by avoiding having to write all
@@ -345,7 +345,7 @@ express what is strange about our above result again-- given our
 original classical assumption-- by tracking what information was
 revealed [after]{.underline} each step:
 
-1.  Pass the electron beam through a $y$-magnetic field:
+1.  Pass the electron beam through a $`y`$-magnetic field:
     $$1000\elec \implies 500\uspin+500\dspin$$ assuming we start with
     1000 electrons and the sample is indeed random.
 
@@ -354,7 +354,7 @@ revealed [after]{.underline} each step:
     500 electrons since 500 down spin electrons have all been blocked
     out from the experiment.
 
-3.  Pass the electron beam through an $x$-magnetic field:
+3.  Pass the electron beam through an $`x`$-magnetic field:
     $$500\elec \implies500\uspin+0\dspin=250\ulspin+250\ulspin+0\dspin$$
     assuming again an equal distribution which is experimentally
     realistic.
@@ -362,7 +362,7 @@ revealed [after]{.underline} each step:
 4.  Block the left spin channel.
     $$250\elec\implies0\ulspin+ 250\urspin + 0\dspin$$
 
-5.  Finally, pass the electron beam through a $y$-magnetic field.
+5.  Finally, pass the electron beam through a $`y`$-magnetic field.
     $$250\urspin\implies125\uspin+125\dspin$$
 
 The scalars themselves are really not important at all: one needn't
@@ -389,26 +389,26 @@ that some of the $0$ counts are false. We can consider this:
     0 count surely therefore must be accurate.
 
 -   In step 3, we have just passed the electron beam through an
-    $x$-magnetic field. We might offer 1 possible guess: that the
-    $x$-magnetic field actually influences the $y$-spin and that it is
+    $`x`$-magnetic field. We might offer 1 possible guess: that the
+    $`x`$-magnetic field actually influences the $`y`$-spin and that it is
     here therefore that the subsequent 0 count was wrong.
 
 -   In step 4, we blocked out all the left-spin electrons. If the 0
     count here is false, that means that either blocking out left-spin
-    electrons switched the $y$-spin of some of the electrons, or that
+    electrons switched the $`y`$-spin of some of the electrons, or that
     there already were down spin electrons by this point before we
     blocked out the left-spin electrons. If there were down spin
     electrons before step 4 was implemented then this necessarily means
     again that after step 3 the 0 count was already wrong.
 
 So everything points to the only reasonable explanation being that the 0
-count after step 3 of the $x$-magnetic field was false: and this would
-only occur if the $x$-magnetic field actually flipped the $y$-spin of
+count after step 3 of the $`x`$-magnetic field was false: and this would
+only occur if the $`x`$-magnetic field actually flipped the $`y`$-spin of
 some electrons. We first remember that the counter detector has only
 actually measured the number of left spins and right spins after step 3,
-since an $x$-magnetic field does not make any discernible
-$y$-deflections. So it is certainly true that if the $x$-magnetic field
-did flip some of the electron $y$-spins we would not have detected this
+since an $`x`$-magnetic field does not make any discernible
+$`y`$-deflections. So it is certainly true that if the $`x`$-magnetic field
+did flip some of the electron $`y`$-spins we would not have detected this
 since it would not have manifested in a deflection.\
 \
 To test this one lifeline for our assumption, there is a cunning
@@ -427,7 +427,7 @@ deflection is small. If we try this, we continue to add to the list of
 complications. We can use our step by step denotation to track things
 again:
 
-1.  Pass the electron beam through a $y$-magnetic field:
+1.  Pass the electron beam through a $`y`$-magnetic field:
     $$1000\elec \implies500\uspin+500\dspin$$ assuming we start with
     1000 electrons and the sample is indeed random.
 
@@ -436,40 +436,40 @@ again:
     500 electrons since 500 down spin electrons have all been blocked
     out from the experiment.
 
-3.  Pass the electron beam through an $x$-magnetic field:
+3.  Pass the electron beam through an $`x`$-magnetic field:
     $$500\elec=500\uspin+0\dspin\implies250\ulspin+250\urspin$$ assuming
     again an equal distribution which is experimentally realistic.
 
-4.  Pass both the up right and up left electrons through a new $y$
+4.  Pass both the up right and up left electrons through a new $`y`$
     magnetic field.
     $$500\elec=250\ulspin+ 250\urspin\implies 500\uspin$$
 
-So if we compare the results of adding a new $y$ magnetic field to the
+So if we compare the results of adding a new $`y`$ magnetic field to the
 experiment (step 5 in the previous experiment and step 4 here):
 
--   If we remove one of the right or left channels of $x$-deflected
+-   If we remove one of the right or left channels of $`x`$-deflected
     electrons, then both up and down channels emerge from the
-    $y$-magnetic field applied to the remaining beam.
+    $`y`$-magnetic field applied to the remaining beam.
 
--   If we keep both of the right and left channels, then only one $y$
-    deflection emerges from the $y$-magnetic field applied to the
+-   If we keep both of the right and left channels, then only one $`y`$
+    deflection emerges from the $`y`$-magnetic field applied to the
     remaining beam.
 
-The above effectively cancels out any idea that the $x$-magnetic field
-is flipping the $y$ spin of some of the electrons. We had guessed that
+The above effectively cancels out any idea that the $`x`$-magnetic field
+is flipping the $`y`$ spin of some of the electrons. We had guessed that
 in the first experiment that the reason why down spin electrons were
 appearing seemingly out of nowhere (having been blocked out, we thought,
-earlier) was because the $x$-magnetic field was flipping these
+earlier) was because the $`x`$-magnetic field was flipping these
 electrons. If this was the case, then adding left spin electrons would
 not change anything, since the spin of one electron most definitely does
-not effect the spin of another. Therefore, if the $x$ field really did
+not effect the spin of another. Therefore, if the $`x`$ field really did
 flip electrons when the left spin electrons were still absent, adding
 them would simply mean we still have down spin electrons (perhaps more,
 since presumably some left spin electrons would be flipped too if right
 spin electrons are). Yet adding these left spin electrons eliminates
 rather than augments the number of down spin electrons. Since the spin
 of one electron does not affect the spin of another electron, we thereby
-infer our hypothesis that an $x$-magnetic field can flip a $y$ spin is
+infer our hypothesis that an $`x`$-magnetic field can flip a $`y`$ spin is
 false.\
 \
 This now undoubtedly therefore suggests a problem with our original
@@ -488,12 +488,12 @@ they only have pre-determined values at some very specific points in the
 experiment. We need to ensure this could be consistent with experimental
 data, so let us do this.\
 \
-One clue comes when we repeat the exact same experiment, but with $x$,
-$y$, $x$ magnetic fields rather than $y$, $x$, $y$ fields. The exact
+One clue comes when we repeat the exact same experiment, but with $`x`$,
+$`y`$, $`x`$ magnetic fields rather than $`y`$, $`x`$, $`y`$ fields. The exact
 same set of phenomena occurs, but simply with the sequence of spin
 dimensions switched around to reflect the new sequence of magnetic
 fields. The explanation we now proffer-- which is finally the correct
-explanation-- is that we cannot know the $x$ and $y$ spins of the
+explanation-- is that we cannot know the $`x`$ and $`y`$ spins of the
 electrons simultaneously. This is obviously not a classical explanation,
 and is our first experience of a quantum phenomenon in action- that
 there can be observables which cannot simultaneously both hold values
@@ -506,11 +506,11 @@ channels going into the same magnet, out from the magnet emerges one
 single channel (in our case, up). This is because, when both channels
 enter the same magnetic field we can't tell which of them have left and
 which of them have right spin-- and therefore we can tell afterwards
-what their $y$ spin is. However, if we pass only one $x$-deflected
-channel through the magnet, then we can tell what the $x$ spin of the
+what their $`y`$ spin is. However, if we pass only one $`x`$-deflected
+channel through the magnet, then we can tell what the $`x`$ spin of the
 input electrons are by what channel we have chosen, and therefore some
 are deflected down and some are deflected up-- we can no longer tell
-what their $y$ spin is.\
+what their $`y`$ spin is.\
 \
 The facts above, however, are presented to imply another question which
 someone trying to cling onto classical common sense would reasonably
@@ -518,9 +518,9 @@ ask. It may be true that if we stand above the apparatus and only look
 at detector readings we cannot tell which electrons have which spin when
 we are passing all of them into the same magnetic field. However, if we
 were to focus in on electrons one by one, tracking which electrons have
-which spin, surely we could for example track the $x$ spins of each of
-the electrons passing into the $y$ field and then each of the $y$ spins
-when they come out of it: and thereby know the $x$ and $y$ spins
+which spin, surely we could for example track the $`x`$ spins of each of
+the electrons passing into the $`y`$ field and then each of the $`y`$ spins
+when they come out of it: and thereby know the $`x`$ and $`y`$ spins
 simultaneously?\
 \
 Investigating this leads us to try and repeat the experiment with as few
@@ -533,11 +533,11 @@ beam) does not affect the experiment. Well this is good news, since that
 means we can reduce to single electrons in our electron gun and once and
 for all understand the phenomenon!\
 \
-All seems well. The first $y$ magnetic field, let's say, gives the
-electron to have up spin. The second $x$ magnetic field, might give a
-right spin. So we know both of the $x$ and $y$ spins simultaneously, we
+All seems well. The first $`y`$ magnetic field, let's say, gives the
+electron to have up spin. The second $`x`$ magnetic field, might give a
+right spin. So we know both of the $`x`$ and $`y`$ spins simultaneously, we
 think: seemingly invalidating our quantum hypothesis that we could not
-do this. To confirm, we put a new $y$ magnetic field to our up-right
+do this. To confirm, we put a new $`y`$ magnetic field to our up-right
 spin electron. And finally, we get a nasty shock, because that electron
 which we measured to have up and then right spin suddenly exhibits a
 downwards deflection, showing down spin.\
@@ -549,7 +549,7 @@ exhibited up and down spin in successive measurements. This leads us to
 the only possible conclusion. Our overarching point: that an electron
 cannot have a spin value at all times, must be true. This would be in
 line with our other quantum hypothesis that we cannot know
-simultaneously the $x$ and $y$ spins. The electron *cannot* have a spin
+simultaneously the $`x`$ and $`y`$ spins. The electron *cannot* have a spin
 value at all times, and this means that there are times it does not have
 a fixed spin value, and in particular we now know that these times where
 the spin value cannot be known at least include all the times when the
@@ -562,33 +562,33 @@ that it takes a spin value with specific probabilities, which we will
 soon learn how to calculate. So what we achieved in the first two
 measurements on this single electron: an up and right spin, is simply a
 result of the electron taking some measurement with some probability.
-That probability (which turns out to be $\frac{1}{2}$ in our case) is
-simply flipped into a new outcome when we try to measure the $y$ spin
+That probability (which turns out to be $`\frac{1}{2}`$ in our case) is
+simply flipped into a new outcome when we try to measure the $`y`$ spin
 again, and therefore we never did know the two spins simultaneously!\
 \
 A few things are maintained in this world of chaos, fortunately. We
 recall that applying the same magnet to an electron beam over and over
 again gives the same spin every time. This would not be true if for each
-magnet we were simply experiencing a probability of $\frac{1}{2}$ that
-it exhibits up spin and $\frac{1}{2}$ of down spin, since an infinite
+magnet we were simply experiencing a probability of $`\frac{1}{2}`$ that
+it exhibits up spin and $`\frac{1}{2}`$ of down spin, since an infinite
 sequence of magnetic fields would eventually of course invoke that
-$\frac{1}{2}$ probability of the other spin to the one we are measuring
+$`\frac{1}{2}`$ probability of the other spin to the one we are measuring
 every time. This therefore proves that if we measure the spin of an
-electron it *takes* a state- here, with probability $\frac{1}{2}$ of
-taking an up spin state and $\frac{1}{2}$ of taking a down spin state-
+electron it *takes* a state- here, with probability $`\frac{1}{2}`$ of
+taking an up spin state and $`\frac{1}{2}`$ of taking a down spin state-
 and stays in this state until we force it out of that measured state
 with some type of action. The example we have seen for one type of
 action which takes an electron out of the original state it has taken,
-shockingly, is trying to measure its $x$ spin. By measuring its $x$ spin
+shockingly, is trying to measure its $`x`$ spin. By measuring its $`x`$ spin
 we force it into either a left or right state (it turns out, also with
-probabilities $\frac{1}{2}$), but also revert it into an unmeasured
-state with respect to its $y$ spin.\
+probabilities $`\frac{1}{2}`$), but also revert it into an unmeasured
+state with respect to its $`y`$ spin.\
 \
 This term is a clumsy denomination. Quantum physicists came up instead
 with the term **superposition** of states-- literally, the idea of
 different possible states being added onto each other to make a new
-state. Here, the superposition is of two states (up and down in the $y$
-spin, or left and right in the $x$ spin). However, if we were
+state. Here, the superposition is of two states (up and down in the $`y`$
+spin, or left and right in the $`x`$ spin). However, if we were
 considering different observables with more than two possibilities- such
 as position, which has infinite possibilities- then we could have a
 superposition of infinite possible states. Of course, some of these
@@ -606,7 +606,7 @@ have thus established that:
 -   There is some probability associated with forcing that superposition
     into one of the constituent states.
 
--   There are certain observables, like $x$ and $y$ spin, which get in
+-   There are certain observables, like $`x`$ and $`y`$ spin, which get in
     each other's ways when one tries to force a system out of the
     respective superpositions.
 
