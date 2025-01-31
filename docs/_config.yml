@@ -1,8 +1,37 @@
+# Disable Liquid processing completely
+liquid: false
+
+# Use kramdown as the Markdown processor
 markdown: kramdown
 kramdown:
-  input: GFM
-  math_engine: mathjax
-liquid: false
+  input: GFM  # Use GitHub Flavored Markdown for table and code fence support
+  math_engine: mathjax  # Ensure MathJax is enabled
+  syntax_highlighter_opts:
+    disable: true  # Prevent Liquid-related syntax highlighting issues
+  parse_block_html: true  # Allow direct HTML without Liquid interference
+
+# Prevent Jekyll from processing files unnecessarily
+exclude:
+  - README.md
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .jekyll-cache
+
+# Ensure the build does not use Liquid even if files contain Liquid syntax
+defaults:
+  - scope:
+      path: ""
+    values:
+      render_with_liquid: false
+
+# Explicitly set MathJax to render equations correctly
+mathjax: true
+
+# Theme settings (Optional)
 theme: minima
 title: Elementary Quantum Mechanics
+description: "A fully Jekyll-powered site for Quantum Mechanics, with MathJax and GitHub Flavored Markdown."
+
 
