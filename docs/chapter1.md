@@ -1,4 +1,5 @@
 {% raw %}
+{% raw %}
 ---
 layout: default
 title: Chapter 1
@@ -404,5 +405,7 @@ quantum mechanics. Hopefully the reader will be in very robust shape
 after all is said and done to press onto more advanced textbooks when
 their mathematics allows it, and then I will have successfully completed
 my task in writing this pragmatic exposition.
+
+{% endraw %}
 
 {% endraw %}

@@ -1,4 +1,5 @@
 {% raw %}
+{% raw %}
 ---
 layout: default
 title: Chapter 8
@@ -885,5 +886,7 @@ we have done thus far on the assumption that the eigenvalues $n$ are
 integers was done on the correct assumption: $n$ must be a nonnegative
 integer, and there is a terminating state $\ket{E_{0}}$ which has energy
 $E_{0}=(0+1/2)\hbar\omega=(1/2)\hbar\omega$.
+
+{% endraw %}
 
 {% endraw %}
