@@ -1,5 +1,3 @@
-# Disable Liquid processing completely
-liquid: false
 
 # Use kramdown as the Markdown processor
 markdown: kramdown
