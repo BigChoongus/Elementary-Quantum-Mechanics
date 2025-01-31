@@ -5,7 +5,6 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
 
 <script type="text/javascript">
 MathJax = {
@@ -78,6 +77,7 @@ MathJax = {
 };
 </script>
 
+{% raw %}
 
 # State Space Operators and the Quantum Observables Problem
 
