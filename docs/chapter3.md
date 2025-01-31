@@ -1276,12 +1276,15 @@ procedure.\
 Take the first vector, denoted without loss of generality as
 $\alpha_{1}$. Take the norm of the vector,
 $$|\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}.$$ By the positive
-semidefinite metric, $$\begin{aligned}
+semidefinite metric, 
+{% raw %}
+$$\begin{aligned}
 \oip{\alpha_{1}}{\alpha_{1}} \geq 0 &\implies \:\: \sqrt{\oip{\alpha_{1}}{\alpha_{1}}} \in \mathbb{R}\\
 &\implies \:\: |\alpha_1|^{\ast}=\left(\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}\right)^{\ast}= \sqrt{\oip{\alpha_{1}}{\alpha_{1}}} =|\alpha_1|
 \end{aligned}$$ Then, if we define
 $$\tilde{\alpha}_{1} := \frac{\alpha_{1}}{|\alpha_{1}|}$$ we clearly get
 $$\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} = \frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{\ast}|\alpha_{1}|}=\frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{2}}=1$$
+{% endraw %}
 because
 $$|\alpha_{1}|^2= \sqrt{\oip{\alpha_{1}}{\alpha_{1}}}^2 = \oip{\alpha_{1}}{\alpha_{1}}.$$
 Therefore, we indeed verify that for any arbitrary vector $\alpha_{1}$
