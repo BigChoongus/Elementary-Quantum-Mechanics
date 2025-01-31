@@ -76,7 +76,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
 
 # The State Vector and the Quantum State Problem
 
