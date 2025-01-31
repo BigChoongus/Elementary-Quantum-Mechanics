@@ -76,6 +76,8 @@ MathJax = {
 };
 </script>
 
+{% raw %}
+
 # Continuous Spectra
 
 In this section, we take a huge leap forwards towards full physical
