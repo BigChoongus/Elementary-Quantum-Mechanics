@@ -1,5 +1,8 @@
 ---
-title: "Elementary Quantum Mechanics"
+layout: default
+title: Elementary Quantum Mechanics
+mathjax: true
+render_with_liquid: false
 ---
 
 <script type="text/javascript">
