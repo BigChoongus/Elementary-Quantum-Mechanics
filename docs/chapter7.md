@@ -1,11 +1,12 @@
-{% raw %}
-{% raw %}
+
 ---
 layout: default
 title: Chapter 7
 mathjax: true
 render_with_liquid: false
 ---
+
+{% raw %}
 
 <script type="text/javascript">
 MathJax = {
@@ -840,7 +841,5 @@ covering in this book!
 8.  
 9.  
 10. 
-
-{% endraw %}
 
 {% endraw %}
