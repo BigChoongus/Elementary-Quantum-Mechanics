@@ -76,7 +76,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
 
 # Problems in Quantum Mechanics
 
