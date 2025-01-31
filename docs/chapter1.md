@@ -5,7 +5,7 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
+
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -405,5 +405,5 @@ after all is said and done to press onto more advanced textbooks when
 their mathematics allows it, and then I will have successfully completed
 my task in writing this pragmatic exposition.
 
-{% endraw %}
+
 
