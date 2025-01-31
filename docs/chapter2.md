@@ -5,7 +5,7 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
+
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -632,5 +632,5 @@ These will provide good motivation for the mathematical innovations we
 see in the next chapter, which will begin our journey of quantum
 mechanics formally.
 
-{% endraw %}
+
 
