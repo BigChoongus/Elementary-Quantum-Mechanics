@@ -77,7 +77,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
 
 # Time Evolution and Problem Solving Techniques
 
