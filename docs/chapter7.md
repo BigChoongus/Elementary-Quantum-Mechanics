@@ -76,7 +76,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
 
 # Continuous Spectra
 
