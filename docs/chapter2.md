@@ -1,5 +1,3 @@
-{% raw %}
-{% raw %}
 ---
 layout: default
 title: Chapter 2
@@ -7,7 +5,7 @@ mathjax: true
 render_with_liquid: false
 ---
 
-
+{% raw %}
 <script type="text/javascript">
 MathJax = {
   tex: {
