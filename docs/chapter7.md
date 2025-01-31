@@ -1,3 +1,4 @@
+{% raw %}
 ---
 layout: default
 title: Chapter 7
@@ -838,3 +839,5 @@ covering in this book!
 8.  
 9.  
 10. 
+
+{% endraw %}

@@ -1,3 +1,4 @@
+{% raw %}
 ---
 layout: default
 title: Chapter 3
@@ -1526,3 +1527,5 @@ observables into the picture and very fruitful results will follow.
 8.  
 9.  
 10. 
+
+{% endraw %}

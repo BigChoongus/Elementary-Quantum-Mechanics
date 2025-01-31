@@ -1,3 +1,4 @@
+{% raw %}
 ---
 layout: default
 title: Chapter 9
@@ -343,3 +344,5 @@ columns anyway. We now move onto defining the operations:
 ## Calculus\*
 
 ## Misc.\*
+
+{% endraw %}

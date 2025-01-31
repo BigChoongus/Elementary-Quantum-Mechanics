@@ -1,3 +1,4 @@
+{% raw %}
 ---
 layout: default
 title: Chapter 2
@@ -631,3 +632,5 @@ probabilities.\
 These will provide good motivation for the mathematical innovations we
 see in the next chapter, which will begin our journey of quantum
 mechanics formally.
+
+{% endraw %}

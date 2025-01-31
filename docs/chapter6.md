@@ -1,3 +1,4 @@
+{% raw %}
 ---
 layout: default
 title: Chapter 6
@@ -764,3 +765,5 @@ know that for the ket $\ket{\Psi
 8.  
 9.  
 10. 
+
+{% endraw %}
