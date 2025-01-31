@@ -77,7 +77,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
 
 # State Space Operators and the Quantum Observables Problem
 
