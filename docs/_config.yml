@@ -1,13 +1,11 @@
-# Use kramdown as the Markdown processor
 markdown: kramdown
 kramdown:
-  input: GFM  # Use GitHub Flavored Markdown for better table and code fence support
-  math_engine: mathjax  # Enable MathJax for LaTeX rendering
+  input: GFM
+  math_engine: mathjax
   syntax_highlighter_opts:
-    disable: true  # Prevent Liquid-related syntax highlighting issues
-  parse_block_html: true  # Allow direct HTML usage without Liquid interference
+    disable: true
+  parse_block_html: true
 
-# Prevent Jekyll from processing unnecessary files
 exclude:
   - README.md
   - node_modules
@@ -16,19 +14,8 @@ exclude:
   - vendor
   - .jekyll-cache
 
-# Ensure MathJax renders properly
 mathjax: true
 
-# Jekyll 3.x does NOT support 'liquid: false', so instead:
-# 1. Avoid unnecessary Liquid processing using a safe workaround.
-# 2. Use explicit `{% raw %}` inside `_layouts/default.html` where needed.
-defaults:
-  - scope:
-      path: ""
-    values:
-      escape_liquid_math: true  # Workaround to prevent Liquid interference with `{}` in MathJax
-
-# Site theme and metadata
 theme: minima
 title: Elementary Quantum Mechanics
 description: "A fully Jekyll-powered site for Quantum Mechanics, with MathJax and GitHub Flavored Markdown."
