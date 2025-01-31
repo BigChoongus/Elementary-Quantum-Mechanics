@@ -2,7 +2,6 @@
 layout: default
 title: Chapter 3
 mathjax: true
-render_with_liquid: false
 ---
 
 
