@@ -76,6 +76,8 @@ MathJax = {
 };
 </script>
 
+{% raw %}
+
 # Problems in Quantum Mechanics
 
 This chapter, and the next, will practice all the concepts we have
