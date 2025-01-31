@@ -77,8 +77,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
-
 # Dirac Notation and Matrix Mechanics
 
 The second part of this book, starting now, will be far more
