@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Chapter 9
@@ -6,7 +5,7 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
+
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -346,4 +345,3 @@ columns anyway. We now move onto defining the operations:
 
 ## Misc.\*
 
-{% endraw %}
