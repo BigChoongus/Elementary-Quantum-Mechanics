@@ -1,0 +1,4 @@
+touch docs/.nojekyll
+git add docs/.nojekyll
+git commit -m "Disabled Jekyll to fix GitHub Pages rendering"
+git push origin main
