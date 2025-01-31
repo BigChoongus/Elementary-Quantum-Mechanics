@@ -634,4 +634,3 @@ mechanics formally.
 
 {% endraw %}
 
-{% endraw %}
