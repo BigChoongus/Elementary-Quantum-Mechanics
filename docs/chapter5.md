@@ -5,9 +5,6 @@ mathjax: true
 render_with_liquid: false
 ---
 
-
-{% raw %}
-
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -820,4 +817,4 @@ second, how we extract physical information.\
 9.  
 10. 
 
-{% endraw %}
+
