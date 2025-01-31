@@ -5,8 +5,6 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
-
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -90,5 +88,3 @@ MathJax = {
 - [Chapter 7](chapter7.md)
 - [Chapter 8](chapter8.md)
 - [Chapter 9](chapter9.md)
-
-{% endraw %}
