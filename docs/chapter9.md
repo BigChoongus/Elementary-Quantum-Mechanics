@@ -76,7 +76,6 @@ MathJax = {
 };
 </script>
 
-{% raw %}
 
 # A Mathematical Toolbox
 
