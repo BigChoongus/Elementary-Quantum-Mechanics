@@ -5,7 +5,7 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
+
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -1528,5 +1528,5 @@ observables into the picture and very fruitful results will follow.
 9.  
 10. 
 
-{% endraw %}
+
 
