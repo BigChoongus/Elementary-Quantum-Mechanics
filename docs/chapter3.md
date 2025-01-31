@@ -5,8 +5,6 @@ mathjax: true
 render_with_liquid: false
 ---
 
-{% raw %}
-
 <script type="text/javascript">
 MathJax = {
   tex: {
@@ -77,6 +75,8 @@ MathJax = {
   }
 };
 </script>
+
+{% raw %}
 
 # The State Vector and the Quantum State Problem
 
