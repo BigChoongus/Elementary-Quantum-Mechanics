@@ -1,5 +1,22 @@
+# -------------------------------------------------
+# Site Info
+title: "Elementary Quantum Mechanics"
+description: "A LaTeX-based Quantum Mechanics Textbook with MathJax"
+# -------------------------------------------------
+
+# Disables Liquid templating on all pages
+defaults:
+  - scope:
+      path: ""        # applies to all files in the site
+      type: "pages"   # applies to 'pages' (i.e. .md, .html, etc.)
+    values:
+      render_with_liquid: false
+
+# Jekyll will still look in _includes directory for partials
 include:
   - _includes
+
+# Use Kramdown for Markdown, enable MathJax
 markdown: kramdown
 kramdown:
   math_engine: mathjax
