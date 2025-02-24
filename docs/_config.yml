@@ -6,16 +6,6 @@ kramdown:
     disable: true
   parse_block_html: true
 
-exclude:
-  - README.md
-  - node_modules
-  - Gemfile
-  - Gemfile.lock
-  - vendor
-  - .jekyll-cache
-
-mathjax: true
-
 theme: minima
 title: Elementary Quantum Mechanics
 description: "A fully Jekyll-powered site for Quantum Mechanics, with MathJax and GitHub Flavored Markdown."
