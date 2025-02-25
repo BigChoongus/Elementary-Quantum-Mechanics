@@ -1,6 +1,6 @@
 # 📖 My Quantum Mechanics Book
 
-Welcome to the online version of this introductory textbook for quantum mechanics. This book is written to be accessible even to highschoolers, and achieves mathematical rigour by being a bit wordier than the average introductory textbook.
+Welcome to the online version of this introductory textbook for quantum mechanics. This book is written to be accessible even to highschoolers, and achieves mathematical rigour by being a bit wordier than the average introductory textbook. Please note that elements of some chapters are still under construction, particularly when it comes to the correction of typos and other errata which might currently occur.
 
 Click on the links below to access the chapters:
 
