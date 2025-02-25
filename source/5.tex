@@ -4,14 +4,14 @@ We will complete our study of the postulates of quantum mechanics in this chapte
 Before we start on that, however, there are two pragmatic clarifications to be made, both of which are related to the explicit forms of operators and how we use them in problem solving. These are, observable spaces and formulation of the observable operators. 
 \section{More on Observable Operators}
 \subsection{Observable Spaces}
-When we refer to an \sapos{observable space}, we do not mean a space we can observe. We mean the state space when it is spanned by a physical observable. Precisely, that means working with the state space where the underlying basis is an eigenbasis of some observable operator.
+When we refer to an `observable space", we do not mean a space we can observe. We mean the state space when it is spanned by a physical observable. Precisely, that means working with the state space where the underlying basis is an eigenbasis of some observable operator.
 \\\\
 A large component of problem solving in quantum mechanics consists of being able to apply two concepts related to bases:
 \begin{enumerate}
     \item Staying flexible without committing to a specific base and considering the state vector without a basis first.
     \item Switching into a basis which is useful for our specific needs and algebraic manipulations. 
 \end{enumerate}
-It is clear, even from the very early section on orthonormality, that not a bases are created equal. Some are simply better selected because algebraic manipulation becomes a lot easier when a problem is considered in those bases. Out of such bases, the eigenbases of physical observables are the most significant. Thus we reach this definition of \sapos{observable spaces}, which sounds strange but is simply translated to \sapos{position space}, \sapos{momentum space}, \sapos{energy space} when we actually do have a physical observable in mind. We understand that all these observable spaces are not actually new vector spaces: they are all this same state space we have been studying, but simply with different eigenbases spanning the space and therefore where the same vectors will take different expansions. Nevertheless, these terms of position space and momentum space and so on are completely essential technical terms when we refer to these ideas.
+It is clear, even from the very early section on orthonormality, that not a bases are created equal. Some are simply better selected because algebraic manipulation becomes a lot easier when a problem is considered in those bases. Out of such bases, the eigenbases of physical observables are the most significant. Thus we reach this definition of `observable spaces', which sounds strange but is simply translated to `position space', `momentum space', `energy space' when we actually do have a physical observable in mind. We understand that all these observable spaces are not actually new vector spaces: they are all this same state space we have been studying, but simply with different eigenbases spanning the space and therefore where the same vectors will take different expansions. Nevertheless, these terms of position space and momentum space and so on are completely essential technical terms when we refer to these ideas.
 \\\\
 %# ACTUALLY NEED MORE IN CHAPTER 6
 All quantum mechanics problems are solved in the end in one of these spaces. Rarely, we might solve one part of a problem in one observable space and then switch bases (more in Chapter 6), after taking what we have learnt from that part, to solve the rest of the problem. Most of the time -- especially overwhelmingly in this book -- we work in position space  where possible. This is not only because it makes sense to work with time and position as the two most important variables, as in our physical reality, but also because there are important variables to consider in the time evolution problem -- in particular the potential $V(x)$, a function of position-- which are easier to express in the position basis than any other. Momentum space is by far the other main counterpart in quantum mechanics, and usually we might work in momentum space in problems where the conditions or potential are easily expressed in terms of the momentum. Only rarely will we see energy space in action, and any other observable space will essentially be inferior to position and momentum space because the observables of position and momentum are far more important than any other.
@@ -165,7 +165,7 @@ $$
 $$
 where the fact that $\hat{H}$ is hermitian is used in the algebraic manipulations. Then, as the inner product is linearly distributive across the sum term, this becomes
 $$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oipbig{\varepsilon_{n}}{\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
+\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{n}}{\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
 $$
 and as the inner product $\oip{\varepsilon_{m}}{\Psi_{t}}$ is some constant for fixed $m$ and t, we can pull it out to write the expression as
 $$
@@ -282,7 +282,7 @@ An important thing to note is that this procedure only applies for systems where
 \\\\
 Let us now solve this simplest problem in quantum mechanics with this procedure.
 \subsubsection*{List the Boundary Conditions}
-The \apos{boundary conditions} of a problem are simply all the conditions the problem sets up for a solution. Listing them at this stage can be very useful because there are many times, for example when evaluating integrals or probabilities, that the boundary conditions can provide insights to shortcuts where there seem like there are too many obstacles to a solution. For now, though, this as a separate step will not be vindicated considering there is one boundary condition specified here only.
+The ``boundary conditions" of a problem are simply all the conditions the problem sets up for a solution. Listing them at this stage can be very useful because there are many times, for example when evaluating integrals or probabilities, that the boundary conditions can provide insights to shortcuts where there seem like there are too many obstacles to a solution. For now, though, this as a separate step will not be vindicated considering there is one boundary condition specified here only.
 \begin{enumerate}
     \item The potential energy is $0$.
 \end{enumerate}
@@ -361,7 +361,7 @@ The problem of a physical model consists of two components, the state problem an
 \textbf{\underline{The representation of physical information}}
 \begin{itemize}
     \item The representation of physical information is carried out by the state vector and its wavefunctions in quantum mechanics. It is represented by a normed Hilbert space vector; all scalar multiples are the same ray so represent the same state.
-    \item In the book we have referred to the state vector at times as \apos{storing information}, which is somewhat of a shorthand and can be confusing. What really is true is that the state vector is given meaning by the relation
+    \item In the book we have referred to the state vector at times as ``storing information", which is somewhat of a shorthand and can be confusing. What really is true is that the state vector is given meaning by the relation
     $$
     P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^{2}
     $$
