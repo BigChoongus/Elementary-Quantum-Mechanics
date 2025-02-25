@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+      window.MathJax = {
+        loader: { load: ['[tex]/newcommand'] },
+        tex: {
+          packages: { '[+]': ['base', 'ams', 'newcommand'] },
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    $$
+    \newcommand{\Answerend}{\end{tcolorbox}}
+    \newcommand{\ket}[1]{|#1\rangle}
+    \newcommand{\bra}[1]{\langle#1|}
+    \newcommand{\ip}[2]{\langle#1|#2\rangle}
+    \newcommand{\bip}[2]{\left\langle#1\middle|#2\right\rangle}
+    \newcommand{\qexp}[1]{\langle#1\rangle}
+    \newcommand{\apos}[1]{``#1"}
+    \newcommand{\sapos}[1]{`#1'}
+    \newcommand{\elec}{e^{-}}
+    \newcommand{\uspin}{(\uparrow)}
+    \newcommand{\dspin}{(\downarrow)}
+    \newcommand{\lspin}{(\leftarrow)}
+    \newcommand{\rspin}{(\rightarrow)}
+    \newcommand{\ulspin}{(\uparrow\leftarrow)}
+    \newcommand{\urspin}{(\uparrow\rightarrow)}
+    \newcommand{\dlspin}{(\downarrow\leftarrow)}
+    \newcommand{\drspin}{(\downarrow\rightarrow)}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\stab}{\:\:}
+    \newcommand{\mtab}{\:\:\:}
+    \newcommand{\btab}{\:\:\:}
+    \newcommand{\imp}{\Rightarrow}
+    \newcommand{\doubimp}{\Leftrightarrow}
+    \newcommand{\setof}[1]{\{#1\}}
+    \newcommand{\infint}{\int_{-\infty}^{\infty}}
+    \newcommand{\trans}[1]{\mathcal{T}(#1)}
+    \newcommand{\dd}[2]{\delta(#1-#2)}
+    \newcommand{\ipbig}[2]{\langle#1|#2\rangle}
+    \newcommand{\talpha}{\tilde{\alpha}}
+    
+    \newcommand{\op}[2]{|#1\rangle\langle#2|}
+    \newcommand{\sop}[1]{|#1\rangle\langle#1|}
+    \newcommand{\prop}[2]{\mathcal{U}(#1,#2)}
+    \newcommand{\propdagg}[2]{\mathcal{U}^{\dagger}(#1,#2)}
+    \newcommand{\sip}[1]{\langle#1|#1\rangle}
+    \newcommand{\optrip}[3]{\langle#1|\hat{#2}|#3\rangle}
+    \newcommand{\nhoptrip}[3]{\langle#1|{#2}|#3\rangle}
+    \newcommand{\northexp}[2]{\sum_{i=1}^{n}|#2\rangle\langle#2|#1\rangle}
+    \newcommand{\orthexp}[4]{\sum_{#3=1}^#4|#2\rangle\langle#2|#1\rangle}
+    \newcommand{\schrodeq}{i\hbar\frac{\partial \Psi(x,t)}{\partial t}=\hat{H}\Psi(x,t)}
+    \newcommand{\nd}[2]{\frac{d#1}{d #2}}
+    \newcommand{\snd}[2]{\frac{d^{2}#1}{d#2^2}}
+    \newcommand{\pd}[2]{\frac{\partial#1}{\partial #2}}
+    \newcommand{\spd}[2]{\frac{\partial^{2}#1}{\partial #2^2}}
+    \newcommand{\duac}{\leftrightarrow}
+    \newcommand{\oip}[2]{\left(#1,#2\right)}
+    \newcommand{\obip}[2]{\left(#1,#2\right)}
+    $$
+<h1 id="the-stern-gerlach-experiment">The Stern Gerlach Experiment</h1>
+<p>In the Exoskeleton to this book, I presented the idea of modelling
+very explicitly to the reader, because I think that a more authoritative
+overview on the <em>procedure</em> of what we are trying to do is
+important and often neglected by compendium-style textbooks full of
+algebra but not much else. Considering this is a mathematics textbook,
+we have opened up with a whole lot of words. However, this is, to my
+estimation, the best way, and the result is that the reader should get a
+view of the subject which will be a helpful guide throughout, before we
+open the algebra and our horizons immediately become narrowed down for
+some time.<br />
+<br />
+To complete our view over quantum mechanics, then, we will now
+investigate one of the radical experiments of the early 20’s which
+necessitated the birth of quantum mechanics to take the mantle from a
+classical model which was suddenly proven woefully inadequate. I have
+chosen the Stern Gerlach experiment, involving electron deflection in a
+magnetic field. Other practical experiments, such as the Davisson-Germer
+modification of Young’s Double Slit or the Mach-Zehnder Inferometer, are
+also often used as opening preludes to the quantum model, but the Stern
+Gerlach experiment is amongst these the easiest-accessible exhibition of
+the phenomena we will be trying to mathematically model, without much
+additional Physics knowledge required. What we herein are trying to
+understand is what exactly the demands– from physical reality– quantum
+mechanics had to meet were. It is a model, and models are valuable only
+based on how well they meet the demands of the predictions they need to
+be capable of making. With these extraordinary experimental results,
+quantum mechanics very much was given a deeply challenging and novel set
+of demands, so its rules – the Postulates – can be said to be directly
+motivated by them.<br />
+<br />
+Thus, understanding these motivations provides a stabilising force of
+unification between the otherwise unexplainable haphazard mathematical
+abstractions which will follow. The author strongly suggests
+understanding Planck’s (discretised) solution to the blackbody radiation
+problem, Bohr’s new atom model, Young’s double slit experiment, De
+Broglie’s matter waves, and Born’s radical idea of before beginning to
+read this book. These need not be learned out of textbooks or with any
+length or depth of study at all– only the most superficial familiarity
+with the concepts is needed– but are very useful to have a basic grasp
+of in order to understand what new issues quantum mechanics had to
+address when it was conceived. We cannot cover all the above physics
+experiments in any true detail, because doing so not only violates the
+mathematical focus of this book– dissipating the reader’s attention with
+phenomenological distractions– but also requires far more complex
+physics than can fit into this textbook.<br />
+<br />
+Now, then, if the reader feels introduced to the ideas of inherent
+probability and superposition, we will press on with a very concrete
+example to see these principles in real world practice.</p>
+<h2 id="the-stern-gerlach-experiment-1">The Stern-Gerlach
+experiment</h2>
+<p>The idea of inherent probability has been introduced and is well
+covered even by non-mathematical media on quantum mechanics. If the
+reader has familiarised themselves with these background ideas of
+inherent probability, we can investigate this further, and the
+consequences it has on the quantum state, by turning to the
+Stern-Gerlach experiment. The reason this experiment is so useful is
+because it allows us to focus on a particular <em>observable</em>– that
+is, something we measure in an experiment– which can only take two
+possible values. This allows greater lucidity in how we organise a
+systematic investigation into the strange quantum mechanical phenomena
+of probabilities.<br />
+<br />
+The setup deals with the magnetic properties of silver (Ag) electrons.
+Specifically, we consider what happens when we pass them through a
+magnetic field. What we expect is for deflection to occur; this is due
+to a property of electrons, called spin, which is directly influenced by
+the magnetic moment exerted on the electrons by the magnetic field. A
+problem with spin is that it has no classical analogue- that is, we have
+not seen any such quality with our own eyes in our macroscopic world;
+indeed, the physicist Pauli describes spin as something . Nevertheless,
+all the reader needs to know is that this quality determines the
+different ways an electron is deflected by the magnetic field, and that
+it is a measurable quality. We can reduce each electron to be considered
+as a single point particle with a particular spin, by performing some
+net cancellations. So we will make that assumption that the particles we
+are working with in the experiment are single point particles with some
+spin values.<br />
+<br />
+Now, after electrons are deflected by this magnetic field, they are
+detected by an electron detector on the other side, which we can
+visualise as a simple screen which shows where the electrons land. The
+expectation classically is that there is a large patch of electrons
+formed on the detector screen, bounded by the furthest deflections
+achieved (and possible) during the experiment. This is because we expect
+that spin is some continuous value which may differ from electron to
+electron, resulting in slightly different respective deflections by the
+magnetic field: thus forming in this patch on the detector screen.<br />
+<br />
+However, the results which are achieved are rather different. There are
+only two positions at which electrons are detected after deflection on
+the screen. If we proffer that this quality of spin is the only facet
+which changes the deflection– other than the magnetic field, which is
+the same for every electron passing through it and constant throughout–
+then this necessarily means we have observed the <em>quantisation</em>
+of spin: the property of an observable having a finite set of discrete
+values– here, two. There are two possible deflections, and therefore
+there must be two possible spins given that nothing else is
+changing.<br />
+<br />
+In the above we could have made a subtle semantic adjustment and said: .
+We will show that, while this might seem sensible to classical
+intuition, it is in fact impossible for us to say this because it is
+impossible for an electron to have a specific value of spin before
+passing through the magnetic field! This is a dramatic statement,
+because under classical intuition every object we study must have some
+value for any observable at all times. We can change the momentum of a
+baseball by striking it, but that doesn’t mean it did not have a
+momentum before we struck it and measured the result. Somehow, quantum
+mechanics tells us that with spin, the electron can exhibit a certain
+spin value after it passes through the magnetic field, but does not
+necessarily have one before it does so. This is a prime example of
+purely quantum behaviour, and was indeed why the Stern Gerlach
+experiment, which strongly suggests this fact, was so seminal as one of
+the experiments which necessitated the birth of quantum mechanics.<br />
+<br />
+To understand how the results of the experiment show us this strange
+behaviour must exist, we will engage in some sort of proof by
+contradiction. We will assume the opposite is true: that the electron
+must have a spin value at all times, and show that the results of the
+experiment lead to a contradiction if this assumption is true. By doing
+this, we will thereby prove our assumption is incompatible with the
+results of experiment, and that therefore the electron cannot in fact
+have a spin value at all times.<br />
+<br />
+In our work, we will focus on the two-dimensional Stern-Gerlach
+experiment. The primary dimension we focus on will be the <span
+class="math inline">\(y\)</span>-dimension– or, as we will think of it,
+the direction. Here, the two possible spins in our experiment are , and
+. More interesting things come when we consider a second dimension, so
+we will use the <span class="math inline">\(x\)</span>-dimension as our
+secondary dimension, where the two spins are , and . Corresponding to
+these dimensions there are the <span
+class="math inline">\(y\)</span>-dimension magnetic fields and <span
+class="math inline">\(x\)</span>-dimension magnetic fields, which
+deflect electrons in those dimensions alone.<br />
+<br />
+Let us now take our classical assumption on until we reach a
+contradiction: we will assume that the electron must already have some
+value of spin before passing through the magnetic field. Thus begins our
+proof by contradiction.<br />
+<br />
+Let us first consider the purposes of the magnetic fields. It might seem
+like they are performing a physical action on the electrons- which they
+are: they are deflecting them. However, the real purpose of the magnetic
+fields in this experiment is to <em>reveal</em> the spin value of
+electrons which we assume they possess. By passing a single electron
+through the <span class="math inline">\(y\)</span>-dimension magnetic
+field it is either deflected down, if it had down spin, or it is
+deflected up, if it had up spin. In this way, the action is of passing
+an Ag electron through the magnetic field is the action of measuring the
+spin it has.<br />
+<br />
+The second quality of the magnetic field is that it separates a group of
+electrons into two new groups corresponding to the two possible spins in
+its dimension. Note that it can do both of these functions at the same
+time: it deflects down spin electrons down and up spin electrons up,
+which both splits them into distinguishable groups, and measures
+(reveals) their spin. After passing a random beam of electrons through
+the magnetic field, we will get these two resulting groups split by
+their initial spin: surely, a useful thing to have.<br />
+<br />
+If this is the case, then we expect successive <span
+class="math inline">\(y\)</span>-dimension magnetic fields to yield a
+clear result when applied to a group of electrons. The first <span
+class="math inline">\(y\)</span>-dimension magnet separates the group of
+electrons into electrons with up spin and electrons with down spin. If
+we allow for enough distance to distinguish the two separate deflections
+of up and down, and place two new magnetic fields in the up deflection
+position resulting for up spin electrons and the down deflection
+position resulting for down spin electrons, then we therefore expect the
+second line of magnetic fields to perform its measurement function.
+Specifically, the second <span
+class="math inline">\(y\)</span>-dimension magnetic field in the
+up-deflected position should measure all its electrons to have up spin,
+and the second <span class="math inline">\(y\)</span>-dimension magnet
+in the down-deflection position should measure all its electrons to have
+down spin. This is of course because they have already been separated
+into two distinct groups and measuring the spin of all the electrons in
+those distinct will only yield one result. We did not know the spin
+value of the electrons before we passed them through the first magnetic
+field, but after we do all our revelations are done.<br />
+<br />
+This is indeed what we achieve when we do actually perform the
+experiment. The first <span class="math inline">\(y\)</span>-dimension
+magnet splits a group of electrons into two groups corresponding to each
+spin, and an infinite succession of <span
+class="math inline">\(y\)</span>-dimension magnetic fields on each of
+these deflected trajectories will continue to measure the same spin by
+continuing to deflect them in the same direction. The same holds for
+successive <span class="math inline">\(x\)</span>-dimension magnetic
+fields: the first separates the electrons into two groups with left and
+right spin respectively, and the subsequent magnetic fields will
+continue to measure the same spins if applied successively along the two
+initial trajectories obtained by the first magnet.<br />
+<br />
+Of course, physicists were more inspired than just applying the same
+magnetic field over and over again on the same electrons. We might
+wonder what would happen if we applied some sequence of <span
+class="math inline">\(y\)</span> and <span
+class="math inline">\(x\)</span> magnetic fields. Let us note that
+electrons passing through a magnetic field in a certain dimension are
+not deflected in anyway in any other dimension. We implicitly see this
+in the fact that electrons passing through the <span
+class="math inline">\(y\)</span> magnetic field follow a straight
+trajectory with respect to the <span
+class="math inline">\(x\)</span>-dimension and therefore still all hit
+the detector screen a certain <span class="math inline">\(x\)</span>
+distance away from the field.<br />
+<br />
+Our assumption is that an electron at all times holds a value for its
+spin. We therefore also posit that an electron may at one time hold two
+simultaneous properties of <span class="math inline">\(x\)</span> spin
+and <span class="math inline">\(y\)</span> spin, which are independent
+of each other: just like a ball may have momentum and acceleration
+values at the same time. We test the relationship between the <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> spins of an electron: is an up spin
+electron more likely to be a right spin electron, for example?
+Understandings like this are physically relevant, of course- if a
+electron passing through magnetic fields was more likely to be deflected
+right and up or left and down then this would surely have physical
+implications.<br />
+<br />
+Suppose we isolate a certain <span class="math inline">\(y\)</span>-spin
+and only consider electrons with that <span
+class="math inline">\(y\)</span>-spin: say, up spin. To do this
+experimentally is simple– pass a group of electrons through a <span
+class="math inline">\(y\)</span>-magnetic field, give sufficient
+distance for the deflected trajectories to diverge, and block the
+down-deflected path so that none of those electrons can keep moving
+forwards and the only ones moving forwards are the up spin electrons.
+Let us suppose we did this. Then, we can investigate what happens when
+we place an <span class="math inline">\(x\)</span>-magnetic field in the
+path of the up-deflected electrons. The point of blocking out the
+down-deflected electrons in this way is to assure us we will past this
+point never have to deal with down spin electrons during our
+considerations.<br />
+<br />
+The <span class="math inline">\(x\)</span>-magnetic field on any
+ensemble of electrons will not show considerable bias towards any spin,
+in fact. We obtain two new deflected trajectories, therefore: up-left
+and up-right. Again, this all seems good, until we add another <span
+class="math inline">\(y\)</span> magnetic field, after which a bizarre
+phenomenon occurs.<br />
+<br />
+If we add another <span class="math inline">\(y\)</span> magnetic field
+to the trajectory of the up spin electrons which we have just deflected
+left or right with the <span class="math inline">\(x\)</span> magnetic
+field, we would expect all the electrons to be deflected upwards, since
+these are after all electrons with up spin. We know that we have blocked
+out all the down spin electrons far back, so they cannot escape to
+intervene with the results of our current experiment.<br />
+<br />
+Such is not the case. What we get instead is that both the up-left and
+up-right ensembles of electrons have subgroups of electrons which are
+deflected downwards by the new <span class="math inline">\(y\)</span>
+magnet! This by all means should absolutely be impossible, given we have
+filtered out all the down spin electrons already. Clearly, something is
+wrong.<br />
+<br />
+To keep track of everything following this revelation, we will use a new
+notation: <span class="math inline">\(\uspin\)</span>, <span
+class="math inline">\(\dspin\)</span>, <span
+class="math inline">\(\lspin\)</span>, <span
+class="math inline">\(\rspin\)</span> for different spins, as well as
+two-fold notations such as <span class="math inline">\(\urspin\)</span>
+to record when an electron has had its <span
+class="math inline">\(y\)</span> spin and <span
+class="math inline">\(x\)</span> spin measured. We will call this state
+notation, as we are attempting to label its state– by considering its
+spin properties. The reason this is so useful is, among other things,
+simply that it saves us a lot of time by avoiding having to write all
+the time.<br />
+<br />
+This state denotation model is just some arbitrary and meaningless
+labelling, so one should not carried away with its importance other than
+for making things more concise. Nevertheless, let’s take this state
+denotation one final step further by adding scalars to the mix.
+Specifically, we will use scalars to show how many electrons are in each
+state for a given set. For example, we could have <span
+class="math display">\[1000\elec=500\uspin + 500\dspin.\]</span> That
+is: we have some 1000 electrons, 500 of which are up spin and 500 of
+which are down spin. Similarly, we could say <span
+class="math display">\[500\uspin = 250\ulspin + 250\urspin\]</span> or
+even, <span class="math display">\[500\uspin \implies 250\ulspin +
+250\urspin + 0\dlspin + 0\drspin.\]</span> That is, out of some sample
+of 500 up spin electrons, we have measured 250 to have up left spin and
+250 to have up right spin. We can use the <span
+class="math inline">\(\implies\)</span> arrow to show that there is a
+change after we place the electrons in a magnetic field. With this
+interlude we can now clearly express what is strange about our above
+result again– given our original classical assumption– by tracking what
+information was revealed <u>after</u> each step:</p>
+<ol>
+<li><p>Pass the electron beam through a <span
+class="math inline">\(y\)</span>-magnetic field: <span
+class="math display">\[1000\elec \implies 500\uspin+500\dspin\]</span>
+assuming we start with 1000 electrons and the sample is indeed
+random.</p></li>
+<li><p>Block out the down-deflected channel: <span
+class="math display">\[500\elec \implies 500\uspin+0\dspin\]</span>
+reflecting that we now have 500 electrons since 500 down spin electrons
+have all been blocked out from the experiment.</p></li>
+<li><p>Pass the electron beam through an <span
+class="math inline">\(x\)</span>-magnetic field: <span
+class="math display">\[500\elec
+\implies500\uspin+0\dspin=250\ulspin+250\ulspin+0\dspin\]</span>
+assuming again an equal distribution which is experimentally
+realistic.</p></li>
+<li><p>Block the left spin channel. <span
+class="math display">\[250\elec\implies0\ulspin+ 250\urspin +
+0\dspin\]</span></p></li>
+<li><p>Finally, pass the electron beam through a <span
+class="math inline">\(y\)</span>-magnetic field. <span
+class="math display">\[250\urspin\implies125\uspin+125\dspin\]</span></p></li>
+</ol>
+<p>The scalars themselves are really not important at all: one needn’t
+think about numbers of electrons, as they are irrelevant in these
+scenarios. What is relevant is what happens if we track what happens to
+the <span class="math inline">\(\dspin\)</span> count between these
+above steps.</p>
+<ol>
+<li><p><span class="math inline">\(500\dspin\)</span></p></li>
+<li><p><span class="math inline">\(0\dspin\)</span></p></li>
+<li><p><span class="math inline">\(0\dspin\)</span></p></li>
+<li><p><span class="math inline">\(0\dspin\)</span></p></li>
+<li><p><span class="math inline">\(125\dspin\)</span></p></li>
+</ol>
+<p>We have followed one single trajectory! So we should not be counting
+500, 0, 0, 0, 125 unless down spin electrons have materialised out of
+thin air (this is impossible, rest assured). We might therefore guess
+that some of the <span class="math inline">\(0\)</span> counts are
+false. We can consider this:</p>
+<ul>
+<li><p>In step 2, we have just blocked out all the down-spin electrons.
+The 0 count surely therefore must be accurate.</p></li>
+<li><p>In step 3, we have just passed the electron beam through an <span
+class="math inline">\(x\)</span>-magnetic field. We might offer 1
+possible guess: that the <span class="math inline">\(x\)</span>-magnetic
+field actually influences the <span
+class="math inline">\(y\)</span>-spin and that it is here therefore that
+the subsequent 0 count was wrong.</p></li>
+<li><p>In step 4, we blocked out all the left-spin electrons. If the 0
+count here is false, that means that either blocking out left-spin
+electrons switched the <span class="math inline">\(y\)</span>-spin of
+some of the electrons, or that there already were down spin electrons by
+this point before we blocked out the left-spin electrons. If there were
+down spin electrons before step 4 was implemented then this necessarily
+means again that after step 3 the 0 count was already wrong.</p></li>
+</ul>
+<p>So everything points to the only reasonable explanation being that
+the 0 count after step 3 of the <span
+class="math inline">\(x\)</span>-magnetic field was false: and this
+would only occur if the <span class="math inline">\(x\)</span>-magnetic
+field actually flipped the <span class="math inline">\(y\)</span>-spin
+of some electrons. We first remember that the counter detector has only
+actually measured the number of left spins and right spins after step 3,
+since an <span class="math inline">\(x\)</span>-magnetic field does not
+make any discernible <span class="math inline">\(y\)</span>-deflections.
+So it is certainly true that if the <span
+class="math inline">\(x\)</span>-magnetic field did flip some of the
+electron <span class="math inline">\(y\)</span>-spins we would not have
+detected this since it would not have manifested in a deflection.<br />
+<br />
+To test this one lifeline for our assumption, there is a cunning
+modification to the apparatus. We recall that what we did originally was
+place successive magnetic fields a relatively large distance away from
+each other such that different deflected trajectories could be given
+sufficient distances over which to diverge from each other and therefore
+be discernibly different according to the measurements of detectors.
+This makes sense if we simply consider the fact that we are considering
+magnetic deflections of electrons, which are obviously not significant
+at all in scale.<br />
+<br />
+On the other hand, we can also well imagine that we can let both
+deflected paths pass through the same magnetic field, since the angle of
+deflection is small. If we try this, we continue to add to the list of
+complications. We can use our step by step denotation to track things
+again:</p>
+<ol>
+<li><p>Pass the electron beam through a <span
+class="math inline">\(y\)</span>-magnetic field: <span
+class="math display">\[1000\elec \implies500\uspin+500\dspin\]</span>
+assuming we start with 1000 electrons and the sample is indeed
+random.</p></li>
+<li><p>Block out the down-deflected channel: <span
+class="math display">\[500\elec \implies500\uspin+0\dspin\]</span>
+reflecting that we now have 500 electrons since 500 down spin electrons
+have all been blocked out from the experiment.</p></li>
+<li><p>Pass the electron beam through an <span
+class="math inline">\(x\)</span>-magnetic field: <span
+class="math display">\[500\elec=500\uspin+0\dspin\implies250\ulspin+250\urspin\]</span>
+assuming again an equal distribution which is experimentally
+realistic.</p></li>
+<li><p>Pass both the up right and up left electrons through a new <span
+class="math inline">\(y\)</span> magnetic field. <span
+class="math display">\[500\elec=250\ulspin+ 250\urspin\implies
+500\uspin\]</span></p></li>
+</ol>
+<p>So if we compare the results of adding a new <span
+class="math inline">\(y\)</span> magnetic field to the experiment (step
+5 in the previous experiment and step 4 here):</p>
+<ul>
+<li><p>If we remove one of the right or left channels of <span
+class="math inline">\(x\)</span>-deflected electrons, then both up and
+down channels emerge from the <span
+class="math inline">\(y\)</span>-magnetic field applied to the remaining
+beam.</p></li>
+<li><p>If we keep both of the right and left channels, then only one
+<span class="math inline">\(y\)</span> deflection emerges from the <span
+class="math inline">\(y\)</span>-magnetic field applied to the remaining
+beam.</p></li>
+</ul>
+<p>The above effectively cancels out any idea that the <span
+class="math inline">\(x\)</span>-magnetic field is flipping the <span
+class="math inline">\(y\)</span> spin of some of the electrons. We had
+guessed that in the first experiment that the reason why down spin
+electrons were appearing seemingly out of nowhere (having been blocked
+out, we thought, earlier) was because the <span
+class="math inline">\(x\)</span>-magnetic field was flipping these
+electrons. If this was the case, then adding left spin electrons would
+not change anything, since the spin of one electron most definitely does
+not effect the spin of another. Therefore, if the <span
+class="math inline">\(x\)</span> field really did flip electrons when
+the left spin electrons were still absent, adding them would simply mean
+we still have down spin electrons (perhaps more, since presumably some
+left spin electrons would be flipped too if right spin electrons are).
+Yet adding these left spin electrons eliminates rather than augments the
+number of down spin electrons. Since the spin of one electron does not
+affect the spin of another electron, we thereby infer our hypothesis
+that an <span class="math inline">\(x\)</span>-magnetic field can flip a
+<span class="math inline">\(y\)</span> spin is false.<br />
+<br />
+This now undoubtedly therefore suggests a problem with our original
+assumption that an electron has pre-determined spin values, within which
+there can be no explanation for certain empirically observed phenomena.
+Therefore, the assumption that electrons have a spin value at all times
+leads to a contradiction with empirical results and must be false.</p>
+<h2 id="remodelling-the-stern-gerlach-experiment">Remodelling the Stern
+Gerlach Experiment</h2>
+<p>Within the next two chapters from this one, the exact reason for our
+bizarre results will become quite clear. However, the gist is already
+apparent: it seems like it is impossible for an electron to have
+pre-determined spin values at every point in the experiment: and that
+they only have pre-determined values at some very specific points in the
+experiment. We need to ensure this could be consistent with experimental
+data, so let us do this.<br />
+<br />
+One clue comes when we repeat the exact same experiment, but with <span
+class="math inline">\(x\)</span>, <span
+class="math inline">\(y\)</span>, <span class="math inline">\(x\)</span>
+magnetic fields rather than <span class="math inline">\(y\)</span>,
+<span class="math inline">\(x\)</span>, <span
+class="math inline">\(y\)</span> fields. The exact same set of phenomena
+occurs, but simply with the sequence of spin dimensions switched around
+to reflect the new sequence of magnetic fields. The explanation we now
+proffer– which is finally the correct explanation– is that we cannot
+know the <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> spins of the electrons simultaneously.
+This is obviously not a classical explanation, and is our first
+experience of a quantum phenomenon in action- that there can be
+observables which cannot simultaneously both hold values for a given
+state was certainly shocking to physicists of that time and should be
+equally shocking to us.<br />
+<br />
+This does however, become consistent with all the phenomena we have been
+getting in the experiments explained. When we have both left and right
+channels going into the same magnet, out from the magnet emerges one
+single channel (in our case, up). This is because, when both channels
+enter the same magnetic field we can’t tell which of them have left and
+which of them have right spin– and therefore we can tell afterwards what
+their <span class="math inline">\(y\)</span> spin is. However, if we
+pass only one <span class="math inline">\(x\)</span>-deflected channel
+through the magnet, then we can tell what the <span
+class="math inline">\(x\)</span> spin of the input electrons are by what
+channel we have chosen, and therefore some are deflected down and some
+are deflected up– we can no longer tell what their <span
+class="math inline">\(y\)</span> spin is.<br />
+<br />
+The facts above, however, are presented to imply another question which
+someone trying to cling onto classical common sense would reasonably
+ask. It may be true that if we stand above the apparatus and only look
+at detector readings we cannot tell which electrons have which spin when
+we are passing all of them into the same magnetic field. However, if we
+were to focus in on electrons one by one, tracking which electrons have
+which spin, surely we could for example track the <span
+class="math inline">\(x\)</span> spins of each of the electrons passing
+into the <span class="math inline">\(y\)</span> field and then each of
+the <span class="math inline">\(y\)</span> spins when they come out of
+it: and thereby know the <span class="math inline">\(x\)</span> and
+<span class="math inline">\(y\)</span> spins simultaneously?<br />
+<br />
+Investigating this leads us to try and repeat the experiment with as few
+electrons as possible. The first thing we realise, when doing so, is
+that 10 electrons and <span class="math inline">\(10^8\)</span>
+electrons exhibit the same types of phenomena when we study them, though
+naturally the groups of electrons are different in quantity for the two
+scenarios. In other words– intensity (a measure of the number of
+electrons per unit area in the beam) does not affect the experiment.
+Well this is good news, since that means we can reduce to single
+electrons in our electron gun and once and for all understand the
+phenomenon!<br />
+<br />
+All seems well. The first <span class="math inline">\(y\)</span>
+magnetic field, let’s say, gives the electron to have up spin. The
+second <span class="math inline">\(x\)</span> magnetic field, might give
+a right spin. So we know both of the <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> spins simultaneously, we think:
+seemingly invalidating our quantum hypothesis that we could not do this.
+To confirm, we put a new <span class="math inline">\(y\)</span> magnetic
+field to our up-right spin electron. And finally, we get a nasty shock,
+because that electron which we measured to have up and then right spin
+suddenly exhibits a downwards deflection, showing down spin.<br />
+<br />
+This is the probabilistic state. We have already proved that the
+magnetic fields cannot flip any spins, and only reveal the spin in the
+relevant dimension where the magnet is set to. Yet this electron has
+exhibited up and down spin in successive measurements. This leads us to
+the only possible conclusion. Our overarching point: that an electron
+cannot have a spin value at all times, must be true. This would be in
+line with our other quantum hypothesis that we cannot know
+simultaneously the <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> spins. The electron <em>cannot</em>
+have a spin value at all times, and this means that there are times it
+does not have a fixed spin value, and in particular we now know that
+these times where the spin value cannot be known at least include all
+the times when the spin value in another dimension is known.<br />
+<br />
+Why do electrons still get deflected, if they do not have spin values?
+The logical explanation is the correct one this time: an electron might
+not <em>have</em> a spin value, but it can <em>take</em> a spin value.
+It turns out that it takes a spin value with specific probabilities,
+which we will soon learn how to calculate. So what we achieved in the
+first two measurements on this single electron: an up and right spin, is
+simply a result of the electron taking some measurement with some
+probability. That probability (which turns out to be <span
+class="math inline">\(\frac{1}{2}\)</span> in our case) is simply
+flipped into a new outcome when we try to measure the <span
+class="math inline">\(y\)</span> spin again, and therefore we never did
+know the two spins simultaneously!<br />
+<br />
+A few things are maintained in this world of chaos, fortunately. We
+recall that applying the same magnet to an electron beam over and over
+again gives the same spin every time. This would not be true if for each
+magnet we were simply experiencing a probability of <span
+class="math inline">\(\frac{1}{2}\)</span> that it exhibits up spin and
+<span class="math inline">\(\frac{1}{2}\)</span> of down spin, since an
+infinite sequence of magnetic fields would eventually of course invoke
+that <span class="math inline">\(\frac{1}{2}\)</span> probability of the
+other spin to the one we are measuring every time. This therefore proves
+that if we measure the spin of an electron it <em>takes</em> a state-
+here, with probability <span class="math inline">\(\frac{1}{2}\)</span>
+of taking an up spin state and <span
+class="math inline">\(\frac{1}{2}\)</span> of taking a down spin state-
+and stays in this state until we force it out of that measured state
+with some type of action. The example we have seen for one type of
+action which takes an electron out of the original state it has taken,
+shockingly, is trying to measure its <span
+class="math inline">\(x\)</span> spin. By measuring its <span
+class="math inline">\(x\)</span> spin we force it into either a left or
+right state (it turns out, also with probabilities <span
+class="math inline">\(\frac{1}{2}\)</span>), but also revert it into an
+unmeasured state with respect to its <span
+class="math inline">\(y\)</span> spin.<br />
+<br />
+This term is a clumsy denomination. Quantum physicists came up instead
+with the term <strong>superposition</strong> of states– literally, the
+idea of different possible states being added onto each other to make a
+new state. Here, the superposition is of two states (up and down in the
+<span class="math inline">\(y\)</span> spin, or left and right in the
+<span class="math inline">\(x\)</span> spin). However, if we were
+considering different observables with more than two possibilities- such
+as position, which has infinite possibilities- then we could have a
+superposition of infinite possible states. Of course, some of these
+states in the superposition might have a greater probability of being
+measured than others: which is why the idea of superpositions and
+inherent probability are inextricably linked when we are considering the
+states of quantum systems. Through our long proof by contradiction, we
+have thus established that:</p>
+<ul>
+<li><p>A system may exist in a superposition of states.</p></li>
+<li><p>A measurement on a system in a superposition forces it into one
+of the possible states in that superposition.</p></li>
+<li><p>There is some probability associated with forcing that
+superposition into one of the constituent states.</p></li>
+<li><p>There are certain observables, like <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> spin, which get in each other’s ways
+when one tries to force a system out of the respective
+superpositions.</p></li>
+</ul>
+<p>By the end of the next three chapters, the reason for these things
+will all be clear.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This chapter is actually more of a pedagogical exercise than a strict
+reportage of phenomena. That is why we kept offering false hypotheses
+instead of the correct answer from the start. The point is that the
+reader should get a feeling of classical mechanics and their own
+intuition starting to fail, and the logical links we must make to try
+and offer explanations for these strange quantum phenomena. The contents
+of this chapter will, for the most part, be swept under the rug, but the
+ideas it has introduced to the reader will on the other hand be central.
+The most important two ideas, which the reader must remember, especially
+for the next chapter? Superposition of states, and inherent
+probabilities.<br />
+<br />
+These will provide good motivation for the mathematical innovations we
+see in the next chapter, which will begin our journey of quantum
+mechanics formally.</p>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* Use Computer Modern (default LaTeX font) */
+body {
+    font-family: "Latin Modern Roman", "Computer Modern", serif;
+    color: #333;
+    background-color: #fafafa;
+    max-width: 64em;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    font-family: "Latin Modern Roman", "Computer Modern", serif;
+    font-weight: bold;
+    color: #222;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 1.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+/* Links */
+a {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 1.5em;
+    padding-left: 1em;
+}
+
+/* Blockquotes */
+blockquote {
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    padding-left: 1em;
+    color: #555;
+    margin: 1em 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f5f5f5;
+    text-align: left;
+}
+
+/* Code Blocks */
+code {
+    font-family: "Latin Modern Mono", "Courier New", monospace;
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: "Latin Modern Mono", "Courier New", monospace;
+}
+
+/* MathJax Styling */
+mjx-container {
+    font-size: 110%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 2em;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    pre {
+        font-size: 0.9em;
+    }
+}

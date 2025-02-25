@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>4</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+      window.MathJax = {
+        loader: { load: ['[tex]/newcommand'] },
+        tex: {
+          packages: { '[+]': ['base', 'ams', 'newcommand'] },
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    $$
+    \newcommand{\Answerend}{\end{tcolorbox}}
+    \newcommand{\ket}[1]{|#1\rangle}
+    \newcommand{\bra}[1]{\langle#1|}
+    \newcommand{\ip}[2]{\langle#1|#2\rangle}
+    \newcommand{\bip}[2]{\left\langle#1\middle|#2\right\rangle}
+    \newcommand{\qexp}[1]{\langle#1\rangle}
+    \newcommand{\apos}[1]{``#1"}
+    \newcommand{\sapos}[1]{`#1'}
+    \newcommand{\elec}{e^{-}}
+    \newcommand{\uspin}{(\uparrow)}
+    \newcommand{\dspin}{(\downarrow)}
+    \newcommand{\lspin}{(\leftarrow)}
+    \newcommand{\rspin}{(\rightarrow)}
+    \newcommand{\ulspin}{(\uparrow\leftarrow)}
+    \newcommand{\urspin}{(\uparrow\rightarrow)}
+    \newcommand{\dlspin}{(\downarrow\leftarrow)}
+    \newcommand{\drspin}{(\downarrow\rightarrow)}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\stab}{\:\:}
+    \newcommand{\mtab}{\:\:\:}
+    \newcommand{\btab}{\:\:\:}
+    \newcommand{\imp}{\Rightarrow}
+    \newcommand{\doubimp}{\Leftrightarrow}
+    \newcommand{\setof}[1]{\{#1\}}
+    \newcommand{\infint}{\int_{-\infty}^{\infty}}
+    \newcommand{\trans}[1]{\mathcal{T}(#1)}
+    \newcommand{\dd}[2]{\delta(#1-#2)}
+    \newcommand{\ipbig}[2]{\langle#1|#2\rangle}
+    \newcommand{\talpha}{\tilde{\alpha}}
+    
+    \newcommand{\op}[2]{|#1\rangle\langle#2|}
+    \newcommand{\sop}[1]{|#1\rangle\langle#1|}
+    \newcommand{\prop}[2]{\mathcal{U}(#1,#2)}
+    \newcommand{\propdagg}[2]{\mathcal{U}^{\dagger}(#1,#2)}
+    \newcommand{\sip}[1]{\langle#1|#1\rangle}
+    \newcommand{\optrip}[3]{\langle#1|\hat{#2}|#3\rangle}
+    \newcommand{\nhoptrip}[3]{\langle#1|{#2}|#3\rangle}
+    \newcommand{\northexp}[2]{\sum_{i=1}^{n}|#2\rangle\langle#2|#1\rangle}
+    \newcommand{\orthexp}[4]{\sum_{#3=1}^#4|#2\rangle\langle#2|#1\rangle}
+    \newcommand{\schrodeq}{i\hbar\frac{\partial \Psi(x,t)}{\partial t}=\hat{H}\Psi(x,t)}
+    \newcommand{\nd}[2]{\frac{d#1}{d #2}}
+    \newcommand{\snd}[2]{\frac{d^{2}#1}{d#2^2}}
+    \newcommand{\pd}[2]{\frac{\partial#1}{\partial #2}}
+    \newcommand{\spd}[2]{\frac{\partial^{2}#1}{\partial #2^2}}
+    \newcommand{\duac}{\leftrightarrow}
+    \newcommand{\oip}[2]{\left(#1,#2\right)}
+    \newcommand{\obip}[2]{\left(#1,#2\right)}
+    $$
+<h1 id="state-space-operators-and-the-quantum-observables-problem">State
+Space Operators and the Quantum Observables Problem</h1>
+<p>The previous chapter introduced the concept of Hilbert space vectors,
+called state vectors, representing physical states. The state space,
+like any infinite-dimensional vector space, has infinite bases, and this
+was claimed to be a motivating factor for the Hilbert space formulation
+in the first place: because it allows for the state represented by the
+state vector to be looked at from the perspective of different
+observables like momentum and position. To complete our understanding of
+how the state problem is approached in quantum mechanics we need to
+understand exactly how observables are incorporated into this linear
+algebraic vector space system, through very specific bases. This
+question will be answered by an investigation into <strong>linear
+operators</strong>.</p>
+<h2 id="hilbert-space-operators">Hilbert Space Operators</h2>
+<p>An operator is a function, but it is the lexicon used to describe a
+sort of function which acts on functions or vectors as inputs– here, in
+the state space, on state vectors. For a new student of quantum
+mechanics it is paramount to understand that the distinction between an
+operator and a function does not exist. The only reason the term
+operator is used in conjunction with vector spaces is to avoid
+exhausting the term function, since operators act on state vectors which
+are themselves linked already to wavefunctions. Since it is a term one
+is not likely to have seen anywhere other than quantum mechanics before,
+there is a harmful tendency to give a mystic image to operators, but
+this must not be done. An operator, just like a function, takes an input
+and maps it to an output, and that is the extent of it. One operator the
+reader will have seen already is the differential operator: <span
+class="math display">\[\frac{d}{dx}f(x)=f&#39;(x).\]</span> This takes
+some input function <span class="math inline">\(f(x)\)</span>, and maps
+it to an output function <span class="math inline">\(f&#39;(x)\)</span>.
+In that sense, it is a function because it has an input and output, but
+it is an operator because it acts on functions. If the input was <span
+class="math inline">\(f(x)=x^2\)</span> then the output of the
+differential operator would be <span class="math inline">\(2x\)</span>;
+if it were <span class="math inline">\(e^x\)</span> then its output
+would also be <span class="math inline">\(e^x\)</span>. A scalar can
+also be an input of the operator: since an operator is a function of
+functions, we could just define the input function to be <span
+class="math inline">\(f(x):=k\)</span> for that scalar <span
+class="math inline">\(k\)</span>, and of course this would still be a
+function whilst sharing no differences to the scalar. Here, if such a
+scalar was an input of the differential operator, than the output would
+be the null function: or, 0, but for other operators, this may be
+different.<br />
+<br />
+If this is understood, the technical requirement for an operator which
+is linear, here donated by <span class="math inline">\(\Omega\)</span>,
+is that they are linear maps: <span class="math display">\[\Omega:
+\mathscr{H} \mapsto \mathscr{H},\:\:\:\: \Omega(\Psi_{1}+\Psi_{2})\equiv
+\Omega\Psi_{1}+\Omega\Psi_{2}.\]</span> There do exist non-linear
+operators, but in this book, and much of quantum mechanics, we will only
+ever encounter linear operators, and so we can take the latter linear
+distributive property to be a given for our work. We also have:</p>
+<ul>
+<li><p>Associativity of scalar multiplication: <span
+class="math display">\[(c\Omega)\Psi=c(\Omega\Psi).\]</span></p></li>
+<li><p>Distributivity: <span
+class="math display">\[(\Omega_{1}+\Omega_{2})\Psi=\Omega_{1}\Psi +
+\Omega_{2}\Psi.\]</span></p></li>
+<li><p>Associativity in operators: <span
+class="math display">\[\Omega_{1}(\Omega_{2}\Psi)=\Omega_{1}\Omega_{2}\Psi\]</span></p></li>
+</ul>
+<p>We do not, however have commutativity: <span
+class="math display">\[\Omega_{1}\Omega_{2}\Psi\neq\Omega_{2}\Omega_{1}\Psi\]</span>
+for most pairs of operators <span
+class="math inline">\(\Omega_{1}\)</span> and <span
+class="math inline">\(\Omega_{2}\)</span> (some do commute by chance
+rather than definition). Moreover, the order of the operators often
+specifies completely unrelated results, unlike with inner products,
+where one order is the complex conjugate of the other. The rest of the
+operator facts again should, like the rules of vector spaces, come
+mostly naturally. A useful point to remember is that for any operator we
+work with in quantum mechanics, it maps from the state space <span
+class="math inline">\(\mathscr{H}\)</span> to the state space <span
+class="math inline">\(\mathscr{H}\)</span>: in other words, performing
+that operator on any input state space vector will directly create a new
+state space vector! Thus <span
+class="math display">\[\Omega\Psi\]</span> is a new state space vector,
+and so is <span
+class="math display">\[\Omega_{1}\Omega_{2}\Psi=\Omega_{1}(\Omega_{2}\Psi)\]</span>
+which is, the action of <span class="math inline">\(\Omega_{1}\)</span>
+on the state space vector <span
+class="math inline">\(\Omega_{2}\Psi\)</span> obtained after operating
+with <span class="math inline">\(\Omega_{2}\)</span> on an original
+state vector <span class="math inline">\(\Psi\)</span>. We have a
+tendency, which is natural, to be suspicious when some arbitrary
+function acts on an immensely complex input vector. However, in the
+rules of quantum mechanics where linear operators dominate, we do not
+need this suspicion. Fluency should soon dictate that we see <span
+class="math inline">\(\Omega\Psi\)</span> as just another state space
+vector.<br />
+<br />
+Now, the much more important qualities of operators in quantum mechanics
+are that they possess quantities called eigenvalues and eigenvectors,
+which is where the quantum mechanical formalism will really start to
+come together.</p>
+<h3 id="eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</h3>
+<p>We have just studied operators, which are fundamentally crucial to
+all quantum mechanics, but of the moment seem to have fuzzy physical
+interpretations. The other side of the same coin is
+<strong>eigenvalues</strong>. Flip to the middle chapter of any quantum
+mechanics text and you might find a large mixture of words with the
+prefix “eigen-": eigenvector, eigenfunction, eigenvalue, eigenvector,
+eigenenergy, eigenstate, eigenmomentum- et cetera. After understanding
+eigenvalues this becomes either natural or self-consciously amusing;
+before this, however, it is horrifying. The study of eigenvalues must be
+treated with utmost respect, but after we are done we are in a very good
+place indeed.<br />
+<br />
+Consider a three dimensional example first. We will pick a random
+vector, which in this case can be a column vector, <span
+class="math display">\[V=\begin{pmatrix}
+\frac{47}{10}\\
+\pi\\
+5.06\\
+\end{pmatrix}\]</span> and a random operator, <span
+class="math display">\[\Omega \begin{pmatrix}
+x_{1}\\
+x_{2}\\
+x_{3}\\
+\end{pmatrix}=\frac{1}{2}\begin{pmatrix}
+x_{2}\\
+x_{3}\\
+x_{1}\\
+\end{pmatrix}\]</span> Upon applying this operator to the vector <span
+class="math inline">\(V\)</span>, we are likely not going to get an
+output vector which is anything like the original vector in terms of how
+corresponding components are related.<br />
+<br />
+We are however given the grace from mathematics of sets of functions,
+belonging to specific operators, which behave much more stably. To each
+operator <span class="math inline">\(\Omega\)</span> there exists a set
+of vectors, called <strong>eigenvectors</strong>, such that: <span
+class="math display">\[\Omega\omega = \lambda\omega\]</span> for some
+constant <span class="math inline">\(\lambda\)</span> and vector <span
+class="math inline">\(\omega\)</span>. In the above equation, which we
+call an eigenvalue equation, <span class="math inline">\(\omega\)</span>
+is an eigenvector of <span class="math inline">\(\Omega\)</span>, and
+<span class="math inline">\(\lambda\)</span> is the corresponding
+eigenvalue: a complex constant. This equation corresponds to the
+operator <span class="math inline">\(\Omega\)</span> scaling the
+eigenvector <span class="math inline">\(\omega\)</span> by a scale
+factor <span class="math inline">\(\lambda\)</span>: a relatively very
+trivial transformation compared to the nontrivial possibilities, as
+aforementioned, which occur far more easily for large-dimension spaces
+with nontrivial operators <span class="math inline">\(\Omega\)</span>.
+In the above example we just saw, for example, no such simple scaling
+exists at all even though the components have not been dramatically
+altered and only switched around!<br />
+<br />
+Let us consider a basic operator and try to solve for all possible
+eigenvectors and eigenvalues. We could use the identity operator, which
+is extremely trivial: <span class="math display">\[I\epsilon =
+\epsilon\]</span> means that any vector <span
+class="math inline">\(\epsilon\)</span> is an eigenvector of the
+identity operator, with corresponding eigenvalue <span
+class="math inline">\(1\)</span>. It is a rather uninteresting result,
+which pertains to a uniquely simple vector. This eigenvalue equation was
+not particularly difficult, but for more complicated operators, it is
+still clear that this case analysis inspection might not be such an easy
+and useful method of solving the eigenvalue problem every time. The more
+advanced methods of solving eigenvalue problems will come later in this
+book; for now, only the theory is important.<br />
+<br />
+A final note on the above: the prefix eigen-, which is derived from
+German and means (hence, each operator has its set of eigenvectors), is
+always used in mathematics when we are dealing with the above cases. We
+therefore have eigenvalues, eigenvectors, eigenfunctions: but also,
+later on, eigenenergies, eigenmomenta, and so on, when the eigenvalues
+are energy and momentum values respectively. The context and this
+explicit note should demystify such eigen- words in the future.</p>
+<h3 id="hermitian-operators">Hermitian Operators</h3>
+<p>The next important definition central to quantum mechanics is of
+<strong>Hermitian</strong> operators. Operators are Hermitian if they
+possess the property: <span
+class="math display">\[\oip{\alpha}{\Omega\beta}=\oip{\Omega\alpha}{\beta}.\]</span>
+for any vectors <span class="math inline">\(\alpha,\beta\)</span>. There
+are some consequent facts for hermitian operators following this
+definition.</p>
+<ol>
+<li><p>Hermitian operators must have real eigenvalues.<br />
+<br />
+<u>Proof:</u><br />
+<br />
+For a hermitian operator the eigenvalue condition is the same <span
+class="math display">\[\Omega \omega= \lambda \omega.\]</span> We have,
+in taking the inner product with the eigenvector <span
+class="math inline">\(\omega\)</span>: <span
+class="math display">\[\oip{\omega}{\Omega\omega}=\oip{\Omega\omega}{\omega}\]</span>
+by the definition of Hermiticity, so <span
+class="math display">\[\begin{aligned}
+    \oip{\omega}{\lambda\omega}=\oip{\lambda\omega}{\omega}
+&amp;\Rightarrow\:\: \lambda\oip{\omega}{\omega} =
+\lambda^{\ast}\oip{\omega}{\omega}\\
+    \Rightarrow\:\: \lambda = \lambda^{\ast} &amp;\Rightarrow \:\:
+\lambda \in \mathbb{R} \btab \square
+    \end{aligned}\]</span></p></li>
+<li><p>Eigenvectors <span class="math inline">\(\omega_{1}\)</span> and
+<span class="math inline">\(\omega_{2}\)</span> of the same hermitian
+operator corresponding to different eigenvalues are orthogonal to each
+other.<br />
+<br />
+<u>Proof:</u><br />
+<br />
+To prove that <span class="math inline">\(\omega_{1}\)</span> and <span
+class="math inline">\(\omega_{2}\)</span> are orthogonal we need to
+prove that <span
+class="math inline">\(\oip{\omega_{1}}{\omega_{2}}=0\)</span>. We can do
+this by manipulating the hermitian property of the operator, here
+denoted <span class="math inline">\(\Omega\)</span>. <span
+class="math display">\[\begin{aligned}
+    \oip{\omega_{1}}{\Omega\omega_{2}}&amp;=\oip{\Omega\omega_{1}}{\omega_{2}}\\
+    \Rightarrow\:\:
+\oip{\omega_{1}}{\lambda_{2}\omega_{2}}&amp;=\oip{\lambda_{1}\omega_{1}}{\omega_{2}}\\
+    \Rightarrow\:\:
+\lambda_{2}\oip{\omega_{1}}{\omega_{2}}&amp;=\lambda_{1}^{\ast}\oip{\omega_{1}}{\omega_{2}}\\
+    \end{aligned}\]</span> but <span
+class="math inline">\(\lambda_{1}\)</span> is an eigenvalue of a
+hermitian operator so it is real: i.e, <span
+class="math inline">\(\lambda_{1}^{\ast}=\lambda_{1}\)</span>. So above
+we had <span class="math display">\[\begin{aligned}
+    \lambda_{2}\oip{\omega_{1}}{\omega_{2}}&amp;=\lambda_{1}^{\ast}\oip{\omega_{1}}{\omega_{2}}\\
+    \end{aligned}\]</span> which is, <span
+class="math display">\[\lambda_{2}\oip{\omega_{1}}{\omega_{2}}=\lambda_{1}\oip{\omega_{1}}{\omega_{2}}.\\
+\]</span> Therefore, if the eigenvectors do not have the same eigenvalue
+then <span class="math inline">\(\lambda_{2}\neq\lambda_{1}\)</span> so
+the above implies that <span
+class="math inline">\(\oip{\omega_{1}}{\omega_{2}}=0\)</span> and so
+these eigenvectors must be orthogonal. <span
+class="math inline">\(\btab\btab\square\)</span><br />
+<br />
+There is a note for the above proof, however. The proof works on the
+assumption that for different eigenvectors their eigenvalues are also
+different. This is not always a correct assumption. Consider the
+identity operator <span class="math inline">\(I\)</span>. It is clearly
+hermitian: <span
+class="math display">\[\oip{\Psi_{1}}{I\Psi_{2}}=\oip{\Psi_{1}}{\Psi_{2}}=\oip{I\Psi_{1}}{\Psi_{2}}.\]</span>
+However, it has infinite different eigenvectors but they all have the
+same eigenvalue: 1. Thus the proof above cannot apply to the identity
+operator. In this case, the collapse of the point should be obvious
+anyway– all vectors are eigenvectors of the identity operator, but
+certainly not all vectors are orthogonal to each other. In general, an
+operator where different eigenvectors can share the same eigenvalue is
+said to be <strong>degenerate</strong>. In particular, we say particular
+eigenvalues are degenerate if they can correspond to multiple different
+eigenvectors– but we do not say eigenvectors are degenerate because an
+eigenvector can never correspond to multiple different
+eigenvalues.<br />
+<br />
+There are a few proofs of theorems in this book which involve the
+assumption that we are working with non-degenerate operators. These
+proofs, when we incorporate degeneracy, are usually different – and
+unfortunately, more difficult. For every step where we assume
+non-degeneracy, it would still be within the reaches of this book to
+prove an alternative proof in the case of degeneracy, but at the same
+time these would take labour and space. Therefore, I will not include
+them in this book because they will not alter anything in the
+fundamental understanding of a reader. Should the reader want to find
+such proofs, they may turn to a more advanced textbook which has the
+space and desire to cover this technicality. It should not make a
+massive difference either way whether the reader is aware of the
+degenerate case proof, so long as they understand when degeneracy makes
+a difference to actual consequent theorem or result (and indeed when it
+does not, which is quite common here). I will highlight these cases at
+when they occur.</p></li>
+<li><p>For an operator <span class="math inline">\(\Omega\)</span> with
+real eigenvalues <span class="math inline">\(\lambda_{i}\)</span> and
+eigenvectors <span class="math inline">\(\alpha_{i}\)</span>, if the
+eigenvectors constitute an orthonormal basis in the Hilbert space then
+the operator is hermitian.<br />
+<br />
+<u>Proof:</u><br />
+<br />
+Take the component expressions for the two arbitrary vectors <span
+class="math inline">\(\Psi_{1}\)</span> and <span
+class="math inline">\(\Psi_{2}\)</span>. We know they can be both
+expressed as a linear combination of the eigenvectors <span
+class="math inline">\(\alpha_{i}\)</span> since the set <span
+class="math inline">\(\{\alpha_{i}\}\)</span> is stated in the
+conditions to be an orthonormal basis. So we have: <span
+class="math display">\[\Psi_{1}=\sum_{\{i\}}c_{i}\alpha_{i},\:\:\Psi_{2}=\sum_{\{j\}}\gamma_{j}\alpha_{j}\]</span>
+where the components <span class="math inline">\(c_{i}\)</span> and
+<span class="math inline">\(\gamma_{j}\)</span> are found by <span
+class="math inline">\((\alpha_{i},\Psi_{1})\)</span> and <span
+class="math inline">\(\oip{\alpha_{j}}{\Psi_{2}}\)</span> respectively.
+Then <span class="math display">\[\begin{aligned}
+    (\Omega\Psi_{1},\Psi_{2})&amp;=\left(\Omega\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)\\
+    &amp;=\left(\sum_{\{i\}}c_{i}\Omega\alpha_{i},\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)
+    \end{aligned}\]</span> where the operator can be incorporated into
+the sum term as it is a linear operator. Then this becomes <span
+class="math display">\[\begin{aligned}
+    (\Omega\Psi_{1},\Psi_{2}) &amp;=
+\left(\sum_{\{i\}}c_{i}\lambda_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)\\
+    &amp;=\sum_{i,j}c^{\ast}_{i}\lambda_{i}^{\ast}\gamma_{j}(\alpha_{i},\alpha_{j})
+    \end{aligned}\]</span> but <span
+class="math inline">\(\{\alpha_{i}\}\)</span> is an orthonormal basis so
+<span
+class="math inline">\((\alpha_{i},\alpha_{j})=\delta_{ij}\)</span>. The
+above then becomes <span class="math inline">\(0\)</span> except for
+when the two basis vectors are the same, so we are left with: <span
+class="math display">\[(\Omega\Psi_{1},\Psi_{2})=\sum_{i}c^{\ast}_{i}\lambda^{\ast}_{i}\gamma_{i}.\]</span>
+Now, considering <span
+class="math inline">\((\Psi_{1},\Omega\Psi_{2})\)</span>, we have very
+similarly: <span class="math display">\[\begin{aligned}
+    (\Psi_{1},\Omega\Psi_{2})&amp;=\left(\sum_{\{i\}}c_{i}\alpha_{i},\Omega\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)\\
+    &amp;=\left(\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\Omega\alpha_{j}\right)\\
+    &amp;=
+\left(\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\lambda_{j}\alpha_{j}\right)\\
+    &amp;=\sum_{i,j}c_{i}^{\ast}\lambda_{j}\gamma_{j}(\alpha_{i},\alpha_{j})=\sum_{i,j}c_{i}^{\ast}\lambda_{j}\gamma_{j}\delta_{ij}\\
+    &amp;=\sum_{i}c_{i}^{\ast}\lambda_{i}\gamma_{i}.
+    \end{aligned}\]</span> so we have <span
+class="math display">\[(\Omega\Psi_{1},\Psi_{2})=\sum_{i}c^{\ast}_{i}\lambda^{\ast}_{i}\gamma_{i},\:\:\:\:(\Psi_{1},\Omega\Psi_{2})=\sum_{i}c_{i}^{\ast}\lambda_{i}\gamma_{i}\]</span>
+but we have conditioned that the eigenvalues <span
+class="math inline">\(\lambda_{i}\)</span> are real so we therefore see
+that <span class="math inline">\(\lambda_{i}=\lambda_{i}^{\ast}\)</span>
+and so <span
+class="math display">\[(\Psi_{1},\Omega\Psi_{2})=(\Omega\Psi_{1},\Psi_{2})\]</span>
+which is the definition of a Hermitian operator. This holds true for any
+arbitrary <span class="math inline">\(\Psi_{1}\)</span> and <span
+class="math inline">\(\Psi_{2}\)</span> so long as they are in the space
+spanned by the orthonormal basis and can subsequently be expressed as a
+linear combination of the orthonormal constituent vectors; therefore,
+any operator with real eigenvalues whose eigenvectors can form an
+orthonormal basis set is Hermitian. <span
+class="math inline">\(\square\)</span><br />
+<br />
+This proof in fact goes both ways: more significantly, any Hermitian
+operator possesses a set of eigenvectors which are an orthonormal basis
+set of the state space! The proof is rather technical, so it will be
+ignored– but the profound consequences are clear. If an operator in the
+state space is Hermitian it has a basis consisting eigenvectors, called
+its <strong>eigenbasis</strong>, spanning the space; if we take any
+basis of the state space we can take its inner product over all the
+basis eigenvectors with any state vector to produce a wavefunction.
+These representations will prove massively helpful.</p></li>
+<li><p>The action of all Hermitian operators whose eigenvectors form an
+orthonormal basis can be specified by their eigenvalues and
+eigenvectors.<br />
+<br />
+<u>Proof:</u><br />
+<br />
+For a Hermitian operator <span class="math inline">\(\Omega\)</span>
+with eigenvalues <span class="math inline">\(\lambda_{i}\)</span> and
+eigenvectors <span class="math inline">\(\alpha_{i}\)</span>, any vector
+can be expressed in the orthonormal basis: <span
+class="math display">\[\psi=\sum_{i}(\alpha_{i},\psi)\alpha_{i}\]</span>
+so <span
+class="math display">\[\Omega\psi=\Omega\sum_{i}(\alpha_{i},\psi)\alpha_{i}=\sum_{i}(\alpha_{i},\psi)\Omega\alpha_{i}=\sum_{i}(\alpha_{i},\psi)\lambda_{i}\alpha_{i}.\]</span>
+This clearly requires no external knowledge other than understanding the
+sets <span class="math inline">\(\{\lambda_{i}\}\)</span> and <span
+class="math inline">\(\{\alpha_{i}\}\)</span>. Conversely: if we
+completely understand these sets then we can completely specify the
+operator given an input vector <span class="math inline">\(\psi\)</span>
+the operator is acting on.</p></li>
+</ol>
+<p>With all this knowledge about operators in vector spaces, and clear
+signs that their eigenbases will be very useful, we now come to the
+Second Postulate of quantum mechanics.</p>
+<h2 id="observables-in-quantum-mechanics">Observables in Quantum
+Mechanics</h2>
+<p>The state problem is a question of information. The most relevant
+information to a physicist about a state is the value of its
+<em>observables</em>. The problem, we have seen, is that unlike with the
+classical state, the quantum state cannot just be said to possess a
+value for any observable, as it is instead a superposition of many
+different possible states and it is thus far unclear which state will
+emerge upon measurement. This problem was dealt with by placing states
+in correspondence with vectors in a vector space which meant that all
+possible states could be summed together in a superposition to create a
+new state without forming something out of the space of possible states,
+and we learnt how to create more wavefunctions from those state vectors.
+However, we still do not know why wavefunctions are so tangible. The
+genius of the formalism comes when we incorporate operators and their
+orthogonal eigenbases into the picture, where wavefunctions in
+eigenbases will answer our problem. <u><strong>Postulate 2:
+Observables</strong></u><br />
+<br />
+To each physical observable there exists a corresponding hermitian
+operator. There exists an orthonormal eigenbasis of this operator which
+spans the state space: that is, for some observable operator <span
+class="math inline">\(\hat{A}\)</span> with eigenvalues <span
+class="math inline">\(\{A_{i}\}\)</span> corresponding to eigenvectors
+<span class="math inline">\(\{\alpha_{i}\}\)</span>, <span
+class="math display">\[\forall\:\Psi, \:\:
+\Psi=\sum_{i}c_{i}\alpha_{i}\]</span> for some components <span
+class="math inline">\(\setof{c_{i}}\)</span>. The only possible values
+for the observable whose operator is <span
+class="math inline">\(\hat{A}\)</span> which can be measured are the
+eigenvalues <span class="math inline">\(\setof{A_{i}}\)</span> and these
+correspond to the eigenstates <span
+class="math inline">\(\setof{\alpha_{i}}\)</span>. If there comes a
+condition <span
+class="math display">\[\hat{A}\Psi=A_{i}\alpha_{i}\]</span> then we say
+that the eigenvalue <span class="math inline">\(A_{i}\)</span> is the
+measured value of the physical observable and the new state vector is
+the eigenvector <span class="math inline">\(\alpha_{i}\)</span>. The
+most essential outcome to us here is that we want real values for the
+results of physical measurements, as imaginary position or imaginary
+energy for example would be nonsense; since the set of eigenvalues <span
+class="math inline">\(\setof{A_{i}}\)</span> are the only possible
+results of measurements, we therefore require real eigenvalues. By the
+postulate, we have Hermitian operators representing observables, which
+therefore must have real eigenvalues. The postulate is that these
+eigenvalues are the only possible measurable results for that observable
+for any states, so that they are real is critical. It is from the fact
+we need the operator to have real eigenvalues if these are to be the
+measured values for a physical operator, combined with the fact it is
+postulated to have an orthonormal eigenbasis spanning the state space,
+which guarantees the operators representing observables must be
+Hermitian. That is precisely, we recall, <span
+class="math display">\[\oip{\hat{A}\Psi_{1}}{\Psi_{2}}=\oip{\Psi_{1}}{\hat{A}\Psi_{2}}.\]</span>
+We start a fuller discussion by noting the assertions of the postulate
+in short-form:</p>
+<ol>
+<li><p>All physical observables are represented by hermitian operators
+whose eigenvectors form an eigenbasis which spans the state space. For
+brevity it is customary to call these operators which represent physical
+operators throughout the course of this book.</p></li>
+<li><p>Each measurement of a physical observable must yield one of the
+real eigenvalues of the observable operator.</p></li>
+<li><p>As it is possible for an operator to have a finite/and or
+discrete number of eigenvalues, so can a physical observable have a
+finite number of possible results after being measured if their operator
+has a finite number of eigenvalues. Such a situation is rarer than one
+would assume in quantum mechanics, considering we are working in an
+infinite dimensional vector space where it is relatively unlikely there
+are not infinite eigenvectors and eigenvalues to an arbitrary operator,
+but it is far from a non-existent possibility. The physical phenomenon
+resulting from discretely distributed eigenvalues is called
+quantization; its implications, most famously perhaps in the discrete
+energy levels of electrons, are important and may well have been already
+known to the reader.</p></li>
+</ol>
+<p>Now we must consider the importance of time. Crucial is that
+operators corresponding to physical observables never change with time,
+and there is only one operator corresponding to each physical
+observable. That does not mean that the measured values of the
+observable will remain constant across any time period. That is because
+clearly the measured value of the observable depends on the state vector
+<span class="math inline">\(\Psi\)</span> representing the state of the
+system which is the input vector we the observable operator is operating
+on; we have already stated this state vector can evolve with time. The
+precise nature of all these temporal considerations will be covered in
+due course, but that observable operators do not evolve with time is
+surely a great relief, especially if we need to think about their
+eigenbases and eigenvalues and do not want to have to continually solve
+what are not trivial eigenvalue equations.<br />
+<br />
+The second part of the postulate gives us an interesting and significant
+link between the state vectors which represent states, the state space
+operators representing physical observables, and the eigenvalues of
+those observables representing possible results after measurement.<br />
+<br />
+To start off, note that we expect that most state space vectors will be
+linear combinations of the eigenvectors of any observable operator,
+since the set of (infinite) eigenvectors of a hermitian operator
+constitutes an orthonormal basis of its space. We do not expect all
+possible states to be pure scalar multiples of single eigenvectors since
+there can be infinite linear combinations of the eigenvectors which are
+not pure scalar multiples of single eigenvectors. The postulate now
+states that the condition <span
+class="math display">\[\hat{A}\Psi=A_{i}\alpha_{i}\]</span> means that
+<span class="math inline">\(A_{i}\)</span> is the measured value of the
+physical observable represented by the operator <span
+class="math inline">\(\hat{A}\)</span>. However, this condition is
+clearly very singular if we are working with a wavefunction which is a
+linear combination of the infinite eigenvectors of an observable
+operator– since the state <span class="math inline">\(\Psi\)</span> does
+not naturally coincide with the eigenvector <span
+class="math inline">\(\alpha_{i}\)</span> alone. What should be
+abundantly clear, however, is that, post-measurement, <span
+class="math inline">\(\Psi\)</span> has changed from a linear
+combination of eigenvectors to a multiple of only one of them, the
+eigenvalue corresponding to which is the measured value of the
+observable. So the act of measurement is clearly very important; indeed,
+it forms one of the central pillars of quantum mechanics and especially
+the mathematics which formulates it. We have seen this, already, in the
+Stern Gerlach experiment! There, measuring the <span
+class="math inline">\(x\)</span> spin led to irrevocable changes in the
+<span class="math inline">\(y\)</span> spin even without physically
+affecting it in that dimension. This measurement problem is the final
+component of the quantum mechanical solution to the state problem, and
+pulls everything together in an understandable way. Thus to complement
+Postulate 2 on observables, we have Postulate 3, on Measurements.</p>
+<h3 id="measurements">Measurements</h3>
+<p><u><strong>Postulate 3: Measurements</strong></u><br />
+<br />
+After a measurement of a physical observable, the state vector is forced
+into a specific eigenvector corresponding to the eigenvalue measured for
+that observable. The probability that the (normalised) state vector is
+forced into a state represented by a state vector <span
+class="math inline">\(\alpha_{i}\)</span>, which is called an
+eigenstate, is given by <span
+class="math display">\[P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^2,\]</span>
+which is therefore also the probability of measuring the eigenvalue
+<span class="math inline">\(A_{i}\)</span> as the final result of the
+measurement for the observable. This Postulate now provides great
+meaning to the discourse immediately preceding this section. By
+<em>forcing</em> a state vector into specific eigenvector of an
+observable operator after a measurement of that specific observable, we
+guarantee several things:</p>
+<ul>
+<li><p>We do not restrict the state vector to being a pure scalar
+multiple of one single eigenvector prior to measurement. This is
+important as by Postulate 1, all state space vectors represent physical
+states, and there certainly should be infinite Hilbert space vectors
+which are linear combinations of any orthonormal basis vectors which
+span it: including when that orthonormal basis is the eigenbasis of an
+observable operator. This is the superposition of different possible
+states which exists before a measurement.</p></li>
+<li><p>We guarantee that after measurement, Postulate 2 has meaning:
+since the measurement forces the wavefunction into a specific
+eigenstate, we will indeed achieve after measurement <span
+class="math display">\[\hat{A}\Psi\to
+\hat{A}\alpha_{i}=A_{i}\alpha_{i}\]</span> and therefore we guarantee
+that a measurement will always yield one single value– the eigenvalue
+<span class="math inline">\(A_{i}\)</span>: regardless of what
+superposition of states it was in previously.</p></li>
+</ul>
+<p>This is all well and good, but what gives order to the chaos is the
+probabilistic link of the postulate. Without it, we would be wondering
+what to do in any arbitrary superposition in states, since intuition
+tells us that just because we have a superposition it does not mean that
+all the measurements must have equal probabilities. Fortunately, we have
+the postulate: <span
+class="math display">\[P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^2\]</span>
+where <span class="math inline">\(P(\alpha_{i})\)</span> is the
+probability of measuring the state vector to be in the state <span
+class="math inline">\(\alpha_{i}\)</span>. Here we make a clarification
+of similar type as that regarding the distinction between state and
+wavefunction: the reader must understand that the state vector being in
+an eigenstate <span class="math inline">\(\alpha_{i}\)</span> is not so
+interesting itself as is the fact that when it is in that eigenstate we
+know <span class="math inline">\(A_{i}\)</span> is the eigenvalue is the
+measured result for the observable. Thus when we say the state is
+measured to be the eigenstate <span
+class="math inline">\(\alpha_{i}\)</span> we really allude to the fact
+that a measurement will yield <span class="math inline">\(A_{i}\)</span>
+as the value. The reason we do not write <span
+class="math inline">\(P(A_{i})\)</span>, the probability of measuring
+<span class="math inline">\(A_{i}\)</span>, is due to the fact that in
+the face of degeneracy (say, eigenvalue <span
+class="math inline">\(A_{1}\)</span> corresponding to two different
+eigenstates <span class="math inline">\(\alpha_{1}\)</span> and <span
+class="math inline">\(\alpha_{2}\)</span>), we have the following
+problem: <span
+class="math display">\[P(A_{1})\neq\oip{\alpha_{1}}{\Psi}\neq\oip{\alpha_{2}}{\Psi}\]</span>
+in fact, here it would be <span
+class="math display">\[P(A_{1})=\oip{\alpha_{1}}{\Psi}+\oip{\alpha_{2}}{\Psi}.\]</span>
+So we see that defining the probability of a wavefunction being in an
+eigenstate is slightly easier and more consistent. Next, consider the
+state <span class="math display">\[\Psi=\alpha_{n}.\]</span> In this
+state a measurement will yield value <span
+class="math inline">\(A_{n}\)</span> with probability <span
+class="math display">\[P(A_{n}):=|\oip{\alpha_{n}}{\Psi}|^2=|\oip{\alpha_{n}}{\alpha_{n}}|^2=1\]</span>
+since the eigenvectors <span class="math inline">\(\alpha_{n}\)</span>
+are assumed to be normalised. So if the state vector is a pure
+eigenstate then the eigenvalue corresponding to the eigenstate it is in
+will be measured with probability 1. When do pure eigenstates occur for
+state vectors? They may occur organically for some arbitrary physical
+state which happens to be a pure eigenstate of a physical observable,
+though we expect this to be comparatively rare. More importantly: they
+also occur after measurements, since by the first part of the postulate
+a measurement will force a state vector into an eigenvector – a pure
+eigenstate – of the observable operator. This now explains why
+instantaneous successive measurements must yield the same answer: the
+first measurement forces the state vector into a pure eigenstate <span
+class="math inline">\(\alpha_{n}\)</span> corresponding to the
+eigenvalue <span class="math inline">\(A_{n}\)</span> measured, and then
+the second measurement will give the same eigenvalue <span
+class="math inline">\(A_{n}\)</span> with probability <span
+class="math display">\[P(A_{n})=|\oip{\alpha_{n}}{\alpha_{n}}|^2=1\]</span>
+since the state vector is now the pure eigenstate <span
+class="math inline">\(\alpha_{n}\)</span> after being forced into this
+eigenstate by the first measurement. We saw this intuitive consequence
+in the Stern Gerlach experiment, where successive magnetic fields in the
+same axis yielded the same spin results each time!<br />
+<br />
+The disturbance to classical intuition comes when we make the same
+observation we have already made. By Postulate 1, all state space
+vectors represent physical states, and there are infinite state space
+vectors which are linear combinations of any orthonormal basis vectors
+which span it. Thus if the orthonormal basis is the eigenbasis of a
+physical observable operator, there are infinite state vectors which are
+not pure eigenvectors of the observable operator, but rather linear
+combinations of the corresponding eigenvectors. Then, <span
+class="math display">\[\Psi=\sum_{i}\oip{\alpha_{i}}{\Psi}\alpha_{i},\]</span>
+by the expansion of Hilbert Space vectors in an orthonormal basis. But
+then, for any <span class="math inline">\(A_{n}\)</span> in a
+non-degenerate state (similar reasoning holds for degenerate states),
+<span class="math display">\[\begin{aligned}
+P(A_{n}):=|\oip{\alpha_{n}}{\Psi}|^2=|\oip{\alpha_{n}}{\sum_{i}\oip{\alpha_{i}}{\Psi}\alpha_{i}}|^2
+\end{aligned}\]</span> so if this probability was zero then that would
+imply the component <span
+class="math inline">\(\oip{\alpha_{i}}{\Psi}=0\)</span>. In a nontrivial
+linear combination of eigenvectors, there will exist more than one
+eigenvector <span class="math inline">\(\alpha_{i}\)</span> for which
+this is not true, and therefore more than one eigenvalue <span
+class="math inline">\(A_{i}\)</span> which can be measured with nonzero
+probability.<br />
+<br />
+This is the famous probabilistic nature of quantum mechanics
+encapsulated through our postulates. Do there exist such state vectors
+which are linear combinations of multiple eigenvectors of an observable
+operator? Certainly yes, by Postulate 1. Yet in such cases multiple
+eigenvalues can be measured with nonzero probability: that is, multiple
+values can be obtained for the same measurement. Thus the wording of the
+postulate– the state vector is forced into a specific eigenvector– is
+relevant: the state vector in these cases does not possess a single
+fixed value for an observable which must be revealed upon measurement so
+it cannot be said, technically, to have a position or momentum or any
+other observable value. We can only say that an eigenvalue is the
+measured value of this specific measurement: or, the eigenvector the
+state vector has been forced into was not necessarily the state vector
+before at all; in another scenario, with defined probability, the state
+vector may well have been forced into a different eigenstate and then
+yielded a different value for an observable.<br />
+<br />
+We end this section with a summary on quantum states and inherent
+probability:</p>
+<ul>
+<li><p>In a pure state with respect to a physical observable the state
+vector is made up solely of one eigenvector of the observable operator.
+A measurement will therefore yield the eigenvalue corresponding to that
+eigenvector with probability 1. In such cases (a rarity) a deterministic
+prediction can be made about the results of a measurement.</p></li>
+<li><p>After measurement a state vector is forced into a pure eigenstate
+<span class="math inline">\(\alpha_{i}\)</span> with probability <span
+class="math inline">\(|\oip{\alpha_{i}}{\Psi}|^2\)</span>. Thereon the
+above determinism of a pure state applies for successive measurements
+unless the system experiences external perturbation which once again
+moves it out of the pure eigenstate.</p></li>
+<li><p>A state vector is in a mixed state with respect to a physical
+observable if the state vector is a non-trivial linear combination of
+more than one eigenvector of the observable operator. In those cases the
+strongest predictive statement about the result of a measurement is that
+a specific eigenstate <span class="math inline">\(\alpha_{i}\)</span>
+has probability <span
+class="math inline">\(|\oip{\alpha_{i}}{\Psi}|^2\)</span> of being
+measured. We cannot make any deterministic predictions at all, and we do
+not really think of a mixed state as having a value for that specific
+observable. Most naturally occurring states in quantum mechanics are
+indeed mixed states.</p></li>
+</ul>
+<p>Another question still remains. We know that state vectors represent
+states– and that is, physical states. If we think to use our classical
+intuition, we know a physical state can be thought about from the
+perspective of one observable (such as when we consider the momentum of
+two colliding objects). However, that does not mean it does not possess
+any values for all other physical observables, as it still has energy,
+angular momentum, and so on: only that we are not currently considering
+the other observables. Similarly, we would not be particularly pleased
+if the physical states pertaining to a certain measurement of one
+specific observable– these so called pure states– suddenly contained
+absolutely no information on any other observables. This is a question
+of information encapsulation: how does an energy pure state store
+extractable information about momentum, for example? To understand this
+question, which is far more complicated than the classical one of , we
+treat the two seminal theorems on the matter. Along the way, we will
+also be able to practise the mathematical operations we have introduced
+at a level and intensity we have not had the occasion to do so far.</p>
+<h2 id="simultaneous-states">Simultaneous states</h2>
+<p>The question of deals with the segue from the previous section onto
+this one. We want to investigate which states (state vectors) can
+contain information on multiple observables at a time, and which
+observables these are. We have seen in the Stern Gerlach experiment that
+for example <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> spin simultaneous states are
+impossible, so this is a relevant, fully quantum in nature,
+problem.<br />
+<br />
+It turns out that the ability for different observables to have
+information represented in the same state vectors depends strongly on
+the relationship between their observable operators, as these in turn
+relate their orthonormal eigenvectors. To see this, there is one
+sweeping but simple theorem on operators for observables which can be
+measured simultaneously, and one dramatically anticlassical one for
+observables which cannot.</p>
+<h3 id="the-compatibility-theorem">The Compatibility Theorem</h3>
+<p>Consider an unperturbed system, two physical observables, and three
+measurements ordered chronologically. The first and third measurements
+are for the first physical observable, but the second measurement is for
+the second observable. We know from the Measurement Postulate that:</p>
+<ul>
+<li><p>The first measurement forces the wavefunction into a pure
+eigenstate of the first physical observable operator.</p></li>
+<li><p>The second measurement forces the wavefunction into a pure
+eigenstate of the second physical observable operator.</p></li>
+<li><p>If the second measurement of the different observable did not
+exist, then we would have successive measurements of the same state
+(which is, the operator acting on the same eigenstate the starting state
+vector was forced into following the first measurement) and we would
+expect the same measurement for the observable as we originally
+obtained.</p></li>
+</ul>
+<p>The question is therefore whether or not this second measurement
+changes the result of the third. This is a profound question, because if
+it does, then we would conclude the simple act of measuring the second
+observable has moved the state vector out of the pure eigenstate it was
+in after the first measurement; that would then imply the second
+measurement is in itself a perturbation to the system: a confusing
+result. Indeed– the reader will recognise that this is exactly the class
+of behaviour which appeared so shockingly in the Stern Gerlach
+experiment.<br />
+<br />
+We shall see that the determining factor is what the relationship
+between the two observable operators is. To start off, we will use the
+notations <span class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> as shorthand to distinguish
+between the two observables, so we do not have to name them. We define
+<span class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> to be <strong>compatible
+observables</strong> if the first and third measurements yield the same
+value regardless of the starting state and the value of the second
+observable measured in the second measurement. If we call the values
+measured <span class="math inline">\(\mathcal{A}^{(1)}\)</span>, <span
+class="math inline">\(\mathcal{B}^{(1)}\)</span>, <span
+class="math inline">\(\mathcal{A}^{(2)}\)</span>, then observable <span
+class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> are compatible iff <span
+class="math display">\[\forall\:\Psi,\:\mathcal{B}^{(1)},\:\:\mathcal{A}^{(1)}=\mathcal{A}^{(2)}.\]</span>
+<strong>Compatibility Theorem</strong>: Two observables <span
+class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> are defined compatible if
+they possess a common eigenbasis or their operators commute. These three
+conditions in fact all imply each other. <u>Proof:</u><br />
+<br />
+First we prove that <span class="math inline">\(\hat{A}\)</span>
+commutes with <span class="math inline">\(\hat{B}\)</span> iff they
+possess a common eigenbasis. Consider two observable operators which
+commute, and define their eigenbases to be <span
+class="math inline">\(\{\alpha_{i}\}\)</span> and <span
+class="math inline">\(\{\beta_{i}\}\)</span>. Now take an arbitrary
+eigenvector <span class="math inline">\(\alpha_{i}\)</span> of <span
+class="math inline">\(\hat{A}\)</span> with eigenvalue <span
+class="math inline">\(A_{i}\)</span>. We have <span
+class="math display">\[\hat{A}\hat{B}=\hat{B}\hat{A}\]</span> so we get
+<span
+class="math display">\[\hat{A}\hat{B}\alpha_{i}=\hat{B}\hat{A}\alpha_{i}=\hat{B}A_{i}\alpha_{i}.\]</span>
+However, we can now pull the constant eigenvalue out: <span
+class="math display">\[\hat{A}(\hat{B}\alpha_{i})=A_{i}(\hat{B}\alpha_{i})\]</span>
+so clearly <span class="math inline">\(\hat{B}\alpha_{i}\)</span> is an
+eigenvector of <span class="math inline">\(\hat{A}\)</span>
+corresponding to eigenvalue <span class="math inline">\(A_{i}\)</span>.
+Assuming that the eigenvalues are nondegenerate this implies that <span
+class="math inline">\(\hat{B}(\alpha_{i})\)</span> coincides with <span
+class="math inline">\(\alpha_{i}\)</span> as the eigenvalue <span
+class="math inline">\(A_{i}\)</span> has only one distinguishable
+eigenvector. The fact that <span
+class="math display">\[\hat{B}\alpha_{i}\equiv\alpha_{i}\]</span> means
+we must have <span
+class="math display">\[\hat{B}\alpha_{i}=c\alpha_{i}\]</span> for some
+scalar multiple <span class="math inline">\(c\)</span>. This means that
+<span class="math inline">\(\alpha_{i}\)</span> is an eigenvector of
+<span class="math inline">\(\hat{B}\)</span> corresponding to eigenvalue
+<span class="math inline">\(c\)</span>. So we can say that <span
+class="math inline">\(\forall\:i, \alpha_{i}\)</span> is an eigenvector
+of <span class="math inline">\(\hat{A}\)</span> and <span
+class="math inline">\(\hat{B}\)</span>: which means that they have the
+same eigenbasis. This isn’t of course, to say, the eigenvalues are the
+same for <span class="math inline">\(\hat{B}\)</span> and <span
+class="math inline">\(\hat{A}\)</span> even though it may correspond to
+the same eigenvector (above, they are not the same unless <span
+class="math inline">\(A_{i}=c\)</span>), since we expect the operators
+to be formulated differently so there will still be different values
+measured for each observable. Yet at the same time this is clearly
+helpful: if we know two physical observable operators commute and we
+have the eigenbasis of one then we automatically have the eigenbasis of
+the other.<br />
+<br />
+Now, we prove it the other way around. Assume <span
+class="math inline">\(\hat{A}\)</span> and <span
+class="math inline">\(\hat{B}\)</span> both possess the eigenbasis <span
+class="math inline">\(\{\gamma_{i}\}\)</span>. We want to prove they
+commute. As they possess the same eigenbasis with eigenvalues <span
+class="math inline">\(\{A_{i}\}\)</span> and <span
+class="math inline">\(\{B_{i}\}\)</span> respectively, we can write
+<span
+class="math display">\[\hat{A}\hat{B}\gamma_{i}=\hat{A}B_{i}\gamma_{i}=B_{i}\hat{A}\gamma_{i}=B_{i}A_{i}\gamma_{i}\]</span>
+and the exact same applies for <span
+class="math inline">\(\hat{B}\hat{A}\gamma_{i}\)</span>: <span
+class="math display">\[\hat{B}\hat{A}\gamma_{i}=\hat{B}A_{i}\gamma_{i}=A_{i}\hat{B}\gamma_{i}=A_{i}B_{i}\gamma_{i}.\]</span>
+Clearly, as <span class="math inline">\(A_{i}\)</span> and <span
+class="math inline">\(B_{i}\)</span> are constant eigenvalues, <span
+class="math display">\[A_{i}B_{i}\equiv B_{i}A_{i}.\]</span> So this
+easily proves that two observable operators possessing the same
+eigenbasis must commute. Thus the implication works both ways and
+therefore two observable operators commute iff they share a common
+eigenbasis.<br />
+<br />
+Now to look at the practical definition: we are probably more interested
+in the concept of compatibility, as it concerns whether or not a
+measurement of a second observable in between measurements of a first
+observable will alter the measured results from the first measurement,
+effectively forcing the state vector out of the pure eigenstate it was
+forced into. Let’s first prove that two observables having common
+operator eigenbases is necessary and sufficient for the above defined
+definition of compatibility to hold.<br />
+<br />
+Start by considering two observables <span
+class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> represented by operators
+<span class="math inline">\(\hat{A}\)</span> and <span
+class="math inline">\(\hat{B}\)</span> respectively. Define the
+measurements to be <span
+class="math inline">\(\mathcal{A}^{(1)},\mathcal{B}^{(1)}\)</span>,
+<span class="math inline">\(\mathcal{A}^{(2)}\)</span>. For the
+observables to be compatible we need <span
+class="math inline">\(\mathcal{A}^{(1)}\)</span> to be the same as <span
+class="math inline">\(\mathcal{A}^{(2)}\)</span> regardless of the
+starting state and <span
+class="math inline">\(\mathcal{B}^{(2)}\)</span>. Assume to begin with
+that the two operators <span class="math inline">\(\hat{A}\)</span> and
+<span class="math inline">\(\hat{B}\)</span> have the common eigenbasis
+<span class="math inline">\(\{\gamma_{i}\}\)</span>. By definition the
+first measurement of <span class="math inline">\(\mathcal{A}\)</span>
+must force the state vector into a single eigenvector in the eigenbasis
+of the operator <span class="math inline">\(\hat{A}\)</span>: that is,
+some <span class="math inline">\(\gamma_{i}\)</span> such that the
+measured value is for observable <span
+class="math inline">\(\mathcal{A}\)</span> the eigenvalue <span
+class="math inline">\(A_{i}\)</span>. Next, measurement <span
+class="math inline">\({{B}}^{(1)}\)</span> is the action of the operator
+<span class="math inline">\(\hat{B}\)</span> on the eigenvector <span
+class="math inline">\(\gamma_{i}\)</span>. But by the Measurement
+Postulate of quantum mechanics, <span
+class="math display">\[P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^2\]</span>
+That is, the probability that the arbitrary operator <span
+class="math inline">\(\hat{A}\)</span> forces the state vector into an
+arbitrary eigenvector <span class="math inline">\(\alpha_{i}\)</span>
+from its eigenbasis. Here, then, since the state vector has been forced
+into the eigenstate <span class="math inline">\(\gamma_{i}\)</span> by
+the first measurement, the probability the second measurement of the
+other observable <span class="math inline">\(\mathcal{B}\)</span> forces
+the state vector into the same eigenstate is: <span
+class="math display">\[P(\gamma_{i})=|\oip{\gamma_{i}}{\gamma_{i}}|^2=1\]</span>
+where we assume as per usual that the eigenvectors <span
+class="math inline">\(\gamma_{i}\)</span> have been normalised. So we
+can say that measurement B will not alter the eigenstate the state
+vector is in and therefore the third measurement will follow the same
+logic to yield the exact same value, the eigenvalue <span
+class="math inline">\(A_{i}\)</span> corresponding to <span
+class="math inline">\(\gamma_{i}\)</span>. Thus, if two observable
+operators possess the same eigenbasis, they are compatible
+observables.<br />
+<br />
+If the observables are compatible then this implies their operators have
+the same eigenbasis. The proof for this is simple. If the observables
+<span class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> are compatible then for the
+successive measurements <span
+class="math inline">\(\mathcal{A}^{(1)},\mathcal{B}^{(1)},\mathcal{A}^{(2)}\)</span>
+the measured values for <span
+class="math inline">\(\mathcal{A}^{(1)}\)</span> and <span
+class="math inline">\(\mathcal{A}^{(2)}\)</span> must be the same. The
+measurement <span class="math inline">\(\mathcal{A}^{(1)}\)</span> must
+have forced the wavefunction into an eigenvector of <span
+class="math inline">\(\hat{A}\)</span>, some arbitrary <span
+class="math inline">\(\alpha_{i}\)</span>. Then, the measurement <span
+class="math inline">\(\mathcal{B}^{(1)}\)</span> must force the
+wavefunction into some arbitrary eigenvector <span
+class="math inline">\(\beta_{i}\)</span> of the operator <span
+class="math inline">\(\hat{B}\)</span>. However, the final measurement
+must yield the same result as the first if the observables are
+compatible, which is, the same eigenvalue corresponding to the same
+eigenvector <span class="math inline">\(\alpha_{i}\)</span> of operator
+<span class="math inline">\(\hat{A}\)</span> as it originally was in.
+The probability that the measurement forces the wavefunction, currently
+in the eigenstate <span class="math inline">\(\beta_{i}\)</span> of
+<span class="math inline">\(\hat{B}\)</span> as the measurement <span
+class="math inline">\(\mathcal{B}^{(1)}\)</span> has just been
+performed, into the same eigenstate <span
+class="math inline">\(\alpha_{i}\)</span> as originally measured is:
+<span
+class="math display">\[P(\alpha_{i})=|\oip{\alpha_{i}}{\beta_{i}}|^2.\]</span>
+However, if these observables are to be compatible, the final
+measurement must with certainty yield the eigenvalue <span
+class="math inline">\(A_{i}\)</span> again and therefore the above
+probability of measurement <span
+class="math inline">\(\mathcal{A}^{(2)}\)</span> forcing it back into
+the original eigenstate must be 1. So <span
+class="math display">\[|\oip{\alpha_{i}}{\beta_{i}}|^2=1 \Rightarrow\:\:
+\alpha_{i}\equiv\beta_{i}\]</span> and therefore their eigenbases must
+be the same as the above holds true for any arbitrary <span
+class="math inline">\(\alpha_{i}\)</span> and corresponding <span
+class="math inline">\(\beta_{i}\)</span> from the measurements.<br />
+<br />
+The Compatibility Theorem is now complete. We have shown that:</p>
+<ul>
+<li><p>Two operators commuting is necessary and sufficient for them to
+possess a common eigenbasis.</p></li>
+<li><p>Two operators possessing a common eigenbasis is necessary and
+sufficient for the two observables they represent to be
+compatible.</p></li>
+<li><p>Therefore, two observable operators commuting is also necessary
+and sufficient for them to represent compatible observables.</p></li>
+</ul>
+<p>The logical implications of these facts all run three ways.<br />
+<br />
+While we have now seen facts about compatible observables, an example of
+incompatible observables sticks in our mind– that of the Stern Gerlach
+experiment. We saw exactly that <span class="math inline">\(x\)</span>
+and <span class="math inline">\(y\)</span> spins were incompatible,
+because measuring the <span class="math inline">\(x\)</span> spin in
+between two <span class="math inline">\(y\)</span> measurements stopped
+the second <span class="math inline">\(y\)</span> measurement from being
+the same as the first with certainty– which is to say, we now know, that
+the measurement of <span class="math inline">\(x\)</span> spin forced it
+out of the eigenstate of <span class="math inline">\(y\)</span> spin it
+had been previously forced into. All the questions about the quantum
+state raised by the Stern Gerlach experiment will finally come to an end
+with this section. We would like to formalise our understanding of how
+incompatibility affected the experiment. To explain it all, we witness–
+and prove ourselves!– one of Physics’ most groundbreaking and shocking
+theorems.</p>
+<h2 id="the-heisenberg-uncertainty-principle">The Heisenberg Uncertainty
+Principle</h2>
+<p>The idea of commuting observable operators being necessary and
+sufficient for the two observables they represent to be compatible is a
+very important one for the question of simultaneous states, and has been
+shown above. Now we must surely consider when two observable operators
+do not commute: in other words, when they represent
+<strong>incompatible</strong> observables. One of the most important and
+dramatic results of all quantum mechanics, the Heisenberg Uncertainty
+Principle, results when we carry out some elegant mathematics to
+investigate this problem. Before we begin the statement and proof, let
+us define the commutator between two operators to be <span
+class="math display">\[[\hat{A},\hat{B}]:=\hat{A}\hat{B}-\hat{B}\hat{A}\]</span>
+so that if we have two commuting operators <span
+class="math inline">\(\hat{A}\)</span> and <span
+class="math inline">\(\hat{B}\)</span>, then <span
+class="math display">\[[\hat{A},\hat{B}]=\hat{A}\hat{B}-\hat{B}\hat{A}=0\]</span>
+since <span class="math inline">\(\hat{A}\hat{B}=\hat{B}\hat{A}\)</span>
+iff they commute. For operators which do not commute, their commutator
+may take a wide variety of forms: which is why it is useful under
+universal convention to have this shorthand.</p>
+<div class="tcolorbox">
+<p><strong><u>Heisenberg Uncertainty Principle</u></strong><br />
+<br />
+For any state <span class="math inline">\(\Psi_{t}\)</span>, <span
+class="math display">\[\Delta A_{t}\Delta
+B_{t}\geq\frac{1}{2}|\oip{\Psi_{t}}{[\hat{A},\hat{B}]\Psi_{t}}|\]</span>
+where <span class="math inline">\(\Delta A_{t}\)</span> is the standard
+deviation of measurable values of observable <span
+class="math inline">\(\mathcal{A}\)</span> at time <span
+class="math inline">\(t\)</span>: which is therefore a measure of
+uncertainty for these variables.</p>
+</div>
+<p><u><strong>Proof:</strong></u><br />
+<br />
+We will continue to refer to arbitrary observables <span
+class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> for the proof; all the proof
+is relevant at any instant of time and so time subscripts will be
+eschewed. The notation <span class="math inline">\(\Delta A\)</span>
+refers to the standard deviation of the measurements of observable <span
+class="math inline">\(\mathcal{A}\)</span>; this standard deviation is
+no different from the statistical definition: <span
+class="math display">\[\Delta A=\sqrt{\langle \hat{A}^2\rangle-\langle
+\hat{A}\rangle^2}\]</span> where the symbol <span
+class="math inline">\(\langle X\rangle\)</span> is the expected value of
+the variable <span class="math inline">\(X\)</span>, as seen in the
+probability preliminary. First we note that this principle is valid for
+compatible observables: as compatible observables, their operators must
+commute. Thus <span class="math display">\[[\hat{A},\hat{B}]=0
+\Rightarrow\:\: \Delta A_{t}\Delta
+B_{t}\geq\frac{1}{2}|\oip{\Psi_{t}}{[\hat{A},\hat{B}]\Psi_{t}}| =
+\frac{1}{2}|\oip{\Psi_{t}}{0} |=0.\]</span> So for compatible
+observables, <span class="math display">\[\Delta A_{t}\Delta B_{t}\geq
+0\]</span> which is neither interesting nor invalid at all since the
+standard deviation of any measurement can never be negative. Now, we
+will prove this for all physical operators, regardless of whether they
+commute.<br />
+<br />
+<u><strong>Lemma 1:</strong></u><br />
+Any operator <span
+class="math inline">\(\hat{X}&#39;:=\hat{X}-\qexp{\hat{X}}\)</span>
+where <span class="math inline">\(\hat{X}\)</span> is a Hermitian
+physical operator is also Hermitian.<br />
+<br />
+<u><strong>Proof:</strong></u><br />
+<br />
+Recall that the definition for an expected value of a variable is the
+sum of its possible values multiplied by the probabilities of the
+variable taking those values. Therefore, we can say that, over the
+eigenbasis <span class="math inline">\(\{\xi_{i}\}\)</span> of <span
+class="math inline">\(\hat{X}\)</span> with eigenvalues <span
+class="math inline">\(\{X_{i}\}\)</span>, <span
+class="math display">\[\qexp{\hat{X}}=\sum_{\{i\}}P(\xi_{i})X_{i},\]</span>
+but by our knowledge of the previous postulates we can describe the
+probability more precisely: the measurement postulate defines this to be
+<span
+class="math display">\[\qexp{\hat{X}}=\sum_{\{i\}}X_{i}|\oip{\xi_{i}}{\Psi}|^2.\]</span>
+Our job is to prove that the operator <span
+class="math inline">\(\hat{X}&#39;:=\hat{X}-\qexp{\hat{X}}\)</span> is
+hermitian if <span class="math inline">\(\hat{X}\)</span> is hermitian
+for all quantum operators. That is, we need to prove that: <span
+class="math display">\[\oip{\Psi_{1}}{\hat{X}&#39;\Psi_{2}}=\oip{\hat{X}&#39;\Psi_{1}}{\Psi_{2}}\]</span>
+for all Hilbert space functions <span
+class="math inline">\(\Psi_{1}\)</span> and <span
+class="math inline">\(\Psi_{2}\)</span>. The operator <span
+class="math inline">\(\hat{X}\)</span> must be hermitian as <span
+class="math inline">\(\hat{X}\)</span> is defined to be a quantum
+operator corresponding to a physical observable. Meanwhile, the
+expectation value <span
+class="math display">\[\qexp{\hat{X}}=\sum_{\{i\}}X_{i}|\oip{\xi_{i}}{\Psi}|^2.\]</span>
+is clearly a real scalar, as the probabilities, which are square moduli,
+will all be real numbers and so will each eigenvalue of the hermitian
+operators. Therefore, <span
+class="math display">\[\oip{\hat{X}\Psi_{1}}{\Psi_{2}}\equiv\oip{\Psi_{1}}{\hat{X}\Psi_{2}}\]</span>
+and <span
+class="math display">\[\oip{\qexp{\hat{X}}\Psi_{1}}{\Psi_{2}}\equiv\oip{\Psi_{1}}{\langle\hat{X}\rangle\Psi_{2}}\equiv\qexp{\hat{X}}\oip{\Psi_{1}}{\Psi_{2}}\]</span>
+so for any physical operator <span
+class="math inline">\(\hat{X}\)</span> the defined operator <span
+class="math inline">\(\hat{X}&#39;\)</span> is the sum of two hermitian
+operators. So <span class="math display">\[\begin{aligned}
+\oip{\hat{X}&#39;\Psi_{1}}{\Psi_{2}}&amp;=\oip{[\hat{X}-\langle\hat{X}\rangle]\Psi_{1}}{\Psi_{2}}=\oip{\hat{X}\Psi_{1}}{\Psi_{2}}-\oip{\langle\hat{X}\rangle\Psi_{1}}{\Psi_{2}}\\
+&amp;=\oip{\Psi_{1}}{\hat{X}\Psi_{2}}-\oip{\Psi_{1}}{\langle\hat{X}\rangle\Psi_{2}}\\
+&amp;=\oip{\Psi_{1}}{\hat{X}&#39;\Psi_{2}}
+\end{aligned}\]</span> using the linear properties of the inner product.
+Thus, the operator <span class="math inline">\(\hat{X}&#39;\)</span> is
+Hermitian for any physical operator. Therefore, defining <span
+class="math inline">\(\hat{A&#39;}:=\hat{A}-\qexp{\hat{A}}\)</span> and
+<span
+class="math inline">\(\hat{B}&#39;:=\hat{B}-\qexp{\hat{B}}\)</span> for
+the purpose of the problem also gives us two hermitian operators. <span
+class="math inline">\(\square\)</span><br />
+<br />
+The commutator in the generalised principle might give pause with
+regards to the development of these new operators, but, importantly,
+<span
+class="math display">\[[\hat{A}&#39;,\hat{B}&#39;]=[\hat{A},\hat{B}].\]</span>
+This fact can be proved quite simply: <span
+class="math display">\[\begin{aligned}
+[\hat{A}&#39;,\hat{B}&#39;]&amp;= \hat{A}&#39;\hat{B}&#39;-
+\hat{A}&#39;\hat{B}&#39;\\
+&amp;=
+(\hat{A}-\qexp{\hat{A}})(\hat{B}-\qexp{\hat{B}})-(\hat{B}-\qexp{\hat{B}})
+(\hat{A}-\qexp{\hat{A}})\\
+&amp;=(\hat{A}\hat{B}-\hat{A}\qexp{\hat{B}}-\qexp{\hat{A}}\hat{B}-\qexp{\hat{A}}\qexp{\hat{B}})-(\hat{B}\hat{A}-\hat{B}\qexp{\hat{A}}-\qexp{\hat{B}}\hat{A}-\qexp{\hat{B}}\qexp{\hat{A}})
+\end{aligned}\]</span> but as the expectation values <span
+class="math inline">\(\qexp{\hat{A}}\)</span> and <span
+class="math inline">\(\qexp{\hat{B}}\)</span> are real scalars it is
+clear that <span
+class="math inline">\(\qexp{\hat{A}}\qexp{\hat{B}}=\qexp{\hat{B}}\qexp{\hat{A}}\)</span>,
+and <span
+class="math inline">\(\qexp{\hat{A}}\hat{B}=\hat{B}\qexp{\hat{A}}\)</span>
+and vice versa swapping the <span class="math inline">\(A\)</span> and
+<span class="math inline">\(B\)</span> around. So the terms cancel out
+and we are left with <span
+class="math display">\[[\hat{A}&#39;,\hat{B}&#39;]=\hat{A}\hat{B}-\hat{B}\hat{A}:=[\hat{A},\hat{B}].
+\:\:\square\]</span> Now, one last important lemma:<br />
+<br />
+<u><strong>Lemma 2:</strong></u><br />
+<span
+class="math display">\[\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}=(\Delta\hat{A})^2\]</span><br />
+<br />
+<u><strong>Proof:</strong></u><br />
+By the Hermiticity of <span class="math inline">\(\hat{A}&#39;\)</span>,
+<span
+class="math display">\[\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}=\oip{\Psi}{([\hat{A}&#39;]^2\Psi}.\]</span>
+Expanding the definition, <span class="math display">\[\begin{aligned}
+\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}&amp;=\oip{\Psi}{\hat{A}&#39;^2\Psi}\\
+&amp;=\oip{\Psi}{[\hat{A}-\qexp{\hat{A}}][\hat{A}-\qexp{\hat{A}}]\Psi}\\
+&amp;=\oip{\Psi}{[\hat{A}^{2}]\Psi-2\qexp{\hat{A}}\hat{A}\Psi+\qexp{\hat{A}}^2\Psi}\\
+&amp;=\oip{\Psi}{[\hat{A}^{2}]\Psi}-2\qexp{\hat{A}}\oip{\Psi}{\hat{A}\Psi}+\qexp{\hat{A}}^2\oip{\Psi}{\Psi}\\
+&amp;=\langle\hat{A}^2\rangle\oip{\Psi}{\Psi}-2\qexp{\hat{A}}\qexp{\hat{A}}\oip{\Psi}{\Psi}+\qexp{\hat{A}}^2\oip{\Psi}{\Psi}\\
+&amp;=
+\langle\hat{A}^2\rangle-2\qexp{\hat{A}}\qexp{\hat{A}}+\qexp{\hat{A}}^2\\
+&amp;=\langle\hat{A}^2\rangle-\qexp{\hat{A}}^2\\
+&amp;=(\Delta\hat{A})^2 \:\:\:\:\:\:\square
+\end{aligned}\]</span> Now we can use these lemmas to prove the problem.
+We want to prove that <span
+class="math display">\[\Delta{A}\Delta{B}\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|\]</span>
+at all times <span class="math inline">\(t\)</span>. We start by
+replacing <span class="math inline">\([\hat{A},\hat{B}]\)</span> with
+<span class="math inline">\([\hat{A}&#39;,\hat{B}&#39;]\)</span>. Then,
+we have, <span
+class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\Psi}{[\hat{A}&#39;,\hat{B}&#39;]\Psi}=\oip{\Psi}{[\hat{A}&#39;\hat{B}&#39;-\hat{B}&#39;\hat{A}&#39;]\Psi}.\]</span>
+This is, <span
+class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\Psi}{\hat{A}&#39;\hat{B}&#39;\Psi}-\oip{\Psi}{\hat{B}&#39;\hat{A}&#39;\Psi}
+.\]</span> We can rearrange this by the hermiticity of <span
+class="math inline">\(\hat{A}&#39;\)</span> and <span
+class="math inline">\(\hat{B}&#39;\)</span>: <span
+class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}-\oip{\hat{B}&#39;\Psi}{\hat{A}&#39;\Psi}=\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}-\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}^{\ast}\]</span>
+so this is <span
+class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=2i\text{Im}\left(\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}\right)\]</span>
+according to rudimentary arithmetic of complex numbers. Then, the
+expression we need is <span
+class="math display">\[\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|\leq\frac{1}{2}\times2|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|=|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|.\]</span>
+This is because of the above expression for <span
+class="math inline">\(\oip{\Psi}{[\hat{A},\hat{B}]\Psi}\)</span> and the
+fact that the modulus of the imaginary part of a scalar cannot be
+greater than the modulus of the scalar (Exercise 1.3.2a). Then, by Lemma
+2 <span
+class="math display">\[\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}=(\Delta\hat{A})^2\Rightarrow\:\:\Delta\hat{A}=\sqrt{\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}}.\]</span>
+So <span
+class="math display">\[\Delta\hat{A}\Delta\hat{B}=\sqrt{\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}}\sqrt{\oip{\hat{B}&#39;\Psi}{\hat{B}&#39;\Psi}}.\]</span>
+By Cauchy-Schwartz, <span
+class="math display">\[\sqrt{\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}}\sqrt{\oip{\hat{B}&#39;\Psi}{\hat{B}&#39;\Psi}}\geq|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|\]</span>
+and so, conclusively, <span
+class="math display">\[\Delta\hat{A}\Delta\hat{B}=\sqrt{(\hat{A}&#39;\Psi,\hat{A}&#39;\Psi)}\sqrt{(\hat{B}&#39;\Psi,\hat{B}&#39;\Psi)}\geq|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|\]</span>
+so <span
+class="math display">\[\Delta\hat{A}\Delta\hat{B}\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|.\]</span>
+This proves Heisenberg’s Uncertainty Principle. <span
+class="math inline">\(\square\)</span><br />
+<br />
+This general form we have above is still difficult to interpret, but if
+we consider a few examples we will realise this is a very important
+result. One of the most famous iterations comes with considering simply
+the two central operators of quantum mechanics: the position and
+momentum operators, which we have not yet introduced but will for now
+just use for calculation purposes. We can calculate the commutator:
+<span class="math display">\[\begin{aligned}
+&amp;[\hat{X},\hat{P}]=\hat{X}\hat{P}-\hat{P}\hat{X}\\
+\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=-xi\hbar\frac{\partial}{\partial
+x}\Psi(x)--i\hbar\frac{\partial}{\partial x}\biggl(x\Psi(x)\biggr)\\
+\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=-i\hbar x\frac{\partial
+\Psi}{\partial
+x}--i\hbar\biggl[\frac{dx}{dx}\Psi(x)+x\frac{\partial\Psi}{\partial
+x}\biggr]\\
+\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=-i\hbar\biggl[x\frac{\partial\Psi}{\partial
+x}-\Psi(x)-x\frac{\partial\Psi}{\partial x}\biggr]\\
+\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=i\hbar\Psi(x)\\
+\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\equiv i\hbar.
+\end{aligned}\]</span> After this, if we plug this into the Generalised
+Uncertainty principle and assume that the wavefunction is normalised,
+<span
+class="math display">\[\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|\oip{\Psi}{i\hbar\Psi}|
+\Rightarrow
+\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|i\hbar\oip{\Psi}{\Psi}|=\frac{1}{2}|i\hbar|=\frac{1}{2}\sqrt{-i\hbar\times
+i\hbar}=\frac{\hbar}{2}.\]</span> The key end result is that <span
+class="math display">\[\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{\hbar}{2}.\]</span>
+This is the most well known form of the Uncertainty Principle, but we
+can see that the Generalised Uncertainty Principle can be applied more
+broadly than just to the two observables of position and momentum.<br />
+<br />
+Returning to our considerations of the physical results of trying to
+measure two incompatible observables, it is clear how bizarre this
+result is. Consider if we have just made a measurement for the position
+of a particle. Then we have forced its wavefunction into a position
+eigenstate and therefore we can say that the uncertainty in the position
+is now <span class="math inline">\(0\)</span>: we know the successive
+measurement must yield the same position value with probability 1.
+However, if we plug in <span
+class="math inline">\(\Delta{\hat{X}}\)</span> into the Uncertainty
+Principle we get <span
+class="math display">\[0\times\Delta\hat{P}\geq\frac{\hbar}{2}\]</span>
+which implies somehow that the uncertainty in momentum must be infinite!
+So if we know the value of the position with certainty we are completely
+unable to distinguish between infinite possibilities for the momentum.
+The relationship works both ways so the same applies for the momentum:
+if we know the momentum of a particle then we necessarily have infinite
+uncertainty in the position of the particle and we have not a clue where
+it is. This is undoubtedly one of the most anti-classical results in
+quantum mechanics, and yet it results beautifully from the mathematics
+we have defined (and has never been experimentally refuted). If nothing
+else, it should now be clear that the mathematical manipulations of
+quantum mechanics are rich and impactful.<br />
+<br />
+The same is manifested, of course, in the Stern-Gerlach experiment. By
+knowing <span class="math inline">\(x\)</span> spin, we had infinite
+uncertainty in <span class="math inline">\(y\)</span> spin- with
+absolutely no way to tell if an electron would be up or down spin. By
+knowing the <span class="math inline">\(y\)</span> spin, we had infinite
+uncertainty in the <span class="math inline">\(x\)</span> spin. This is
+one example of an experimental verification of the Heisenberg
+Uncertainty Principle.</p>
+<h2 id="probability-mass-functions">Probability Mass Functions</h2>
+<p>We conclude this section on measurements, and indeed conclude the
+state problem, with a formalisation of how discrete wavefunctions
+encapsulate probabilities as probability mass functions.<br />
+<br />
+We have already stated that the discrete wavefunction, which we denoted
+<span class="math inline">\({\psi}_{\alpha}(x)\)</span> with a domain of
+orthonormal eigenvectors, is exactly the function which stores the
+components corresponding to the eigenvectors we input. We therefore call
+it a <strong>probability mass function</strong>. This is a formal name
+for a very simple idea: it stores probabilities of discrete events-
+here, the event is the state vector being forced into a certain
+eigenstate by a measurement– and can be extracted as an output of the
+probability mass function when we input the event (eigenstate). We know
+that these components are probabilities, because of the measurement
+postulate and the common expansion we have already proved!<br />
+<br />
+If the discrete wavefunction is a probability mass function, then
+necessarily the modulus squared of its outputs must sum to exactly <span
+class="math inline">\(1\)</span>. This is naturally because the modulus
+squared of its outputs are the modulus squared of the probability
+amplitudes, which are probability densities and must sum to <span
+class="math inline">\(1\)</span>, therefore. There is an important
+clarification to make to prove that our formalism works.<br />
+<br />
+<em>Claim: The modulus squared components of a normalised state vector
+must sum to 1 in a discrete basis.</em><br />
+<br />
+The importance of this claim is clear, since it is equivalent to the
+statement that the sums of the different probabilities for all the
+possible measurements of an observable must sum to <span
+class="math inline">\(1\)</span>, which must be true if they are to be
+considered probabilities in the first place.<br />
+<br />
+<strong><u>Proof:</u></strong><br />
+<br />
+For some state vector <span
+class="math display">\[\Psi:=\sum_{\{i\}}c_{i}\alpha_{i}\]</span> in
+some orthonormal basis <span
+class="math inline">\(\setof{\alpha_{i}}\)</span>, we need to prove that
+<span
+class="math display">\[\sum_{\{i\}}|(\alpha_{i},\Psi)|^2=1\]</span>
+given that the state vector is normalised. Well we know that <span
+class="math display">\[(\Psi,\Psi)=1\]</span> so we know that <span
+class="math display">\[\biggl(\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{i\}}c_{i}\alpha_{i}\biggr)=1.\]</span>
+Then, by the rudimentary expansion this is <span
+class="math display">\[\biggl(\sum_{\{i\}}(\alpha_{i},\Psi)\alpha_{i},\sum_{\{j\}}(\alpha_{j},\Psi)\alpha_{j}\biggr)=1.\]</span>
+Due to linear distributivity this means that we get sum terms of the
+form <span
+class="math display">\[\oip{\alpha_{i}}{\Psi}^{\ast}\oip{\alpha_{j}}{\Psi}\oip{\alpha_{i}}{\alpha_{j}}\]</span>
+for some <span class="math inline">\(i,j\)</span>. However, due to the
+orthonormality of the basis, all terms when <span
+class="math inline">\(i\neq j\)</span> disappear, so we have <span
+class="math display">\[\biggl(\sum_{\{i\}}(\alpha_{i},\Psi)\alpha_{i},\sum_{\{j\}}(\alpha_{j},\Psi)\alpha_{j}\biggr)=\sum_{\{i\}}\oip{\alpha_{i}}{\alpha_{i}}^{\ast}\oip{\alpha_{i}}{\alpha_{i}}=1.\]</span>
+But then this is simply <span
+class="math display">\[\sum_{\{i\}}|\oip{\alpha_{i}}{\Psi}|^2=1.\]</span>
+and our proof is complete.<br />
+<br />
+Thus indeed, we have the result that the square modulus components of
+the discrete state vector, which is, the square modulus of the outputs
+of its discrete wavefunctions, are valid probabilities in themselves of
+measurements. In this way, the encapsulation component of the state
+problem is much better understood: a state vector represents a physical
+state, we can then transform that state vector into wavefunctions in
+another bijection to the state and state vector, and in the discrete
+case the modulus squared of the outputs of these wavefunctions are the
+probabilities we need if we want to make predictions about
+measurements.<br />
+<br />
+Now, we are ready to move onto time evolution.</p>
+<h2 id="exercises-from-chapter-4ast">Exercises from Chapter 4<span
+class="math inline">\(\ast\)</span></h2>
+<ol>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</body>
+</html>
