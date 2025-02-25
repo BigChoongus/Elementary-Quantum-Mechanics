@@ -1,4 +1,4 @@
-\chapter{The State Vector and the Quantum State Problem}
+\chapter{Chapter 3: The State Vector and the Quantum State Problem}
 In the previous Chapter, we discovered two radical results of the early quantum experiments which completely invalidated the Newtonian model of classical mechanics. These were:
 \begin{enumerate}
     \item The probabilistic state: there exist at the very least some measurements for which we can never predict the result with certainty because the very state itself depends on probability.
@@ -654,9 +654,10 @@ $$
 &\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\tilde{\alpha_{j}}\left(\sum_{i=0}^{n-1}\tilde{\alpha_{i}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right)\\
 \Rightarrow\:&\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\oip{\tilde{\alpha_{j}}}{\tilde{\alpha_{j}}}\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq j}^{n-1}\oip{\tilde{\alpha}_{j}}{\tilde{\alpha_{i}}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\\
 \Rightarrow\:&\oip{\tilde{\alpha_{j}}}{\alpha'_{n}}=\oip{\tilde{\alpha}_{j}}{\alpha_{n}}-1\times\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq j}^{n-1}0\times\oip{\tilde{\alpha_{i}}}{\alpha_{n}}=0
-\end{aligned}
+{\end{aligned}
 $$
-This is true since our assumption that all $\tilde{\alpha}_{j}$ for $j<n$ is normalised and orthogonal to all other $\alpha_{i\neq j}$ for $i<n$ (an assumption which is valid as it follows from the base case) necessitates that 
+
+This is true since our assumption that all $\tilde{\alpha}_{j}$ for $j<n$ are normalised and orthogonal to all other $\tilde{\alpha}_{i\neq j}$ for $i<n$ (an assumption which is valid as it follows from the base case) necessitates that 
 $$
 \forall\:\: i,j < n, \:\: \oip{\tilde{\alpha}_{j}}{\tilde{\alpha}_{i}}= \delta_{ij}
 $$

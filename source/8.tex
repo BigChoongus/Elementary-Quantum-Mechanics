@@ -1,4 +1,4 @@
-\chapter{Problems in Quantum Mechanics}
+\chapter{Chapter 8: Problems in Quantum Mechanics}
 This chapter, and the next, will practice all the concepts we have learnt with physical problems. The algebraic labour involved will be extensive, but how could it be otherwise? I have kept all the solutions in Dirac notation, because this is conventional and because manipulation with Dirac notation is more powerful and fruitful. 
 \section{The Propagator}
 We have mentioned how one can use energy eigenstates to conveniently find solutions for the Schr\"{o}dinger equation. However, beyond this algebraic method there is another method, the method of the propagator, which is used ubiquitously by those more advanced in quantum mechanics. In this book, it might seem even at the end counterintuitive to have learnt both the energy eigenstate method and the propagator method, but the crucial point is that for more difficult problems only the latter is viable; while we might not have the full mathematical tools to realise how useful it is, no mature treatment of quantum mechanics is complete without it, and we can still use it for the simpler problems we cover even if its formulation might seem to contribute nothing for these basic examples. It is also, mathematics aside, a conceptually valuable thing to study even at an expository level.
@@ -193,7 +193,7 @@ for all positions $x$. Now, the free particle time independent Schr\"{o}dinger E
 $$
 \hat{H}\Psi = \frac{\hat{P}^2}{2m}\Psi = E\Psi
 $$
-and we also know $\psi(x)=\psi(x+L)$. Note that the $\psi(x)$ indicates we are working in position space, which makes perfect sense considering the interesting cyclic behaviour of varying position along the ellipse meaning we want $x$ to be the central changing variable.
+and we also know $\psi(x)=\psi(x+L)$. Note that the $\phisi(x)$ indicates we are working in position space, which makes perfect sense considering the interesting cyclic behaviour of varying position along the ellipse meaning we want $x$ to be the central changing variable.
 \\\\
 We can come to a solution for the particle on an ellipse quite organically. We first note that due to the form of the Hamiltonian energy and momentum must still be compatible observables, since neither operators are changed by the periodic behaviour bestowed by the elliptical setup. Therefore, the energy eigenkets we derived before are still correct:
 $$
@@ -240,10 +240,10 @@ $$
 pL/\hbar=2n\pi, \:\: n\in\mathbb{Z}.
 $$
 \\
-We see now that the above equation is quantized- indexed by the integers $n$. Therefore momentum $p$ is also quantized and therefore energy must also be quantised as the energy eigenvalues are equal to $p^2/2m$. Such is a very common theme in quantum mechanics: $\sin(n\pi) = 0$ and $\cos{2n\pi}=1$ for $n\in\mathbb{Z}$, which indexes by integers $n$ when there is boundary behaviour causing periodic recurrences. Now we can index the eigenvalues with $n$, and summarise that:
+We see now that the above equation is quantized- indexed by the integers $n$. Therefore momentum $p$ is also quantized and therefore energy must also be quantised as the energy eigenvalues are equal to $p^2/2m$. Such is a very common theme in quantum mechanics: $\sin(n\pi) = 0$ and $\cos{2n\pi}=1$ for $n\in\mathsbb{Z}$, which indexes by integers $n$ when there is boundary behaviour causing periodic recurrences. Now we can index the eigenvalues with $n$, and summarise that:
 $$
 \begin{aligned}
-p_n= \frac{2\pi n\hbar}{L}, \:\: n\in\mathbb{Z}.
+p_n= \frac{2\pi n\hbar}{L}, \:\: n\in\mathsbb{Z}.
 \end{aligned}
 $$
 Then, the eigenenergies must be:
