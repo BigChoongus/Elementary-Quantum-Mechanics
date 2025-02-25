@@ -3,7 +3,7 @@ body {
     font-family: "Latin Modern Roman", "Computer Modern", serif;
     color: #333;
     background-color: #fafafa;
-    max-width: 72em;
+    max-width: 64em;
     margin: 40px auto;
     padding: 20px;
     line-height: 1.7;
@@ -18,20 +18,20 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2.4em;
     text-align: center;
     margin-bottom: 0.5em;
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.9em;
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
-    margin-top: 1.5em;
+    margin-top: 1.9em;
 }
 
 h3 {
-    font-size: 1.3em;
+    font-size: 1.7em;
 }
 
 /* Links */
@@ -110,19 +110,19 @@ footer {
 /* Responsive Design */
 @media (max-width: 600px) {
     body {
-        font-size: 1em;
-        padding: 12px;
+        font-size: 1.4em;
+        padding: 14px;
     }
 
     h1 {
-        font-size: 1.8em;
+        font-size: 2.2em;
     }
 
     h2 {
-        font-size: 1.4em;
+        font-size: 1.8em;
     }
 
     pre {
-        font-size: 0.9em;
+        font-size: 1.3em;
     }
 }

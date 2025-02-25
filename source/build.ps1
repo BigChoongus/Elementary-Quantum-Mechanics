@@ -19,15 +19,17 @@ for ($i=1; $i -le 9; $i++) {
     (Get-Content "footer.html") -replace "{{prev_link}}", $prev_link -replace "{{next_link}}", $next_link | Set-Content "footer-temp.html"
 
     Write-Output "Converting $i.tex to docs/$i.html..."
-    pandoc --mathjax -s "$i.tex" `
-        -include-in-header "pandoc-macros.tex" `  # Fix: Single dash (`-` instead of `--`)
-        -include-in-header "mathjax-config.html" `
-        -include-before-body "preamble.tex" `
-        -include-after-body "footer-temp.html" `
+    
+    # Correctly use double dashes for Pandoc inside PowerShell
+    & pandoc --mathjax -s "$i.tex" `
+        --include-in-header "mathjax-config.html" `
+        --include-before-body "preamble.tex" `
+        --include-after-body "footer-temp.html" `
         -c "style.css" `
         -o "../docs/$i.html"
 }
 
 # Cleanup temp footer file
 Remove-Item "footer-temp.html"
+
 
