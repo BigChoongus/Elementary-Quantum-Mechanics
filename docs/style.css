@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Buenard:wght@400;700&display=swap');
+
 body {
-    font-family: "Latin Modern Roman", "Computer Modern", serif;
+    font-family: "Buenard", serif;
     font-size: 1.2em;  
     color: #333;
     background-color: #fafafa;
-    max-width: 48em;
+    max-width: 54em;
     margin: 20px auto; 
     padding: 20px;  
     text-align: justify;
@@ -11,7 +13,7 @@ body {
 
 /* Headings */
 h1, h2, h3, h4 {
-    font-family: "Latin Modern Roman", "Computer Modern", serif;
+    font-family: "Buenard", serif;
     font-weight: bold;
     color: #222;
 }
