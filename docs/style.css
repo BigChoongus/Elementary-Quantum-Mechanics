@@ -1,12 +1,11 @@
-/* Use Computer Modern (default LaTeX font) */
 body {
     font-family: "Latin Modern Roman", "Computer Modern", serif;
+    font-size: 1.2em;  
     color: #333;
     background-color: #fafafa;
     max-width: 64em;
-    margin: 20px auto; /* Reduce top margin from 40px → 10px */
-    padding: 20px;  /* Reduce inner padding from 20px → 10px */
-    line-height: 1.7;
+    margin: 20px auto; 
+    padding: 20px;  
     text-align: justify;
 }
 
@@ -110,7 +109,7 @@ footer {
 /* Responsive Design */
 @media (max-width: 600px) {
     body {
-        font-size: 1.4em;
+        font-size: 1.5em;
         padding: 14px;
     }
 

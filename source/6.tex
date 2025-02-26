@@ -7,7 +7,7 @@ The benefit of this somewhat counterintuitive approach of learning one way and t
 \\\\
 In addition, it is simply necessary to cover the conventional notation, called Dirac notation for its founder, and the pertinent techniques which follow it, because there does not exist a textbook whose level is a step up from this one and which does not use such conventions and even in many cases assume it is prior mastered. We will also see that it would have been difficult to understand what it means outright before we understood what a state vector is, for example, but on the other hand now that we do understand what the state vector is, it will make problem solving more powerful without any danger of confusions. 
 \\\\
-In this chapter, we will set forwards some new limitations so we can focus on the algebraic content (given that we understand the concepts of the postulates quite well now). The primary limitation will be the one maintained in previous chapters: that we are working in discrete cases. The next chapter will be all dealing with continuity, which contains some extremely difficult mathematics resulting from the mathematics in this chapter, so this limitation will be soon loosened. We will also be avoiding any thoughts about the wavefunctions being the primary \sapos{tangible} representations of abstract state vectors, because we will see that with Dirac's notation comes another natural and powerful idea of matrix representations! We can also feel free to ignore measurements and related probabilities so that we can focus on developing algebraic techniques which will make problem solving more efficient and workable, because we already understand the postulates we need to therein. So for now, the job is mainly to forget the wavefunction, and focus on the more explicitly state vector (and matrix) focused approach we will start below. We appreciate throughout that wavefunctions (and therefore measurement probabilities) are still obtainable, by taking the inner product of a state vector with the relevant input basis vectors in that component function transformation we have seen, so its absence is far from its demise.
+In this chapter, we will set forwards some new limitations so we can focus on the algebraic content (given that we understand the concepts of the postulates quite well now). The primary limitation will be the one maintained in previous chapters: that we are working in discrete cases. The next chapter will be all dealing with continuity, which contains some extremely difficult mathematics resulting from the mathematics in this chapter, so this limitation will be soon loosened. We will also be avoiding any thoughts about the wavefunctions being the primary `tangible' representations of abstract state vectors, because we will see that with Dirac's notation comes another natural and powerful idea of matrix representations! We can also feel free to ignore measurements and related probabilities so that we can focus on developing algebraic techniques which will make problem solving more efficient and workable, because we already understand the postulates we need to therein. So for now, the job is mainly to forget the wavefunction, and focus on the more explicitly state vector (and matrix) focused approach we will start below. We appreciate throughout that wavefunctions (and therefore measurement probabilities) are still obtainable, by taking the inner product of a state vector with the relevant input basis vectors in that component function transformation we have seen, so its absence is far from its demise.
 \section{Dirac Bra-Ket Notation}
 Our new notation begins here. Like any new notation, our job will be changing the way we label the objects we want to consider. The starting point will be the state vector, and its notation. We will not change any properties of the state vector! Things may look different because the notation looks nothing like we have ever seen before, but that does not mean at all that the characteristics are different.
 \\\\
@@ -22,7 +22,7 @@ $$
 \ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}, \ket{Y}:=\sum_{i=1}^{n}c'_{i}\ket{\alpha_{i}}\implies \ket{X}+\ket{Y}=\sum_{i=1}^{n}(c+c'_{i})\ket{\alpha_{i}}
 $$
 \\\\
-An extremely important point, again, is that the ket is an abstract object. Recall that the state vector could not be given a form until we chose a specific basis. Since the ket is the same, we will here need to chose a basis for the ket to take a form. The key novelty of our new way of approaching the same ideas is that, in our bid to make our state vector, now ket, more \sapos{tangible}, we will this time try to divorce the ket from the idea of a wavefunction representation and replace this with yet another representation in bijection to the state vector-- a matrix representation! This is because ideas of matrices will be very useful to us in our work and manipulation. To do this, recall that in any basis a constituent of any vector space has unique components in that basis, most often referred to as its unique expansion in that basis. This allows us to create a unique matrix expression of any ket: for any
+An extremely important point, again, is that the ket is an abstract object. Recall that the state vector could not be given a form until we chose a specific basis. Since the ket is the same, we will here need to chose a basis for the ket to take a form. The key novelty of our new way of approaching the same ideas is that, in our bid to make our state vector, now ket, more `tangible', we will this time try to divorce the ket from the idea of a wavefunction representation and replace this with yet another representation in bijection to the state vector-- a matrix representation! This is because ideas of matrices will be very useful to us in our work and manipulation. To do this, recall that in any basis a constituent of any vector space has unique components in that basis, most often referred to as its unique expansion in that basis. This allows us to create a unique matrix expression of any ket: for any
 $$
 \ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}
 $$
@@ -60,7 +60,7 @@ $$
 \bra{X}=\ket{X}^{\dagger}.
 $$
 %#ADD TRANSPOSE CONJUGATE TO MATRIX PRELIM
-The \apos{dagger} notation means the \textbf{Hermitian adjoint} of the ket $\ket{X}$. This is the formal way to refer to the transpose conjugate of any matrix (see the matrix preliminary) -- that is, complex conjugate all the matrix element values and then transpose the matrix. For the column vector kets, this therefore turns them to row vectors with the complex conjugate entries:
+The ``dagger'' notation means the \textbf{Hermitian adjoint} of the ket $\ket{X}$. This is the formal way to refer to the transpose conjugate of any matrix (see the matrix preliminary) -- that is, complex conjugate all the matrix element values and then transpose the matrix. For the column vector kets, this therefore turns them to row vectors with the complex conjugate entries:
 $$
 \ket{X}=\begin{bmatrix}
 c_{1}\\
@@ -96,7 +96,7 @@ Several properties we have established previously can now be written in the new 
     \item A normalised ket $\ket{\tilde{\alpha}}$ is such that $\ip{\tilde{\alpha}}{{\tilde{\alpha}}}=1$.
     \item Two kets $\ket{\alpha}$ and $\ket{\beta}$ are orthogonal if $\ip{\alpha}{\beta}=0$.
 \end{itemize}
-To further the bijection between the ket space and bra space, as bras will prove more useful than only to appear in inner products, we have, using the conventional $\leftrightarrow$ symbol to mean \apos{corresponds to}:
+To further the bijection between the ket space and bra space, as bras will prove more useful than only to appear in inner products, we have, using the conventional $\leftrightarrow$ symbol to mean ``corresponds to'':
 $$
 \begin{aligned}
 \ket{X}&\duac\bra{X}\\
@@ -104,7 +104,7 @@ c\ket{X}&\duac c^{\ast}\bra{X}\\
 \ket{X}+\ket{Y}&\duac \bra{X}+\bra{Y}.\\
 \end{aligned}
 $$
-The way we obtain this is an important algebraic point: by performing the operation \apos{dagger} on any linear combination of kets, we immediately create a new set of bras in bijection with linear combinations of kets of that type, in much of a similar argument to the one we used originally to show the bra space is in bijection to the ket space.
+The way we obtain this is an important algebraic point: by performing the operation ``dagger'' on any linear combination of kets, we immediately create a new set of bras in bijection with linear combinations of kets of that type, in much of a similar argument to the one we used originally to show the bra space is in bijection to the ket space.
 \\\\
 The expansion of bras in their basis should be clear following the above facts. For 
 $$
@@ -163,7 +163,7 @@ We always focus on linear operators which map one ket onto another ket in the ve
     \item $\Omega\{a\ket{X}+b\ket{Y}\}=a\Omega\ket{X}+b\Omega\ket{Y}$
     \item $\Omega\{a\bra{X}+b\bra{Y}\}=a\bra{X}\Omega+b\bra{Y}\Omega$
 \end{itemize}
-The product of two operators means to apply the \apos{closer} operator to the ket or bra respectively and then apply the second, \apos{further} operator to the resulting ket or bra. We already know from our study of compatibility in particular that the assumption that two given operators will commute is false. The commutator is denoted the same way:
+The product of two operators means to apply the ``closer'' operator to the ket or bra respectively and then apply the second, ``further'' operator to the resulting ket or bra. We already know from our study of compatibility in particular that the assumption that two given operators will commute is false. The commutator is denoted the same way:
 $$
 [\Omega, \Lambda]:=\Omega\Lambda-\Lambda\Omega
 $$
@@ -298,7 +298,7 @@ $$
 $$
 This is practically helpful, especially in problems with fewer dimensional spaces, and as a theoretical concept which shows us we can always solve the eigenvalue problem. There will be other methods to solve eigenvalue equations too, but these often rely somewhat more on inspection and then proof that one has all the solutions by inspection; these inspection methods only arise as shortcuts based on specific conditions we get.
 \subsection{The Associative Axiom}
-Dirac introduced in his paper on Dirac notation a critical axiom called the Associative Axiom. This axiom will save a huge amount of confusion for those unfamiliar with Bra-Ket notation, and is possibly the most powerful idea of them all. This axiom states that all (legal) \apos{multiplication} operations in Dirac notation are always associative.
+Dirac introduced in his paper on Dirac notation a critical axiom called the Associative Axiom. This axiom will save a huge amount of confusion for those unfamiliar with Bra-Ket notation, and is possibly the most powerful idea of them all. This axiom states that all (legal) ``multiplication'' operations in Dirac notation are always associative.
 \\\\
 Put in scalar terms, this word associative is usually seen as
 $$
@@ -312,7 +312,7 @@ $$
 $$
 This is an inner product since it is the product of a bra, $\bra{X}$ with a ket $\Omega\ket{Y}$ (which is another ket in the ket space the operator $\Omega$ has mapped the original ket $\ket{Y}$ to). However, it can also be seen as a bra, $\bra{X}\Omega$, multiplied by a ket $\ket{Y}$. This is the associative axiom: in fact it does not matter which way the multiplication goes and only because of this can we write the concise $\bra{X}{\Omega}\ket{Y}$.
 \\\\
-The ramifications of this fact are profound, as beginners with Dirac notation often get confused about which products are \apos{bunched together} and must be performed first, leading to a great state of bewilderment when a term might have several bras, operators and kets next to each other. The answer is very simply that, so long as operations are being performed left to right, the order does not matter and the reader may read the multiplications in any way they like. It also immediately leads to theorems for entities in Dirac notation, by defining them through the perspective of other known products. The first example of this we will see is the following completeness relation.
+The ramifications of this fact are profound, as beginners with Dirac notation often get confused about which products are ``bunched together'' and must be performed first, leading to a great state of bewilderment when a term might have several bras, operators and kets next to each other. The answer is very simply that, so long as operations are being performed left to right, the order does not matter and the reader may read the multiplications in any way they like. It also immediately leads to theorems for entities in Dirac notation, by defining them through the perspective of other known products. The first example of this we will see is the following completeness relation.
 \\\\
 \textbf{\underline{The Outer Product}}
 \\\\
@@ -415,7 +415,7 @@ As the basis sets are orthonormal, we see that all the terms disappear on accoun
 $$
 \sum_{k}\sop{\alpha_{k}}=1.
 $$
-So for this \apos{transformation operator}, we have $U^{\dagger}U=1$. Similarly, $U U^{\dagger}=1$. Such an operator is called \textbf{unitary}. Now consider some arbitrary operator which is unitary and its action on a state ket which is normalised. We know that for the ket $\ket{\Psi
+So for this ``transformation operator'', we have $U^{\dagger}U=1$. Similarly, $U U^{\dagger}=1$. Such an operator is called \textbf{unitary}. Now consider some arbitrary operator which is unitary and its action on a state ket which is normalised. We know that for the ket $\ket{\Psi
 }$
 \section{Exercises from Chapter 6$\ast$}
 \begin{enumerate}

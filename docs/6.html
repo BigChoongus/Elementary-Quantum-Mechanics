@@ -162,10 +162,10 @@ The next chapter will be all dealing with continuity, which contains
 some extremely difficult mathematics resulting from the mathematics in
 this chapter, so this limitation will be soon loosened. We will also be
 avoiding any thoughts about the wavefunctions being the primary
-representations of abstract state vectors, because we will see that with
-Dirac’s notation comes another natural and powerful idea of matrix
-representations! We can also feel free to ignore measurements and
-related probabilities so that we can focus on developing algebraic
+‘tangible’ representations of abstract state vectors, because we will
+see that with Dirac’s notation comes another natural and powerful idea
+of matrix representations! We can also feel free to ignore measurements
+and related probabilities so that we can focus on developing algebraic
 techniques which will make problem solving more efficient and workable,
 because we already understand the postulates we need to therein. So for
 now, the job is mainly to forget the wavefunction, and focus on the more
@@ -216,9 +216,9 @@ object. Recall that the state vector could not be given a form until we
 chose a specific basis. Since the ket is the same, we will here need to
 chose a basis for the ket to take a form. The key novelty of our new way
 of approaching the same ideas is that, in our bid to make our state
-vector, now ket, more , we will this time try to divorce the ket from
-the idea of a wavefunction representation and replace this with yet
-another representation in bijection to the state vector– a matrix
+vector, now ket, more ‘tangible’, we will this time try to divorce the
+ket from the idea of a wavefunction representation and replace this with
+yet another representation in bijection to the state vector– a matrix
 representation! This is because ideas of matrices will be very useful to
 us in our work and manipulation. To do this, recall that in any basis a
 constituent of any vector space has unique components in that basis,
@@ -278,8 +278,8 @@ vector space is the bra space, and is made by a simple transformation:
 for every ket <span class="math inline">\(\ket{X}\)</span>, the
 corresponding bra is written <span
 class="math inline">\(\bra{X}\)</span> and is defined by <span
-class="math display">\[\bra{X}=\ket{X}^{\dagger}.\]</span> The notation
-means the <strong>Hermitian adjoint</strong> of the ket <span
+class="math display">\[\bra{X}=\ket{X}^{\dagger}.\]</span> The “dagger”
+notation means the <strong>Hermitian adjoint</strong> of the ket <span
 class="math inline">\(\ket{X}\)</span>. This is the formal way to refer
 to the transpose conjugate of any matrix (see the matrix preliminary) –
 that is, complex conjugate all the matrix element values and then
@@ -347,14 +347,14 @@ class="math inline">\(\ip{\alpha}{\beta}=0\)</span>.</p></li>
 <p>To further the bijection between the ket space and bra space, as bras
 will prove more useful than only to appear in inner products, we have,
 using the conventional <span
-class="math inline">\(\leftrightarrow\)</span> symbol to mean : <span
-class="math display">\[\begin{aligned}
+class="math inline">\(\leftrightarrow\)</span> symbol to mean
+“corresponds to”: <span class="math display">\[\begin{aligned}
 \ket{X}&amp;\duac\bra{X}\\
 c\ket{X}&amp;\duac c^{\ast}\bra{X}\\
 \ket{X}+\ket{Y}&amp;\duac \bra{X}+\bra{Y}.\\
 \end{aligned}\]</span> The way we obtain this is an important algebraic
-point: by performing the operation on any linear combination of kets, we
-immediately create a new set of bras in bijection with linear
+point: by performing the operation “dagger” on any linear combination of
+kets, we immediately create a new set of bras in bijection with linear
 combinations of kets of that type, in much of a similar argument to the
 one we used originally to show the bra space is in bijection to the ket
 space.<br />
@@ -450,11 +450,11 @@ class="math inline">\(\Omega\{a\ket{X}+b\ket{Y}\}=a\Omega\ket{X}+b\Omega\ket{Y}\
 <li><p><span
 class="math inline">\(\Omega\{a\bra{X}+b\bra{Y}\}=a\bra{X}\Omega+b\bra{Y}\Omega\)</span></p></li>
 </ul>
-<p>The product of two operators means to apply the operator to the ket
-or bra respectively and then apply the second, operator to the resulting
-ket or bra. We already know from our study of compatibility in
-particular that the assumption that two given operators will commute is
-false. The commutator is denoted the same way: <span
+<p>The product of two operators means to apply the “closer” operator to
+the ket or bra respectively and then apply the second, “further”
+operator to the resulting ket or bra. We already know from our study of
+compatibility in particular that the assumption that two given operators
+will commute is false. The commutator is denoted the same way: <span
 class="math display">\[[\Omega,
 \Lambda]:=\Omega\Lambda-\Lambda\Omega\]</span> and so is the
 anticommutator: <span class="math display">\[\{\Omega,
@@ -663,7 +663,8 @@ conditions we get.</p>
 called the Associative Axiom. This axiom will save a huge amount of
 confusion for those unfamiliar with Bra-Ket notation, and is possibly
 the most powerful idea of them all. This axiom states that all (legal)
-operations in Dirac notation are always associative.<br />
+“multiplication” operations in Dirac notation are always
+associative.<br />
 <br />
 Put in scalar terms, this word associative is usually seen as <span
 class="math display">\[(a\times b)\times c = a \times (b\times
@@ -692,13 +693,13 @@ because of this can we write the concise <span
 class="math inline">\(\bra{X}{\Omega}\ket{Y}\)</span>.<br />
 <br />
 The ramifications of this fact are profound, as beginners with Dirac
-notation often get confused about which products are and must be
-performed first, leading to a great state of bewilderment when a term
-might have several bras, operators and kets next to each other. The
-answer is very simply that, so long as operations are being performed
-left to right, the order does not matter and the reader may read the
-multiplications in any way they like. It also immediately leads to
-theorems for entities in Dirac notation, by defining them through the
+notation often get confused about which products are “bunched together”
+and must be performed first, leading to a great state of bewilderment
+when a term might have several bras, operators and kets next to each
+other. The answer is very simply that, so long as operations are being
+performed left to right, the order does not matter and the reader may
+read the multiplications in any way they like. It also immediately leads
+to theorems for entities in Dirac notation, by defining them through the
 perspective of other known products. The first example of this we will
 see is the following completeness relation.<br />
 <br />
@@ -879,12 +880,12 @@ on account of the inner product <span
 class="math inline">\(\ip{\beta_{k}}{\beta_{j}}\)</span>, except when
 <span class="math inline">\(k=j\)</span>. In those cases, we get <span
 class="math display">\[\sum_{k}\sop{\alpha_{k}}=1.\]</span> So for this
-, we have <span class="math inline">\(U^{\dagger}U=1\)</span>.
-Similarly, <span class="math inline">\(U U^{\dagger}=1\)</span>. Such an
-operator is called <strong>unitary</strong>. Now consider some arbitrary
-operator which is unitary and its action on a state ket which is
-normalised. We know that for the ket <span
-class="math inline">\(\ket{\Psi
+“transformation operator”, we have <span
+class="math inline">\(U^{\dagger}U=1\)</span>. Similarly, <span
+class="math inline">\(U U^{\dagger}=1\)</span>. Such an operator is
+called <strong>unitary</strong>. Now consider some arbitrary operator
+which is unitary and its action on a state ket which is normalised. We
+know that for the ket <span class="math inline">\(\ket{\Psi
 }\)</span></p>
 <h2 id="exercises-from-chapter-6ast">Exercises from Chapter 6<span
 class="math inline">\(\ast\)</span></h2>
