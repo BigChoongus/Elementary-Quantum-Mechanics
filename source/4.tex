@@ -1,11 +1,13 @@
 \chapter{Chapter 4: State Space Operators and the Quantum Observables Problem}
 The previous chapter introduced the concept of Hilbert space vectors, called state vectors, representing physical states. The state space, like any infinite-dimensional vector space, has infinite bases, and this was claimed to be a motivating factor for the Hilbert space formulation in the first place: because it allows for the state represented by the state vector to be looked at from the perspective of different observables like momentum and position. To complete our understanding of how the state problem is approached in quantum mechanics we need to understand exactly how observables are incorporated into this linear algebraic vector space system, through very specific bases. This question will be answered by an investigation into \textbf{linear operators}. 
 \section{Hilbert Space Operators}
-An operator is a function, but it is the lexicon used to describe a sort of function which acts on functions or vectors as inputs-- here, in the state space, on state vectors. For a new student of quantum mechanics it is paramount to understand that the distinction between an operator and a function does not exist. The only reason the term operator is used in conjunction with vector spaces is to avoid exhausting the term function, since operators act on state vectors which are themselves linked already to wavefunctions. Since it is a term one is not likely to have seen anywhere other than quantum mechanics before, there is a harmful tendency to give a mystic image to operators, but this must not be done. An operator, just like a function, takes an input and maps it to an output, and that is the extent of it. One operator the reader will have seen already is the differential operator:
+An operator is a function, but it is the lexicon used to describe a sort of function which acts on functions or vectors as inputs-- here, in the state space, on state vectors. For a new student of quantum mechanics it is paramount to understand that the distinction between an operator and a function does not exist. The only reason the term operator is used in conjunction with vector spaces is to avoid exhausting the term function, since operators act on state vectors which are themselves linked already to wavefunctions. If unused to the term, there is a harmful tendency to give a mystic image to operators, but this must not be done. An operator, just like a function, takes an input and maps it to an output, and that is the extent of it. 
+\\\\
+For example, one operator the reader will have seen already is the differential operator:
 $$
 \frac{d}{dx}f(x)=f'(x).
 $$
-This takes some input function $f(x)$, and maps it to an output function $f'(x)$. In that sense, it is a function because it has an input and output, but it is an operator because it acts on functions. If the input was $f(x)=x^2$ then the output of the differential operator would be $2x$; if it were $e^x$ then its output would also be $e^x$. A scalar can also be an input of the operator: since an operator is a function of functions, we could just define the input function to be $f(x):=k$ for that scalar $k$, and of course this would still be a function whilst sharing no differences to the scalar. Here, if such a scalar was an input of the differential operator, than the output would be the null function: or, 0, but for other operators, this may be different.
+This takes some input function $f(x)$, and maps it to an output function $f'(x)$. In that sense, it is a function because it has an input and output, but it is an operator because it acts on functions. If the input was $f(x)=x^2$ then the output of the differential operator would be $2x$; if it were $e^x$ then its output would also be $e^x$. A scalar can also be an input of the operator: since an operator is a function of functions, we could just define the input function to be $f(x)\equiv k$ for that scalar $k$, and of course this would still be a function whilst sharing no differences to the scalar. Here, if such a scalar was an input of the differential operator, than the output would be the null function: or, $0$, but for other operators, this may be different.
 \\\\
 If this is understood, the technical requirement for an operator which is linear, here donated by $\Omega$, is that they are linear maps:
 $$
@@ -30,7 +32,13 @@ We do not, however have commutativity:
 $$
 \Omega_{1}\Omega_{2}\Psi\neq\Omega_{2}\Omega_{1}\Psi
 $$
-for most pairs of operators $\Omega_{1}$ and $\Omega_{2}$ (some do commute by chance rather than definition). Moreover, the order of the operators often specifies completely unrelated results, unlike with inner products, where one order is the complex conjugate of the other. The rest of the operator facts again should, like the rules of vector spaces, come mostly naturally. A useful point to remember is that for any operator we work with in quantum mechanics, it maps from the state space $\mathscr{H}$ to the state space $\mathscr{H}$: in other words, performing that operator on any input state space vector will directly create a new state space vector! Thus 
+for most pairs of operators $\Omega_{1}$ and $\Omega_{2}$ (some do happen to commute). Moreover, there is in general no useful relation between $\Omega_{1}\Omega_{2}$ and $\Omega_{2}\Omega_{1}$, unlike the inner product, which is not commutative, but which follows the much nicer relation 
+$$
+(\Psi_{1},\Psi_{2}) = (\Psi_{2},\Psi_{1})^{\ast}.
+$$
+The general irregularity of commutation relations between linear operators will turn out to be connected to an incredibly rich set of quantum phenomena!
+\\\\
+The rest of the operator facts again should, like the rules of vector spaces, come mostly naturally. A useful point to remember is that for any operator we work with in quantum mechanics, it maps from the state space $\mathscr{H}$ to the state space $\mathscr{H}$: in other words, performing that operator on any input state space vector will directly create a new state space vector! Thus 
 $$
 \Omega\Psi
 $$
@@ -38,19 +46,22 @@ is a new state space vector, and so is
 $$
 \Omega_{1}\Omega_{2}\Psi=\Omega_{1}(\Omega_{2}\Psi)
 $$
-which is, the action of $\Omega_{1}$ on the state space vector $\Omega_{2}\Psi$ obtained after operating with $\Omega_{2}$ on an original state vector $\Psi$. We have a tendency, which is natural, to be suspicious when some arbitrary function acts on an immensely complex input vector. However, in the rules of quantum mechanics where linear operators dominate, we do not need this suspicion. Fluency should soon dictate that we see $\Omega\Psi$
-as just another state space vector.
+which is, the action of $\Omega_{1}$ on the state space vector $\Omega_{2}\Psi$ obtained after operating with $\Omega_{2}$ on an original state vector $\Psi$. We have a tendency, which is natural, to be suspicious when some arbitrary function acts on an immensely complex input vector. However, in the rules of quantum mechanics where linear operators dominate, we do not need this suspicion. Fluency should soon dictate that we see $\Omega\Psi$ as just another state space vector. 
+\\\\
+The caveat which must be noted is that general linear operators will not send a unit ray to another unit ray: i.e, if the input vector is normalised the transformation will usually give them a new unphysical phase factor. Yet we know the Hilbert space can contain these unphysically scaled state vectors, which are equivalent to the unit ray states, so we are fine, as we can renormalise them later. 
+\\\\
+The special class of operators which \textit{do} preserve the normalisation of unit ray states are called \textbf{unitary} operators. We will cover these later.
 \\\\
 Now, the much more important qualities of operators in quantum mechanics are that they possess quantities called eigenvalues and eigenvectors, which is where the quantum mechanical formalism will really start to come together.
 \subsection{Eigenvalues and Eigenvectors}
-We have just studied operators, which are fundamentally crucial to all quantum mechanics, but of the moment seem to have fuzzy physical interpretations. The other side of the same coin is \textbf{eigenvalues}. Flip to the middle chapter of any quantum mechanics text and you might find a large mixture of words with the prefix ``eigen-": eigenvector, eigenfunction, eigenvalue, eigenvector, eigenenergy, eigenstate, eigenmomentum- et cetera. After understanding eigenvalues this becomes either natural or self-consciously amusing; before this, however, it is horrifying. The study of eigenvalues must be treated with utmost respect, but after we are done we are in a very good place indeed.
+We have just studied operators, which are fundamentally crucial to all quantum mechanics, but of the moment seem to have vague physical interpretations. The other side of the same coin is \textbf{eigenvalues}. Flip to the middle chapter of any quantum mechanics text and you might find a large mixture of words with the prefix ``eigen-": eigenvector, eigenfunction, eigenvalue, eigenenergy, eigenstate, eigenmomentum- et cetera. This will soon become natural, though it may be initially daunting. Understanding why these words are so commonplace will set us in a good position, so we do that now.
 \\\\
 Consider a three dimensional example first. We will pick a random vector, which in this case can be a column vector, 
 $$
 V=\begin{pmatrix}
 \frac{47}{10}\\
-\pi\\
-5.06\\
+5.69\\
+242\\
 \end{pmatrix}
 $$
 and a random operator, 
@@ -67,24 +78,26 @@ x_{1}\\
 $$
 Upon applying this operator to the vector $V$, we are likely not going to get an output vector which is anything like the original vector in terms of how corresponding components are related.
 \\\\
-We are however given the grace from mathematics of sets of functions, belonging to specific operators, which behave much more stably. To each operator $\Omega$ there exists a set of vectors, called \textbf{eigenvectors}, such that:
+We are however given the grace from mathematics of sets of vectors, belonging to specific operators, which behave much more stably. To each operator $\Omega$ there exists a set of vectors, called \textbf{eigenvectors}, such that:
 $$
 \Omega\omega = \lambda\omega
 $$
-for some constant $\lambda$ and vector $\omega$. In the above equation, which we call an eigenvalue equation, $\omega$ is an eigenvector of $\Omega$, and $\lambda$ is the corresponding eigenvalue: a complex constant. This equation corresponds to the operator $\Omega$ scaling the eigenvector $\omega$ by a scale factor $\lambda$: a relatively very trivial transformation compared to the nontrivial possibilities, as aforementioned, which occur far more easily for large-dimension spaces with nontrivial operators $\Omega$. In the above example we just saw, for example, no such simple scaling exists at all even though the components have not been dramatically altered and only switched around!
+for some constant $\lambda$ and vector $\omega$. In the above equation, which we call an eigenvalue equation, $\omega$ is an eigenvector of $\Omega$, and $\lambda$ is the corresponding eigenvalue: a complex constant. This equation corresponds to the operator $\Omega$ scaling the eigenvector $\omega$ by a scale factor $\lambda$: a relatively very trivial transformation compared to the nontrivial possibilities we expect for general vectors under the transformation. In the above example we just saw, for example, no such scaling exists at all, despite the transformation looking somewhat simple!
 \\\\
 Let us consider a basic operator and try to solve for all possible eigenvectors and eigenvalues. We could use the identity operator, which is extremely trivial:
 $$
 I\epsilon = \epsilon
-$$ means that any vector $\epsilon$ is an eigenvector of the identity operator, with corresponding eigenvalue $1$. It is a rather uninteresting result, which pertains to a uniquely simple vector. This eigenvalue equation was not particularly difficult, but for more complicated operators, it is still clear that this case analysis inspection might not be such an easy and useful method of solving the eigenvalue problem every time. The more advanced methods of solving eigenvalue problems will come later in this book; for now, only the theory is important.
+$$ means that any vector $\epsilon$ is an eigenvector of the identity operator, with corresponding eigenvalue $1$. It is a rather uninteresting result, which pertains to a uniquely simple vector. 
+\\\\
+This eigenvalue equation was uniquely simple, but for more complicated operators, it is clear that trying to find eigenvectors by inspection will usually be futile. The more advanced methods of solving eigenvalue problems will come later in this book; for now, only the theory is important.
 \\\\
 A final note on the above: the prefix eigen-, which is derived from German and means `own' (hence, each operator has its `own' set of eigenvectors), is always used in mathematics when we are dealing with the above cases. We therefore have eigenvalues, eigenvectors, eigenfunctions: but also, later on, eigenenergies, eigenmomenta, and so on, when the eigenvalues are energy and momentum values respectively. The context and this explicit note should demystify such eigen- words in the future.
 \subsection{Hermitian Operators}
 The next important definition central to quantum mechanics is of \textbf{Hermitian} operators. Operators are Hermitian if they possess the property:
 $$
-\oip{\alpha}{\Omega\beta}=\oip{\Omega\alpha}{\beta}.
+\oip{\bm{\alpha}}{\Omega\bm{\beta}}=\oip{\Omega\bm{\alpha}}{\bm{\beta}}.
 $$
-for any vectors $\alpha,\beta$. There are some consequent facts for hermitian operators following this definition.
+for \textit{any} vectors $\bm{\alpha},\bm{\beta}$. This `Hermiticity' property is deceptively simple, but here are some profound consequent facts for hermitian operators following this definition.
 \begin{enumerate}
     \item[H1.] Hermitian operators must have real eigenvalues. \\\\
     \underline{Proof:}\\\\
@@ -132,37 +145,37 @@ for any vectors $\alpha,\beta$. There are some consequent facts for hermitian op
     However, it has infinite different eigenvectors but they all have the same eigenvalue: 1. Thus the proof above cannot apply to the identity operator. In this case, the collapse of the point should be obvious anyway-- all vectors are eigenvectors of the identity operator, but certainly not all vectors are orthogonal to each other. In general, an operator where different eigenvectors can share the same eigenvalue is said to be \textbf{degenerate}. In particular, we say particular eigenvalues are degenerate if they can correspond to multiple different eigenvectors-- but we do not say eigenvectors are degenerate because an eigenvector can never correspond to multiple different eigenvalues. 
     \\\\
     There are a few proofs of theorems in this book which involve the assumption that we are working with non-degenerate operators. These proofs, when we incorporate degeneracy, are usually different -- and unfortunately, more difficult. For every step where we assume non-degeneracy, it would still be within the reaches of this book to prove an alternative proof in the case of degeneracy, but at the same time these would take labour and space. Therefore, I will not include them in this book because they will not alter anything in the fundamental understanding of a reader. Should the reader want to find such proofs, they may turn to a more advanced textbook which has the space and desire to cover this technicality. It should not make a massive difference either way whether the reader is aware of the degenerate case proof, so long as they understand when degeneracy makes a difference to actual consequent theorem or result (and indeed when it does not, which is quite common here). I will highlight these cases at when they occur.
-    \item[H3.] For an operator $\Omega$ with real eigenvalues $\lambda_{i}$ and eigenvectors $\alpha_{i}$, if the eigenvectors constitute an orthonormal basis in the Hilbert space then the operator is hermitian.\\\\
+    \item[H3.] For an operator $\Omega$ with real eigenvalues $\lambda_{i}$ and eigenvectors $\bm{\alpha}_{i}$, if the eigenvectors constitute an orthonormal basis in the Hilbert space then the operator is hermitian.\\\\
     \underline{Proof:}\\\\
-    Take the component expressions for the two arbitrary vectors $\Psi_{1}$ and $\Psi_{2}$. We know they can be both expressed as a linear combination of the eigenvectors $\alpha_{i}$ since the set $\{\alpha_{i}\}$ is stated in the conditions to be an orthonormal basis. So we have:
+    Take the component expressions for the two arbitrary vectors $\Psi_{1}$ and $\Psi_{2}$. We know they can be both expressed as a linear combination of the eigenvectors $\bm{\alpha}_{i}$ since the set $\{\bm{\alpha}_{i}\}$ is stated in the conditions to be an orthonormal basis. So we have:
     $$
-    \Psi_{1}=\sum_{\{i\}}c_{i}\alpha_{i},\:\:\Psi_{2}=\sum_{\{j\}}\gamma_{j}\alpha_{j}
+    \Psi_{1}=\sum_{\{i\}}c_{i}\bm{\alpha}_{i},\:\:\Psi_{2}=\sum_{\{j\}}\gamma_{j}\bm{\alpha}_{j}
     $$
-    where the components $c_{i}$ and $\gamma_{j}$ are found by $(\alpha_{i},\Psi_{1})$ and $\oip{\alpha_{j}}{\Psi_{2}}$ respectively. Then 
+    where the components $c_{i}$ and $\gamma_{j}$ are found by $(\bm{\alpha}_{i},\Psi_{1})$ and $\oip{\bm{\alpha}_{j}}{\Psi_{2}}$ respectively. Then 
     $$
     \begin{aligned}
-    (\Omega\Psi_{1},\Psi_{2})&=\left(\Omega\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)\\
-    &=\left(\sum_{\{i\}}c_{i}\Omega\alpha_{i},\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)
+    (\Omega\Psi_{1},\Psi_{2})&=\left(\Omega\sum_{\{i\}}c_{i}\bm{\alpha}_{i},\sum_{\{j\}}\gamma_{j}\bm{\alpha}_{j}\right)\\
+    &=\left(\sum_{\{i\}}c_{i}\Omega\bm{\alpha}_{i},\sum_{\{j\}}\gamma_{j}\bm{\alpha}_{j}\right)
     \end{aligned}
     $$
     where the operator can be incorporated into the sum term as it is a linear operator. Then this becomes
     $$
     \begin{aligned}
-    (\Omega\Psi_{1},\Psi_{2}) &= \left(\sum_{\{i\}}c_{i}\lambda_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)\\
-    &=\sum_{i,j}c^{\ast}_{i}\lambda_{i}^{\ast}\gamma_{j}(\alpha_{i},\alpha_{j})
+    (\Omega\Psi_{1},\Psi_{2}) &= \left(\sum_{\{i\}}c_{i}\lambda_{i}\bm{\alpha}_{i},\sum_{\{j\}}\gamma_{j}\bm{\alpha}_{j}\right)\\
+    &=\sum_{i,j}c^{\ast}_{i}\lambda_{i}^{\ast}\gamma_{j}(\bm{\alpha}_{i},\bm{\alpha}_{j})
     \end{aligned}
     $$
-    but $\{\alpha_{i}\}$ is an orthonormal basis so $(\alpha_{i},\alpha_{j})=\delta_{ij}$. The above then becomes $0$ except for when the two basis vectors are the same, so we are left with:
+    but $\{\bm{\alpha}_{i}\}$ is an orthonormal basis so $(\bm{\alpha}_{i},\bm{\alpha}_{j})=\delta_{ij}$. The above then becomes $0$ except for when the two basis vectors are the same, so we are left with:
     $$
     (\Omega\Psi_{1},\Psi_{2})=\sum_{i}c^{\ast}_{i}\lambda^{\ast}_{i}\gamma_{i}.
     $$
     Now, considering $(\Psi_{1},\Omega\Psi_{2})$, we have very similarly:
     $$
     \begin{aligned}
-    (\Psi_{1},\Omega\Psi_{2})&=\left(\sum_{\{i\}}c_{i}\alpha_{i},\Omega\sum_{\{j\}}\gamma_{j}\alpha_{j}\right)\\
-    &=\left(\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\Omega\alpha_{j}\right)\\
-    &= \left(\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{j\}}\gamma_{j}\lambda_{j}\alpha_{j}\right)\\
-    &=\sum_{i,j}c_{i}^{\ast}\lambda_{j}\gamma_{j}(\alpha_{i},\alpha_{j})=\sum_{i,j}c_{i}^{\ast}\lambda_{j}\gamma_{j}\delta_{ij}\\
+    (\Psi_{1},\Omega\Psi_{2})&=\left(\sum_{\{i\}}c_{i}\bm{\alpha}_{i},\Omega\sum_{\{j\}}\gamma_{j}\bm{\alpha}_{j}\right)\\
+    &=\left(\sum_{\{i\}}c_{i}\bm{\alpha}_{i},\sum_{\{j\}}\gamma_{j}\Omega\bm{\alpha}_{j}\right)\\
+    &= \left(\sum_{\{i\}}c_{i}\bm{\alpha}_{i},\sum_{\{j\}}\gamma_{j}\lambda_{j}\bm{\alpha}_{j}\right)\\
+    &=\sum_{i,j}c_{i}^{\ast}\lambda_{j}\gamma_{j}(\bm{\alpha}_{i},\bm{\alpha}_{j})=\sum_{i,j}c_{i}^{\ast}\lambda_{j}\gamma_{j}\delta_{ij}\\
     &=\sum_{i}c_{i}^{\ast}\lambda_{i}\gamma_{i}.
     \end{aligned}
     $$
@@ -180,30 +193,30 @@ for any vectors $\alpha,\beta$. There are some consequent facts for hermitian op
     so it will be ignored-- but the profound consequences are clear. If an operator in the state space is Hermitian it has a basis consisting eigenvectors, called its \textbf{eigenbasis}, spanning the space; if we take any basis of the state space we can take its inner product over all the basis eigenvectors with any state vector to produce a wavefunction. These representations will prove massively helpful.
     \item[H4.] The action of all Hermitian operators whose eigenvectors form an orthonormal basis can be specified by their eigenvalues and eigenvectors.\\\\
     \underline{Proof:}\\\\
-    For a Hermitian operator $\Omega$ with eigenvalues $\lambda_{i}$ and eigenvectors $\alpha_{i}$, any vector can be expressed in the orthonormal basis:
+    For a Hermitian operator $\Omega$ with eigenvalues $\lambda_{i}$ and eigenvectors $\bm{\alpha}_{i}$, any vector can be expressed in the orthonormal basis:
     $$
-    \psi=\sum_{i}(\alpha_{i},\psi)\alpha_{i}
+    \psi=\sum_{i}(\bm{\alpha}_{i},\psi)\bm{\alpha}_{i}
     $$
     so 
     $$
-    \Omega\psi=\Omega\sum_{i}(\alpha_{i},\psi)\alpha_{i}=\sum_{i}(\alpha_{i},\psi)\Omega\alpha_{i}=\sum_{i}(\alpha_{i},\psi)\lambda_{i}\alpha_{i}.
+    \Omega\psi=\Omega\sum_{i}(\bm{\alpha}_{i},\psi)\bm{\alpha}_{i}=\sum_{i}(\bm{\alpha}_{i},\psi)\Omega\bm{\alpha}_{i}=\sum_{i}(\bm{\alpha}_{i},\psi)\lambda_{i}\bm{\alpha}_{i}.
     $$
-    This clearly requires no external knowledge other than understanding the sets $\{\lambda_{i}\}$ and $\{\alpha_{i}\}$. Conversely: if we completely understand these sets then we can completely specify the operator given an input vector $\psi$ the operator is acting on. 
+    This clearly requires no external knowledge other than understanding the sets $\{\lambda_{i}\}$ and $\{\bm{\alpha}_{i}\}$. Conversely: if we completely understand these sets then we can completely specify the operator given an input vector $\psi$ the operator is acting on. 
 \end{enumerate}
 With all this knowledge about operators in vector spaces, and clear signs that their eigenbases will be very useful, we now come to the Second Postulate of quantum mechanics.
 \section{Observables in Quantum Mechanics}
 The state problem is a question of information. The most relevant information to a physicist about a state is the value of its \textit{observables}. The problem, we have seen, is that unlike with the classical state, the quantum state cannot just be said to possess a value for any observable, as it is instead a superposition of many different possible states and it is thus far unclear which state will emerge upon measurement. This problem was dealt with by placing states in correspondence with vectors in a vector space which meant that all possible states could be summed together in a superposition to create a new state without forming something out of the space of possible states, and we learnt how to create more `tangible' wavefunctions from those state vectors. However, we still do not know why wavefunctions are so tangible. The genius of the formalism comes when we incorporate operators and their orthogonal eigenbases into the picture, where wavefunctions in eigenbases will answer our problem.
 \Answer
 \underline{\textbf{Postulate 2: Observables}}\\\\
-To each physical observable there exists a corresponding hermitian operator. There exists an orthonormal eigenbasis of this operator which spans the state space: that is, for some observable operator $\hat{A}$ with eigenvalues $\{A_{i}\}$ corresponding to eigenvectors $\{\alpha_{i}\}$,
+To each physical observable there exists a corresponding hermitian operator. There exists an orthonormal eigenbasis of this operator which spans the state space: that is, for some observable operator $\hat{A}$ with eigenvalues $\{A_{i}\}$ corresponding to eigenvectors $\{\bm{\alpha}_{i}\}$,
 $$
-\forall\:\Psi, \:\: \Psi=\sum_{i}c_{i}\alpha_{i}
+\forall\:\Psi, \:\: \Psi=\sum_{i}c_{i}\bm{\alpha}_{i}
 $$
-for some components $\setof{c_{i}}$. The only possible values for the observable whose operator is $\hat{A}$ which can be measured are the eigenvalues $\setof{A_{i}}$ and these correspond to the eigenstates $\setof{\alpha_{i}}$. If there comes a condition 
+for some components $\setof{c_{i}}$. The only possible values for the observable whose operator is $\hat{A}$ which can be measured are the eigenvalues $\setof{A_{i}}$ and these correspond to the eigenstates $\setof{\bm{\alpha}_{i}}$. If there comes a condition 
 $$
-\hat{A}\Psi=A_{i}\alpha_{i}
+\hat{A}\Psi=A_{i}\bm{\alpha}_{i}
 $$
-then we say that the eigenvalue $A_{i}$ is the measured value of the physical observable and the new state vector is the eigenvector $\alpha_{i}$. 
+then we say that the eigenvalue $A_{i}$ is the measured value of the physical observable and the new state vector is the eigenvector $\bm{\alpha}_{i}$. 
 \Answerend
 The most essential outcome to us here is that we want real values for the results of physical measurements, as imaginary position or imaginary energy for example would be nonsense; since the set of eigenvalues $\setof{A_{i}}$ are the only possible results of measurements, we therefore require real eigenvalues. By the postulate, we have Hermitian operators representing observables, which therefore must have real eigenvalues. The postulate is that these eigenvalues are the only possible measurable results for that observable for any states, so that they are real is critical. It is from the fact we need the operator to have real eigenvalues if these are to be the measured values for a physical operator, combined with the fact it is postulated to have an orthonormal eigenbasis spanning the state space, which guarantees the operators representing observables must be Hermitian. That is precisely, we recall,
 $$
@@ -222,14 +235,14 @@ The second part of the postulate gives us an interesting and significant link be
 To start off, note that we expect that most state space vectors will be linear combinations of the eigenvectors of any observable operator, since the set of (infinite) eigenvectors of a hermitian operator constitutes an orthonormal basis of its space. We do not expect all possible states to be pure scalar multiples of single eigenvectors since there can be infinite linear combinations of the eigenvectors which are not pure scalar multiples of single eigenvectors. 
 The postulate now states that the condition
 \[
-\hat{A}\Psi=A_{i}\alpha_{i}\]
-means that $A_{i}$ is the measured value of the physical observable represented by the operator $\hat{A}$. However, this condition is clearly very singular if we are working with a wavefunction which is a linear combination of the infinite eigenvectors of an observable operator-- since the state $\Psi$ does not naturally coincide with the eigenvector $\alpha_{i}$ alone. What should be abundantly clear, however, is that, post-measurement, $\Psi$ has changed from a linear combination of eigenvectors to a multiple of only one of them, the eigenvalue corresponding to which is the measured value of the observable. So the act of measurement is clearly very important; indeed, it forms one of the central pillars of quantum mechanics and especially the mathematics which formulates it. We have seen this, already, in the Stern Gerlach experiment! There, measuring the $x$ spin led to irrevocable changes in the $y$ spin even without physically affecting it in that dimension. This measurement problem is the final component of the quantum mechanical solution to the state problem, and pulls everything together in an understandable way. Thus to complement Postulate 2 on observables, we have Postulate 3, on Measurements.
+\hat{A}\Psi=A_{i}\bm{\alpha}_{i}\]
+means that $A_{i}$ is the measured value of the physical observable represented by the operator $\hat{A}$. However, this condition is clearly very singular if we are working with a wavefunction which is a linear combination of the infinite eigenvectors of an observable operator-- since the state $\Psi$ does not naturally coincide with the eigenvector $\bm{\alpha}_{i}$ alone. What should be abundantly clear, however, is that, post-measurement, $\Psi$ has changed from a linear combination of eigenvectors to a multiple of only one of them, the eigenvalue corresponding to which is the measured value of the observable. So the act of measurement is clearly very important; indeed, it forms one of the central pillars of quantum mechanics and especially the mathematics which formulates it. We have seen this, already, in the Stern Gerlach experiment! There, measuring the $x$ spin led to irrevocable changes in the $y$ spin even without physically affecting it in that dimension. This measurement problem is the final component of the quantum mechanical solution to the state problem, and pulls everything together in an understandable way. Thus to complement Postulate 2 on observables, we have Postulate 3, on Measurements.
 \subsection{Measurements}
 \Answer
 \underline{\textbf{Postulate 3: Measurements}}\\\\
-After a measurement of a physical observable, the state vector is forced into a specific eigenvector corresponding to the eigenvalue measured for that observable. The probability that the (normalised) state vector is forced into a state represented by a state vector $\alpha_{i}$, which is called an eigenstate, is given by
+After a measurement of a physical observable, the state vector is forced into a specific eigenvector corresponding to the eigenvalue measured for that observable. The probability that the (normalised) state vector is forced into a state represented by a state vector $\bm{\alpha}_{i}$, which is called an eigenstate, is given by
 $$
-P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^2,
+P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\Psi}|^2,
 $$
 which is therefore also the probability of measuring the eigenvalue $A_{i}$ as the final result of the measurement for the observable.
 \Answerend
@@ -238,56 +251,56 @@ This Postulate now provides great meaning to the discourse immediately preceding
     \item We do not restrict the state vector to being a pure scalar multiple of one single eigenvector prior to measurement. This is important as by Postulate 1, all state space vectors represent physical states, and there certainly should be infinite Hilbert space vectors which are linear combinations of any orthonormal basis vectors which span it: including when that orthonormal basis is the eigenbasis of an observable operator. This is the superposition of different possible states which exists before a measurement.
     \item We guarantee that after measurement, Postulate 2 has meaning: since the measurement forces the wavefunction into a specific eigenstate, we will indeed achieve after measurement
     $$
-    \hat{A}\Psi\to \hat{A}\alpha_{i}=A_{i}\alpha_{i}
+    \hat{A}\Psi\to \hat{A}\bm{\alpha}_{i}=A_{i}\bm{\alpha}_{i}
     $$
     and therefore we guarantee that a measurement will always yield one single value-- the eigenvalue $A_{i}$: regardless of what superposition of states it was in previously. 
 \end{itemize}
 This is all well and good, but what gives order to the chaos is the probabilistic link of the postulate. Without it, we would be wondering what to do in any arbitrary superposition in states, since intuition tells us that just because we have a superposition it does not mean that all the measurements must have equal probabilities. Fortunately, we have the postulate:
 $$
-P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^2
+P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\Psi}|^2
 $$
-where $P(\alpha_{i})$ is the probability of measuring the state vector to be in the state $\alpha_{i}$. Here we make a clarification of similar type as that regarding the distinction between state and wavefunction: the reader must understand that the state vector being in an eigenstate $\alpha_{i}$ is not so interesting itself as is the fact that when it is in that eigenstate we know $A_{i}$ is the eigenvalue is the measured result for the observable. Thus when we say the state is measured to be the eigenstate $\alpha_{i}$ we really allude to the fact that a measurement will yield $A_{i}$ as the value. The reason we do not write $P(A_{i})$, the probability of measuring $A_{i}$, is due to the fact that in the face of degeneracy (say, eigenvalue $A_{1}$ corresponding to two different eigenstates $\alpha_{1}$ and $\alpha_{2}$), we have the following problem:
+where $P(\bm{\alpha}_{i})$ is the probability of measuring the state vector to be in the state $\bm{\alpha}_{i}$. Here we make a clarification of similar type as that regarding the distinction between state and wavefunction: the reader must understand that the state vector being in an eigenstate $\bm{\alpha}_{i}$ is not so interesting itself as is the fact that when it is in that eigenstate we know $A_{i}$ is the eigenvalue is the measured result for the observable. Thus when we say the state is measured to be the eigenstate $\bm{\alpha}_{i}$ we really allude to the fact that a measurement will yield $A_{i}$ as the value. The reason we do not write $P(A_{i})$, the probability of measuring $A_{i}$, is due to the fact that in the face of degeneracy (say, eigenvalue $A_{1}$ corresponding to two different eigenstates $\bm{\alpha}_{1}$ and $\bm{\alpha}_{2}$), we have the following problem:
 $$
-P(A_{1})\neq\oip{\alpha_{1}}{\Psi}\neq\oip{\alpha_{2}}{\Psi}
+P(A_{1})\neq\oip{\bm{\alpha}_{1}}{\Psi}\neq\oip{\bm{\alpha}_{2}}{\Psi}
 $$
 in fact, here it would be 
 $$
-P(A_{1})=\oip{\alpha_{1}}{\Psi}+\oip{\alpha_{2}}{\Psi}.
+P(A_{1})=\oip{\bm{\alpha}_{1}}{\Psi}+\oip{\bm{\alpha}_{2}}{\Psi}.
 $$
 So we see that defining the probability of a wavefunction being in an eigenstate is slightly easier and more consistent. Next,
 consider the state 
 $$
-\Psi=\alpha_{n}.
+\Psi=\bm{\alpha}_{n}.
 $$
 In this state a measurement will yield value $A_{n}$ with probability 
 $$
-P(A_{n}):=|\oip{\alpha_{n}}{\Psi}|^2=|\oip{\alpha_{n}}{\alpha_{n}}|^2=1
+P(A_{n}):=|\oip{\bm{\alpha}_{n}}{\Psi}|^2=|\oip{\bm{\alpha}_{n}}{\bm{\alpha}_{n}}|^2=1
 $$
-since the eigenvectors $\alpha_{n}$ are assumed to be normalised. So if the state vector is a pure eigenstate then the eigenvalue corresponding to the eigenstate it is in will be measured with probability 1. When do pure eigenstates occur for state vectors? They may occur organically for some arbitrary physical state which happens to be a pure eigenstate of a physical observable, though we expect this to be comparatively rare. More importantly: they also occur after measurements, since by the first part of the postulate a measurement will force a state vector into an eigenvector -- a pure eigenstate -- of the observable operator. This now explains why instantaneous successive measurements must yield the same answer: the first measurement forces the state vector into a pure eigenstate $\alpha_{n}$ corresponding to the eigenvalue $A_{n}$ measured, and then the second measurement will give the same eigenvalue $A_{n}$ with probability
+since the eigenvectors $\bm{\alpha}_{n}$ are assumed to be normalised. So if the state vector is a pure eigenstate then the eigenvalue corresponding to the eigenstate it is in will be measured with probability 1. When do pure eigenstates occur for state vectors? They may occur organically for some arbitrary physical state which happens to be a pure eigenstate of a physical observable, though we expect this to be comparatively rare. More importantly: they also occur after measurements, since by the first part of the postulate a measurement will force a state vector into an eigenvector -- a pure eigenstate -- of the observable operator. This now explains why instantaneous successive measurements must yield the same answer: the first measurement forces the state vector into a pure eigenstate $\bm{\alpha}_{n}$ corresponding to the eigenvalue $A_{n}$ measured, and then the second measurement will give the same eigenvalue $A_{n}$ with probability
 $$
-P(A_{n})=|\oip{\alpha_{n}}{\alpha_{n}}|^2=1
+P(A_{n})=|\oip{\bm{\alpha}_{n}}{\bm{\alpha}_{n}}|^2=1
 $$
-since the state vector is now the pure eigenstate $\alpha_{n}$ after being forced into this eigenstate by the first measurement. We saw this intuitive consequence in the Stern Gerlach experiment, where successive magnetic fields in the same axis yielded the same spin results each time!
+since the state vector is now the pure eigenstate $\bm{\alpha}_{n}$ after being forced into this eigenstate by the first measurement. We saw this intuitive consequence in the Stern Gerlach experiment, where successive magnetic fields in the same axis yielded the same spin results each time!
 \\\\
 The disturbance to classical intuition comes when we make the same observation we have already made. By Postulate 1, all state space vectors represent physical states, and there are infinite state space vectors which are linear combinations of any orthonormal basis vectors which span it. Thus if the orthonormal basis is the eigenbasis of a physical observable operator, there are infinite state vectors which are not pure eigenvectors of the observable operator, but rather linear combinations of the corresponding eigenvectors. Then,
 $$
-\Psi=\sum_{i}\oip{\alpha_{i}}{\Psi}\alpha_{i},
+\Psi=\sum_{i}\oip{\bm{\alpha}_{i}}{\Psi}\bm{\alpha}_{i},
 $$
 by the expansion of Hilbert Space vectors in an orthonormal basis. But then, for any $A_{n}$ in a non-degenerate state (similar reasoning holds for degenerate states),
 $$
 \begin{aligned}
-P(A_{n}):=|\oip{\alpha_{n}}{\Psi}|^2=|\oip{\alpha_{n}}{\sum_{i}\oip{\alpha_{i}}{\Psi}\alpha_{i}}|^2
+P(A_{n}):=|\oip{\bm{\alpha}_{n}}{\Psi}|^2=|\oip{\bm{\alpha}_{n}}{\sum_{i}\oip{\bm{\alpha}_{i}}{\Psi}\bm{\alpha}_{i}}|^2
 \end{aligned}
 $$
-so if this probability was zero then that would imply the component $\oip{\alpha_{i}}{\Psi}=0$. In a nontrivial linear combination of eigenvectors, there will exist more than one eigenvector $\alpha_{i}$ for which this is not true, and therefore more than one eigenvalue $A_{i}$ which can be measured with nonzero probability.
+so if this probability was zero then that would imply the component $\oip{\bm{\alpha}_{i}}{\Psi}=0$. In a nontrivial linear combination of eigenvectors, there will exist more than one eigenvector $\bm{\alpha}_{i}$ for which this is not true, and therefore more than one eigenvalue $A_{i}$ which can be measured with nonzero probability.
 \\\\
 This is the famous probabilistic nature of quantum mechanics encapsulated through our postulates. Do there exist such state vectors which are linear combinations of multiple eigenvectors of an observable operator? Certainly yes, by Postulate 1. Yet in such cases multiple eigenvalues can be measured with nonzero probability: that is, multiple values can be obtained for the same measurement. Thus the wording of the postulate-- the state vector is forced into a specific eigenvector-- is relevant: the state vector in these cases does not possess a single fixed value for an observable which must be revealed upon measurement so it cannot be said, technically, to have a position or momentum or any other observable value. We can only say that an eigenvalue is the measured value of this specific measurement: or, the eigenvector the state vector has been forced into was not necessarily the state vector before at all; in another scenario, with defined probability, the state vector may well have been forced into a different eigenstate and then yielded a different value for an observable. 
 \\\\
 We end this section with a summary on quantum states and inherent probability:
 \begin{itemize}
     \item In a pure state with respect to a physical observable the state vector is made up solely of one eigenvector of the observable operator. A measurement will therefore yield the eigenvalue corresponding to that eigenvector with probability 1. In such cases (a rarity) a deterministic prediction can be made about the results of a measurement.
-    \item After measurement a state vector is forced into a pure eigenstate $\alpha_{i}$ with probability $|\oip{\alpha_{i}}{\Psi}|^2$. Thereon the above determinism of a pure state applies for successive measurements unless the system experiences external perturbation which once again moves it out of the pure eigenstate.
-    \item A state vector is in a mixed state with respect to a physical observable if the state vector is a non-trivial linear combination of more than one eigenvector of the observable operator. In those cases the strongest predictive statement about the result of a measurement is that a specific eigenstate $\alpha_{i}$ has probability $|\oip{\alpha_{i}}{\Psi}|^2$ of being measured. We cannot make any deterministic predictions at all, and we do not really think of a mixed state as having a value for that specific observable. Most naturally occurring states in quantum mechanics are indeed mixed states.
+    \item After measurement a state vector is forced into a pure eigenstate $\bm{\alpha}_{i}$ with probability $|\oip{\bm{\alpha}_{i}}{\Psi}|^2$. Thereon the above determinism of a pure state applies for successive measurements of the same observable unless the system experiences external perturbation which once again moves it out of the pure eigenstate.
+    \item A state vector is in a mixed state with respect to a physical observable if the state vector is a non-trivial linear combination of more than one eigenvector of the observable operator. In those cases the strongest predictive statement about the result of a measurement is that a specific eigenstate $\bm{\alpha}_{i}$ has probability $|\oip{\bm{\alpha}_{i}}{\Psi}|^2$ of being measured. We cannot make any deterministic predictions at all, and we do not really think of a mixed state as having a value for that specific observable. Most naturally occurring states in quantum mechanics are indeed mixed states.
 \end{itemize}
 Another question still remains. We know that state vectors represent states-- and that is, physical states. If we think to use our classical intuition, we know a physical state can be thought about from the perspective of one observable (such as when we consider the momentum of two colliding objects). However, that does not mean it does not possess any values for all other physical observables, as it still has energy, angular momentum, and so on: only that we are not currently considering the other observables. Similarly, we would not be particularly pleased if the physical states pertaining to a certain measurement of one specific observable-- these so called pure states-- suddenly contained absolutely no information on any other observables. This is a question of information encapsulation: how does an energy pure state store extractable information about momentum, for example? To understand this question, which is far more complicated than the classical one of ``it's there, and just hasn't been measured yet'', we treat the two seminal theorems on the matter. Along the way, we will also be able to practise the mathematical operations we have introduced at a level and intensity we have not had the occasion to do so far.
 \section{Simultaneous states}
@@ -312,27 +325,27 @@ $$
 \Answerend
 \underline{Proof:}
 \\\\
-First we prove that $\hat{A}$ commutes with $\hat{B}$ iff they possess a common eigenbasis. Consider two observable operators which commute, and define their eigenbases to be $\{\alpha_{i}\}$ and $\{\beta_{i}\}$. Now take an arbitrary eigenvector $\alpha_{i}$ of $\hat{A}$ with eigenvalue $A_{i}$. We have
+First we prove that $\hat{A}$ commutes with $\hat{B}$ iff they possess a common eigenbasis. Consider two observable operators which commute, and define their eigenbases to be $\{\bm{\alpha}_{i}\}$ and $\{\bm{\beta}_{i}\}$. Now take an arbitrary eigenvector $\bm{\alpha}_{i}$ of $\hat{A}$ with eigenvalue $A_{i}$. We have
 $$
 \hat{A}\hat{B}=\hat{B}\hat{A}
 $$
 so we get 
 $$
-\hat{A}\hat{B}\alpha_{i}=\hat{B}\hat{A}\alpha_{i}=\hat{B}A_{i}\alpha_{i}.
+\hat{A}\hat{B}\bm{\alpha}_{i}=\hat{B}\hat{A}\bm{\alpha}_{i}=\hat{B}A_{i}\bm{\alpha}_{i}.
 $$
 However, we can now pull the constant eigenvalue out:
 $$
-\hat{A}(\hat{B}\alpha_{i})=A_{i}(\hat{B}\alpha_{i})
+\hat{A}(\hat{B}\bm{\alpha}_{i})=A_{i}(\hat{B}\bm{\alpha}_{i})
 $$
-so clearly $\hat{B}\alpha_{i}$ is an eigenvector of $\hat{A}$ corresponding to eigenvalue $A_{i}$. Assuming that the eigenvalues are nondegenerate this implies that $\hat{B}(\alpha_{i})$ coincides with $\alpha_{i}$ as the eigenvalue $A_{i}$ has only one distinguishable eigenvector. The fact that 
+so clearly $\hat{B}\bm{\alpha}_{i}$ is an eigenvector of $\hat{A}$ corresponding to eigenvalue $A_{i}$. Assuming that the eigenvalues are nondegenerate this implies that $\hat{B}(\bm{\alpha}_{i})$ coincides with $\bm{\alpha}_{i}$ as the eigenvalue $A_{i}$ has only one distinguishable eigenvector. The fact that 
 $$
-\hat{B}\alpha_{i}\equiv\alpha_{i}
+\hat{B}\bm{\alpha}_{i}\equiv\bm{\alpha}_{i}
 $$
 means we must have
 $$
-\hat{B}\alpha_{i}=c\alpha_{i}
+\hat{B}\bm{\alpha}_{i}=c\bm{\alpha}_{i}
 $$
-for some scalar multiple $c$. This means that $\alpha_{i}$ is an eigenvector of $\hat{B}$ corresponding to eigenvalue $c$. So we can say that $\forall\:i, \alpha_{i}$ is an eigenvector of $\hat{A}$ and $\hat{B}$: which means that they have the same eigenbasis. This isn't of course, to say, the eigenvalues are the same for $\hat{B}$ and $\hat{A}$ even though it may correspond to the same eigenvector (above, they are not the same unless $A_{i}=c$), since we expect the operators to be formulated differently so there will still be different values measured for each observable. Yet at the same time this is clearly helpful: if we know two physical observable operators commute and we have the eigenbasis of one then we automatically have the eigenbasis of the other. 
+for some scalar multiple $c$. This means that $\bm{\alpha}_{i}$ is an eigenvector of $\hat{B}$ corresponding to eigenvalue $c$. So we can say that $\forall\:i, \bm{\alpha}_{i}$ is an eigenvector of $\hat{A}$ and $\hat{B}$: which means that they have the same eigenbasis. This isn't of course, to say, the eigenvalues are the same for $\hat{B}$ and $\hat{A}$ even though it may correspond to the same eigenvector (above, they are not the same unless $A_{i}=c$), since we expect the operators to be formulated differently so there will still be different values measured for each observable. Yet at the same time this is clearly helpful: if we know two physical observable operators commute and we have the eigenbasis of one then we automatically have the eigenbasis of the other. 
 \\\\
 Now, we prove it the other way around. Assume $\hat{A}$ and $\hat{B}$ both possess the eigenbasis $\{\gamma_{i}\}$. We want to prove they commute. As they possess the same eigenbasis with eigenvalues $\{A_{i}\}$ and $\{B_{i}\}$ respectively, we can write
 $$
@@ -352,23 +365,23 @@ Now to look at the practical definition: we are probably more interested in the 
 \\\\
 Start by considering two observables $\mathcal{A}$ and $\mathcal{B}$ represented by operators $\hat{A}$ and $\hat{B}$ respectively. Define the measurements to be $\mathcal{A}^{(1)},\mathcal{B}^{(1)}$, $\mathcal{A}^{(2)}$. For the observables to be compatible we need $\mathcal{A}^{(1)}$ to be the same as $\mathcal{A}^{(2)}$ regardless of the starting state and $\mathcal{B}^{(2)}$. Assume to begin with that the two operators $\hat{A}$ and $\hat{B}$ have the common eigenbasis $\{\gamma_{i}\}$. By definition the first measurement of $\mathcal{A}$ must force the state vector into a single eigenvector in the eigenbasis of the operator $\hat{A}$: that is, some $\gamma_{i}$ such that the measured value is for observable $\mathcal{A}$ the eigenvalue $A_{i}$. Next, measurement ${{B}}^{(1)}$ is the action of the operator $\hat{B}$ on the eigenvector $\gamma_{i}$. But by the Measurement Postulate of quantum mechanics,
 $$
-P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^2
+P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\Psi}|^2
 $$
-That is, the probability that the arbitrary operator $\hat{A}$ forces the state vector into an arbitrary eigenvector $\alpha_{i}$ from its eigenbasis. Here, then, since the state vector has been forced into the eigenstate $\gamma_{i}$ by the first measurement, the probability the second measurement of the other observable $\mathcal{B}$ forces the state vector into the same eigenstate is:
+That is, the probability that the arbitrary operator $\hat{A}$ forces the state vector into an arbitrary eigenvector $\bm{\alpha}_{i}$ from its eigenbasis. Here, then, since the state vector has been forced into the eigenstate $\gamma_{i}$ by the first measurement, the probability the second measurement of the other observable $\mathcal{B}$ forces the state vector into the same eigenstate is:
 $$
 P(\gamma_{i})=|\oip{\gamma_{i}}{\gamma_{i}}|^2=1
 $$
 where we assume as per usual that the eigenvectors $\gamma_{i}$ have been normalised. So we can say that measurement B will not alter the eigenstate the state vector is in and therefore the third measurement will follow the same logic to yield the exact same value, the eigenvalue $A_{i}$ corresponding to $\gamma_{i}$. Thus, if two observable operators possess the same eigenbasis, they are compatible observables.
 \\\\
-If the observables are compatible then this implies their operators have the same eigenbasis. The proof for this is simple. If the observables $\mathcal{A}$ and $\mathcal{B}$ are compatible then for the successive measurements $\mathcal{A}^{(1)},\mathcal{B}^{(1)},\mathcal{A}^{(2)}$ the measured values for $\mathcal{A}^{(1)}$ and $\mathcal{A}^{(2)}$ must be the same. The measurement $\mathcal{A}^{(1)}$ must have forced the wavefunction into an eigenvector of $\hat{A}$, some arbitrary $\alpha_{i}$. Then, the measurement $\mathcal{B}^{(1)}$ must force the wavefunction into some arbitrary eigenvector $\beta_{i}$ of the operator $\hat{B}$. However, the final measurement must yield the same result as the first if the observables are compatible, which is, the same eigenvalue corresponding to the same eigenvector $\alpha_{i}$ of operator $\hat{A}$ as it originally was in. The probability that the measurement forces the wavefunction, currently in the eigenstate $\beta_{i}$ of $\hat{B}$ as the measurement $\mathcal{B}^{(1)}$ has just been performed, into the same eigenstate $\alpha_{i}$ as originally measured is:
+If the observables are compatible then this implies their operators have the same eigenbasis. The proof for this is simple. If the observables $\mathcal{A}$ and $\mathcal{B}$ are compatible then for the successive measurements $\mathcal{A}^{(1)},\mathcal{B}^{(1)},\mathcal{A}^{(2)}$ the measured values for $\mathcal{A}^{(1)}$ and $\mathcal{A}^{(2)}$ must be the same. The measurement $\mathcal{A}^{(1)}$ must have forced the wavefunction into an eigenvector of $\hat{A}$, some arbitrary $\bm{\alpha}_{i}$. Then, the measurement $\mathcal{B}^{(1)}$ must force the wavefunction into some arbitrary eigenvector $\bm{\beta}_{i}$ of the operator $\hat{B}$. However, the final measurement must yield the same result as the first if the observables are compatible, which is, the same eigenvalue corresponding to the same eigenvector $\bm{\alpha}_{i}$ of operator $\hat{A}$ as it originally was in. The probability that the measurement forces the wavefunction, currently in the eigenstate $\bm{\beta}_{i}$ of $\hat{B}$ as the measurement $\mathcal{B}^{(1)}$ has just been performed, into the same eigenstate $\bm{\alpha}_{i}$ as originally measured is:
 $$
-P(\alpha_{i})=|\oip{\alpha_{i}}{\beta_{i}}|^2.
+P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\bm{\beta}_{i}}|^2.
 $$
 However, if these observables are to be compatible, the final measurement must with certainty yield the eigenvalue $A_{i}$ again and therefore the above probability of measurement $\mathcal{A}^{(2)}$ forcing it back into the original eigenstate must be 1. So 
 $$
-|\oip{\alpha_{i}}{\beta_{i}}|^2=1 \Rightarrow\:\: \alpha_{i}\equiv\beta_{i}
+|\oip{\bm{\alpha}_{i}}{\bm{\beta}_{i}}|^2=1 \Rightarrow\:\: \bm{\alpha}_{i}\equiv\bm{\beta}_{i}
 $$
-and therefore their eigenbases must be the same as the above holds true for any arbitrary $\alpha_{i}$ and corresponding $\beta_{i}$ from the measurements.
+and therefore their eigenbases must be the same as the above holds true for any arbitrary $\bm{\alpha}_{i}$ and corresponding $\bm{\beta}_{i}$ from the measurements.
 \\\\
 The Compatibility Theorem is now complete. We have shown that:
 \begin{itemize}
@@ -564,7 +577,7 @@ The same is manifested, of course, in the Stern-Gerlach experiment. By knowing $
 \section{Probability Mass Functions}
 We conclude this section on measurements, and indeed conclude the state problem, with a formalisation of how discrete wavefunctions encapsulate probabilities as probability mass functions.
 \\\\
-We have already stated that the discrete wavefunction, which we denoted ${\psi}_{\alpha}(x)$ with a domain of orthonormal eigenvectors, is exactly the function which stores the components corresponding to the eigenvectors we input. We therefore call it a \textbf{probability mass function}. This is a formal name for a very simple idea: it stores probabilities of discrete events- here, the event is the state vector being forced into a certain eigenstate by a measurement-- and can be extracted as an output of the probability mass function when we input the event (eigenstate). We know that these components are probabilities, because of the measurement postulate and the common expansion we have already proved! 
+We have already stated that the discrete wavefunction, which we denoted ${\psi}_{\bm{\alpha}}(x)$ with a domain of orthonormal eigenvectors, is exactly the function which stores the components corresponding to the eigenvectors we input. We therefore call it a \textbf{probability mass function}. This is a formal name for a very simple idea: it stores probabilities of discrete events- here, the event is the state vector being forced into a certain eigenstate by a measurement-- and can be extracted as an output of the probability mass function when we input the event (eigenstate). We know that these components are probabilities, because of the measurement postulate and the common expansion we have already proved! 
 \\\\
 If the discrete wavefunction is a probability mass function, then necessarily the modulus squared of its outputs must sum to exactly $1$. This is naturally because the modulus squared of its outputs are the modulus squared of the probability amplitudes, which are probability densities and must sum to $1$, therefore. There is an important clarification to make to prove that our formalism works.
 \\\\
@@ -576,11 +589,11 @@ The importance of this claim is clear, since it is equivalent to the statement t
 \\\\
 For some state vector
 $$
-\Psi:=\sum_{\{i\}}c_{i}\alpha_{i}
+\Psi:=\sum_{\{i\}}c_{i}\bm{\alpha}_{i}
 $$ 
-in some orthonormal basis $\setof{\alpha_{i}}$, we need to prove that 
+in some orthonormal basis $\setof{\bm{\alpha}_{i}}$, we need to prove that 
 $$
-\sum_{\{i\}}|(\alpha_{i},\Psi)|^2=1
+\sum_{\{i\}}|(\bm{\alpha}_{i},\Psi)|^2=1
 $$
 given that the state vector is normalised. Well we know that 
 $$
@@ -588,23 +601,23 @@ $$
 $$
 so we know that 
 $$
-\biggl(\sum_{\{i\}}c_{i}\alpha_{i},\sum_{\{i\}}c_{i}\alpha_{i}\biggr)=1.
+\biggl(\sum_{\{i\}}c_{i}\bm{\alpha}_{i},\sum_{\{i\}}c_{i}\bm{\alpha}_{i}\biggr)=1.
 $$
 Then, by the rudimentary expansion this is 
 $$
-\biggl(\sum_{\{i\}}(\alpha_{i},\Psi)\alpha_{i},\sum_{\{j\}}(\alpha_{j},\Psi)\alpha_{j}\biggr)=1.
+\biggl(\sum_{\{i\}}(\bm{\alpha}_{i},\Psi)\bm{\alpha}_{i},\sum_{\{j\}}(\bm{\alpha}_{j},\Psi)\bm{\alpha}_{j}\biggr)=1.
 $$
 Due to linear distributivity this means that we get sum terms of the form
 $$
-\oip{\alpha_{i}}{\Psi}^{\ast}\oip{\alpha_{j}}{\Psi}\oip{\alpha_{i}}{\alpha_{j}}
+\oip{\bm{\alpha}_{i}}{\Psi}^{\ast}\oip{\bm{\alpha}_{j}}{\Psi}\oip{\bm{\alpha}_{i}}{\bm{\alpha}_{j}}
 $$
 for some $i,j$. However, due to the orthonormality of the basis, all terms when $i\neq j$ disappear, so we have 
 $$
-\biggl(\sum_{\{i\}}(\alpha_{i},\Psi)\alpha_{i},\sum_{\{j\}}(\alpha_{j},\Psi)\alpha_{j}\biggr)=\sum_{\{i\}}\oip{\alpha_{i}}{\alpha_{i}}^{\ast}\oip{\alpha_{i}}{\alpha_{i}}=1.
+\biggl(\sum_{\{i\}}(\bm{\alpha}_{i},\Psi)\bm{\alpha}_{i},\sum_{\{j\}}(\bm{\alpha}_{j},\Psi)\bm{\alpha}_{j}\biggr)=\sum_{\{i\}}\oip{\bm{\alpha}_{i}}{\bm{\alpha}_{i}}^{\ast}\oip{\bm{\alpha}_{i}}{\bm{\alpha}_{i}}=1.
 $$
 But then this is simply
 $$
-\sum_{\{i\}}|\oip{\alpha_{i}}{\Psi}|^2=1.
+\sum_{\{i\}}|\oip{\bm{\alpha}_{i}}{\Psi}|^2=1.
 $$
 and our proof is complete.
 \\\\

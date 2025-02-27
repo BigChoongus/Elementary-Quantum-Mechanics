@@ -23,19 +23,24 @@
   </style>
   <link rel="stylesheet" href="style.css" />
   <script>
-      window.MathJax = {
-        loader: { load: ['[tex]/newcommand'] },
-        tex: {
-          packages: { '[+]': ['base', 'ams', 'newcommand'] },
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    window.MathJax = {
+      loader: { load: ['[tex]/newcommand', '[tex]/boldsymbol'] },
+      tex: {
+        packages: { '[+]': ['base', 'ams', 'newcommand', 'boldsymbol'] },
+        macros: {
+          bm: ["\\boldsymbol{#1}", 1]  // Define \bm{} using \boldsymbol{}
         },
-        options: {
-          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-        }
-      };
-      </script>
-      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
       
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -91,32 +96,35 @@
     \newcommand{\oip}[2]{\left(#1,#2\right)}
     \newcommand{\obip}[2]{\left(#1,#2\right)}
     $$
-<h1 id="the-state-vector-and-the-quantum-state-problem">The State Vector
-and the Quantum State Problem</h1>
+<h1
+id="chapter-3-the-state-vector-and-the-quantum-state-problem">Chapter 3:
+The State Vector and the Quantum State Problem</h1>
 <p>In the previous Chapter, we discovered two radical results of the
 early quantum experiments which completely invalidated the Newtonian
 model of classical mechanics. These were:</p>
 <ol>
 <li><p>The probabilistic state: there exist at the very least some
 measurements for which we can never predict the result with certainty
-because the very state itself depends on probability.</p></li>
+because the very state itself can take different values with different
+probabilities.</p></li>
 <li><p>The superposition principle: the reason why probabilistic states
 exist is because they are in some superposition of different possible
 physical states to which there correspond separate probabilities. In
-fact, any superposition of physical states should create a new possible
-physical state!</p></li>
+fact, any superposition of physical states should, in theory, create a
+new possible physical state.</p></li>
 </ol>
-<p>A third result might be that there could be observables for which a
-state cannot hold simultaneous values, but this will come as a natural
-consequence after we set out the quantum mechanical model, as we will
-see in Chapter 4. All these new principles are offensive to our usual
-intuition, but are undoubtedly present in the Stern Gerlach experiment,
-as well is in other famous experiments such as the Davisson-Germer
-modification of Young’s Double Slit and needed to be accounted for in a
-whole new model of physics. With these ideas laid out, pertaining in
-particular to the quantum state problem, in this chapter we will meet
-the first, and most fundamental, postulate of quantum mechanics– what I
-call the state postulate– and our study of the model has begun.</p>
+<p>A third result we obtained might be that there are collections of
+observables for which a state cannot hold simultaneous values, but this
+will come as a natural consequence after we set out the quantum
+mechanical model, as we will see in Chapter 4. All these new principles
+are offensive to our usual intuition, but undoubtedly are present in the
+Stern Gerlach experiment, as well is in other famous experiments such as
+the famous Double Slit experiment, and need to be accounted for in a
+whole new model of physics. With these ideas laid out– ideas pertaining
+in particular to the quantum <em>state problem</em>: in this chapter, we
+will meet the first, and most fundamental, postulate of quantum
+mechanics– which I call the State Postulate– and our study of the model
+has begun.</p>
 <h2 id="the-first-postulate-necessities">The First Postulate:
 Necessities</h2>
 <h3 id="complications-of-the-quantum-state">Complications of the Quantum
@@ -141,14 +149,15 @@ predict the future state given events which happen over time (eg, the
 ball hits another ball, swings on a string or falls down a ramp). With
 quantum phenomena, however, a certain measurement might tell you
 everything about that state, if that state happened to have probability
-1 of having that measurement result, but it might also tell you
-absolutely nothing, such as for some state where that measurement
-actually was comparatively incredibly improbable and just happened to
-take an unlikely value out of countless other possible values. The
-Newtonian way of dealing with the state problem – which is to assume a
-state always has some value for each observable and what only remains is
-to measure and record it at specific times of interest – is far too
-simplistic to account for these results.<br />
+1 of having the given measurement result, but it might also tell you
+essentially nothing, such as for some state where the obtained
+measurement actually was initially improbable and the state just
+happened upon measurement to take an unlikely value out of countless
+other possible values. The Newtonian procedure of dealing with the state
+problem – which is to assume a state always has some value for each
+observable and what only remains is to measure and record it at specific
+times of interest– is far too simplistic to account for the phenomena of
+the quantum world.<br />
 <br />
 So the main complication to the state problem, of course, comes with the
 notion of inherent probability in a given state. This notion would have
@@ -156,29 +165,30 @@ been inconceivable in Newtonian mechanics. Probability could only ever
 be introduced, into experiments by human made contrivances (such as
 probabilistic machinery) and the current state would remain unchanged
 until a probabilistic action changed it into a future state. However,
-even in these cases, these probabilistic differences are not really
-pertaining to the inherent state problem. As far as the state problem is
-concerned, having a probabilistic state destroys the classical approach.
-For one, due to the superposition principle, very few states in quantum
-mechanics can be said to possess a value for an observable: we can no
-longer measure a particle’s momentum and say that is the relevant
-momentum value of the state if that value is only one of an infinite
-collection of possible momenta we could have originally measured. We saw
-this in the Stern Gerlach experiment, where attempting to say a single
-electron had up spin failed miserably when we realised successive
-measurements (with a <span class="math inline">\(x\)</span> magnetic
-field in the middle) could yield down spin measurements as well. The
-problem of encapsulation is therefore rendered by the results much more
-difficult than with only classical intuition: because we now have the
-extra complication of needing to find a concise way to not only store
-information on far more possibilities for the same state, but also their
-respective probabilities. The question of being able to store
-information on infinite (so by definition, impossible to list)
-possibilities is another concern in itself, and it should be clear to
-the reader that the classical approach will be insufficient.<br />
+even in these cases, these probabilistic differences are not actually
+pertaining to the inherent state problem, but rather problems of
+external interference. As far as the state problem is concerned, having
+a probabilistic state destroys the classical approach. For one, due to
+the superposition principle, very few states in quantum mechanics can be
+said to possess a value for an observable: we can no longer measure a
+particle’s momentum and say that is the relevant momentum value of the
+state if that value is only one of an infinite collection of possible
+momenta we could have originally measured. We saw this in the Stern
+Gerlach experiment, where attempting to say a single electron had up
+spin failed miserably when we realised successive measurements (with a
+<span class="math inline">\(x\)</span> magnetic field in the middle)
+could yield down spin measurements as well. The problem of encapsulation
+is therefore rendered by the results much more difficult than with only
+classical intuition: because we now have the extra complication of
+needing to find a concise way to not only store information on far more
+possibilities for the same state, but also their respective
+probabilities. The question of being able to store information on
+infinite (so by definition, impossible to list) possibilities is another
+concern in itself, and it should be clear to the reader that the
+classical approach will be insufficient.<br />
 <br />
 Fortunately, contemporary and historic developments and concepts in
-mathematics were far from useless when trying to deal with these new
+mathematics proved very useful when trying to deal with these new
 modelling complications. Probability and how to handle it itself was
 certainly not unexplored by mathematicians, and the burgeoning field of
 vector spaces would prove to be useful in answering the superposition
@@ -191,10 +201,10 @@ mechanics, and with them, this seminal new physical model.</p>
 <p>There was a detail in the previous chapter on Stern Gerlach
 experiments, which, though commanding little attention, pertains to a
 key concept which will be central to this chapter. That was the idea of
-. If we recall, we invented a strange notation– while desperately and
-futilely attempting to cling onto normal classical intuition– in our
-early attempt to track the spins of different particles. There are many
-things wrong with the attempted equation: <span
+“state denomination”. If we recall, we invented a strange notation–
+while futilely attempting to cling onto normal classical intuition– in
+our early attempt to track the spins of different particles. There are
+many things wrong with the attempted equation: <span
 class="math display">\[500\elec=250\uspin + 250\dspin\]</span> –not
 least the fact that it is useless in taking into account superpositions
 and inherent probability. One asks therefore why it was included? This
@@ -202,64 +212,40 @@ was to introduce a much more useful idea: we will need to start
 introducing abstract entities to represent <em>states</em> themselves.
 In classical mechanics, we do not do this at all, because the state is
 treated like a simple background from which to pick attributes rather
-than anything worth studying in itself. We do not need to add classical
-states, or calculate probabilities. If we really need to distinguish
-between them, we treat them like situations or mathematical cases, where
-symbols are given to observable qualities like velocity <span
-class="math inline">\(v\)</span>. We might use subscripts like <span
-class="math inline">\(v_{a}\)</span> to help us identify which case we
-are working with– eg, the velocity of ball <span
+than anything worth studying in itself. We do not need to perform
+addition (the mathematical representation of a superposition) on
+classical states, or calculate inherent probabilities. If we really need
+to distinguish between them, we treat them like situations or
+mathematical cases, where symbols are given to observable qualities like
+velocity <span class="math inline">\(v\)</span>. We might use subscripts
+like <span class="math inline">\(v_{a}\)</span> to help us identify
+which case we are working with– eg, the velocity of ball <span
 class="math inline">\(a\)</span>. We would never mathematically
 represent the state itself, however, when we could simply list its
-physical properties and put those values into equations. On the other
-hand, because of these new quantum ideas of summing states together
-(superposition) and including measurement probabilities in the state, it
-will be extremely important to have mathematical entities representing
-quantum states themselves. What is the value of such abstractions? The
-answer is two–fold: the meaning of such abstractions is none, but the
-functionality of such abstractions are extremely powerful. Just like the
-futile <span class="math inline">\(\uspin\)</span>, any abstraction we
-use to describe the state is only valued on how <em>convenient</em> it
-is. The <span class="math inline">\(\uspin\)</span> state denomination
-was a very deficient example of trying to find a convenient way to
-describe states, because, for one, it includes no information on any
-observables other than spin. However, in this abject failure, we do
-learn something: the symbols themselves are only our chosen way to make
-the mathematics simpler and more concise. Precisely being able to show
-how superficial the notation we used was is exactly why it was
-introduced in the first place. <span
-class="math inline">\(\uspin\)</span> and <span
-class="math inline">\(\dspin\)</span> notation is not superior to an
-alternative like <span class="math inline">\((\Uparrow)\)</span> and
-<span class="math inline">\((\Downarrow)\)</span>– this is easy to see–
-because the notation is not revealing in any new ways, or easier to
-write. In what follows we will label states with abstract mathematical
-objects, so we can extract information about them. What is hoped will be
-remembered throughout, though, is this idea that the notation could be
-changed if we so desire– our choice of symbols is not sacred: only
-conventional and useful. So when we switch notation in Chapter 6, and
-subtly change the labels we use, we aren’t creating a new model– only
-changing the model’s written appearance a little! Our only need still is
-to define some mathematical entities and rules, keep the definitions
-consistent, and manipulate the value these abstractions will hold as
-labels in place of long verbal phrases describing states.<br />
+physical properties and put those values into equations.<br />
 <br />
-What is more important will be to consider how to mathematically operate
-with states so that we will be able to perform physical computations.
-The first step, as we tackle how to do this, is to learn about vector
-spaces. Yet before all that, we will give a mathematical definition for
-the idea of something. It may seem strange to do so, but having these
+On the other hand, because of these new quantum ideas of summing states
+together (superposition) and including measurement probabilities in the
+state, it will be extremely important to have <em>mathematical entities
+representing quantum states themselves</em>.<br />
+<br />
+We will need to consider how to mathematically operate with states so
+that we will be able to perform physical computations. The first step,
+as we tackle how to do this, is to learn about vector spaces. Yet before
+all that, we will give a mathematical definition for the idea of
+‘labelling’ something. It may seem strange to do so, but having these
 clarifications will be immensely useful because very quickly from now we
 will need to understand this idea to navigate through labels of labels
 of labels of objects and being able to track how these things exactly
 are mathematically connected to each other is very useful.<br />
 <br />
-We have already started using the word in this text. When we speak of an
-abstraction, we mean something which is not physical– in other words, a
-mathematical entity we indirectly use to describe something physical.
-This goes beyond labelling with symbols, and can be extended to the use
-of real mathematically manipulable objects to connect to states as well.
-The way this is done is through one-to-one correspondences.<br />
+We have already started using the word ‘abstractions’ in this text. When
+we speak of an abstraction, we mean something which is not physical– in
+other words, a mathematical entity we indirectly use to describe
+something physical. This goes beyond labelling with symbols, and can be
+extended to the use of real mathematically manipulable objects to
+connect to states as well. The way this is done is through one-to-one
+correspondences.<br />
 <br />
 A one-to-one correspondence strictly occurs between two sets. It is
 defined to be the relationship between two sets where for every element
@@ -275,13 +261,15 @@ and for every element in the second set there is an element in the
 first. Take for example <span
 class="math display">\[A=\{2,3,5,7\}\]</span> to be the single digit
 primes. We could set up a one to one mapping with the set <span
-class="math display">\[B=\{9,27,243,2187\}\]</span> by using the rule to
-map an element of <span class="math inline">\(A\)</span> to an element
-of <span class="math inline">\(B\)</span> and the rule to map an element
-of <span class="math inline">\(B\)</span> to an element of <span
-class="math inline">\(A\)</span>. Then there is a one-to-one
-correspondence between sets <span class="math inline">\(A\)</span> and
-<span class="math inline">\(B\)</span> there are two maps, one <span
+class="math display">\[B=\{9,27,243,2187\}\]</span> by using the rule
+“take 3 to the power of the element” to map an element of <span
+class="math inline">\(A\)</span> to an element of <span
+class="math inline">\(B\)</span> and the rule “take the element log base
+3” to map an element of <span class="math inline">\(B\)</span> to an
+element of <span class="math inline">\(A\)</span>. Then there is a
+one-to-one correspondence between sets <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> since there are two maps, one <span
 class="math inline">\(A\)</span> to <span
 class="math inline">\(B\)</span> and one <span
 class="math inline">\(B\)</span> to <span
@@ -296,17 +284,18 @@ one-to-one correspondences. The first use we will see is in label sets.
 The idea is simple. If there is a one-to-one correspondence between two
 sets, we can use elements in one set to label elements in the other set.
 We know that every label will have something it represents (since each
-element in the set of is mapped to another element in the other set); no
-label will represent more than one element and cause confusion (since it
-is a one-to-one mapping); no element will be unlabelled (since for every
-element in the other set there is a corresponding element in the set of
-); no element will be labelled by two different labels from the same
-label set and cause confusion (since it is a one-to-one mapping).
-Another even more important use we will see is as substitutes: if a
-one-to-one correspondence exists between two sets, we can substitute the
-elements of one set for the elements of the other set, since again the
-correspondence makes it very easy to identify which substitutes are
-connected to which originals we are trying to describe.<br />
+element in the set of ‘labels’ is mapped to another element in the other
+set); no label will represent more than one element and cause confusion
+(since it is a one-to-one mapping); no element will be unlabelled (since
+for every element in the other set there is a corresponding element in
+the set of ‘labels’); no element will be labelled by two different
+labels from the same label set and cause confusion (since it is a
+one-to-one mapping). Another even more important use we will see is as
+substitutes: if a one-to-one correspondence exists between two sets, we
+can substitute the elements of one set for the elements of the other
+set, since again the correspondence makes it very easy to identify which
+substitutes are connected to which originals we are trying to
+describe.<br />
 <br />
 With the two example sets of single digit primes and the results of
 raising them to the power of 3 above, it makes absolutely no sense to
@@ -328,8 +317,9 @@ objects at all. Nor do we want to describe states in words all the time,
 as this would be beyond verbose and time-consuming. Thus these
 mathematical objects both labelling and substituting for physical states
 is a complete necessity in our new world away from the classical method
-of ignoring states and towards our new realisation that states are very
-much important objects in themselves.<br />
+of ignoring the state problem, and towards our new, quantum realisation
+that states are very much important and deep objects in
+themselves.<br />
 <br />
 Thus we understand the goal of this chapter, and the first postulate of
 quantum mechanics. We cannot perform mathematical operations on a state,
@@ -349,16 +339,6 @@ in the following section, on vector spaces. One final note before we do
 so: one-to-one correspondences will in the future be referred to by
 their mathematical name: <strong>bijections</strong>.</p>
 <h2 id="vector-spaces">Vector Spaces</h2>
-<div class="center">
-<figure>
-
-<figcaption>Vector operations in the arrow representation. The scalar
-<span class="math inline">\(k \in \mathbb{R}\)</span> since otherwise
-the stretching by scale factor <span class="math inline">\(k\)</span>
-would not make sense; if it were negative, the direction would simply
-reverse.</figcaption>
-</figure>
-</div>
 <p>The reader will be vaguely familiar already with the notion of
 vectors, which may have been mentioned in physics and coordinate
 geometry. However, they probably will have usually thought of them as
@@ -370,19 +350,20 @@ addition and scalar multiplication of vectors (Figure 1).<br />
 This concept of all vectors as geometric arrows is not very helpful
 here, and must be for the purpose of starting to learn quantum mechanics
 completely discarded. Instead, we must think of them simply as
-<strong>objects which can be summed</strong>, which exist in collections
-which form a vector space. Numbers can be summed, but vectors can be
-objects which are not numbers but which still need to be added to each
-other; for the purpose of quantum mechanics, having this full space of ,
-but which are not just simply numbers, will prove invaluable. This is
+<strong>objects which can be summed</strong>, which are usually parts of
+collections, called “vector spaces", with regular structures. Numbers
+can be summed, but vectors can be objects which are not numbers but
+which still can to be added to each other; for the purpose of quantum
+mechanics, having this full space of “things which can be added”, but
+which are not just simply numbers, will prove invaluable. This is
 because we we need mathematical objects to form bijections (one-to-one
 correspondences) with physical states: but by the superposition
-principle these states must be able to be superposed in some new
-physical state, and therefore the mathematical objects representing them
-must be able to be summed together to make a new such mathematical
-object which represents this new physical state. So it is absolutely
-essential to bear in mind that functions like <span
-class="math inline">\(x^2\)</span> or <span
+principle any given group of states must be able to be superposed and
+result some new physical state, and therefore the mathematical objects
+representing them must be able to be summed together to make a new such
+mathematical object which represents this new physical superposition
+state. So it is absolutely essential to bear in mind that functions like
+<span class="math inline">\(x^2\)</span> or <span
 class="math inline">\((5x-3)^{3}\)</span> can be vectors just as much as
 arrows in a coordinate system can be vectors: so long as there is a
 system where they can be added together and a collection of other
@@ -415,49 +396,49 @@ of vectors with the following properties:</p>
 <ol>
 <li><p><em>Null Vector</em>: Every vector space contains the unique null
 vector <span class="math inline">\(0\)</span>, with properties <span
-class="math display">\[\forall \alpha \in \mathbb{V}, \:\:\: \alpha + 0
-= \alpha\]</span> and <span class="math display">\[\forall \alpha \in
-\mathbb{V}, \:\:\: 0\times\alpha = 0.\]</span> Note that this is not a
-number, but a vector (though it could be a number if our vector spaces
-consisted of numbers as constituent vectors). The reason we write the
-number 0 to denote it is because it is the most sensible notation.
-Similarly, the identity vector <span class="math inline">\(I\)</span>
-(sometimes, 1) is defined to be the vector such that <span
-class="math display">\[\forall \alpha \in \mathbb{V}, \:\:\:
-1\times\alpha = \alpha.\]</span> Indeed, the labels <span
-class="math inline">\(0\)</span> and <span
+class="math display">\[\forall \bm{\alpha} \in \mathbb{V}, \:\:\:
+\bm{\alpha} + 0 = \bm{\alpha}\]</span> and <span
+class="math display">\[\forall \bm{\alpha} \in \mathbb{V}, \:\:\:
+0\times\bm{\alpha} = 0.\]</span> Note that this is not a number, but a
+vector (though it could be a number if our vector spaces consisted of
+numbers as constituent vectors). Similarly, the identity vector <span
+class="math inline">\(I\)</span> (sometimes, 1) is defined to be the
+vector such that <span class="math display">\[\forall \bm{\alpha} \in
+\mathbb{V}, \:\:\: 1\times\bm{\alpha} = \bm{\alpha}.\]</span> Indeed,
+the labels <span class="math inline">\(0\)</span> and <span
 class="math inline">\(1\)</span> are reasonable since they are very
 clearly the vector analogs of the numbers <span
 class="math inline">\(0\)</span> and <span
 class="math inline">\(1\)</span>.</p></li>
 <li><p><em>Additive closure</em>: For a defined rule for producing a sum
 of two vectors, <span class="math display">\[\forall
-\alpha,\beta\in\mathbb{V}, \btab \alpha + \beta \in \mathbb{V}.\]</span>
-The fact that the sum of any of the vectors in the vector space is
-another vector in the vector space means the set is
+\bm{\alpha},\beta\in\mathbb{V}, \btab \bm{\alpha} + \beta \in
+\mathbb{V}.\]</span> The fact that the sum of any of the vectors in the
+vector space is another vector in the vector space means the set is
 <strong>complete</strong>, and will be a very important point for our
 requirements, owing to the superposition principle.</p></li>
 <li><p><em>Commutative property of addition</em>: For a defined rule for
-producing a sum of two vectors, <span class="math display">\[\alpha +
-\beta =  \beta +  \alpha.\]</span></p></li>
+producing a sum of two vectors, <span class="math display">\[\bm{\alpha}
++ \beta =  \beta +  \bm{\alpha}.\]</span></p></li>
 <li><p><em>Associative property of addition</em>: For a defined rule for
-producing a sum of two vectors, <span class="math display">\[\alpha +
-(\beta +\gamma) =  (\alpha + \beta) +\gamma.\]</span></p></li>
+producing a sum of two vectors, <span class="math display">\[\bm{\alpha}
++ (\beta +\gamma) =  (\bm{\alpha} + \beta) +\gamma.\]</span></p></li>
 <li><p><em>Additive inverses</em>: For every vector <span
-class="math inline">\(\alpha\)</span>, there exists a unique additive
-inverse vector <span class="math inline">\(-\alpha\)</span> such that
-<span class="math display">\[\alpha + -\alpha = 0.\]</span></p></li>
+class="math inline">\(\bm{\alpha}\)</span>, there exists a unique
+additive inverse vector <span
+class="math inline">\(-\bm{\alpha}\)</span> such that <span
+class="math display">\[\bm{\alpha} + -\bm{\alpha} = 0.\]</span></p></li>
 <li><p><em>Distributive property of scalar multiplication</em>: For a
 defined rule for vector multiplication by scalars, <span
-class="math display">\[c(\alpha+ \beta) = c\alpha + c\beta.\]</span> is
-the requisite distributive property for vectors of scalar multiplication
-of vectors. There is also a distributive property for scalars in scalar
-multiplication of vectors, which is similar: <span
-class="math display">\[(c_1+c_2)\alpha = c_1\alpha + c_2
-\alpha.\]</span></p></li>
+class="math display">\[c(\bm{\alpha}+ \beta) = c\bm{\alpha} +
+c\beta.\]</span> is the requisite distributive property for vectors of
+scalar multiplication of vectors. There is also a distributive property
+for scalars in scalar multiplication of vectors, which is similar: <span
+class="math display">\[(c_1+c_2)\bm{\alpha} = c_1\bm{\alpha} + c_2
+\bm{\alpha}.\]</span></p></li>
 <li><p><em>Associative property of scalar multiplication</em>: For a
 defined rule for vector multiplication by scalars, <span
-class="math display">\[c_1(c_2\alpha)=c_1c_2\alpha.\]</span></p></li>
+class="math display">\[c_1(c_2\bm{\alpha})=c_1c_2\bm{\alpha}.\]</span></p></li>
 </ol>
 <p>Most of these properties are hardly unusual to us and do not require
 much thought, such as the associative properties, because it is unlikely
@@ -468,15 +449,13 @@ to get a sense of why vectors are a useful way to denote objects which
 one might want to add together: they can fit into a vector space which
 then provides an mathematical enclosure so one knows that no matter how
 many different constituent vectors they add together, they will never
-the vector space and end up with a new type of vector outside of the
-vector space which might not have the same characteristics as the
-constituent vectors anymore. This enclosed space of objects will be
-useful for quantum mechanics as we want to be able to superpose
-<em>any</em> number of states without creating a non-physical state– and
-therefore, we want to be able to add the mathematical objects which
-represent physical states without creating a mathematical object which
-is not in that set of mathematical objects representing physical
-states.<br />
+“break” the vector space and end up with a new type of vector outside of
+the vector space. This enclosed space of objects will be useful for
+quantum mechanics, as we want to be able to superpose <em>any</em>
+number of states without creating a non-physical state– and therefore,
+we want to be able to add the mathematical objects which represent
+physical states without creating a mathematical object which is not in
+that set of mathematical objects representing physical states.<br />
 <br />
 There exists one final property of vector spaces which make them crucial
 to quantum mechanics. It pertains to the problem of defining a vector
@@ -505,63 +484,68 @@ x axis). This vector space is known as the coordinate representation of
 space: where the constituent vectors are numbers!<br />
 <br />
 How do we define the dimensions here? Qualitatively, we are familiar
-with the concept of the x-axis and y-axis, but mathematically it is less
-easy to say why they qualify as dimensions. The answer lies in the
-definition of <strong>linear independence</strong>, where from will
-follow this idea of a basis we need.<br />
+with the concept of the <span class="math inline">\(x\)</span>-axis and
+<span class="math inline">\(y\)</span>-axis, but mathematically it is
+less easy to say why they qualify as dimensions. The answer lies in the
+definition of <strong>linear independence</strong>, whence this idea of
+a basis we need will follow .<br />
 <br />
 A set of <span class="math inline">\(n\)</span> linearly independent
-vectors <span class="math inline">\(\alpha_{i}\)</span> is defined
+vectors <span class="math inline">\(\bm{\alpha}_{i}\)</span> is defined
 mathematically as follows: <span
-class="math display">\[\sum_{i=1}^{n}c_{i}\alpha_{i}=0 \Rightarrow\:\:\:
-\forall i, \:\:\: c_{i}=0.\]</span> In words, there is no nontrivial
-combination of linearly independent vectors which equals <span
-class="math inline">\(0\)</span> when summed together– a trivial
-combination would occur where all the multiplicative coefficients are 0.
-If a linear combination of linearly independent vectors sums to zero
-then it implies that the coefficients in the combination must be zero.
-If there exists some combination without all the coefficients equalling
-0, then the vectors are not linearly independent.<br />
+class="math display">\[\sum_{i=1}^{n}c_{i}\bm{\alpha}_{i}=0
+\Rightarrow\:\:\: \forall i, \:\:\: c_{i}=0.\]</span> In words, there is
+no nontrivial combination of linearly independent vectors which equals
+<span class="math inline">\(0\)</span> when summed together– a trivial
+combination would occur where all the multiplicative coefficients are
+<span class="math inline">\(0\)</span>. If a linear combination of
+linearly independent vectors sums to zero then it implies that the
+coefficients in the combination must be zero. If there exists some
+combination without all the coefficients equalling <span
+class="math inline">\(0\)</span>, then the vectors are not linearly
+independent.<br />
 <br />
 Let’s consider a few examples, using <span
 class="math inline">\(2\times2\)</span> square matrices as vectors and
-the <span class="math inline">\(2\times2\)</span> null matrix as the 0
-vector. If <span class="math display">\[\alpha_{1} = \begin{bmatrix}
+the <span class="math inline">\(2\times2\)</span> null matrix as the
+<span class="math inline">\(0\)</span> vector. If <span
+class="math display">\[\bm{\alpha}_{1} = \begin{bmatrix}
     1 &amp; 0 \\
     0 &amp; 0 \\
     \end{bmatrix}, \:\:
-\alpha_{2} = \begin{bmatrix}
+\bm{\alpha}_{2} = \begin{bmatrix}
     0 &amp; 2 \\
     0 &amp; 0 \\
     \end{bmatrix}, \:\:
-\alpha_{3}= \begin{bmatrix}
+\bm{\alpha}_{3}= \begin{bmatrix}
     0 &amp; 0 \\
     3 &amp; 0 \\
     \end{bmatrix}, \:\:
-\alpha_{4} = \begin{bmatrix}
+\bm{\alpha}_{4} = \begin{bmatrix}
     0 &amp; 0 \\
     0 &amp; 4 \\
     \end{bmatrix}\]</span> and we set some combination with coefficients
 <span class="math inline">\(\setof{c_{i}}\)</span> <span
-class="math display">\[\sum_{i=0}^{4}c_{i}\alpha_{i} = 0,\]</span> then
-<span class="math display">\[\begin{aligned}
-c_{1}\alpha_{1} &amp;= c_{1}\begin{bmatrix}
+class="math display">\[\sum_{i=0}^{4}c_{i}\bm{\alpha}_{i} = 0,\]</span>
+then <span class="math display">\[\begin{aligned}
+c_{1}\bm{\alpha}_{1} &amp;= c_{1}\begin{bmatrix}
     1 &amp; 0 \\
     0 &amp; 0 \\
     \end{bmatrix}, \:\:
-c_{2}\alpha_{2} = c_{2}\begin{bmatrix}
+c_{2}\bm{\alpha}_{2} = c_{2}\begin{bmatrix}
     0 &amp; 2 \\
     0 &amp; 0 \\
     \end{bmatrix}, \:\:
-c_{3}\alpha_{3} = c_{3}\begin{bmatrix}
+c_{3}\bm{\alpha}_{3} = c_{3}\begin{bmatrix}
     0 &amp; 0 \\
     3 &amp; 0 \\
     \end{bmatrix}, \\
-c_{4}\alpha_{4} &amp;= c_{4}\begin{bmatrix}
+c_{4}\bm{\alpha}_{4} &amp;= c_{4}\begin{bmatrix}
     0 &amp; 0 \\
     0 &amp; 4 \\
     \end{bmatrix} \\
-\Rightarrow \:\: \sum_{i=0}^{4}c_{i}\alpha_{i}&amp;= \begin{bmatrix}
+\Rightarrow \:\: \sum_{i=0}^{4}c_{i}\bm{\alpha}_{i}&amp;=
+\begin{bmatrix}
 c_{1} &amp; 2c_{2} \\
 3c_{3} &amp; 4c_{4} \\
 \end{bmatrix}
@@ -575,19 +559,19 @@ c_{1} &amp; 2c_{2} \\
 \end{bmatrix}\\
 \end{aligned}\]</span> so we can see that we necessarily must have <span
 class="math display">\[c_{1}=c_{2}=c_{3}=c_{4}=0\]</span> and therefore
-<span class="math display">\[\alpha_{1} = \begin{bmatrix}
+<span class="math display">\[\bm{\alpha}_{1} = \begin{bmatrix}
     1 &amp; 0 \\
     0 &amp; 0 \\
     \end{bmatrix}, \:\:
-\alpha_{2} = \begin{bmatrix}
+\bm{\alpha}_{2} = \begin{bmatrix}
     0 &amp; 2 \\
     0 &amp; 0 \\
     \end{bmatrix}, \:\:
-\alpha_{3} = \begin{bmatrix}
+\bm{\alpha}_{3} = \begin{bmatrix}
     0 &amp; 0 \\
     3 &amp; 0 \\
     \end{bmatrix}, \:\:
-\alpha_{4} = \begin{bmatrix}
+\bm{\alpha}_{4} = \begin{bmatrix}
     0 &amp; 0 \\
     0 &amp; 4 \\
     \end{bmatrix}\]</span> are linearly independent vectors.<br />
@@ -638,7 +622,8 @@ c_{1}\beta_{1}+c_2\beta_{2}+c_3\beta_{3}
 <span class="math inline">\(\beta_{1}\)</span>, <span
 class="math inline">\(\beta_{2}\)</span>, <span
 class="math inline">\(\beta_{3}\)</span> as the coefficients are not all
-0. Therefore, <span class="math display">\[\beta_{1} = \begin{bmatrix}
+<span class="math inline">\(0\)</span>. Therefore, <span
+class="math display">\[\beta_{1} = \begin{bmatrix}
     -1 &amp; 0 \\
     5 &amp; 10 \\
     \end{bmatrix}, \:\:
@@ -665,97 +650,100 @@ independent vectors.</p></li>
 independent vectors in the <span
 class="math inline">\(n\)</span>-dimensional vector space is called the
 <strong>basis</strong> of the vector space.</p></li>
-<li><p>Each vector <span class="math inline">\(V\)</span> in an <span
+<li><p>Each vector <span class="math inline">\(v\)</span> in an <span
 class="math inline">\(n\)</span>-dimensional vector space with
 basis<br />
-<span class="math inline">\(\mathbb{B}= \{\alpha_1, \alpha_2,
-...\alpha_n\}\)</span> can be expressed as <span
-class="math display">\[V=\sum_{i=0}^{n}c_{i}\alpha_{i},\]</span> a
+<span class="math inline">\(\mathbb{B}= \{\bm{\alpha}_1, \bm{\alpha}_2,
+...\bm{\alpha}_n\}\)</span> can be expressed as <span
+class="math display">\[v=\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i},\]</span> a
 unique linear combination of the linearly independent basis vectors. The
 coefficients <span class="math inline">\(c_{i}\)</span> of the expansion
-for <span class="math inline">\(V\)</span> are called the
+for <span class="math inline">\(v\)</span> are called the
 <strong>components</strong> of the vector <span
-class="math inline">\(V\)</span> in the basis.</p></li>
+class="math inline">\(v\)</span> in the basis.</p></li>
 </ol>
 <p>Definition <span class="math inline">\(3\)</span> contains two
 assertions. The first statement is that each vector <span
-class="math inline">\(V\)</span> in an <span
+class="math inline">\(v\)</span> in an <span
 class="math inline">\(n\)</span>-dimensional vector space with basis
-<span class="math inline">\(\mathbb{B}= \{\alpha_1, \alpha_2,
-...\alpha_n\}\)</span> can be expressed as <span
-class="math display">\[V=\sum_{i=0}^{n}c_{i}\alpha_{i}\]</span> for some
-scalar coefficients <span class="math inline">\(\setof{c_{i}}\)</span>.
-This can be proved by contradiction. Assume that in the <span
+<span class="math inline">\(\mathbb{B}= \{\bm{\alpha}_1, \bm{\alpha}_2,
+...\bm{\alpha}_n\}\)</span> can be expressed as <span
+class="math display">\[v=\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}\]</span> for
+some scalar coefficients <span
+class="math inline">\(\setof{c_{i}}\)</span>. This can be proved by
+contradiction. Assume that in the <span
 class="math inline">\(n\)</span>-dimensional vector space with basis
-<span class="math inline">\(\mathbb{B}= \{\alpha_1, \alpha_2,
-...\alpha_n\}\)</span> there exists some vector <span
-class="math inline">\(V\)</span> which is not a linear combination of
+<span class="math inline">\(\mathbb{B}= \{\bm{\alpha}_1, \bm{\alpha}_2,
+...\bm{\alpha}_n\}\)</span> there exists some vector <span
+class="math inline">\(v\)</span> which is not a linear combination of
 the basis vectors. Clearly <span class="math inline">\(\forall j, \:\:\:
-V \neq \alpha_{j} \in \mathbb{B}\)</span> since otherwise the linear
-combination <span class="math display">\[1\times\alpha_{j}(x)+
-\sum_{i=0\neq j}^{n}0\times\alpha_{i}=V\]</span> would immediately
-violate the assumptions about <span class="math inline">\(V\)</span> not
-being able to be expressed as a linear combination of the basis vectors.
-But then this would mean that all the coefficients <span
+v \neq \bm{\alpha}_{j} \in \mathbb{B}\)</span> since otherwise the
+linear combination <span
+class="math display">\[1\times\bm{\alpha}_{j}(x)+ \sum_{i=0\neq
+j}^{n}0\times\bm{\alpha}_{i}=v\]</span> would immediately violate the
+assumptions about <span class="math inline">\(v\)</span> not being able
+to be expressed as a linear combination of the basis vectors. But then
+this would mean that all the coefficients <span
 class="math inline">\(c_{i}\)</span> are <span
 class="math inline">\(0\)</span> since any coefficient being nonzero
 would create a valid linear combination of basis vectors equalling the
-vector <span class="math inline">\({V}\)</span>, and so <span
-class="math display">\[V=\sum_{i=0}^{n}0\times\alpha_{i} + V\]</span>
-but then: <span class="math display">\[\sum_{i=0}^{n}c_{i}\alpha_{i} +
-c_{n+1}V= 0 \Rightarrow\:\:\:
-c_{n+1}V=-\sum_{i=0}^{n}c_{i}\alpha_{i},\]</span> which is, <span
-class="math display">\[V=-\sum_{i=0}^{n}\left(\frac{c_{i}}{c_{n+1}}\right)\alpha_{i}.\]</span>
+vector <span class="math inline">\(v\)</span>, and so <span
+class="math display">\[v=\sum_{i=0}^{n}0\times\bm{\alpha}_{i} +
+v\]</span> but then: <span
+class="math display">\[\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i} + c_{n+1}v= 0
+\Rightarrow\:\:\: c_{n+1}v=-\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i},\]</span>
+which is, <span
+class="math display">\[v=-\sum_{i=0}^{n}\left(\frac{c_{i}}{c_{n+1}}\right)\bm{\alpha}_{i}.\]</span>
 This then violates the assumption that <span
-class="math inline">\(V\)</span> cannot be expressed as a linear
+class="math inline">\(v\)</span> cannot be expressed as a linear
 combination of the basis vectors since the coefficients <span
 class="math inline">\(c_{i}/c_{n+1}\)</span> corresponding to basis
-vectors <span class="math inline">\(\alpha_{i}\)</span> would give a
-valid linear combination producing <span
-class="math inline">\(V\)</span>. The only way this would not be true
+vectors <span class="math inline">\(\bm{\alpha}_{i}\)</span> would give
+a valid linear combination producing <span
+class="math inline">\(v\)</span>. The only way this would not be true
 would be if <span class="math inline">\(c_{n+1}=0\)</span>. In other
 words, if we want our assumption to hold true, we get <span
-class="math display">\[\sum_{i=0}^{n}c_{i}\alpha_{i} + c_{n+1}V= 0
+class="math display">\[\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i} + c_{n+1}v= 0
 \Rightarrow\:\:\:
-c_{n+1}=0\Rightarrow\:\:\:\sum_{i=0}^{n}c_{i}\alpha_{i}=0\Rightarrow\:\:\:\forall\stab
+c_{n+1}=0\Rightarrow\:\:\:\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}=0\Rightarrow\:\:\:\forall\stab
 i, c_{i}=0.\]</span> By definition, therefore, in order for the
-assumption to be true <span class="math inline">\(V\)</span> must be a
+assumption to be true <span class="math inline">\(v\)</span> must be a
 vector linearly independent from the other basis vectors since there is
 no non-trivial combination of the linearly independent basis vectors and
-the new vector <span class="math inline">\(V\)</span> which sums to the
+the new vector <span class="math inline">\(v\)</span> which sums to the
 null vector. This however means there is a contradiction since we
-defined <span class="math inline">\(V\)</span> to be a vector in the
+defined <span class="math inline">\(v\)</span> to be a vector in the
 <span class="math inline">\(n\)</span>-dimensional space, but adding the
-new vector <span class="math inline">\(V\)</span> would mean there are
+new vector <span class="math inline">\(v\)</span> would mean there are
 <span class="math inline">\(n+1\)</span> linearly independent vectors in
 an <span class="math inline">\(n\)</span>-dimensional space: defined in
 Definition 1 to be impossible. Therefore any vector <span
-class="math inline">\({V}\)</span> which is not a linear combination of
+class="math inline">\({v}\)</span> which is not a linear combination of
 the basis vectors cannot exist in the vector space; all the vectors in
 the vector space must be able to be expressed by a linear combination of
 the basis vectors. We say that the basis (which we must remember is the
-<em>set</em> of vectors and so is be treated as a singular entity in
-reference) <strong>spans</strong> the vector space, because all vectors
-in the vector space can be created by some linear combination of the
-constituent basis vectors of that basis.<br />
+<em>set</em> of basis vectors and so is be treated as a singular entity
+in reference) <strong>spans</strong> the vector space, because all
+vectors in the vector space can be created by some linear combination of
+the constituent basis vectors of that basis.<br />
 <br />
 The second simple but important theorem to prove is that the expansion
-for any given vector <span class="math inline">\(V\)</span> <span
-class="math display">\[V = \sum_{i=0}^{n}c_{i}\alpha_{i}\]</span> is
-unique. We again prove this by contradiction. Assume <span
-class="math display">\[V =
-\sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}c&#39;_{i}\alpha_{i}\]</span>
+for any given vector <span class="math inline">\(v\)</span> <span
+class="math display">\[v = \sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}\]</span>
+is unique. We again prove this by contradiction. Assume <span
+class="math display">\[v =
+\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}=\sum_{i=0}^{n}c&#39;_{i}\bm{\alpha}_{i}\]</span>
 for <span class="math inline">\(\setof{c_{i}} \neq
 \setof{c&#39;_{i}}\)</span>. Then, for basis vectors <span
-class="math inline">\(\alpha_{i} \neq 0\)</span>, <span
+class="math inline">\(\bm{\alpha}_{i} \neq 0\)</span>, <span
 class="math display">\[\begin{aligned}
-V - V = 0=
-&amp;\sum_{i=0}^{n}c_{i}\alpha_{i}-\sum_{i=0}^{n}c&#39;_{i}\alpha_{i}=\sum_{i=0}^{n}(c_{i}-c&#39;_{i})\alpha_{i}.
+v - v = 0=
+&amp;\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}-\sum_{i=0}^{n}c&#39;_{i}\bm{\alpha}_{i}=\sum_{i=0}^{n}(c_{i}-c&#39;_{i})\bm{\alpha}_{i}.
 \end{aligned}\]</span> However, this combination of basis vectors is
 equal to <span class="math inline">\({0}\)</span>, but the basis vectors
-<span class="math inline">\(\setof{\alpha_{i}}\)</span> are linearly
-independent so necessarily this implies the new coefficients <span
-class="math inline">\(\setof{c_{i}-c&#39;_{i}}\)</span> are <span
+<span class="math inline">\(\setof{\bm{\alpha}_{i}}\)</span> are
+linearly independent so necessarily this implies the new coefficients
+<span class="math inline">\(\setof{c_{i}-c&#39;_{i}}\)</span> are <span
 class="math inline">\(0\)</span>. So <span
 class="math display">\[\forall i, \:\: (c_{i}-c&#39;_{i})=0
 \Rightarrow\:\: c_{i} = c&#39;_{i}\]</span> a clear contradiction with
@@ -770,10 +758,11 @@ New definitions follow:</p>
 <li><p>The basis is the set of vectors spanning the vector
 space.</p></li>
 <li><p>For each constituent vector in the vector space with basis <span
-class="math inline">\(\setof{\alpha_{i}}\)</span> defined to be <span
-class="math inline">\(V:=\sum_{i=0}^{n}c_{i}\alpha_{i}\)</span>, we call
-the coefficients <span class="math inline">\(\setof{c_{i}}\)</span> the
-<strong>components</strong> of the vector in that basis.</p></li>
+class="math inline">\(\setof{\bm{\alpha}_{i}}\)</span> defined to be
+<span
+class="math inline">\(v:=\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}\)</span>, we
+call the coefficients <span class="math inline">\(\setof{c_{i}}\)</span>
+the <strong>components</strong> of the vector in that basis.</p></li>
 <li><p>The sum which uniquely defines a vector of the vector space in a
 given basis is called its <strong>expansion</strong> in that
 basis.</p></li>
@@ -794,135 +783,36 @@ knowledge of unique expansions in mind, we can define the rules for the
 simple operations addition, subtraction and multiplication in a vector
 space:<br />
 <br />
-To multiply a vector <span class="math inline">\(V\)</span> by scalar
+To multiply a vector <span class="math inline">\(v\)</span> by scalar
 <span class="math inline">\(k\)</span>, we multiply its components each
 by scalar <span class="math inline">\(k\)</span>: <span
-class="math display">\[kV =
-k\sum_{i=0}^{n}c_{i}\alpha_{i}=\sum_{i=0}^{n}kc_{i}\alpha_{i}.\]</span><br />
+class="math display">\[kv =
+k\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}=\sum_{i=0}^{n}kc_{i}\bm{\alpha}_{i}.\]</span><br />
 To sum two vectors <span
-class="math inline">\(V=\sum_{i=0}^{n}c_{i}\alpha_{i}\)</span> and <span
-class="math inline">\(W=\sum_{i=0}^{n}c&#39;_{i}\alpha_{i}\)</span> we
-sum their components: <span class="math display">\[V + W =
-\sum_{i=0}^{n}c_{i}\alpha_{i}+\sum_{i=0}^{n}c&#39;_{i}\alpha_{i} =
-\sum_{i=0}^{n}(c_{i}+c&#39;_{i})\alpha_{i},\]</span> which is a new
-expansion uniquely specifying a new vector in the vector space, and for
-subtraction of <span class="math inline">\(W\)</span> from <span
-class="math inline">\(V\)</span> we subtract the components of <span
-class="math inline">\(W\)</span> from the corresponding components of
-<span class="math inline">\(V\)</span>: <span class="math display">\[V -
-W = \sum_{i=0}^{n}c_{i}\alpha_{i}-\sum_{i=0}^{n}c&#39;_{i}\alpha_{i} =
-\sum_{i=0}^{n}(c_{i}-c&#39;_{i})\alpha_{i}\]</span> which is also a new
-expansion uniquely specifying a new vector in the vector space. The
-additive inverse is obtained by multiplying a vector by the negative
+class="math inline">\(v=\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}\)</span> and
+<span
+class="math inline">\(w=\sum_{i=0}^{n}c&#39;_{i}\bm{\alpha}_{i}\)</span>
+we sum their components: <span class="math display">\[v + w =
+\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}+\sum_{i=0}^{n}c&#39;_{i}\bm{\alpha}_{i}
+= \sum_{i=0}^{n}(c_{i}+c&#39;_{i})\bm{\alpha}_{i},\]</span> which is a
+new expansion uniquely specifying a new vector in the vector space, and
+for subtraction of <span class="math inline">\(w\)</span> from <span
+class="math inline">\(v\)</span> we subtract the components of <span
+class="math inline">\(w\)</span> from the corresponding components of
+<span class="math inline">\(v\)</span>: <span class="math display">\[v -
+w =
+\sum_{i=0}^{n}c_{i}\bm{\alpha}_{i}-\sum_{i=0}^{n}c&#39;_{i}\bm{\alpha}_{i}
+= \sum_{i=0}^{n}(c_{i}-c&#39;_{i})\bm{\alpha}_{i}\]</span> which is also
+a new expansion uniquely specifying a new vector in the vector space.
+The additive inverse is obtained by multiplying a vector by the negative
 identity: <span
-class="math display">\[W=\sum_{i=0}^{n}c&#39;_{i}\alpha_{i} \implies
--W=\sum_{i=0}^{n}-c&#39;_{i}\alpha_{i},\]</span> multiplying by the null
-vector means multiplying all the coefficients by <span
-class="math inline">\(0\)</span> (creating the null vector, as
+class="math display">\[w=\sum_{i=0}^{n}c&#39;_{i}\bm{\alpha}_{i}
+\implies -w=\sum_{i=0}^{n}-c&#39;_{i}\bm{\alpha}_{i},\]</span>
+multiplying by the null vector means multiplying all the coefficients by
+<span class="math inline">\(0\)</span> (creating the null vector, as
 expected), and multiplying by the identity means doing nothing to the
 components, resulting in the same vector.</p>
-<h3 id="component-functions">Component Functions</h3>
-<p>When we started working on vector spaces, the idea was introduced of
-vectors simply being objects which could be summed together in a vector
-space where there was additive closure. No other attributes were
-specified. We saw numbers could be vectors in a vector space; matrices
-and column vectors could be vectors in a vector space. However, with
-some abstract vector it can be difficult to tell whether it can ever
-have an explicit form we can understand and work with mathematically, or
-whether it remains abstract and intangible forever without any useful
-forms.<br />
-<br />
-The answer is that this idea of abstract vectors is enduringly important
-and that looking for explicit forms like matrices with values is a
-approach which will be severely limited in quantum mechanics. We do have
-to accept some level of abstraction because it will give us flexibility
-to approach problems defined in abstract space first before only trying
-to find some explicit for it later towards the end of the problem.
-Nevertheless, it is here useful to learn of one way to turn any vector
-whose expansion in a certain basis is known into a tangible form, and
-this method exists for all vectors in any vector space so long as there
-is a basis. This is through the idea of component functions, which
-exploit the fact that all vectors have unique expansion in some given
-basis. Such functional forms will be useful for some vectors more than
-others, but for quantum mechanics this functional form will come in
-extremely handy as it will be our link to performing calculations after
-that we have solved the state problem for a given state with conditions.
-We also know that different bases give different forms of the same
-vector, because the components and hence expansions are different, so
-the component functions will change based on what basis we pick to
-express them in. This idea will also be important and will give us many
-options to be flexible in algebraic manipulation by allowing us to pick
-certain bases which are easier to work in.<br />
-<br />
-We know that in any linearly independent basis the expansion of a vector
-in the basis of the vector space is unique. It turns out, rather
-surprisingly, that components, which still seem like random arrays of
-numbers specifying some arbitrary vector in some arbitrary space, will
-become absolutely vital to quantum mechanics in many different ways.
-This is difficult to fully explain right now, but let us take note of it
-and attempt to produce this which allows us to take any abstract vector
-and give it an explicit form.<br />
-<br />
-Components correspond to basis vectors, so the component function will
-be governed by:</p>
-<ul>
-<li><p>Input: Basis vector.</p></li>
-<li><p>Output: Component corresponding to the input basis
-vector.</p></li>
-<li><p>Domain: All vectors in the basis.</p></li>
-<li><p>Range: Complex numbers (the components).</p></li>
-</ul>
-<p>We could write the component function as <span
-class="math display">\[f(x)\]</span> with the argument represented by
-<span class="math inline">\(x\)</span> as most functions tend to be
-expressed without <span class="math inline">\(x\)</span> needing to
-represent anything in particular other than just being an input from the
-domain from the function. The reader understands and despite the new
-mathematics remembers, of course, that the function <span
-class="math inline">\(f(x)=x^2\)</span> is simply the quadratic function
-and the <span class="math inline">\(x\)</span> is nothing but the
-placeholder variable. In quantum mechanics, the arbitrary argument <span
-class="math inline">\(x\)</span> will become potentially confusing when
-we work with the position observable, also represented by <span
-class="math inline">\(x\)</span>. Therefore, I will add a subscript to
-the component function which is the of our basis vectors: in a basis
-consisting of vectors <span
-class="math inline">\(\setof{\alpha_{i}}\)</span>, the letter is <span
-class="math inline">\(\alpha\)</span>, and for basis vectors <span
-class="math inline">\(\setof{\gamma_{i}}\)</span> the letter would be
-<span class="math inline">\(\gamma\)</span>. So we can define the
-function <span class="math inline">\(\kappa_{\alpha}(x)\)</span> to be
-the component function in the so called <span
-class="math inline">\(\alpha\)</span>-basis. The rules would be <span
-class="math display">\[\kappa_{\alpha}(x):\setof{\alpha_{i}}\mapsto\mathbb{C},\mtab
-\kappa_{\alpha}(\alpha_{j})=c_{j}\]</span> where this component function
-must be linked to some vector (otherwise <span
-class="math inline">\(c_{j}\)</span> would not be defined) which here is
-<span class="math display">\[V:=\sum_{i=1}^{n}c_{i}\alpha_{i}\]</span>
-The most important thing to remember is that the inputs of component
-functions linked to vectors are always basis vectors, rather than
-numerical values as we are used to. It should be clear that it still
-qualifies as a function, because it has a mapping, a domain and a
-range.<br />
-<br />
-The sum term in the earlier expansion of the vector <span
-class="math inline">\(V\)</span> clearly indicated we were working in a
-discrete basis. This, we shall see, is a limitation we will keep all the
-way until Chapter 7, because it makes everything much simpler and more
-controlled, and dealing with the continuous case is best tackled with a
-complete understanding of the discrete case.<br />
-<br />
-This is one of the instances of something seeming unimportant but being
-worth much more in the very close future. We will keep an idea of a
-component function in mind, to give abstract vectors explicit and useful
-forms, as it will resurface shortly and its physical meaning for quantum
-mechanics will follow that. Thus completes our definition of a vector
-space, which is crucial for understanding the algebraic backdrop of
-quantum mechanics.<br />
-<br />
-Now, having completed this review of vector spaces, we begin the first
-formal step of the quantum mechanical journey.</p>
-<h2 id="the-state-vector">The State Vector</h2>
+<h2 id="the-state-vector">The State vector</h2>
 <p>We are finally ready to introduce the mathematical objects chosen to
 be in bijection with physical states, having hinted heavily that with
 additive closure vectors in some vector spaces are the answer. This is
@@ -977,15 +867,16 @@ which is to follow, and there is a serious reason for making so many
 clarifications prior to starting to consider the mathematics of state
 vectors– everything else is predicated on this postulate!</p>
 <ol>
-<li><p>The function of the state vector is very important to understand
-fully. We recall that in our section on bijections there were two
-important employments of this relationship between two sets: the first,
-for labelling, and the second, for substituting. The labelling function
-of the state vector is very clear. Normally a capital Psi, <span
-class="math inline">\(\Psi\)</span>, is used, and we can simply say ,
-just like we can say . We know that every <span
-class="math inline">\(\Psi\)</span> is unique and in bijection to each
-state, so it acts well as a unique label.<br />
+<li><p>The functionality of the state vector is very important to
+understand fully. We recall that in our section on bijections there were
+two important employments of this relationship between two sets: the
+first, for labelling, and the second, for substituting. The labelling
+function of the state vector is very clear. Normally a capital Psi,
+<span class="math inline">\(\Psi\)</span>, is used, and we can simply
+say “the state <span class="math inline">\(\Psi\)</span>”, just like we
+can say “ball <span class="math inline">\(a\)</span>”. We know that
+every <span class="math inline">\(\Psi\)</span> is unique and in
+bijection to each state, so it acts well as a unique label.<br />
 <br />
 As a substitute for physical states, we have said that the main goal of
 this chapter is to produce something mathematically manipulable since
@@ -1027,17 +918,22 @@ states, so the notation <span class="math inline">\(\Psi_{t}\)</span> is
 valid, intuitive and sufficient especially in these stationary
 cases.</p></li>
 <li><p>A mathematical vector and a physical circumstance is not the same
-thing, naturally. Nevertheless, we often call a state vector . The
-reason is because of the bijection. In those cases, we should say .
-However, we will still sometimes end up saying when this bijection
-exists– even though they might technically be different types of objects
-which therefore cannot <em>be</em> each other. Such grammatical
+thing, naturally. Nevertheless, we often call a state vector “a state”.
+The reason is because of the bijection. In those cases, we should say
+“one represents the other”. However, we will still sometimes end up
+saying “one <em>is</em> the other” when this bijection exists– even
+though they might technically be different types of objects which
+therefore cannot <em>be</em> each other. Such grammatical
 simplifications are simply because having the bijection eliminates
-ambiguity. For a physical state, we cannot really say since there would
-be infinite things to say. Thus, a mathematical representation like the
-state vector encapsulates all these details of a state concisely while
-being linked to that state with no ambiguity; we therefore call it the
-state.<br />
+ambiguity. For a physical state, we cannot really say “the hydrogen
+electron in a magnetic field with one third probability of having
+momentum <span class="math inline">\(p_{1}\)</span>, one seven-hundred
+and eighth probability of having momentum <span
+class="math inline">\(p_{2}\)</span>...” since this would be a
+manifestly inefficient method of specifying it. Thus, a mathematical
+representation like the state vector encapsulates all these details of a
+state concisely while being linked to that state with no ambiguity; we
+therefore call it the state.<br />
 <br />
 This seems like a terribly semantically pedantic discussion, but there
 will be times where readers get confused by the difference between <span
@@ -1055,7 +951,8 @@ that they have somehow misunderstood different types of objects.
 Remember the failed state denomination during the Stern Gerlach
 experiment: we should not get attached to trying to make mathematical
 symbols sacred, and should only concern ourselves with the
-functionalities they provide. Therefore, the phrase would be perfectly
+functionalities they provide. Therefore, the phrase ‘the state <span
+class="math inline">\(\Psi_{1}\)</span>’ would be perfectly
 acceptable.</p></li>
 <li><p>This book will use the letter <span
 class="math inline">\(\psi\)</span> ubiquitously both in its upper case
@@ -1086,13 +983,13 @@ inner product operation, in more detail.</p>
 <span class="math inline">\(\mathscr{H}\)</span>, which contains all the
 state vectors corresponding to possible states. It turns out that we do
 not have to worry about the name of the space too much: even though
-Hilbert spaces very much constitute their own mathematical field with
-much deep analysis and theory, these analyses are matters of
-mathematical rigor and for our purposes we do not have the luxury to be
-so pendantic. In general, therefore, we will call it, by convention, the
-state space– since it is the vector space of state vectors– to avoid the
-exotic name getting in our way and drawing more attention than it needs
-to.<br />
+Hilbert spaces are special types of vector spaces very much constituting
+their own mathematical field with much deep analysis and theory, these
+analyses are matters of mathematical rigor and for our purposes we have
+neither the luxury nor the need to be so precise. In general, therefore,
+we will call it, by convention, the state space– since it is the vector
+space of state vectors– to avoid the exotic ‘Hilbert space’ name getting
+in our way and drawing more attention than it needs to.<br />
 <br />
 There is an important idea to understand about the state space and
 therefore the state vector, however. The human perspective is to try and
@@ -1135,16 +1032,17 @@ vector: because the numbers are different depending on what we are
 considering the car’s motion with respect to. However– no matter what
 coordinate system we choose, the vector exists. We do not need an origin
 of displacement for a velocity vector to exist– we only need an origin
-of displacement for the velocity vector to take a form! It should be
-clear that to exist as a mathematical object which can take multiple
-forms depending on the underlying frame of reference we used is
-different from taking one specific form. For the state vector, we have
-the very same idea: we choose a basis, analogous to defining an axes in
-the above example, and we specify its components, analogous to the
-familiar process of specifying coordinates. Both the basis and the
-components are necessary for us to the state vector, but it exists to be
-expressed in infinite different bases and sets of components regardless
-of whether or not we give it a certain algebraic specification.<br />
+of displacement for the velocity vector to take a form! <strong>It
+should be clear that to exist as a mathematical object which can take
+multiple forms depending on the underlying frame of reference we used is
+different from taking one specific form</strong>. For the state vector,
+we have the very same idea: we choose a basis, analogous to defining an
+axes in the above example, and we specify its components, analogous to
+the familiar process of specifying coordinates. Both the basis and the
+components are necessary for us to ‘pinpoint’ the state vector, but it
+exists to be expressed in infinite different bases and sets of
+components regardless of whether or not we give it a certain algebraic
+specification.<br />
 <br />
 The example of the car velocity vector should enforce a crucial idea of
 abstract mathematical objects existing but being impossible to express
@@ -1163,45 +1061,11 @@ implicitly taking place in some basis; that does not at all mean things
 would look that way in all bases, but one can assume that the basis
 picked will be the most convenient one– just like we would not pick the
 Tokyo Tower to be the origin of displacement for the velocity vector of
-a London motorway car, because that form would be inconvenient and
+a car in London, because that form would be inconvenient and
 uninformative. Choosing bases intelligently, we will see, is already in
-itself an important problem solving tool in quantum mechanics.</p>
-<h3 id="discrete-wavefunctions">Discrete Wavefunctions</h3>
-<p>The natural question we will ask next is how to convert the state
-vector into some form given the basis we want to express it in. However,
-recall 3.2.2. We already know that the , allows us to create a function
-given an abstract vector so long as we have the basis decided, because
-it is related to the basis we have chosen (since the inputs are the
-basis vectors themselves), and outputs the components in the basis–
-thereby giving the state vector a unique form since the components it
-outputs necessarily provide a unique expansion which cannot be obtained
-for any other vector in the vector space. Then, if we are working in the
-state space, the component function of a state vector must also be in
-yet another bijection with the state vector, since a state vector has a
-unique expansion, and a unique expansion corresponds to a single vector,
-and only one.<br />
+itself an important problem solving tool in quantum mechanics.<br />
 <br />
-The component function of a state vector is called a
-<strong>wavefunction</strong>, denoted by a lower case <span
-class="math inline">\(\psi\)</span>. This, because it outputs scalar
-components, will be how we give the abstract state vector explicit
-forms.<br />
-<br />
-As the form of a wavefunction changes based on which basis we have
-picked to express it in, there are many different wavefunctions, which
-are usually also named with some reference to their bases (more on this
-later). The bijection with a state vector, which itself is in bijection
-with a physical state, means that any basis wavefunction is in bijection
-with a physical state. Therefore, just as we sometimes call a state
-vector , we may also call a basis wavefunction : the only caveat being
-that a basis wavefunction is the physical state represented in one
-specific basis, so it can be more limited than the state vector. On the
-other hand, by giving a state vector an explicit form, while we limit
-our operations to being in one single basis, we are then able to perform
-more mathematical operations on it and in fact obtain true numerical
-values.<br />
-<br />
-Now beyond simple operations like scalar multiplication, quantum
+Next, beyond simple operations like scalar multiplication, quantum
 mechanics employs another operation, which will be extremely central to
 all of quantum mechanics. This is the inner product, which will be as
 common in quantum mechanics as multiplication in arithmetic.</p>
@@ -1213,7 +1077,7 @@ class="math inline">\(\Psi_{2}\)</span> in the state space. This inner
 product is denoted as <span
 class="math inline">\(\oip{\Psi_{1}}{\Psi_{2}}\)</span> and is defined
 to be: <span
-class="math display">\[\oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{x\}}\bar{\psi}_{1}^{\ast}\bar{\psi}_{2}\equiv\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i}\]</span>
+class="math display">\[\oip{\Psi_{1}}{\Psi_{2}}:=\sum_{\{x\}}\bar{\psi}_{1}^{\ast}(x)\psi_{2}\equiv\sum_{\{i\}}c^{(1)\ast}_{i}c^{(2)}_{i}\]</span>
 for components <span class="math inline">\(\setof{c^{(1)}_{i}}\)</span>
 for <span class="math inline">\(\Psi_{1}\)</span> and components <span
 class="math inline">\(\setof{c^{(2)}_{i}}\)</span> for <span
@@ -1338,28 +1202,30 @@ orthogonal to each other and also normalised. To understand how these
 vectors span the we will need to break down these two characteristics
 into simple definitions.<br />
 <br />
-Two vectors <span class="math inline">\(\alpha\)</span> and <span
+Two vectors <span class="math inline">\(\bm{\alpha}\)</span> and <span
 class="math inline">\(\beta\)</span> are <strong>orthogonal</strong> if
-the following is true: <span class="math display">\[\oip{\alpha}{\beta}
-=  0\]</span> we also know that this means that <span
-class="math display">\[\oip{\beta}{\alpha} = \oip{\alpha}{\beta}^{\ast}
-= 0\]</span> and therefore the order of the inner product does not
-matter for orthogonal vectors, since the complex conjugate of <span
-class="math inline">\(0\)</span> is still <span
-class="math inline">\(0\)</span>. Meanwhile, a singular vector <span
-class="math inline">\(\tilde{\alpha}\)</span> is said to be
+the following is true: <span
+class="math display">\[\oip{\bm{\alpha}}{\beta} =  0\]</span> we also
+know that this means that <span
+class="math display">\[\oip{\beta}{\bm{\alpha}} =
+\oip{\bm{\alpha}}{\beta}^{\ast} = 0\]</span> and therefore the order of
+the inner product does not matter for orthogonal vectors, since the
+complex conjugate of <span class="math inline">\(0\)</span> is still
+<span class="math inline">\(0\)</span>. Meanwhile, a singular vector
+<span class="math inline">\(\tilde{\bm{\alpha}}\)</span> is said to be
 <strong>normalised</strong> if it has norm <span
 class="math inline">\(1\)</span>: <span
-class="math display">\[\oip{\tilde{\alpha}}{\tilde{\alpha}} =
+class="math display">\[\oip{\tilde{\bm{\alpha}}}{\tilde{\bm{\alpha}}} =
 1.\]</span> So for an <strong>orthonormal basis</strong> of a vector
 space <span
-class="math inline">\(\mathbb{O}=\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...,\tilde{\alpha_{n}}\}\)</span>:
+class="math inline">\(\mathbb{O}=\{\tilde{\bm{\alpha}}_{1},\tilde{\bm{\alpha}}_{2},...,\tilde{\bm{\alpha}_{n}}\}\)</span>:
 <span class="math display">\[\forall\:\:
-\tilde{\alpha}_{i},\tilde{\alpha}_{j} \in \mathbb{O}, \:\:\:\:
-\oip{\tilde{\alpha}_{i}}{\tilde{\alpha}_{j}}= \delta_{ij}\]</span> where
-<span class="math inline">\(\delta_{ij}\)</span> is the
-<strong>Kronecker delta</strong> (which will appear often in quantum
-mechanics): <span class="math display">\[\delta_{ij}=
+\tilde{\bm{\alpha}}_{i},\tilde{\bm{\alpha}}_{j} \in \mathbb{O}, \:\:\:\:
+\oip{\tilde{\bm{\alpha}}_{i}}{\tilde{\bm{\alpha}}_{j}}=
+\delta_{ij}\]</span> where <span
+class="math inline">\(\delta_{ij}\)</span> is the <strong>Kronecker
+delta</strong> (which will appear often in quantum mechanics): <span
+class="math display">\[\delta_{ij}=
 \begin{cases}
 1, &amp;\text{if}\ i=j\\
 0, &amp;\text{if}\ i \neq j
@@ -1381,78 +1247,85 @@ independent vectors can be transformed by a defined procedure into an
 orthonormal set.<br />
 <br />
 <strong>Proof- The Gram Schmidt Process</strong>: Let <span
-class="math inline">\(\{\alpha_{1},\alpha_{2},... \alpha_{n}\}\)</span>
-be a linearly independent basis. We will start by normalising the first
-vector using a simple procedure.<br />
+class="math inline">\(\{\bm{\alpha}_{1},\bm{\alpha}_{2},...
+\bm{\alpha}_{n}\}\)</span> be a linearly independent basis. We will
+start by normalising the first vector using a simple procedure.<br />
 <br />
 Take the first vector, denoted without loss of generality as <span
-class="math inline">\(\alpha_{1}\)</span>. Take the norm of the vector,
-<span
-class="math display">\[|\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}.\]</span>
+class="math inline">\(\bm{\alpha}_{1}\)</span>. Take the norm of the
+vector, <span
+class="math display">\[|\bm{\alpha}_{1}|=\sqrt{\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}}.\]</span>
 By the positive semidefinite metric, <span
 class="math display">\[\begin{aligned}
-\oip{\alpha_{1}}{\alpha_{1}} \geq 0 &amp;\implies \:\:
-\sqrt{\oip{\alpha_{1}}{\alpha_{1}}} \in \mathbb{R}\\
+\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}} \geq 0 &amp;\implies \:\:
+\sqrt{\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}} \in \mathbb{R}\\
 &amp;\implies \:\:
-|\alpha_1|^{\ast}=\left(\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}\right)^{\ast}=
-\sqrt{\oip{\alpha_{1}}{\alpha_{1}}} =|\alpha_1|
+|\bm{\alpha}_1|^{\ast}=\left(\sqrt{\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}}\right)^{\ast}=
+\sqrt{\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}} =|\bm{\alpha}_1|
 \end{aligned}\]</span> Then, if we define <span
-class="math display">\[\tilde{\alpha}_{1} :=
-\frac{\alpha_{1}}{|\alpha_{1}|}\]</span> we clearly get <span
-class="math display">\[\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}} =
-\frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{\ast}|\alpha_{1}|}=\frac{\oip{{\alpha}_{1}}{{\alpha}_{1}}}{|\alpha_{1}|^{2}}=1\]</span>
-because <span class="math display">\[|\alpha_{1}|^2=
-\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}^2 =
-\oip{\alpha_{1}}{\alpha_{1}}.\]</span> Therefore, we indeed verify that
-for any arbitrary vector <span class="math inline">\(\alpha_{1}\)</span>
-dividing it by its norm <span
-class="math inline">\(|\alpha_{1}|=\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}\)</span>
+class="math display">\[\tilde{\bm{\alpha}}_{1} :=
+\frac{\bm{\alpha}_{1}}{|\bm{\alpha}_{1}|}\]</span> we clearly get <span
+class="math display">\[\oip{\tilde{\bm{\alpha}}_{1}}{\tilde{\bm{\alpha}}_{1}}
+=
+\frac{\oip{{\bm{\alpha}}_{1}}{{\bm{\alpha}}_{1}}}{|\bm{\alpha}_{1}|^{\ast}|\bm{\alpha}_{1}|}=\frac{\oip{{\bm{\alpha}}_{1}}{{\bm{\alpha}}_{1}}}{|\bm{\alpha}_{1}|^{2}}=1\]</span>
+because <span class="math display">\[|\bm{\alpha}_{1}|^2=
+\sqrt{\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}}^2 =
+\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}.\]</span> Therefore, we indeed
+verify that for any arbitrary vector <span
+class="math inline">\(\bm{\alpha}_{1}\)</span> dividing it by its norm
+<span
+class="math inline">\(|\bm{\alpha}_{1}|=\sqrt{\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}}\)</span>
 creates a normalised vector <span
-class="math inline">\(\tilde{\alpha}_{1}\)</span> whose inner product
-with itself is equal to 1. If the vector was already normalised such
-that <span class="math inline">\(\oip{\alpha_{1}}{\alpha_{1}}=1\)</span>
+class="math inline">\(\tilde{\bm{\alpha}}_{1}\)</span> whose inner
+product with itself is equal to 1. If the vector was already normalised
+such that <span
+class="math inline">\(\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}=1\)</span>
 then division by its norm <span
-class="math inline">\(\sqrt{\oip{\alpha_{1}}{\alpha_{1}}}\)</span> is
-equal to division by <span class="math inline">\(\sqrt{1}=1\)</span>, so
-it would simply be unchanged by this process and remain
+class="math inline">\(\sqrt{\oip{\bm{\alpha}_{1}}{\bm{\alpha}_{1}}}\)</span>
+is equal to division by <span class="math inline">\(\sqrt{1}=1\)</span>,
+so it would simply be unchanged by this process and remain
 normalised.<br />
 <br />
 Now that we have normalised the first vector in our basis, we move on to
 consider the second vector <span
-class="math inline">\(\alpha_{2}\)</span>. Define <span
-class="math display">\[\alpha&#39;_{2}:= \alpha_{2}-\tilde{\alpha}_{1}
-\oip{\tilde{\alpha}_{1}}{\alpha_{2}}.\]</span> Is it orthogonal to <span
-class="math inline">\(\tilde{\alpha}_{1}\)</span>? We can verify,
+class="math inline">\(\bm{\alpha}_{2}\)</span>. Define <span
+class="math display">\[\bm{\alpha}&#39;_{2}:=
+\bm{\alpha}_{2}-\tilde{\bm{\alpha}}_{1}
+\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{2}}.\]</span> Is it
+orthogonal to <span
+class="math inline">\(\tilde{\bm{\alpha}}_{1}\)</span>? We can verify,
 remembering fact IP 3 that the inner product distributes linearly: <span
-class="math display">\[\oip{{\tilde{\alpha}_{1}}}{\alpha&#39;_{2}}=\oip{\tilde{\alpha}_{1}}{\alpha_{2}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}
-\oip{\tilde{\alpha}_{1}}{\alpha_{2}}\]</span> and since <span
-class="math inline">\(\tilde{\alpha}_{1}\)</span> is normalised, <span
-class="math inline">\(\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}=1\)</span>,
+class="math display">\[\oip{{\tilde{\bm{\alpha}}_{1}}}{\bm{\alpha}&#39;_{2}}=\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{2}}-\oip{\tilde{\bm{\alpha}}_{1}}{\tilde{\bm{\alpha}}_{1}}
+\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{2}}\]</span> and since <span
+class="math inline">\(\tilde{\bm{\alpha}}_{1}\)</span> is normalised,
+<span
+class="math inline">\(\oip{\tilde{\bm{\alpha}}_{1}}{\tilde{\bm{\alpha}}_{1}}=1\)</span>,
 so <span
-class="math display">\[\oip{{\tilde{\alpha}_{1}}}{\alpha&#39;_{2}}=
-\oip{\tilde{\alpha}_{1}}{\alpha_{2}}-
-\oip{\tilde{\alpha}_{1}}{\alpha_{2}}= 0\]</span> Therefore <span
-class="math inline">\(\alpha&#39;_{2}\)</span> is indeed orthogonal to
-<span class="math inline">\(\tilde{\alpha}_{1}\)</span>. Now we can run
+class="math display">\[\oip{{\tilde{\bm{\alpha}}_{1}}}{\bm{\alpha}&#39;_{2}}=
+\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{2}}-
+\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{2}}= 0\]</span> Therefore
+<span class="math inline">\(\bm{\alpha}&#39;_{2}\)</span> is indeed
+orthogonal to <span
+class="math inline">\(\tilde{\bm{\alpha}}_{1}\)</span>. Now we can run
 the normalisation procedure: <span
-class="math display">\[\tilde{{\alpha_{2}}}:=
-\frac{\alpha&#39;_{2}}{\sqrt{\oip{\alpha&#39;_{2}}{\alpha&#39;_{2}}}}\]</span>
+class="math display">\[\tilde{{\bm{\alpha}_{2}}}:=
+\frac{\bm{\alpha}&#39;_{2}}{\sqrt{\oip{\bm{\alpha}&#39;_{2}}{\bm{\alpha}&#39;_{2}}}}\]</span>
 This is still clearly orthogonal to <span
-class="math inline">\(\tilde{\alpha}_{1}\)</span> because of how we
-defined <span class="math inline">\(\alpha&#39;_{2}\)</span>. This time,
-we just get instead: <span
-class="math display">\[\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{2}}=\frac{\oip{\tilde{\alpha}_{1}}{\alpha&#39;_{2}}}{\sqrt{\oip{\alpha&#39;_{2}}{\alpha&#39;_{2}}}}=\frac{0}{\sqrt{\oip{\alpha&#39;_{2}}{\alpha&#39;_{2}}}}=0.\]</span><br />
+class="math inline">\(\tilde{\bm{\alpha}}_{1}\)</span> because of how we
+defined <span class="math inline">\(\bm{\alpha}&#39;_{2}\)</span>. This
+time, we just get instead: <span
+class="math display">\[\oip{\tilde{\bm{\alpha}}_{1}}{\tilde{\bm{\alpha}}_{2}}=\frac{\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}&#39;_{2}}}{\sqrt{\oip{\bm{\alpha}&#39;_{2}}{\bm{\alpha}&#39;_{2}}}}=\frac{0}{\sqrt{\oip{\bm{\alpha}&#39;_{2}}{\bm{\alpha}&#39;_{2}}}}=0.\]</span><br />
 <br />
 The process from now continues in the same way for as many basis vectors
 we need to convert into this orthonormal basis. Orthogonal vector <span
-class="math inline">\(\alpha&#39;_{3}\)</span> is introduced by <span
-class="math display">\[\begin{aligned}
-\alpha&#39;_{3}&amp;=\alpha&#39;_{3}-\tilde{\alpha}_{1}\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\tilde{\alpha}_{2}\oip{\tilde{\alpha}_{2}}{\alpha_{3}}
+class="math inline">\(\bm{\alpha}&#39;_{3}\)</span> is introduced by
+<span class="math display">\[\begin{aligned}
+\bm{\alpha}&#39;_{3}&amp;=\bm{\alpha}&#39;_{3}-\tilde{\bm{\alpha}}_{1}\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{3}}-\tilde{\bm{\alpha}}_{2}\oip{\tilde{\bm{\alpha}}_{2}}{\bm{\alpha}_{3}}
 \\
 \Rightarrow\:\:
-\oip{\tilde{\alpha}_{1}}{\alpha&#39;_{3}}&amp;=\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{1}}\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-\oip{\tilde{\alpha}_{1}}{\tilde{\alpha}_{2}}\oip{\tilde{\alpha}_{2}}{\alpha_{3}}\\
+\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}&#39;_{3}}&amp;=\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{3}}-\oip{\tilde{\bm{\alpha}}_{1}}{\tilde{\bm{\alpha}}_{1}}\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{3}}-\oip{\tilde{\bm{\alpha}}_{1}}{\tilde{\bm{\alpha}}_{2}}\oip{\tilde{\bm{\alpha}}_{2}}{\bm{\alpha}_{3}}\\
 &amp;=
-\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-1\times\oip{\tilde{\alpha}_{1}}{\alpha_{3}}-0\times\oip{\tilde{\alpha}_{2}}{\alpha_{3}}\\
+\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{3}}-1\times\oip{\tilde{\bm{\alpha}}_{1}}{\bm{\alpha}_{3}}-0\times\oip{\tilde{\bm{\alpha}}_{2}}{\bm{\alpha}_{3}}\\
 &amp;=0\\
 \end{aligned}\]</span> After that, it can be normalised by dividing by
 its norm as already proven for all vectors. This orthonormalisation
@@ -1462,9 +1335,9 @@ general form by induction.<br />
 <br />
 <strong>Claim</strong>: For a set of orthonormal vectors <span
 class="math inline">\(\mathbb{O}\)</span> = <span
-class="math inline">\(\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...\tilde{\alpha}_{n-1}\}\)</span>,
-the vector <span class="math display">\[\alpha&#39;_{n}=
-\alpha_{n}-\left(\sum_{i=0}^{n-1}\tilde{\alpha}_{i}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right)\]</span>
+class="math inline">\(\{\tilde{\bm{\alpha}}_{1},\tilde{\bm{\alpha}}_{2},...\tilde{\bm{\alpha}}_{n-1}\}\)</span>,
+the vector <span class="math display">\[\bm{\alpha}&#39;_{n}=
+\bm{\alpha}_{n}-\left(\sum_{i=0}^{n-1}\tilde{\bm{\alpha}}_{i}\oip{\tilde{\bm{\alpha}_{i}}}{\bm{\alpha}_{n}}\right)\]</span>
 is orthogonal to all the vectors in <span
 class="math inline">\(\mathbb{O}\)</span>.<br />
 <br />
@@ -1472,32 +1345,33 @@ class="math inline">\(\mathbb{O}\)</span>.<br />
 class="math inline">\(n=3\)</span>, which we have already proved above.
 The inductive step is: <span class="math display">\[\begin{aligned}
 &amp;\text{Assume we have an orthonormal set}\:
-\{\tilde{\alpha}_{1},\tilde{\alpha}_{2},...\tilde{\alpha}_{n-1}\}.
-\:\:\: \forall\:\tilde{{\alpha}}_{j &lt; n}, \\
-&amp;\oip{\tilde{\alpha_{j}}}{\alpha&#39;_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\tilde{\alpha_{j}}\left(\sum_{i=0}^{n-1}\tilde{\alpha_{i}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\right)\\
-\Rightarrow\:&amp;\oip{\tilde{\alpha_{j}}}{\alpha&#39;_{n}}=\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\oip{\tilde{\alpha_{j}}}{\tilde{\alpha_{j}}}\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq
-j}^{n-1}\oip{\tilde{\alpha}_{j}}{\tilde{\alpha_{i}}}\oip{\tilde{\alpha_{i}}}{\alpha_{n}}\\
-\Rightarrow\:&amp;\oip{\tilde{\alpha_{j}}}{\alpha&#39;_{n}}=\oip{\tilde{\alpha}_{j}}{\alpha_{n}}-1\times\oip{\tilde{\alpha_{j}}}{\alpha_{n}}-\sum_{i=0\neq
-j}^{n-1}0\times\oip{\tilde{\alpha_{i}}}{\alpha_{n}}=0
+\{\tilde{\bm{\alpha}}_{1},\tilde{\bm{\alpha}}_{2},...\tilde{\bm{\alpha}}_{n-1}\}.
+\:\:\: \forall\:\tilde{{\bm{\alpha}}}_{j &lt; n}, \\
+&amp;\oip{\tilde{\bm{\alpha}}_{j}}{\bm{\alpha}&#39;_{n}}=\oip{\tilde{\bm{\alpha}_{j}}}{\bm{\alpha}_{n}}-\tilde{\bm{\alpha}_{j}}\left(\sum_{i=0}^{n-1}\tilde{\bm{\alpha}_{i}}\oip{\tilde{\bm{\alpha}}_{i}}{\bm{\alpha}_{n}}\right)\\
+\Rightarrow\:&amp;\oip{\tilde{\bm{\alpha}_{j}}}{\bm{\alpha}&#39;_{n}}=\oip{\tilde{\bm{\alpha}_{j}}}{\bm{\alpha}_{n}}-\oip{\tilde{\bm{\alpha}_{j}}}{\tilde{\bm{\alpha}_{j}}}\oip{\tilde{\bm{\alpha}_{j}}}{\bm{\alpha}_{n}}-\sum_{i=0\neq
+j}^{n-1}\oip{\tilde{\bm{\alpha}}_{j}}{\tilde{\bm{\alpha}_{i}}}\oip{\tilde{\bm{\alpha}_{i}}}{\bm{\alpha}_{n}}\\
+\Rightarrow\:&amp;\oip{\tilde{\bm{\alpha}_{j}}}{\bm{\alpha}&#39;_{n}}=\oip{\tilde{\bm{\alpha}}_{j}}{\bm{\alpha}_{n}}-1\times\oip{\tilde{\bm{\alpha}_{j}}}{\bm{\alpha}_{n}}-\sum_{i=0\neq
+j}^{n-1}0\times\oip{\tilde{\bm{\alpha}_{i}}}{\bm{\alpha}_{n}}=0
 \end{aligned}\]</span> This is true since our assumption that all <span
-class="math inline">\(\tilde{\alpha}_{j}\)</span> for <span
-class="math inline">\(j&lt;n\)</span> is normalised and orthogonal to
-all other <span class="math inline">\(\alpha_{i\neq j}\)</span> for
-<span class="math inline">\(i&lt;n\)</span> (an assumption which is
-valid as it follows from the base case) necessitates that <span
-class="math display">\[\forall\:\: i,j &lt; n, \:\:
-\oip{\tilde{\alpha}_{j}}{\tilde{\alpha}_{i}}= \delta_{ij}\]</span>
-Therefore, by induction, our orthogonalisation process works for as many
-basis vectors as we need to convert to our orthonormal basis.<br />
+class="math inline">\(\tilde{\bm{\alpha}}_{j}\)</span> for <span
+class="math inline">\(j&lt;n\)</span> are normalised and orthogonal to
+all other <span class="math inline">\(\tilde{\bm{\alpha}}_{i\neq
+j}\)</span> for <span class="math inline">\(i&lt;n\)</span> (an
+assumption which is valid as it follows from the base case) necessitates
+that <span class="math display">\[\forall\:\: i,j &lt; n, \:\:
+\oip{\tilde{\bm{\alpha}}_{j}}{\tilde{\bm{\alpha}}_{i}}=
+\delta_{ij}\]</span> Therefore, by induction, our orthogonalisation
+process works for as many basis vectors as we need to convert to our
+orthonormal basis.<br />
 <br />
 Then, after we obtain <span
-class="math inline">\(\alpha&#39;_{n}\)</span>, <span
-class="math display">\[\tilde{\alpha_{n}}=\frac{\alpha&#39;_{n}(x)}{\sqrt{\oip{\alpha&#39;_{n}}{\alpha&#39;_{n}}}}\]</span>
+class="math inline">\(\bm{\alpha}&#39;_{n}\)</span>, <span
+class="math display">\[\tilde{\bm{\alpha}_{n}}=\frac{\bm{\alpha}&#39;_{n}(x)}{\sqrt{\oip{\bm{\alpha}&#39;_{n}}{\bm{\alpha}&#39;_{n}}}}\]</span>
 is normalised and does not affect the orthogonality condition: <span
-class="math display">\[\left(\tilde{\alpha}_{j\neq n},
-\frac{\alpha&#39;_{n}}{\sqrt{\oip{\alpha&#39;_{n}}{\alpha&#39;_{n}}}}\right)=\frac{\oip{\tilde{\alpha}_{j\neq
-n}}{\alpha&#39;_{n}}}{\sqrt{\oip{\alpha&#39;_{n}}{\alpha&#39;_{n}}}}=
-\frac{0}{\sqrt{\oip{\alpha&#39;_{n}}{\alpha&#39;_{n}}}}=0.\]</span><br />
+class="math display">\[\left(\tilde{\bm{\alpha}}_{j\neq n},
+\frac{\bm{\alpha}&#39;_{n}}{\sqrt{\oip{\bm{\alpha}&#39;_{n}}{\bm{\alpha}&#39;_{n}}}}\right)=\frac{\oip{\tilde{\bm{\alpha}}_{j\neq
+n}}{\bm{\alpha}&#39;_{n}}}{\sqrt{\oip{\bm{\alpha}&#39;_{n}}{\bm{\alpha}&#39;_{n}}}}=
+\frac{0}{\sqrt{\oip{\bm{\alpha}&#39;_{n}}{\bm{\alpha}&#39;_{n}}}}=0.\]</span><br />
 We have now fully mathematically proven a procedure which allows us to
 take a linearly independent basis of any size and convert it to an
 orthonormal basis. It obviously is a tedious process if you have a large
@@ -1529,29 +1403,30 @@ terms of linearly independent vectors.<br />
 linearly independent.<br />
 <br />
 This is very easy to prove. Suppose we have a set of mutually orthogonal
-vectors <span class="math inline">\(\mathbb{O}=\{\alpha_{1}, \alpha_{2},
-..., \alpha_{n}\}\)</span>. They are linearly independent if no
-nontrivial combination of these vectors is equal to <span
-class="math inline">\(0\)</span>. Let us write a generalised form of a
-linear combination of these vectors, and set it equal to the null
+vectors <span class="math inline">\(\mathbb{O}=\{\bm{\alpha}_{1},
+\bm{\alpha}_{2}, ..., \bm{\alpha}_{n}\}\)</span>. They are linearly
+independent if no nontrivial combination of these vectors is equal to
+<span class="math inline">\(0\)</span>. Let us write a generalised form
+of a linear combination of these vectors, and set it equal to the null
 vector: <span
-class="math display">\[\sum_{i=1}^{n}c_{i}\alpha_{i}=0\]</span> Now we
-can manipulate the mutual orthogonality of these vectors. <span
+class="math display">\[\sum_{i=1}^{n}c_{i}\bm{\alpha}_{i}=0\]</span> Now
+we can manipulate the mutual orthogonality of these vectors. <span
 class="math display">\[\begin{aligned}
 \forall\: j \in [1,n], \:\:
-\left(\alpha_{j},\sum_{i=1}^{n}c_{i}\alpha_{i}\right)
-&amp;=\oip{\alpha_{j}}{0} \\
-\Rightarrow\:\:  c_{j}\oip{\alpha_{j}}{\alpha_{j}}+\sum_{i=1\neq
-j}^{n}c_{i}\oip{\alpha_{j}}{\alpha_{i}} &amp;= 0 \\
-\Rightarrow\:\: c_{j}\oip{\alpha_{j}}{\alpha_{j}}+\sum_{i=1\neq
-j}^{n}0\times c_{i} &amp;= 0 \\
-\Rightarrow\:\:  c_{j}(\alpha_{j},\alpha_{j})= 0 \Rightarrow\:\:c_{j}
-&amp;= 0
+\left(\bm{\alpha}_{j},\sum_{i=1}^{n}c_{i}\bm{\alpha}_{i}\right)
+&amp;=\oip{\bm{\alpha}_{j}}{0} \\
+\Rightarrow\:\:  c_{j}\oip{\bm{\alpha}_{j}}{\bm{\alpha}_{j}}+\sum_{i=1\neq
+j}^{n}c_{i}\oip{\bm{\alpha}_{j}}{\bm{\alpha}_{i}} &amp;= 0 \\
+\Rightarrow\:\:
+c_{j}\oip{\bm{\alpha}_{j}}{\bm{\alpha}_{j}}+\sum_{i=1\neq j}^{n}0\times
+c_{i} &amp;= 0 \\
+\Rightarrow\:\:  c_{j}(\bm{\alpha}_{j},\bm{\alpha}_{j})= 0
+\Rightarrow\:\:c_{j} &amp;= 0
 \end{aligned}\]</span> unless <span
-class="math inline">\(\oip{\alpha_{j}}{\alpha_{j}}=0\)</span> which is
-impossible unless it is the null vector, which is irrelevant in these
-discussions as it is never considered a basis vector. This proof clearly
-works without loss of generality for each of the constants <span
+class="math inline">\(\oip{\bm{\alpha}_{j}}{\bm{\alpha}_{j}}=0\)</span>
+which is impossible unless it is the null vector, which is irrelevant in
+these discussions as it is never considered a basis vector. This proof
+clearly works without loss of generality for each of the constants <span
 class="math inline">\(c_{i}\)</span>, so it implies that every constant
 <span class="math inline">\(c_{i}=0\)</span>. Therefore the only
 possible linear combination of a set of mutually orthogonal vectors
@@ -1568,34 +1443,35 @@ vector.<br />
 Finally, comes the inner product punchline, which really shows why the
 operation, combined with an orthonormal basis, is so powerful. If we
 recall, for a given basis <span
-class="math inline">\(\setof{\alpha_{i}}\)</span> of the state space it
-spans the space and therefore all state vectors can be expressed in the
-form: <span
-class="math display">\[\Psi=\sum_{i}c_{i}\alpha_{i}.\]</span> The
+class="math inline">\(\setof{\bm{\alpha}_{i}}\)</span> of the state
+space it spans the space and therefore all state vectors can be
+expressed in the form: <span
+class="math display">\[\Psi=\sum_{i}c_{i}\bm{\alpha}_{i}.\]</span> The
 coefficients <span class="math inline">\(c_{i}\)</span> are called the
 components of the vector in that basis <span
-class="math inline">\(\setof{\alpha_{i}}\)</span>, and are seemingly
-difficult to determine for the given basis depending on which vector we
-choose. However, consider the case when the basis chosen is orthonormal,
-or was not orthonormal but has now undergone orthonormalisation under
-the Gram-Schmidt Process. Now, consider the inner product <span
-class="math display">\[\oip{\alpha_{j}}{\Psi}\]</span> for some given
-basis vector <span class="math inline">\(\alpha_{j}\)</span>. This is,
-according to the above expansion, <span
-class="math display">\[\oip{\alpha_{j}}{\Psi}=\oip{\alpha_{j}}{\sum_{\{i\}}c_{i}\alpha_{i}}.\]</span>
+class="math inline">\(\setof{\bm{\alpha}_{i}}\)</span>, and are
+seemingly difficult to determine for the given basis depending on which
+vector we choose. However, consider the case when the basis chosen is
+orthonormal, or was not orthonormal but has now undergone
+orthonormalisation under the Gram-Schmidt Process. Now, consider the
+inner product <span
+class="math display">\[\oip{\bm{\alpha}_{j}}{\Psi}\]</span> for some
+given basis vector <span class="math inline">\(\bm{\alpha}_{j}\)</span>.
+This is, according to the above expansion, <span
+class="math display">\[\oip{\bm{\alpha}_{j}}{\Psi}=\oip{\bm{\alpha}_{j}}{\sum_{\{i\}}c_{i}\bm{\alpha}_{i}}.\]</span>
 Then by the fact S2 of the constant multiple rule and IP 3 of linear
 distributivity again, this is: <span
-class="math display">\[\sum_{\{i\}}c_{i}\oip{\alpha_{j}}{\alpha_{i}}\]</span>
+class="math display">\[\sum_{\{i\}}c_{i}\oip{\bm{\alpha}_{j}}{\bm{\alpha}_{i}}\]</span>
 which by the Kronecker delta results in just <span
-class="math display">\[\oip{\alpha_{j}}{\Psi}=\biggl(\sum_{i\neq
-j}\oip{\alpha_{j}}{\alpha_{i}}\biggr)+c_{i}\oip{\alpha_{j}}{\alpha_{j}}=0+c_{j}\times
+class="math display">\[\oip{\bm{\alpha}_{j}}{\Psi}=\biggl(\sum_{i\neq
+j}\oip{\bm{\alpha}_{j}}{\bm{\alpha}_{i}}\biggr)+c_{i}\oip{\bm{\alpha}_{j}}{\bm{\alpha}_{j}}=0+c_{j}\times
 1=c_{j}.\]</span> This is critical, as we see that these components
 <span class="math inline">\(c_{i}\)</span> in an orthonormal basis are
 not mathematically random: the component corresponding to a basis vector
 can be obtained through the inner product of that basis vector with the
 state vector! The much more eye-opening form of a state vector is after
 you make this substitution for the components: <span
-class="math display">\[\Psi=\sum_{\{i\}}\oip{\alpha_{i}}{\psi}\alpha_{i}.\]</span>
+class="math display">\[\Psi=\sum_{\{i\}}\oip{\bm{\alpha}_{i}}{\Psi}\bm{\alpha}_{i}.\]</span>
 If we find a basis of the state space, we can immediately orthonormalise
 it by the Gram-Schmidt process, and if we can find an orthonormal basis
 for the state space and understand the vectors which form it we can then
@@ -1606,78 +1482,175 @@ useful because orthonormality can often make algebraic manipulations
 like the above.<br />
 <br />
 There is a final note to make. If <span
-class="math display">\[{\psi}_{\alpha}(\alpha_{i})=c_{i}\]</span> and
-<span class="math display">\[\oip{\alpha_{i}}{\Psi}=c_{i}\]</span> for
-an orthonormal basis, we therefore have <span
-class="math display">\[{\psi}_{\alpha}(\alpha_{i})=\oip{\alpha_{i}}{\Psi}.\]</span>
+class="math display">\[{\psi}_{\bm{\alpha}}(\bm{\alpha}_{i})=c_{i}\]</span>
+and <span
+class="math display">\[\oip{\bm{\alpha}_{i}}{\Psi}=c_{i}\]</span> for an
+orthonormal basis, we therefore have <span
+class="math display">\[{\psi}_{\bm{\alpha}}(\bm{\alpha}_{i})=\oip{\bm{\alpha}_{i}}{\Psi}.\]</span>
 In the continuous case, we have <span
-class="math display">\[\oip{x}{\Psi}=\psi_{\alpha}(x)\]</span> where
-<span class="math inline">\(x\)</span> is the continuously variable
-orthonormal basis vector. This is dramatic, because it tells us exactly
-how to form the discrete and continuous wavefunctions given some basis–
-convert it into an orthonormal basis, and find the inner product of the
-state vector with the basis vectors to produce the wavefunction! So, we
-are done with everything we need to know about the state vector. We have
-an object which represents physical states, and we have a way to
+class="math display">\[\oip{x}{\Psi}=\psi_{\bm{\alpha}}(x)\]</span>
+where <span class="math inline">\(x\)</span> is the continuously
+variable orthonormal basis vector. This is dramatic, because it tells us
+exactly how to form the discrete and continuous wavefunctions given some
+basis– convert it into an orthonormal basis, and find the inner product
+of the state vector with the basis vectors to produce the wavefunction!
+So, we are done with everything we need to know about the state vector.
+We have an object which represents physical states, and we have a way to
 transform it into a tangible wavefunction by which we can obtain
 probabilities of measurements in a way shortly to follow.</p>
 <h3 id="scaling-state-vectors">Scaling State Vectors</h3>
-<p>A brief clarification should follow at this point in our work. We
-know that any linear combination of state vectors must create a new
-state vector, because it is a superposition of states. What then,
-happens if we take a state vector and multiply it by a scalar without
-adding any other state vectors to it?<br />
+<p>Through careful discussion, we have begun to understand the key
+bijection which forms the state postulate: <span
+class="math display">\[\text{Physical States} \leftrightarrow
+\text{Hilbert Space Vectors}.\]</span> Technically, however, this is
+still not quite correct. The <em>actual</em> bijection is <span
+class="math display">\[\text{Physical States} \leftrightarrow
+\text{Hilbert Space Rays}.\]</span> Here, a ‘ray’ is a vector with norm
+1. So in particular, taking any state vector <span
+class="math inline">\(\Psi\)</span> and performing <span
+class="math display">\[\Psi \to
+\tilde{\Psi}:=\frac{\Psi}{\sqrt{(\Psi,\Psi)}}\]</span> transforms it
+into a ray in “the same direction". This notion of a “direction" comes
+from the arrow visualisation of vectors, but with the caveat that we are
+in infinite dimensional space so we cannot actually visualise
+geometrically what these directions should look like. However, the
+notion of a direction is useful for our understanding because it helps
+us understand that we can take a unit ray and then multiply it by any
+scalar, creating a new Hilbert space vector, but which is equivalent to
+the original unit ray <em>up to some scaling</em>.<br />
 <br />
-The answer is simply that the resulting state vector represents exactly
-the same state. In other words, for any state vector <span
-class="math inline">\(\Psi\)</span>, the state vector <span
-class="math inline">\(k\Psi\)</span> for some scalar <span
-class="math inline">\(k\)</span> is deemed equivalent to the state
-vector <span class="math inline">\(\Psi\)</span>. This is simply part of
-the state vector postulate. What the postulate sometimes is described as
-is that every <em>ray</em> in the Hilbert space corresponds to a
-physical state, where this word ray refers to the idea that a unique
-expansion would specify theoretically a unique in the Hilbert space,
-just like no two coordinates specify the same direction vector in the
-2-dimensional Cartesian plane, unless one is a scalar multiple of the
-other. Of course, we cannot visualise what this ‘direction’ looks like
-given it is in far greater dimensionality vector spaces then we could
-geometrically imagine, but the rationale is the same. Such discussions,
-though important to clarify, are less important to remember. The idea
-that a scalar multiple of a state vector does not create a truly
-different state vector is good enough for us; of course, the components
-and expansions would be different if one was a scaled version of the
-other, but indeed, the components would be able to be scaled back down
-to the original state vector so the difference is not significant.<br />
+In practice, quantum mechanics regards these scalings as ‘unphysical
+phase factors’. In other words, given some normalised state <span
+class="math inline">\(\tilde{\Psi}\)</span> and any constant <span
+class="math inline">\(c\in\mathbb{C}\)</span> then the state <span
+class="math inline">\(\Psi:=c\tilde{\Psi}\)</span> is “the same state,
+up to some unphysical scaling". Hilbert space vectors which do not have
+norm 1 are not physical states, but since we can always divide by their
+norm to create a unit ray in the Hilbert space, they can be considered
+to be physical states with some redundant scale factor attached. It may
+seem rather arbitrary to discard the multiplicative constants like this,
+but there are two logical justifications for this:</p>
+<ul>
+<li><p>Since we must accept <em>any</em> superposition of basis states
+as a new state, then <span class="math display">\[\forall c_{i}\in
+\mathbb{C}, \:\:\:\: \sum_{\{i\}}c_{i}\bm{\alpha}_{i} \text{is a
+state}\]</span> but then <span class="math display">\[\forall c_{i}\in
+\mathbb{C}, \:\:\:\: \sum_{\{i\}}(10000000)c_{i}\bm{\alpha}_{i} \text{is
+a state}\]</span> and it obviously would seem quite pointless if
+multiplying by arbitrary numbers in the above way created something
+completely new every time.</p></li>
+<li><p>More concretely, the components of the state vector are connected
+to probabilities of measuring the basis states in some way. We do not
+know how just yet, but intuitively, it should make sense that it the
+probabilistic distribution is about the <em>relative weight</em> that
+each basis state gets, not about the absolute weight. In other words,
+multiplying every component by <span
+class="math inline">\(10000000\)</span> might change the absolute value
+of the components, but the component of some arbitrary basis vector
+<span class="math inline">\(\bm{\alpha}_{i}\)</span> will still be
+double the component of some arbitrary basis vector <span
+class="math inline">\(\bm{\alpha}_{j}\)</span> if this was originally
+the case before multiplying by <span
+class="math inline">\(10000000\)</span>. So the relative likelihood of
+<span class="math inline">\(\bm{\alpha}_{i}\)</span> over <span
+class="math inline">\(\bm{\alpha}_{j}\)</span> is in a sense still
+conserved.</p></li>
+<li><p>The reason why having norm 1 makes a state physical, we will see,
+is related to the fact that the probabilities for all possibilities of a
+probabilistic event must sum to 1: something happens with probability 1.
+This is why Hilbert space unit rays are the physically relevant state
+vectors, and any other scaled Hilbert space vectors should be reduced to
+the unit rays in the same directions.<br />
 <br />
-What this does mean, however, is that for a whole infinity of different
-scalar multiples of the same state vector, they all represent the same
-state. So the one which is chosen to be used in quantum mechanical
-calculations is simply the normalised state vector! By our Gram-Schmidt
-Process, this entails taking a state vector <span
-class="math inline">\(\Psi\)</span> and scaling it by the reciprocal of
-its norm: <span
-class="math display">\[\frac{\Psi}{\sqrt{\oip{\Psi}{\Psi}}}\]</span> has
-norm <span class="math inline">\(1\)</span> and is a scaling of the
-state vector because the norm is a real number and thus the reciprocal
-of it is also a real number. We shall see that, due to the fact we will
-want to be interpreting the state vector from the perspective of
-generating probability distribution functions with probabilities we want
-to sum to <span class="math inline">\(1\)</span>, that having a
-normalised state vector is far superior to any other scalar multiples of
-the normalised state vector. Thus, just like we will usually assume that
-all the bases we are working with are orthonormal (since if they weren’t
-we would just orthonormalise them), we will also work with the
-assumption that our state vectors are automatically normalised, without
-needing any notation to show they are. In the end, the scalar multiple
-does not matter in making it represent a different physical state, so
-assuming that we would just normalise it is a completely safe and clean
-assumption. This idea of directions is one we can keep, however: we can
-imagine different vectors in some arrow representation now that we
-understand that it is not forced to take this form, and rotating
-directions corresponds to switching between vectors, while stretching
-the arrows corresponds to scaling the vector without changing its
-direction, which determines which state it represents.</p>
+This discussion will become more concrete in the near future once we
+actually connect the components to measurement probabilities, but
+hopefully it should intuitively make sense why scaling state vectors by
+arbitrary constants should not really have much meaning.</p></li>
+</ul>
+<p>In practice, this will actually make our life much easier, because
+when we solve problems and algebraically manipulate the state vector we
+do not have to preserve normalisation through every step: we can work
+with these unphysical scalings, and only at the end of the problem we
+can normalise the final Hilbert space vector to become a physical state
+space vector. Since unphysical phase factors do not differ from the
+relevant unit ray state, we will always be transforming between states
+in the correct ways regardless of the norms of the state vectors in the
+intermediary steps.</p>
+<h3 id="wavefunctions">Wavefunctions</h3>
+<p>We now understand that there is a bijection <span
+class="math display">\[\text{Physical States} \leftrightarrow
+\text{Hilbert Space Rays}\]</span> However, recall our lengthy
+discussion on how the state vector, without a basis, is
+<em>formless</em>. We must specify a coordinate basis to numerically
+specify the position of an object on a map, and similarly we must
+specify a vector basis for our state space in order to give the state
+vector an actual form. On the other hand, if we <em>are</em> given some
+fixed basis, say <span
+class="math inline">\(\setof{\bm{\alpha}_{i}}\)</span>, we can write
+<span class="math display">\[\Psi =
+\sum_{\setof{i}}c_{i}\bm{\alpha}_{i}\]</span> for some set of
+coefficients <span class="math inline">\(\setof{c_{i}}\)</span>, and in
+particular this set of coefficients is unique, since we have already
+proved the expansion of any constituent vector in a spanning basis of a
+vector space is unique.<br />
+<br />
+Then, however, we can create a new bijection. <strong>In some fixed
+basis</strong>, <span class="math display">\[\text{State Vectors}
+\leftrightarrow \text{Sets of Components}\]</span> using the fact every
+state vector has a unique expansion, and every expansion corresponds to
+a unique state vector. However, we can do better, by defining the
+mapping <span class="math display">\[\psi_{\bm{\alpha}}(x) : \mathbb{B}
+\to \mathbb{C}, \:\: \psi_{\bm{\alpha}}(\bm{\alpha}_{i}) \mapsto
+c_{i}\]</span> which takes an input basis vector from the basis <span
+class="math inline">\(\mathbb{B}\)</span> and outputs its component with
+respect to that basis vector. Note here that the subscript <span
+class="math inline">\(\alpha\)</span> on <span
+class="math inline">\(\psi_{\alpha}\)</span> reflects that in practice
+we always use the same letter with varying indices to denote a set of
+basis vectors, and thus can use the same letter to indicate what basis
+our map is defined in. Now, what does that map look like? There are two
+cases:</p>
+<ol>
+<li><p><strong>Discrete case:</strong> The map will also clearly take a
+discrete set of values, one for each of the discrete basis vectors. A
+clue is that this map <em>resembles the probability mass function</em>,
+which also outputs a discrete set of scalars depending on a discrete set
+of outcomes.</p></li>
+<li><p><strong>Continuous case:</strong> The map should also clearly
+take a continuous set of values. The reason for this is that in for the
+concept of a continuous basis to arise we must have some notion of basis
+vectors being ‘infinitely close’ to each other (otherwise there would be
+gaps between basis vectors and we would have a discrete basis). But
+then, if the Hilbert space state vector is well defined then clearly for
+infinitesimally close basis vectors we must have infinitesimally close
+coefficients in its expansion, which in turn makes this map have a
+continuous output.<br />
+<br />
+A clue is that this map <em>resembles the probability density
+function</em>, which is also a continuous function, where the output
+scalars (which are probabilities) are infinitesimally close for
+infinitesimally close inputs (outcomes).</p></li>
+</ol>
+<p>So we see why our notion of this ‘component map’ will be crucial.
+Given some meaningful basis, our component map should be able to
+transform into a probability distribution function! Now we do not know
+how it does so numerically yet, and neither do we know which bases are
+<em>meaningful</em>, but we will reach this imminently.<br />
+<br />
+Remember, the form of this map, which we henceforth call the
+<strong>wavefunction</strong>, changes based on which basis we have
+picked to express it in (since the output components will be different).
+Thus, there are infinitely many different wavefunctions. We have thus a
+new rich set of bijections! <span class="math display">\[\text{State
+Vectors} \leftrightarrow\text{Basis Wavefunctions}\]</span> but also,
+since <span class="math display">\[\text{Physical States}\leftrightarrow
+\text{State Vectors}\]</span> we therefore must also have <span
+class="math display">\[\text{Physical States}\leftrightarrow\text{Basis
+Wavefunctions}\]</span> So in a sense our state vector is the more
+general, intermediate object, which is in a <em>basis independent</em>
+bijection with physical states; the <em>basis-dependent</em>
+wavefunction is then our final object, which we can use to actually
+encode and deduce probabilities.</p>
 <h3 id="summary">Summary</h3>
 <p>We have begun our study of the quantum state problem. We know that
 there is a state vector in bijection with physical states, and how to

@@ -23,19 +23,24 @@
   </style>
   <link rel="stylesheet" href="style.css" />
   <script>
-      window.MathJax = {
-        loader: { load: ['[tex]/newcommand'] },
-        tex: {
-          packages: { '[+]': ['base', 'ams', 'newcommand'] },
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    window.MathJax = {
+      loader: { load: ['[tex]/newcommand', '[tex]/boldsymbol'] },
+      tex: {
+        packages: { '[+]': ['base', 'ams', 'newcommand', 'boldsymbol'] },
+        macros: {
+          bm: ["\\boldsymbol{#1}", 1]  // Define \bm{} using \boldsymbol{}
         },
-        options: {
-          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-        }
-      };
-      </script>
-      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
       
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
