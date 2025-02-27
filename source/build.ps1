@@ -1,4 +1,4 @@
-for ($i=1; $i -le 9; $i++) {
+for ($i=1; $i -le 10; $i++) {
     $prev = $i - 1
     $next = $i + 1
 
@@ -9,7 +9,7 @@ for ($i=1; $i -le 9; $i++) {
         $prev_link = ""
     }
     
-    if ($next -le 9) {
+    if ($next -le 10) {
         $next_link = "<a href='$next.html'>Next Chapter &rarr;</a>"
     } else {
         $next_link = ""

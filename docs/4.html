@@ -165,8 +165,8 @@ class="math display">\[\Omega_{1}(\Omega_{2}\Psi)=\Omega_{1}\Omega_{2}\Psi\]</sp
 class="math display">\[\Omega_{1}\Omega_{2}\Psi\neq\Omega_{2}\Omega_{1}\Psi\]</span>
 for most pairs of operators <span
 class="math inline">\(\Omega_{1}\)</span> and <span
-class="math inline">\(\Omega_{2}\)</span> (some do happen to commute).
-Moreover, there is in general no useful relation between <span
+class="math inline">\(\Omega_{2}\)</span> (some do by chance). Moreover,
+there is in general no useful relation between <span
 class="math inline">\(\Omega_{1}\Omega_{2}\)</span> and <span
 class="math inline">\(\Omega_{2}\Omega_{1}\)</span>, unlike the inner
 product, which is not commutative, but which follows the much nicer
@@ -460,7 +460,7 @@ For a Hermitian operator <span class="math inline">\(\Omega\)</span>
 with eigenvalues <span class="math inline">\(\lambda_{i}\)</span> and
 eigenvectors <span class="math inline">\(\bm{\alpha}_{i}\)</span>, any
 vector can be expressed in the orthonormal basis: <span
-class="math display">\[\psi=\sum_{i}(\bm{\alpha}_{i},\psi)\bm{\alpha}_{i}\]</span>
+class="math display">\[\Psi=\sum_{i}(\bm{\alpha}_{i},\Psi)\bm{\alpha}_{i}\]</span>
 so <span
 class="math display">\[\Omega\psi=\Omega\sum_{i}(\bm{\alpha}_{i},\psi)\bm{\alpha}_{i}=\sum_{i}(\bm{\alpha}_{i},\psi)\Omega\bm{\alpha}_{i}=\sum_{i}(\bm{\alpha}_{i},\psi)\lambda_{i}\bm{\alpha}_{i}.\]</span>
 This clearly requires no external knowledge other than understanding the
@@ -489,28 +489,10 @@ and we learnt how to create more ‘tangible’ wavefunctions from those
 state vectors. However, we still do not know why wavefunctions are so
 tangible. The genius of the formalism comes when we incorporate
 operators and their orthogonal eigenbases into the picture, where
-wavefunctions in eigenbases will answer our problem.
-<u><strong>Postulate 2: Observables</strong></u><br />
+wavefunctions in eigenbases will answer our problem.<br />
 <br />
-To each physical observable there exists a corresponding hermitian
-operator. There exists an orthonormal eigenbasis of this operator which
-spans the state space: that is, for some observable operator <span
-class="math inline">\(\hat{A}\)</span> with eigenvalues <span
-class="math inline">\(\{A_{i}\}\)</span> corresponding to eigenvectors
-<span class="math inline">\(\{\bm{\alpha}_{i}\}\)</span>, <span
-class="math display">\[\forall\:\Psi, \:\:
-\Psi=\sum_{i}c_{i}\bm{\alpha}_{i}\]</span> for some components <span
-class="math inline">\(\setof{c_{i}}\)</span>. The only possible values
-for the observable whose operator is <span
-class="math inline">\(\hat{A}\)</span> which can be measured are the
-eigenvalues <span class="math inline">\(\setof{A_{i}}\)</span> and these
-correspond to the eigenstates <span
-class="math inline">\(\setof{\bm{\alpha}_{i}}\)</span>. If there comes a
-condition <span
-class="math display">\[\hat{A}\Psi=A_{i}\bm{\alpha}_{i}\]</span> then we
-say that the eigenvalue <span class="math inline">\(A_{i}\)</span> is
-the measured value of the physical observable and the new state vector
-is the eigenvector <span class="math inline">\(\bm{\alpha}_{i}\)</span>.
+<br />
+<br />
 The most essential outcome to us here is that we want real values for
 the results of physical measurements, as imaginary position or imaginary
 energy for example would be nonsense; since the set of eigenvalues <span
@@ -740,16 +722,18 @@ We end this section with a summary on quantum states and inherent
 probability:</p>
 <ul>
 <li><p>In a pure state with respect to a physical observable the state
-vector is made up solely of one eigenvector of the observable operator.
-A measurement will therefore yield the eigenvalue corresponding to that
-eigenvector with probability 1. In such cases (a rarity) a deterministic
-prediction can be made about the results of a measurement.</p></li>
-<li><p>After measurement a state vector is forced into a pure eigenstate
-<span class="math inline">\(\bm{\alpha}_{i}\)</span> with probability
-<span class="math inline">\(|\oip{\bm{\alpha}_{i}}{\Psi}|^2\)</span>.
-Thereon the above determinism of a pure state applies for successive
+vector is made up solely of one eigenvector of the observable operator
+(up to some phase factor). A measurement will therefore yield the
+eigenvalue corresponding to that eigenvector with probability 1. In such
+cases (a rarity) a deterministic prediction can be made about the
+results of a measurement.</p></li>
+<li><p><em>After</em> measurement a state vector is forced into one of
+the constituent pure eigenstates <span
+class="math inline">\(\bm{\alpha}_{i}\)</span> with probability <span
+class="math inline">\(|\oip{\bm{\alpha}_{i}}{\Psi}|^2\)</span>. Thereon
+the above determinism of a pure state applies for successive
 measurements of the same observable unless the system experiences
-external perturbation which once again moves it out of the pure
+external perturbation which moves it out of the pure
 eigenstate.</p></li>
 <li><p>A state vector is in a mixed state with respect to a physical
 observable if the state vector is a non-trivial linear combination of
@@ -763,539 +747,11 @@ not really think of a mixed state as having a value for that specific
 observable. Most naturally occurring states in quantum mechanics are
 indeed mixed states.</p></li>
 </ul>
-<p>Another question still remains. We know that state vectors represent
-states– and that is, physical states. If we think to use our classical
-intuition, we know a physical state can be thought about from the
-perspective of one observable (such as when we consider the momentum of
-two colliding objects). However, that does not mean it does not possess
-any values for all other physical observables, as it still has energy,
-angular momentum, and so on: only that we are not currently considering
-the other observables. Similarly, we would not be particularly pleased
-if the physical states pertaining to a certain measurement of one
-specific observable– these so called pure states– suddenly contained
-absolutely no information on any other observables. This is a question
-of information encapsulation: how does an energy pure state store
-extractable information about momentum, for example? To understand this
-question, which is far more complicated than the classical one of “it’s
-there, and just hasn’t been measured yet”, we treat the two seminal
-theorems on the matter. Along the way, we will also be able to practise
-the mathematical operations we have introduced at a level and intensity
-we have not had the occasion to do so far.</p>
-<h2 id="simultaneous-states">Simultaneous states</h2>
-<p>The question of “simultaneous states” deals with the segue from the
-previous section onto this one. We want to investigate which states
-(state vectors) can contain information on multiple observables at a
-time, and which observables these are. We have seen in the Stern Gerlach
-experiment that for example <span class="math inline">\(x\)</span> and
-<span class="math inline">\(y\)</span> spin simultaneous states are
-impossible, so this is a relevant, fully quantum in nature,
-problem.<br />
-<br />
-It turns out that the ability for different observables to have
-information represented in the same state vectors depends strongly on
-the relationship between their observable operators, as these in turn
-relate their orthonormal eigenvectors. To see this, there is one
-sweeping but simple theorem on operators for observables which can be
-measured simultaneously, and one dramatically anticlassical one for
-observables which cannot.</p>
-<h3 id="the-compatibility-theorem">The Compatibility Theorem</h3>
-<p>Consider an unperturbed system, two physical observables, and three
-measurements ordered chronologically. The first and third measurements
-are for the first physical observable, but the second measurement is for
-the second observable. We know from the Measurement Postulate that:</p>
-<ul>
-<li><p>The first measurement forces the wavefunction into a pure
-eigenstate of the first physical observable operator.</p></li>
-<li><p>The second measurement forces the wavefunction into a pure
-eigenstate of the second physical observable operator.</p></li>
-<li><p>If the second measurement of the different observable did not
-exist, then we would have successive measurements of the same state
-(which is, the operator acting on the same eigenstate the starting state
-vector was forced into following the first measurement) and we would
-expect the same measurement for the observable as we originally
-obtained.</p></li>
-</ul>
-<p>The question is therefore whether or not this second measurement
-changes the result of the third. This is a profound question, because if
-it does, then we would conclude the simple act of measuring the second
-observable has moved the state vector out of the pure eigenstate it was
-in after the first measurement; that would then imply the second
-measurement is in itself a perturbation to the system: a confusing
-result. Indeed– the reader will recognise that this is exactly the class
-of behaviour which appeared so shockingly in the Stern Gerlach
-experiment.<br />
-<br />
-We shall see that the determining factor is what the relationship
-between the two observable operators is. To start off, we will use the
-notations <span class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> as shorthand to distinguish
-between the two observables, so we do not have to name them. We define
-<span class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> to be <strong>compatible
-observables</strong> if the first and third measurements yield the same
-value regardless of the starting state and the value of the second
-observable measured in the second measurement. If we call the values
-measured <span class="math inline">\(\mathcal{A}^{(1)}\)</span>, <span
-class="math inline">\(\mathcal{B}^{(1)}\)</span>, <span
-class="math inline">\(\mathcal{A}^{(2)}\)</span>, then observable <span
-class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> are compatible iff <span
-class="math display">\[\forall\:\Psi,\:\mathcal{B}^{(1)},\:\:\mathcal{A}^{(1)}=\mathcal{A}^{(2)}.\]</span>
-<strong>Compatibility Theorem</strong>: Two observables <span
-class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> are defined compatible if
-they possess a common eigenbasis or their operators commute. These three
-conditions in fact all imply each other. <u>Proof:</u><br />
-<br />
-First we prove that <span class="math inline">\(\hat{A}\)</span>
-commutes with <span class="math inline">\(\hat{B}\)</span> iff they
-possess a common eigenbasis. Consider two observable operators which
-commute, and define their eigenbases to be <span
-class="math inline">\(\{\bm{\alpha}_{i}\}\)</span> and <span
-class="math inline">\(\{\bm{\beta}_{i}\}\)</span>. Now take an arbitrary
-eigenvector <span class="math inline">\(\bm{\alpha}_{i}\)</span> of
-<span class="math inline">\(\hat{A}\)</span> with eigenvalue <span
-class="math inline">\(A_{i}\)</span>. We have <span
-class="math display">\[\hat{A}\hat{B}=\hat{B}\hat{A}\]</span> so we get
-<span
-class="math display">\[\hat{A}\hat{B}\bm{\alpha}_{i}=\hat{B}\hat{A}\bm{\alpha}_{i}=\hat{B}A_{i}\bm{\alpha}_{i}.\]</span>
-However, we can now pull the constant eigenvalue out: <span
-class="math display">\[\hat{A}(\hat{B}\bm{\alpha}_{i})=A_{i}(\hat{B}\bm{\alpha}_{i})\]</span>
-so clearly <span class="math inline">\(\hat{B}\bm{\alpha}_{i}\)</span>
-is an eigenvector of <span class="math inline">\(\hat{A}\)</span>
-corresponding to eigenvalue <span class="math inline">\(A_{i}\)</span>.
-Assuming that the eigenvalues are nondegenerate this implies that <span
-class="math inline">\(\hat{B}(\bm{\alpha}_{i})\)</span> coincides with
-<span class="math inline">\(\bm{\alpha}_{i}\)</span> as the eigenvalue
-<span class="math inline">\(A_{i}\)</span> has only one distinguishable
-eigenvector. The fact that <span
-class="math display">\[\hat{B}\bm{\alpha}_{i}\equiv\bm{\alpha}_{i}\]</span>
-means we must have <span
-class="math display">\[\hat{B}\bm{\alpha}_{i}=c\bm{\alpha}_{i}\]</span>
-for some scalar multiple <span class="math inline">\(c\)</span>. This
-means that <span class="math inline">\(\bm{\alpha}_{i}\)</span> is an
-eigenvector of <span class="math inline">\(\hat{B}\)</span>
-corresponding to eigenvalue <span class="math inline">\(c\)</span>. So
-we can say that <span class="math inline">\(\forall\:i,
-\bm{\alpha}_{i}\)</span> is an eigenvector of <span
-class="math inline">\(\hat{A}\)</span> and <span
-class="math inline">\(\hat{B}\)</span>: which means that they have the
-same eigenbasis. This isn’t of course, to say, the eigenvalues are the
-same for <span class="math inline">\(\hat{B}\)</span> and <span
-class="math inline">\(\hat{A}\)</span> even though it may correspond to
-the same eigenvector (above, they are not the same unless <span
-class="math inline">\(A_{i}=c\)</span>), since we expect the operators
-to be formulated differently so there will still be different values
-measured for each observable. Yet at the same time this is clearly
-helpful: if we know two physical observable operators commute and we
-have the eigenbasis of one then we automatically have the eigenbasis of
-the other.<br />
-<br />
-Now, we prove it the other way around. Assume <span
-class="math inline">\(\hat{A}\)</span> and <span
-class="math inline">\(\hat{B}\)</span> both possess the eigenbasis <span
-class="math inline">\(\{\gamma_{i}\}\)</span>. We want to prove they
-commute. As they possess the same eigenbasis with eigenvalues <span
-class="math inline">\(\{A_{i}\}\)</span> and <span
-class="math inline">\(\{B_{i}\}\)</span> respectively, we can write
-<span
-class="math display">\[\hat{A}\hat{B}\gamma_{i}=\hat{A}B_{i}\gamma_{i}=B_{i}\hat{A}\gamma_{i}=B_{i}A_{i}\gamma_{i}\]</span>
-and the exact same applies for <span
-class="math inline">\(\hat{B}\hat{A}\gamma_{i}\)</span>: <span
-class="math display">\[\hat{B}\hat{A}\gamma_{i}=\hat{B}A_{i}\gamma_{i}=A_{i}\hat{B}\gamma_{i}=A_{i}B_{i}\gamma_{i}.\]</span>
-Clearly, as <span class="math inline">\(A_{i}\)</span> and <span
-class="math inline">\(B_{i}\)</span> are constant eigenvalues, <span
-class="math display">\[A_{i}B_{i}\equiv B_{i}A_{i}.\]</span> So this
-easily proves that two observable operators possessing the same
-eigenbasis must commute. Thus the implication works both ways and
-therefore two observable operators commute iff they share a common
-eigenbasis.<br />
-<br />
-Now to look at the practical definition: we are probably more interested
-in the concept of compatibility, as it concerns whether or not a
-measurement of a second observable in between measurements of a first
-observable will alter the measured results from the first measurement,
-effectively forcing the state vector out of the pure eigenstate it was
-forced into. Let’s first prove that two observables having common
-operator eigenbases is necessary and sufficient for the above defined
-definition of compatibility to hold.<br />
-<br />
-Start by considering two observables <span
-class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> represented by operators
-<span class="math inline">\(\hat{A}\)</span> and <span
-class="math inline">\(\hat{B}\)</span> respectively. Define the
-measurements to be <span
-class="math inline">\(\mathcal{A}^{(1)},\mathcal{B}^{(1)}\)</span>,
-<span class="math inline">\(\mathcal{A}^{(2)}\)</span>. For the
-observables to be compatible we need <span
-class="math inline">\(\mathcal{A}^{(1)}\)</span> to be the same as <span
-class="math inline">\(\mathcal{A}^{(2)}\)</span> regardless of the
-starting state and <span
-class="math inline">\(\mathcal{B}^{(2)}\)</span>. Assume to begin with
-that the two operators <span class="math inline">\(\hat{A}\)</span> and
-<span class="math inline">\(\hat{B}\)</span> have the common eigenbasis
-<span class="math inline">\(\{\gamma_{i}\}\)</span>. By definition the
-first measurement of <span class="math inline">\(\mathcal{A}\)</span>
-must force the state vector into a single eigenvector in the eigenbasis
-of the operator <span class="math inline">\(\hat{A}\)</span>: that is,
-some <span class="math inline">\(\gamma_{i}\)</span> such that the
-measured value is for observable <span
-class="math inline">\(\mathcal{A}\)</span> the eigenvalue <span
-class="math inline">\(A_{i}\)</span>. Next, measurement <span
-class="math inline">\({{B}}^{(1)}\)</span> is the action of the operator
-<span class="math inline">\(\hat{B}\)</span> on the eigenvector <span
-class="math inline">\(\gamma_{i}\)</span>. But by the Measurement
-Postulate of quantum mechanics, <span
-class="math display">\[P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\Psi}|^2\]</span>
-That is, the probability that the arbitrary operator <span
-class="math inline">\(\hat{A}\)</span> forces the state vector into an
-arbitrary eigenvector <span
-class="math inline">\(\bm{\alpha}_{i}\)</span> from its eigenbasis.
-Here, then, since the state vector has been forced into the eigenstate
-<span class="math inline">\(\gamma_{i}\)</span> by the first
-measurement, the probability the second measurement of the other
-observable <span class="math inline">\(\mathcal{B}\)</span> forces the
-state vector into the same eigenstate is: <span
-class="math display">\[P(\gamma_{i})=|\oip{\gamma_{i}}{\gamma_{i}}|^2=1\]</span>
-where we assume as per usual that the eigenvectors <span
-class="math inline">\(\gamma_{i}\)</span> have been normalised. So we
-can say that measurement B will not alter the eigenstate the state
-vector is in and therefore the third measurement will follow the same
-logic to yield the exact same value, the eigenvalue <span
-class="math inline">\(A_{i}\)</span> corresponding to <span
-class="math inline">\(\gamma_{i}\)</span>. Thus, if two observable
-operators possess the same eigenbasis, they are compatible
-observables.<br />
-<br />
-If the observables are compatible then this implies their operators have
-the same eigenbasis. The proof for this is simple. If the observables
-<span class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> are compatible then for the
-successive measurements <span
-class="math inline">\(\mathcal{A}^{(1)},\mathcal{B}^{(1)},\mathcal{A}^{(2)}\)</span>
-the measured values for <span
-class="math inline">\(\mathcal{A}^{(1)}\)</span> and <span
-class="math inline">\(\mathcal{A}^{(2)}\)</span> must be the same. The
-measurement <span class="math inline">\(\mathcal{A}^{(1)}\)</span> must
-have forced the wavefunction into an eigenvector of <span
-class="math inline">\(\hat{A}\)</span>, some arbitrary <span
-class="math inline">\(\bm{\alpha}_{i}\)</span>. Then, the measurement
-<span class="math inline">\(\mathcal{B}^{(1)}\)</span> must force the
-wavefunction into some arbitrary eigenvector <span
-class="math inline">\(\bm{\beta}_{i}\)</span> of the operator <span
-class="math inline">\(\hat{B}\)</span>. However, the final measurement
-must yield the same result as the first if the observables are
-compatible, which is, the same eigenvalue corresponding to the same
-eigenvector <span class="math inline">\(\bm{\alpha}_{i}\)</span> of
-operator <span class="math inline">\(\hat{A}\)</span> as it originally
-was in. The probability that the measurement forces the wavefunction,
-currently in the eigenstate <span
-class="math inline">\(\bm{\beta}_{i}\)</span> of <span
-class="math inline">\(\hat{B}\)</span> as the measurement <span
-class="math inline">\(\mathcal{B}^{(1)}\)</span> has just been
-performed, into the same eigenstate <span
-class="math inline">\(\bm{\alpha}_{i}\)</span> as originally measured
-is: <span
-class="math display">\[P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\bm{\beta}_{i}}|^2.\]</span>
-However, if these observables are to be compatible, the final
-measurement must with certainty yield the eigenvalue <span
-class="math inline">\(A_{i}\)</span> again and therefore the above
-probability of measurement <span
-class="math inline">\(\mathcal{A}^{(2)}\)</span> forcing it back into
-the original eigenstate must be 1. So <span
-class="math display">\[|\oip{\bm{\alpha}_{i}}{\bm{\beta}_{i}}|^2=1
-\Rightarrow\:\: \bm{\alpha}_{i}\equiv\bm{\beta}_{i}\]</span> and
-therefore their eigenbases must be the same as the above holds true for
-any arbitrary <span class="math inline">\(\bm{\alpha}_{i}\)</span> and
-corresponding <span class="math inline">\(\bm{\beta}_{i}\)</span> from
-the measurements.<br />
-<br />
-The Compatibility Theorem is now complete. We have shown that:</p>
-<ul>
-<li><p>Two operators commuting is necessary and sufficient for them to
-possess a common eigenbasis.</p></li>
-<li><p>Two operators possessing a common eigenbasis is necessary and
-sufficient for the two observables they represent to be
-compatible.</p></li>
-<li><p>Therefore, two observable operators commuting is also necessary
-and sufficient for them to represent compatible observables.</p></li>
-</ul>
-<p>The logical implications of these facts all run three ways.<br />
-<br />
-While we have now seen facts about compatible observables, an example of
-incompatible observables sticks in our mind– that of the Stern Gerlach
-experiment. We saw exactly that <span class="math inline">\(x\)</span>
-and <span class="math inline">\(y\)</span> spins were incompatible,
-because measuring the <span class="math inline">\(x\)</span> spin in
-between two <span class="math inline">\(y\)</span> measurements stopped
-the second <span class="math inline">\(y\)</span> measurement from being
-the same as the first with certainty– which is to say, we now know, that
-the measurement of <span class="math inline">\(x\)</span> spin forced it
-out of the eigenstate of <span class="math inline">\(y\)</span> spin it
-had been previously forced into. All the questions about the quantum
-state raised by the Stern Gerlach experiment will finally come to an end
-with this section. We would like to formalise our understanding of how
-incompatibility affected the experiment. To explain it all, we witness–
-and prove ourselves!– one of Physics’ most groundbreaking and shocking
-theorems.</p>
-<h2 id="the-heisenberg-uncertainty-principle">The Heisenberg Uncertainty
-Principle</h2>
-<p>The idea of commuting observable operators being necessary and
-sufficient for the two observables they represent to be compatible is a
-very important one for the question of simultaneous states, and has been
-shown above. Now we must surely consider when two observable operators
-do not commute: in other words, when they represent
-<strong>incompatible</strong> observables. One of the most important and
-dramatic results of all quantum mechanics, the Heisenberg Uncertainty
-Principle, results when we carry out some elegant mathematics to
-investigate this problem. Before we begin the statement and proof, let
-us define the commutator between two operators to be <span
-class="math display">\[[\hat{A},\hat{B}]:=\hat{A}\hat{B}-\hat{B}\hat{A}\]</span>
-so that if we have two commuting operators <span
-class="math inline">\(\hat{A}\)</span> and <span
-class="math inline">\(\hat{B}\)</span>, then <span
-class="math display">\[[\hat{A},\hat{B}]=\hat{A}\hat{B}-\hat{B}\hat{A}=0\]</span>
-since <span class="math inline">\(\hat{A}\hat{B}=\hat{B}\hat{A}\)</span>
-iff they commute. For operators which do not commute, their commutator
-may take a wide variety of forms: which is why it is useful under
-universal convention to have this shorthand.</p>
-<div class="tcolorbox">
-<p><strong><u>Heisenberg Uncertainty Principle</u></strong><br />
-<br />
-For any state <span class="math inline">\(\Psi_{t}\)</span>, <span
-class="math display">\[\Delta A_{t}\Delta
-B_{t}\geq\frac{1}{2}|\oip{\Psi_{t}}{[\hat{A},\hat{B}]\Psi_{t}}|\]</span>
-where <span class="math inline">\(\Delta A_{t}\)</span> is the standard
-deviation of measurable values of observable <span
-class="math inline">\(\mathcal{A}\)</span> at time <span
-class="math inline">\(t\)</span>: which is therefore a measure of
-uncertainty for these variables.</p>
-</div>
-<p><u><strong>Proof:</strong></u><br />
-<br />
-We will continue to refer to arbitrary observables <span
-class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> for the proof; all the proof
-is relevant at any instant of time and so time subscripts will be
-eschewed. The notation <span class="math inline">\(\Delta A\)</span>
-refers to the standard deviation of the measurements of observable <span
-class="math inline">\(\mathcal{A}\)</span>; this standard deviation is
-no different from the statistical definition: <span
-class="math display">\[\Delta A=\sqrt{\langle \hat{A}^2\rangle-\langle
-\hat{A}\rangle^2}\]</span> where the symbol <span
-class="math inline">\(\langle X\rangle\)</span> is the expected value of
-the variable <span class="math inline">\(X\)</span>, as seen in the
-probability preliminary. First we note that this principle is valid for
-compatible observables: as compatible observables, their operators must
-commute. Thus <span class="math display">\[[\hat{A},\hat{B}]=0
-\Rightarrow\:\: \Delta A_{t}\Delta
-B_{t}\geq\frac{1}{2}|\oip{\Psi_{t}}{[\hat{A},\hat{B}]\Psi_{t}}| =
-\frac{1}{2}|\oip{\Psi_{t}}{0} |=0.\]</span> So for compatible
-observables, <span class="math display">\[\Delta A_{t}\Delta B_{t}\geq
-0\]</span> which is neither interesting nor invalid at all since the
-standard deviation of any measurement can never be negative. Now, we
-will prove this for all physical operators, regardless of whether they
-commute.<br />
-<br />
-<u><strong>Lemma 1:</strong></u><br />
-Any operator <span
-class="math inline">\(\hat{X}&#39;:=\hat{X}-\qexp{\hat{X}}\)</span>
-where <span class="math inline">\(\hat{X}\)</span> is a Hermitian
-physical operator is also Hermitian.<br />
-<br />
-<u><strong>Proof:</strong></u><br />
-<br />
-Recall that the definition for an expected value of a variable is the
-sum of its possible values multiplied by the probabilities of the
-variable taking those values. Therefore, we can say that, over the
-eigenbasis <span class="math inline">\(\{\xi_{i}\}\)</span> of <span
-class="math inline">\(\hat{X}\)</span> with eigenvalues <span
-class="math inline">\(\{X_{i}\}\)</span>, <span
-class="math display">\[\qexp{\hat{X}}=\sum_{\{i\}}P(\xi_{i})X_{i},\]</span>
-but by our knowledge of the previous postulates we can describe the
-probability more precisely: the measurement postulate defines this to be
-<span
-class="math display">\[\qexp{\hat{X}}=\sum_{\{i\}}X_{i}|\oip{\xi_{i}}{\Psi}|^2.\]</span>
-Our job is to prove that the operator <span
-class="math inline">\(\hat{X}&#39;:=\hat{X}-\qexp{\hat{X}}\)</span> is
-hermitian if <span class="math inline">\(\hat{X}\)</span> is hermitian
-for all quantum operators. That is, we need to prove that: <span
-class="math display">\[\oip{\Psi_{1}}{\hat{X}&#39;\Psi_{2}}=\oip{\hat{X}&#39;\Psi_{1}}{\Psi_{2}}\]</span>
-for all Hilbert space functions <span
-class="math inline">\(\Psi_{1}\)</span> and <span
-class="math inline">\(\Psi_{2}\)</span>. The operator <span
-class="math inline">\(\hat{X}\)</span> must be hermitian as <span
-class="math inline">\(\hat{X}\)</span> is defined to be a quantum
-operator corresponding to a physical observable. Meanwhile, the
-expectation value <span
-class="math display">\[\qexp{\hat{X}}=\sum_{\{i\}}X_{i}|\oip{\xi_{i}}{\Psi}|^2.\]</span>
-is clearly a real scalar, as the probabilities, which are square moduli,
-will all be real numbers and so will each eigenvalue of the hermitian
-operators. Therefore, <span
-class="math display">\[\oip{\hat{X}\Psi_{1}}{\Psi_{2}}\equiv\oip{\Psi_{1}}{\hat{X}\Psi_{2}}\]</span>
-and <span
-class="math display">\[\oip{\qexp{\hat{X}}\Psi_{1}}{\Psi_{2}}\equiv\oip{\Psi_{1}}{\langle\hat{X}\rangle\Psi_{2}}\equiv\qexp{\hat{X}}\oip{\Psi_{1}}{\Psi_{2}}\]</span>
-so for any physical operator <span
-class="math inline">\(\hat{X}\)</span> the defined operator <span
-class="math inline">\(\hat{X}&#39;\)</span> is the sum of two hermitian
-operators. So <span class="math display">\[\begin{aligned}
-\oip{\hat{X}&#39;\Psi_{1}}{\Psi_{2}}&amp;=\oip{[\hat{X}-\langle\hat{X}\rangle]\Psi_{1}}{\Psi_{2}}=\oip{\hat{X}\Psi_{1}}{\Psi_{2}}-\oip{\langle\hat{X}\rangle\Psi_{1}}{\Psi_{2}}\\
-&amp;=\oip{\Psi_{1}}{\hat{X}\Psi_{2}}-\oip{\Psi_{1}}{\langle\hat{X}\rangle\Psi_{2}}\\
-&amp;=\oip{\Psi_{1}}{\hat{X}&#39;\Psi_{2}}
-\end{aligned}\]</span> using the linear properties of the inner product.
-Thus, the operator <span class="math inline">\(\hat{X}&#39;\)</span> is
-Hermitian for any physical operator. Therefore, defining <span
-class="math inline">\(\hat{A&#39;}:=\hat{A}-\qexp{\hat{A}}\)</span> and
-<span
-class="math inline">\(\hat{B}&#39;:=\hat{B}-\qexp{\hat{B}}\)</span> for
-the purpose of the problem also gives us two hermitian operators. <span
-class="math inline">\(\square\)</span><br />
-<br />
-The commutator in the generalised principle might give pause with
-regards to the development of these new operators, but, importantly,
-<span
-class="math display">\[[\hat{A}&#39;,\hat{B}&#39;]=[\hat{A},\hat{B}].\]</span>
-This fact can be proved quite simply: <span
-class="math display">\[\begin{aligned}
-[\hat{A}&#39;,\hat{B}&#39;]&amp;= \hat{A}&#39;\hat{B}&#39;-
-\hat{A}&#39;\hat{B}&#39;\\
-&amp;=
-(\hat{A}-\qexp{\hat{A}})(\hat{B}-\qexp{\hat{B}})-(\hat{B}-\qexp{\hat{B}})
-(\hat{A}-\qexp{\hat{A}})\\
-&amp;=(\hat{A}\hat{B}-\hat{A}\qexp{\hat{B}}-\qexp{\hat{A}}\hat{B}-\qexp{\hat{A}}\qexp{\hat{B}})-(\hat{B}\hat{A}-\hat{B}\qexp{\hat{A}}-\qexp{\hat{B}}\hat{A}-\qexp{\hat{B}}\qexp{\hat{A}})
-\end{aligned}\]</span> but as the expectation values <span
-class="math inline">\(\qexp{\hat{A}}\)</span> and <span
-class="math inline">\(\qexp{\hat{B}}\)</span> are real scalars it is
-clear that <span
-class="math inline">\(\qexp{\hat{A}}\qexp{\hat{B}}=\qexp{\hat{B}}\qexp{\hat{A}}\)</span>,
-and <span
-class="math inline">\(\qexp{\hat{A}}\hat{B}=\hat{B}\qexp{\hat{A}}\)</span>
-and vice versa swapping the <span class="math inline">\(A\)</span> and
-<span class="math inline">\(B\)</span> around. So the terms cancel out
-and we are left with <span
-class="math display">\[[\hat{A}&#39;,\hat{B}&#39;]=\hat{A}\hat{B}-\hat{B}\hat{A}:=[\hat{A},\hat{B}].
-\:\:\square\]</span> Now, one last important lemma:<br />
-<br />
-<u><strong>Lemma 2:</strong></u><br />
-<span
-class="math display">\[\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}=(\Delta\hat{A})^2\]</span><br />
-<br />
-<u><strong>Proof:</strong></u><br />
-By the Hermiticity of <span class="math inline">\(\hat{A}&#39;\)</span>,
-<span
-class="math display">\[\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}=\oip{\Psi}{([\hat{A}&#39;]^2\Psi}.\]</span>
-Expanding the definition, <span class="math display">\[\begin{aligned}
-\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}&amp;=\oip{\Psi}{\hat{A}&#39;^2\Psi}\\
-&amp;=\oip{\Psi}{[\hat{A}-\qexp{\hat{A}}][\hat{A}-\qexp{\hat{A}}]\Psi}\\
-&amp;=\oip{\Psi}{[\hat{A}^{2}]\Psi-2\qexp{\hat{A}}\hat{A}\Psi+\qexp{\hat{A}}^2\Psi}\\
-&amp;=\oip{\Psi}{[\hat{A}^{2}]\Psi}-2\qexp{\hat{A}}\oip{\Psi}{\hat{A}\Psi}+\qexp{\hat{A}}^2\oip{\Psi}{\Psi}\\
-&amp;=\langle\hat{A}^2\rangle\oip{\Psi}{\Psi}-2\qexp{\hat{A}}\qexp{\hat{A}}\oip{\Psi}{\Psi}+\qexp{\hat{A}}^2\oip{\Psi}{\Psi}\\
-&amp;=
-\langle\hat{A}^2\rangle-2\qexp{\hat{A}}\qexp{\hat{A}}+\qexp{\hat{A}}^2\\
-&amp;=\langle\hat{A}^2\rangle-\qexp{\hat{A}}^2\\
-&amp;=(\Delta\hat{A})^2 \:\:\:\:\:\:\square
-\end{aligned}\]</span> Now we can use these lemmas to prove the problem.
-We want to prove that <span
-class="math display">\[\Delta{A}\Delta{B}\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|\]</span>
-at all times <span class="math inline">\(t\)</span>. We start by
-replacing <span class="math inline">\([\hat{A},\hat{B}]\)</span> with
-<span class="math inline">\([\hat{A}&#39;,\hat{B}&#39;]\)</span>. Then,
-we have, <span
-class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\Psi}{[\hat{A}&#39;,\hat{B}&#39;]\Psi}=\oip{\Psi}{[\hat{A}&#39;\hat{B}&#39;-\hat{B}&#39;\hat{A}&#39;]\Psi}.\]</span>
-This is, <span
-class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\Psi}{\hat{A}&#39;\hat{B}&#39;\Psi}-\oip{\Psi}{\hat{B}&#39;\hat{A}&#39;\Psi}
-.\]</span> We can rearrange this by the hermiticity of <span
-class="math inline">\(\hat{A}&#39;\)</span> and <span
-class="math inline">\(\hat{B}&#39;\)</span>: <span
-class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}-\oip{\hat{B}&#39;\Psi}{\hat{A}&#39;\Psi}=\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}-\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}^{\ast}\]</span>
-so this is <span
-class="math display">\[\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=2i\text{Im}\left(\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}\right)\]</span>
-according to rudimentary arithmetic of complex numbers. Then, the
-expression we need is <span
-class="math display">\[\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|\leq\frac{1}{2}\times2|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|=|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|.\]</span>
-This is because of the above expression for <span
-class="math inline">\(\oip{\Psi}{[\hat{A},\hat{B}]\Psi}\)</span> and the
-fact that the modulus of the imaginary part of a scalar cannot be
-greater than the modulus of the scalar (Exercise 1.3.2a). Then, by Lemma
-2 <span
-class="math display">\[\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}=(\Delta\hat{A})^2\Rightarrow\:\:\Delta\hat{A}=\sqrt{\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}}.\]</span>
-So <span
-class="math display">\[\Delta\hat{A}\Delta\hat{B}=\sqrt{\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}}\sqrt{\oip{\hat{B}&#39;\Psi}{\hat{B}&#39;\Psi}}.\]</span>
-By Cauchy-Schwartz, <span
-class="math display">\[\sqrt{\oip{\hat{A}&#39;\Psi}{\hat{A}&#39;\Psi}}\sqrt{\oip{\hat{B}&#39;\Psi}{\hat{B}&#39;\Psi}}\geq|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|\]</span>
-and so, conclusively, <span
-class="math display">\[\Delta\hat{A}\Delta\hat{B}=\sqrt{(\hat{A}&#39;\Psi,\hat{A}&#39;\Psi)}\sqrt{(\hat{B}&#39;\Psi,\hat{B}&#39;\Psi)}\geq|\oip{\hat{A}&#39;\Psi}{\hat{B}&#39;\Psi}|\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|\]</span>
-so <span
-class="math display">\[\Delta\hat{A}\Delta\hat{B}\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|.\]</span>
-This proves Heisenberg’s Uncertainty Principle. <span
-class="math inline">\(\square\)</span><br />
-<br />
-This general form we have above is still difficult to interpret, but if
-we consider a few examples we will realise this is a very important
-result. One of the most famous iterations comes with considering simply
-the two central operators of quantum mechanics: the position and
-momentum operators, which we have not yet introduced but will for now
-just use for calculation purposes. We can calculate the commutator:
-<span class="math display">\[\begin{aligned}
-&amp;[\hat{X},\hat{P}]=\hat{X}\hat{P}-\hat{P}\hat{X}\\
-\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=-xi\hbar\frac{\partial}{\partial
-x}\Psi(x)--i\hbar\frac{\partial}{\partial x}\biggl(x\Psi(x)\biggr)\\
-\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=-i\hbar x\frac{\partial
-\Psi}{\partial
-x}--i\hbar\biggl[\frac{dx}{dx}\Psi(x)+x\frac{\partial\Psi}{\partial
-x}\biggr]\\
-\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=-i\hbar\biggl[x\frac{\partial\Psi}{\partial
-x}-\Psi(x)-x\frac{\partial\Psi}{\partial x}\biggr]\\
-\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\Psi(x)=i\hbar\Psi(x)\\
-\Rightarrow\:\:&amp;[\hat{X},\hat{P}]\equiv i\hbar.
-\end{aligned}\]</span> After this, if we plug this into the Generalised
-Uncertainty principle and assume that the wavefunction is normalised,
-<span
-class="math display">\[\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|\oip{\Psi}{i\hbar\Psi}|
-\Rightarrow
-\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|i\hbar\oip{\Psi}{\Psi}|=\frac{1}{2}|i\hbar|=\frac{1}{2}\sqrt{-i\hbar\times
-i\hbar}=\frac{\hbar}{2}.\]</span> The key end result is that <span
-class="math display">\[\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{\hbar}{2}.\]</span>
-This is the most well known form of the Uncertainty Principle, but we
-can see that the Generalised Uncertainty Principle can be applied more
-broadly than just to the two observables of position and momentum.<br />
-<br />
-Returning to our considerations of the physical results of trying to
-measure two incompatible observables, it is clear how bizarre this
-result is. Consider if we have just made a measurement for the position
-of a particle. Then we have forced its wavefunction into a position
-eigenstate and therefore we can say that the uncertainty in the position
-is now <span class="math inline">\(0\)</span>: we know the successive
-measurement must yield the same position value with probability 1.
-However, if we plug in <span
-class="math inline">\(\Delta{\hat{X}}\)</span> into the Uncertainty
-Principle we get <span
-class="math display">\[0\times\Delta\hat{P}\geq\frac{\hbar}{2}\]</span>
-which implies somehow that the uncertainty in momentum must be infinite!
-So if we know the value of the position with certainty we are completely
-unable to distinguish between infinite possibilities for the momentum.
-The relationship works both ways so the same applies for the momentum:
-if we know the momentum of a particle then we necessarily have infinite
-uncertainty in the position of the particle and we have not a clue where
-it is. This is undoubtedly one of the most anti-classical results in
-quantum mechanics, and yet it results beautifully from the mathematics
-we have defined (and has never been experimentally refuted). If nothing
-else, it should now be clear that the mathematical manipulations of
-quantum mechanics are rich and impactful.<br />
-<br />
-The same is manifested, of course, in the Stern-Gerlach experiment. By
-knowing <span class="math inline">\(x\)</span> spin, we had infinite
-uncertainty in <span class="math inline">\(y\)</span> spin- with
-absolutely no way to tell if an electron would be up or down spin. By
-knowing the <span class="math inline">\(y\)</span> spin, we had infinite
-uncertainty in the <span class="math inline">\(x\)</span> spin. This is
-one example of an experimental verification of the Heisenberg
-Uncertainty Principle.</p>
 <h2 id="probability-mass-functions">Probability Mass Functions</h2>
-<p>We conclude this section on measurements, and indeed conclude the
-state problem, with a formalisation of how discrete wavefunctions
-encapsulate probabilities as probability mass functions.<br />
+<p>We conclude this chapter on measurements, and indeed conclude the
+fundamental postulates dealing with the quantum state problem, with a
+formalisation of how discrete wavefunctions encapsulate probabilities as
+probability mass functions.<br />
 <br />
 We have already stated that the discrete wavefunction, which we denoted
 <span class="math inline">\({\psi}_{\bm{\alpha}}(x)\)</span> with a
@@ -1310,12 +766,12 @@ that these components are probabilities, because of the measurement
 postulate and the common expansion we have already proved!<br />
 <br />
 If the discrete wavefunction is a probability mass function, then
-necessarily the modulus squared of its outputs must sum to exactly <span
-class="math inline">\(1\)</span>. This is naturally because the modulus
-squared of its outputs are the modulus squared of the probability
-amplitudes, which are probability densities and must sum to <span
-class="math inline">\(1\)</span>, therefore. There is an important
-clarification to make to prove that our formalism works.<br />
+necessarily the modulus squared of its outputs (the probabilities of the
+state taking each pure eigenstate) must sum to exactly <span
+class="math inline">\(1\)</span>. Thus as we must get some result for a
+measurement, the sum of probabilities is the probability that some
+result will occur, and thus 1. There is an important clarification to
+make to prove that our formalism works.<br />
 <br />
 <em>Claim: The modulus squared components of a normalised state vector
 must sum to 1 in a discrete basis.</em><br />
@@ -1326,7 +782,7 @@ possible measurements of an observable must sum to <span
 class="math inline">\(1\)</span>, which must be true if they are to be
 considered probabilities in the first place.<br />
 <br />
-<strong><u>Proof:</u></strong><br />
+<u>Proof:</u><br />
 <br />
 For some state vector <span
 class="math display">\[\Psi:=\sum_{\{i\}}c_{i}\bm{\alpha}_{i}\]</span>
@@ -1359,9 +815,7 @@ state, we can then transform that state vector into wavefunctions in
 another bijection to the state and state vector, and in the discrete
 case the modulus squared of the outputs of these wavefunctions are the
 probabilities we need if we want to make predictions about
-measurements.<br />
-<br />
-Now, we are ready to move onto time evolution.</p>
+measurements.</p>
 <h2 id="exercises-from-chapter-4ast">Exercises from Chapter 4<span
 class="math inline">\(\ast\)</span></h2>
 <ol>

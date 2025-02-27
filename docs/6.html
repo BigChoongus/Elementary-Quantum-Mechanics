@@ -96,803 +96,824 @@
     \newcommand{\oip}[2]{\left(#1,#2\right)}
     \newcommand{\obip}[2]{\left(#1,#2\right)}
     $$
-<h1 id="chapter-6-dirac-notation-and-matrix-mechanics">Chapter 6: Dirac
-Notation and Matrix Mechanics</h1>
-<p>The second part of this book, starting now, will be far more
-mathematically demanding. It seeks to complete the original aim of this
-pragmatic book: to allow a reader to segue onto mathematically advanced
-quantum mechanics texts without chronic confusions of what the
-mathematics <em>means</em>. Particularly, we will now tackle the
-challenging case of extending our quantum mechanics to cover
-continuously distributed observables.<br />
+<h1 id="chapter-6-time-evolution-and-problem-solving-techniques">Chapter
+6: Time Evolution and Problem Solving Techniques</h1>
+<p>We will complete our study of the postulates of quantum mechanics in
+this chapter, which will be more pragmatic than the precedent two
+chapters where we had to deal with abstract mathematical theory in
+vector spaces and operators. The time-evolution problem, which we will
+study in this chapter, will prove to be a double-edged challenge. On one
+hand, the time evolution postulate is completely trivial conceptually,
+especially compared to the state vector, observable and measurement
+postulates, so the reader can breathe a sigh of relief and know they
+won’t have to deal with learning a new field of mathematics just to
+tackle this problem. All it will include is learning one equation: the
+all-famous Schrödinger Equation postulated by Erwin Schrödinger, and
+this equation will not be difficult to understand. On the other hand,
+the time evolution problem has by far the most potential to be complex,
+and in some advanced cases, impossible to solve without new intensely
+demanding mathematical techniques for manipulation and indeed often
+(though still very accurate) approximation. This should not be
+disheartening, however. The fact that it is very difficult for the
+reader to produce numerical predictions for a very complex
+multi-particle system in a constantly varying electrical field simply
+with nothing but an A4 sheet and their algebraic knowledge is nothing
+other than to be expected. Feynman, Dirac, Heisenberg, Pauli were not
+immortalised for only reaching the depth of an introductory book like
+this one. The Schrödinger Equation is still always valid, even when it
+is difficult for us to practically solve the actual complete solutions
+of it.<br />
 <br />
-We have covered now all of the quantum mechanical postulates we need to
-cover. On the other hand, our problem solving skills, which are very
-different in quantum mechanics to just standard algebra, are still very
-limited in the wider scope of things. There are many manipulative
-techniques we have not covered which are fundamental, but far from
-trivial. Furthermore, learning these techniques will require a
-reformulation of almost everything we have done so far into a new
-notation. This switch will be strange and unwelcome at first, but sooner
-than later the reader will find that the new notation is far more useful
-than confusing, and at that point they will be on a very good path
-indeed.<br />
+Before we start on that, however, there are two pragmatic clarifications
+to be made, both of which are related to the explicit forms of operators
+and how we use them in problem solving. These are, observable spaces and
+formulation of the observable operators.</p>
+<h2 id="more-on-observable-operators">More on Observable Operators</h2>
+<h3 id="observable-spaces">Observable Spaces</h3>
+<p>When we refer to an ‘observable space", we do not mean a space we can
+observe. We mean the state space when it is spanned by a physical
+observable. Precisely, that means working with the state space where the
+underlying basis is an eigenbasis of some observable operator.<br />
 <br />
-The benefit of this somewhat counterintuitive approach of learning one
-way and then reformulating into a new notation is not only that we don’t
-have several factors affecting our understanding at once and causing
-trouble, but that the reader gets training to an undoubtedly
-undergraduate level without wrecking their ability to appreciate nuances
-as they grapple with difficult problems. Without a wider context of
-measurements and probabilities and state evolution within which to frame
-the mathematics in this book, it would seem like an endless barrage of
-symbols for which we have no use and no appreciation. On the other hand,
-after reading the previous chapters, we are capable of understanding why
-components are important– they are probability amplitudes; how the state
-vector is both a label and can be used as a substitute for a physical
-state; how operators are central to the measurements we achieve for
-different operators. With all this conceptual learning done, in many
-ways our task from hereon is relatively simple– change notation and
-crunch algebra without any other concerns any more! Remember what
-started things off. That <span class="math inline">\(\uspin\)</span>
-notation, which was designed to show how unimportant symbols themselves
-are, was where our discussion started, and we now come full circle to
-this idea that notation is far from sacred and must be evaluated simply
-based on pragmatic convenience. This new Dirac notation we are switching
-too will certainly make things more convenient, even though the state
-vector is still a state vector and the wavefunctions are still
-wavefunctions and the operators are still operators. Subsequently,
-looking in greater detail at the mathematical processes of quantum
-mechanics will become easier with our increased ability to engage in
-more efficient algebra. Nothing has changed. We are just switching from
-more intuitive symbols to the proper quantum mechanical convention of
-Dirac notation, which one might not have seen before but which needn’t
-be mystified.<br />
+A large component of problem solving in quantum mechanics consists of
+being able to apply two concepts related to bases:</p>
+<ol>
+<li><p>Staying flexible without committing to a specific base and
+considering the state vector without a basis first.</p></li>
+<li><p>Switching into a basis which is useful for our specific needs and
+algebraic manipulations.</p></li>
+</ol>
+<p>It is clear, even from the very early section on orthonormality, that
+not a bases are created equal. Some are simply better selected because
+algebraic manipulation becomes a lot easier when a problem is considered
+in those bases. Out of such bases, the eigenbases of physical
+observables are the most significant. Thus we reach this definition of
+‘observable spaces’, which sounds strange but is simply translated to
+‘position space’, ‘momentum space’, ‘energy space’ when we actually do
+have a physical observable in mind. We understand that all these
+observable spaces are not actually new vector spaces: they are all this
+same state space we have been studying, but simply with different
+eigenbases spanning the space and therefore where the same vectors will
+take different expansions. Nevertheless, these terms of position space
+and momentum space and so on are completely essential technical terms
+when we refer to these ideas.<br />
 <br />
-In addition, it is simply necessary to cover the conventional notation,
-called Dirac notation for its founder, and the pertinent techniques
-which follow it, because there does not exist a textbook whose level is
-a step up from this one and which does not use such conventions and even
-in many cases assume it is prior mastered. We will also see that it
-would have been difficult to understand what it means outright before we
-understood what a state vector is, for example, but on the other hand
-now that we do understand what the state vector is, it will make problem
-solving more powerful without any danger of confusions.<br />
+All quantum mechanics problems are solved in the end in one of these
+spaces. Rarely, we might solve one part of a problem in one observable
+space and then switch bases (more in Chapter 6), after taking what we
+have learnt from that part, to solve the rest of the problem. Most of
+the time – especially overwhelmingly in this book – we work in position
+space where possible. This is not only because it makes sense to work
+with time and position as the two most important variables, as in our
+physical reality, but also because there are important variables to
+consider in the time evolution problem – in particular the potential
+<span class="math inline">\(V(x)\)</span>, a function of position– which
+are easier to express in the position basis than any other. Momentum
+space is by far the other main counterpart in quantum mechanics, and
+usually we might work in momentum space in problems where the conditions
+or potential are easily expressed in terms of the momentum. Only rarely
+will we see energy space in action, and any other observable space will
+essentially be inferior to position and momentum space because the
+observables of position and momentum are far more important than any
+other.<br />
 <br />
-In this chapter, we will set forwards some new limitations so we can
-focus on the algebraic content (given that we understand the concepts of
-the postulates quite well now). The primary limitation will be the one
-maintained in previous chapters: that we are working in discrete cases.
-The next chapter will be all dealing with continuity, which contains
-some extremely difficult mathematics resulting from the mathematics in
-this chapter, so this limitation will be soon loosened. We will also be
-avoiding any thoughts about the wavefunctions being the primary
-‘tangible’ representations of abstract state vectors, because we will
-see that with Dirac’s notation comes another natural and powerful idea
-of matrix representations! We can also feel free to ignore measurements
-and related probabilities so that we can focus on developing algebraic
-techniques which will make problem solving more efficient and workable,
-because we already understand the postulates we need to therein. So for
-now, the job is mainly to forget the wavefunction, and focus on the more
-explicitly state vector (and matrix) focused approach we will start
-below. We appreciate throughout that wavefunctions (and therefore
-measurement probabilities) are still obtainable, by taking the inner
-product of a state vector with the relevant input basis vectors in that
-component function transformation we have seen, so its absence is far
-from its demise.</p>
-<h2 id="dirac-bra-ket-notation">Dirac Bra-Ket Notation</h2>
-<p>Our new notation begins here. Like any new notation, our job will be
-changing the way we label the objects we want to consider. The starting
-point will be the state vector, and its notation. We will not change any
-properties of the state vector! Things may look different because the
-notation looks nothing like we have ever seen before, but that does not
-mean at all that the characteristics are different.<br />
+Now, there is an important conceptual detail to understand. Recall back
+to when we first were introduced to hermitian operators; we proved that
+each operator’s action can be uniquely specified in its own eigenbasis
+if we have its eigenvalues. Consider some vector <span
+class="math inline">\(\Psi\)</span> in a the state space spanned by the
+eigenbasis <span class="math inline">\(\setof{\omega_{i}}\)</span> with
+eigenvalues <span class="math inline">\(\setof{\lambda_{i}}\)</span> of
+an operator <span class="math inline">\(\Omega\)</span>. We have, by the
+common inner product expansion: <span
+class="math display">\[\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}.\]</span>
+Then the action of the operator <span
+class="math inline">\(\Omega\)</span> is <span
+class="math display">\[\Omega \Psi =
+\Omega\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}\]</span> which, as
+it is a linear operator, <span
+class="math display">\[\Omega\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\Omega\omega_{i}\]</span>
+which is, <span
+class="math display">\[\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.\]</span>
+So quite simply, we get <span class="math display">\[\Omega \Psi =
+\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.\]</span> Of
+course, it is very clear that these eigenvalues <span
+class="math inline">\(\lambda_{i}\)</span> are not obtained if we are
+not working in the space spanned by the eigenbasis of <span
+class="math inline">\(\Omega\)</span>. This in turn shows us the very
+important fact: that the action of the operator– not just the forms of
+the state vectors– is different if we are working in different spaces!
+It is important to know this idea, that the formulation of observable
+operators we are to see in the following section is based specifically
+in one space – here, in the common position space. The operator
+formulations would not look the same were we in other observable spaces,
+such as momentum or energy space.</p>
+<h3 id="formulation-of-observable-operators">Formulation of Observable
+Operators</h3>
+<p>We’ve studied the observable operators, their hermiticity and
+eigenbases in good detail, but this has all been done theoretically. Of
+course, there would be no point knowing about operators and eigenvalue
+equations if we didn’t actually know what action the operators performed
+(remember, operators are functions with state vectors as inputs and
+state vectors as outputs), because there would be nothing to solve and
+no measurable eigenvalues to find. The next step in our work is
+therefore to actually give form to the physical form operators we want
+to work with. It turns out there is a very simple rule, presented in the
+next postulate, that we can use to correctly define any operator we
+need. We are certainly glad we do not have to run a massive set of
+definitions again to answer this question, and so the section is duly
+and appreciatedly short.</p>
+<h4 id="formation-of-observable-operators">Formation of Observable
+Operators</h4>
+<p><strong><u>Postulate 4: The Formation of Observable
+Operators</u></strong><br />
 <br />
-The state vector will now be written as <span
-class="math inline">\(\ket{\Psi}\)</span>. This called
-<strong>ket</strong> psi. We simply call it a ket instead of vector
-because Dirac notation is so ubiquitous in quantum mechanics that its
-authority over the discourse of quantum mechanics has turned the word
-ket into a common noun in itself. The ket and the state vector are one
-and the same! The only difference is that we now use the notation <span
-class="math inline">\(\ket{\Psi}\)</span> instead of the notation <span
-class="math inline">\(\Psi\)</span>.<br />
+The two canonical operators in quantum mechanics, expressed in position
+space, are the position operator: <span
+class="math display">\[\hat{X}\Psi=x\Psi\]</span> and the momentum
+operator: <span
+class="math display">\[\hat{P}\Psi=-i\hbar\frac{\partial}{\partial
+x}\Psi.\]</span> which can be both shown to be Hermitian. To form any
+other physical observable operator, express the classical observable in
+terms of the classical variables of <span
+class="math inline">\(x\)</span> (position) and <span
+class="math inline">\(p\)</span> (momentum), and replace the <span
+class="math inline">\(x\)</span> terms with the operator <span
+class="math inline">\(\hat{X}\)</span> and the <span
+class="math inline">\(p\)</span> terms with the operator <span
+class="math inline">\(\hat{P}\)</span>. Note that the position operator
+and momentum operator are here one dimensional: if instead we were
+considering position and momentum in three directions then all we would
+do would be to replace the <span class="math inline">\(x\)</span> with
+the <span class="math inline">\(y\)</span> and <span
+class="math inline">\(z\)</span> variables for the <span
+class="math inline">\(y\)</span> and <span
+class="math inline">\(z\)</span> directional operators instead.
+Generalising up physical dimensions (as in, position dimensions) is only
+marginally more complicated because we have more terms to consider, and
+otherwise this rationale stays the same and everything is
+straightforward. Let us, to punch this in, consider the kinetic energy
+operator, which will become very useful. Note again that everything is
+happening in position space, or things would look quite different in
+another space with a different eigenbasis.</p>
+<h4 id="kinetic-energy-operator">Kinetic Energy Operator</h4>
+<p>The classical formula for kinetic energy is of course <span
+class="math display">\[KE=\frac{1}{2}mv^2.\]</span> We want this in
+terms of position and momentum. It is important that mass is treated as
+a constant so does not interfere in this as a separate observable. The
+kinetic energy formula expressed in momentum and position is <span
+class="math display">\[KE=\frac{1}{2}mv^2=\biggl(\frac{m}{2m}\biggr)mv^2=\frac{m^2v^2}{2m}\]</span>
+which is, <span class="math display">\[KE=\frac{p^2}{2m}\]</span> where
+position does not appear in this particular observable expression, which
+is completely fine. Then, by the postulate, all we need to do is to
+replace the classical variable <span class="math inline">\(p\)</span>
+with the momentum operator: <span
+class="math display">\[KE=\frac{p^2}{2m}\duac
+\hat{KE}=\frac{\hat{P}^2}{2m}.\]</span> The notation <span
+class="math inline">\(\hat{KE}\)</span> looks foolish and so convention
+uses <span class="math inline">\(\hat{T}\)</span> instead. The
+expression <span class="math inline">\(\hat{P}^2\)</span>, we know,
+means applying the same momentum operator twice.<br />
 <br />
-The space of possible physical states will now be called the ket space
-instead of the state space. Obviously, since kets are the same as state
-vectors, kets are still in bijection with physical states. The vectors
-which span the ket space are also kets themselves. Therefore, an
-arbitrary ket can be expressed with components <span
-class="math inline">\(\setof{c_{i}}\)</span> as <span
-class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span>
-for a basis set <span
-class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span>. We can define
-scalar multiplication exactly as we have before: <span
-class="math display">\[k\times\ket{X}=k\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}=\sum_{i=1}^{n}(kc_{i})\ket{\alpha_{i}}\]</span>
-where the scalar multiplies each component of the vector to give it new
-components. Addition is defined by summing corresponding components as
-well: <span
-class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}},
-\ket{Y}:=\sum_{i=1}^{n}c&#39;_{i}\ket{\alpha_{i}}\implies
-\ket{X}+\ket{Y}=\sum_{i=1}^{n}(c+c&#39;_{i})\ket{\alpha_{i}}\]</span><br />
+Therefore, in position space, where the momentum operator is <span
+class="math display">\[\hat{P}\Psi=-i\hbar\frac{\partial}{\partial
+x}\Psi,\]</span> we get <span
+class="math display">\[\hat{T}\Psi=\frac{\hat{P}^2}{2m}\Psi=-\frac{i\hbar}{2m}\biggl(\frac{\partial}{\partial
+x}\biggl(-i\hbar\frac{\partial\Psi}{\partial x}\biggr)\biggr)\]</span>
+which is, <span
+class="math display">\[\hat{T}{\Psi}=\frac{(i\hbar)^2}{2m}\frac{\partial^2
+\Psi}{\partial x^2}=-\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial
+x^2}.\]</span> Thus we are done, and have the position space form of the
+kinetic operator: <span
+class="math display">\[\hat{T}\Psi=-\frac{\hbar^2}{2m}\frac{\partial
+\Psi}{\partial x^2}.\]</span> There is a final note to make, on mass and
+time. Both of these are not treated as observables in quantum mechanics.
+This makes intuitive sense for time: in experiments we would measure the
+duration of an event, but this is first of all not something which
+pertains to the state problem but more importantly not something we
+expect to involve probability. The time at which we are measuring the
+time obviously should not be probabilistic; it is therefore treated more
+like an underlying variable just like the space of the universe.<br />
 <br />
-An extremely important point, again, is that the ket is an abstract
-object. Recall that the state vector could not be given a form until we
-chose a specific basis. Since the ket is the same, we will here need to
-chose a basis for the ket to take a form. The key novelty of our new way
-of approaching the same ideas is that, in our bid to make our state
-vector, now ket, more ‘tangible’, we will this time try to divorce the
-ket from the idea of a wavefunction representation and replace this with
-yet another representation in bijection to the state vector– a matrix
-representation! This is because ideas of matrices will be very useful to
-us in our work and manipulation. To do this, recall that in any basis a
-constituent of any vector space has unique components in that basis,
-most often referred to as its unique expansion in that basis. This
-allows us to create a unique matrix expression of any ket: for any <span
-class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span>
-in the basis <span
-class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span>, we can express
-it as a column vector of its components <span
-class="math display">\[\ket{X}=\begin{bmatrix}
-c_{1}\\
-c_{2}\\
-\vdots\\
-c_{n}\\
-\end{bmatrix}\]</span> and this is a unique way to express the ket in
-that basis. As all kets have the same dimensions in this matrix
-expression (since the dimension of the ket space is the same so the
-number of components specifying them are the same), we can form any
-linear combinations of them since we are just summing matrices of the
-same dimensions, which is acceptable, and this matrix expression will
-not be meaningless.<br />
+With mass, the answer is not so clear. The best way to think about mass
+operators at this stage– and indeed the way that quantum mechanics
+generally thinks of mass operators– is to not think about mass operators
+at all. They do not exist, for whatever reason, in non-relativistic
+quantum mechanics, which always treats the mass of a particle as
+constant until more mass is added by external sources to the system. So
+we treat mass as a constant, and time as some universal external
+parameter; neither time nor mass have an operator attached to
+them.<br />
 <br />
-Another important point is for the inner labelling of kets: i.e- <span
-class="math display">\[\ket{\textbf{Inner Label}}.\]</span> The inner
-label of a ket never has any mathematical meaning. We can label kets
-<span class="math display">\[\ket{1}, \ket{2}, ... \ket{5}\]</span> if
-we want to. They are absolutely nothing to do with the numbers <span
-class="math inline">\(1\)</span> to <span
-class="math inline">\(5\)</span>. Instead, the inner label serves to
-<strong>organise</strong> different kets: above, we have ordered ket
-<span class="math inline">\(1\)</span>, ket <span
-class="math inline">\(2\)</span>, ket <span
-class="math inline">\(3\)</span>, and so on in some arbitrary way which
-is meaningful to us. We could also label them <span
-class="math display">\[\ket{\text{Dirac}}, \ket{\text{Heisenberg}},
-\ket{\text{Feynman}}\]</span> except this provides no logical order for
-us and is long to write. Sometimes one will see some long-winded labels,
-such as <span
-class="math display">\[\ket{P=\sqrt{{2mE}/{\hbar}}\:}\]</span> which is
-an example taken from Chapter 8, where we needed to label a ket by its
-momentum value <span class="math inline">\(\sqrt{{2mE}/{\hbar}}\)</span>
-to distinguish it from another ket with another momentum value (but
-otherwise identical characteristics). One should not be confused if
-there are numerical numbers as inner labels of kets: they are part of a
-taxonomy we have chosen ourselves. For example, in this book and
-ubiquitously in all books, convention is to denote eigenkets by the
-eigenvalue they represent. This is not to say that the label is
-physically meaningful– we could easily label each eigenket by the square
-of its eigenvalue, for example- but it is useful to remember and use
-because it makes things clear for us when we have several lines of
-algebra simultaneously. Next, we need to complete the new notation for
-the inner product.</p>
-<h3 id="bra-space-and-inner-products">Bra space and Inner Products</h3>
-<p>One operation we cannot perform with a ket alone is the all-crucial
-inner product. To define this, we first define a new vector space. This
-vector space is the bra space, and is made by a simple transformation:
-for every ket <span class="math inline">\(\ket{X}\)</span>, the
-corresponding bra is written <span
-class="math inline">\(\bra{X}\)</span> and is defined by <span
-class="math display">\[\bra{X}=\ket{X}^{\dagger}.\]</span> The “dagger”
-notation means the <strong>Hermitian adjoint</strong> of the ket <span
-class="math inline">\(\ket{X}\)</span>. This is the formal way to refer
-to the transpose conjugate of any matrix (see the matrix preliminary) –
-that is, complex conjugate all the matrix element values and then
-transpose the matrix. For the column vector kets, this therefore turns
-them to row vectors with the complex conjugate entries: <span
-class="math display">\[\ket{X}=\begin{bmatrix}
-c_{1}\\
-c_{2}\\
-\vdots\\
-c_{n}\\
-\end{bmatrix}\Rightarrow\stab\bra{X}=\begin{bmatrix}
-c^{\ast}_{1}\stab c^{\ast}_{2} \dots c^{\ast}_{n}.
-\end{bmatrix}\]</span> One sees that the relationship exhibited between
-the two vector spaces of the ket space of kets and the bra space of bras
-is bijection. This is because every ket is unique as a column vector–
-due to its unique expansion in any basis set– and therefore taking the
-Hermitian adjoint will give us one single unique bra. For every element
-of the ket space there is therefore a single element in the bra space,
-and vice versa. This exists precisely because of the way we have defined
-the bra space.<br />
+Finally, now that we have completed our survey into observable operators
+fully, we can move onto the Time Evolution Problem and Schrödinger’ s
+Equation</p>
+<h2 id="time-evolution-and-schrödingers-equation">Time Evolution and
+Schrödinger’s Equation</h2>
+<p>Now that we have established the stationary properties of quantum
+states, observables and measurements, we are done with the quantum
+mechanical state problem. The second paramount question of Physics is
+the question of time evolution. One might be relieved to find that,
+theoretically speaking, the time evolution problem is much simpler and
+will not require us to do so much complex postulating as the state
+problem did. In fact, we only need one more postulate to introduce time
+evolution; this is the famous Schrödinger Equation (which is a
+postulate, not a derivation!), which will be important to quantum
+mechanics much similar to the way <span
+class="math inline">\(F=ma\)</span> is ubiquitous in classical
+mechanics.</p>
+<div class="tcolorbox">
+<p><u><strong>Postulate 5: Schrödinger Equation and the
+Hamiltonian</strong></u><br />
 <br />
-Why define such a bra space? Bras never represent physical states
-directly- even though they are in bijection with the state vectors
-(kets) which are in bijection with physical states so each bra is in
-bijection with physical states. The answer is simple– because we need
-the inner product to be a real scalar given two input states: as we have
-already seen for the last few chapters. We cannot simply multiply two
-kets because we cannot multiply two column vectors by the rules of
-matrix multiplication! Therefore, we define the bra, which is a row
-vector with the complex conjugate entries, and now if we multiply them:
-<span class="math display">\[\bra{X} \times \ket{X}\]</span> we should
-get a <span class="math inline">\(1\times n\)</span> row vector
-multiplying an <span class="math inline">\(n\times 1\)</span> column
-vector, and therefore a <span class="math inline">\(1\times 1\)</span>
-result: eg, a scalar, as desired.<br />
+In quantum mechanics, there exists the Hamiltonian operator, written
+<span class="math inline">\(\hat{H}\)</span>, which corresponds to the
+total energy of the system. It is also hermitian, and it plays an
+integral role in the time-evolution equation in quantum mechanics, the
+Schödinger Equation: <span class="math display">\[i\hbar\frac{\partial
+\Psi(t)}{\partial t}=\hat{H}\Psi(t)\]</span> which determines how the
+wavefunction will evolve in time provided there are no perturbations to
+the system.</p>
+</div>
+<p>Note that we have moved from <span
+class="math inline">\(\Psi_{t}\)</span> to <span
+class="math inline">\(\Psi(t)\)</span> which is a better shorthand
+notation now that we are not discussing stationary states. This function
+notation doesn’t clash with the fact that the state vector is a state
+vector: it just means that the input is a time value and the output is
+the state vector corresponding to the state at that time.<br />
 <br />
-We should be convinced that this new inner product is exactly the same
-as the old inner product. Take any two state vectors <span
-class="math display">\[\forall\stab\ket{\beta}:=\sum_{i=1}^{n}b_{i}\ket{\alpha_{i}},
-\:\: \ket{\gamma}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}},\]</span> By the
-rules of matrix multiplication, the <span
-class="math inline">\(i\)</span>’th column component of the row vector
-multiplies the <span class="math inline">\(i\)</span>’th row component
-of the column vector. Thus we have <span
-class="math display">\[\bra{\beta}\times\ket{\gamma}:=\ip{\beta}{\gamma}=\sum_{i=1}^{n}b^{\ast}_{i}c_{i}.\]</span>
-as the components of the ket column vector, here <span
-class="math inline">\(\ket{\beta}\)</span> are replaced by their complex
-conjugates in the bra row vector. There is absolutely no difference to
-the inner product operation: only, we consider it from a new perspective
-due to the matrix representations we have introduced.<br />
+Now, we once more start by listing the assertions of this postulate for
+clarity.</p>
+<ol>
+<li><p>There is a total energy, regardless of the specific qualities of
+the potential, which is integral to quantum mechanics. Clearly it is a
+physical observable since it is represented by a hermitian operator, the
+Hamiltonian.</p></li>
+<li><p>The Hamiltonian operator is the operator form of the classical
+Hamiltonian- that is, the quantum mechanical version of <span
+class="math display">\[H(x,p)=\frac{p^2}{2m}+V(x).\]</span> This, of
+course, contains the kinetic energy operator we have just found in
+5.1.2; the other part of the Hamiltonian, the more tricky potential,
+will be dealt with subsequently as it does not change much of the
+conceptual discussion right now.</p></li>
+<li><p>Since we say that this Hamiltonian operator exists, there must be
+eigenvalues (also called eigenenergies for obvious reasons) which are
+the possible measured values of energy and corresponding eigenvectors of
+the Hamiltonian- or, energy eigenstates. In fact we often get that the
+eigenvalues are discretely distributed for the Hamiltonian operator:
+which means energy is quantised. Bohr’s famous electron model results
+from this energy quantisation.</p></li>
+<li><p>Given a state vector at time <span
+class="math inline">\(0\)</span> it evolves in a completely
+deterministic way. This is surely a great relief. The state may not be
+deterministic– in which case it is a mixed state for which the strongest
+predictive statements which can be made are those detailed in Postulate
+3. However, it will evolve into a new state vector in a predictable way.
+That is not to say at all that after the evolution it will not still be
+in a mixed state, as the new state it has evolved over time into may
+well still be a superposition of eigenstates. It is just to say that we
+can determine future state vectors (not necessarily measurements) well
+given the starting one and the Hamiltonian for the given
+system.</p></li>
+</ol>
+<p>For all quantum mechanics problems, solving the Schrödinger equation
+is the most difficult part of the problem. The reason for this is that
+the Hamiltonian operator is the only major operator which will change
+depending on the conditions of the problem. The position operator,
+momentum operator, spin operators all remain the same, but the
+Hamiltonian is subject to great variation and even variation over time
+if the potential of the system is varying over time. This means that for
+different physical problems we always have to go through the
+considerable difficulty of finding the form of the Hamiltonian given the
+different conditions, and then solving the eigenvalue equation for that
+Hamiltonian, which is rarely not incredibly difficult. With all that
+said, this next section details why such painstaking effort is worth it:
+with the energy eigenvalue, or Hamiltonian eigenvalue, equation solved,
+Schrödinger’s Equation is also immediately solved.</p>
+<h3 id="solving-with-energy-eigenstates">Solving with Energy
+Eigenstates</h3>
+<p>This section will require a difficult mixing of the rules we have
+thus far learnt and to be able to follow the developments we make will
+be tantamount to truly consolidating our grasps on the postulates and
+mathematics up to this point. It also gives many procedural insights
+into how one should approach problems (not just subproblems, but full
+problems) in quantum mechanics, by giving the most elementary way to
+solve the Schrödinger equation. This method is through considering
+<strong>energy eigenstates</strong>: that is, the eigenstates of the
+Hamiltonian operator and the state vectors in the orthonormal basis they
+form which spans the Hilbert space.<br />
 <br />
-Several properties we have established previously can now be written in
-the new notation:</p>
-<ul>
-<li><p><span
-class="math inline">\(\ip{X}{Y}=\ip{Y}{X}^{\ast}\)</span></p></li>
-<li><p><span class="math inline">\(\ip{X}{X}\geq0\)</span></p></li>
-<li><p>A normalised ket <span
-class="math inline">\(\ket{\tilde{\alpha}}\)</span> is such that <span
-class="math inline">\(\ip{\tilde{\alpha}}{{\tilde{\alpha}}}=1\)</span>.</p></li>
-<li><p>Two kets <span class="math inline">\(\ket{\alpha}\)</span> and
-<span class="math inline">\(\ket{\beta}\)</span> are orthogonal if <span
-class="math inline">\(\ip{\alpha}{\beta}=0\)</span>.</p></li>
-</ul>
-<p>To further the bijection between the ket space and bra space, as bras
-will prove more useful than only to appear in inner products, we have,
-using the conventional <span
-class="math inline">\(\leftrightarrow\)</span> symbol to mean
-“corresponds to”: <span class="math display">\[\begin{aligned}
-\ket{X}&amp;\duac\bra{X}\\
-c\ket{X}&amp;\duac c^{\ast}\bra{X}\\
-\ket{X}+\ket{Y}&amp;\duac \bra{X}+\bra{Y}.\\
-\end{aligned}\]</span> The way we obtain this is an important algebraic
-point: by performing the operation “dagger” on any linear combination of
-kets, we immediately create a new set of bras in bijection with linear
-combinations of kets of that type, in much of a similar argument to the
-one we used originally to show the bra space is in bijection to the ket
-space.<br />
-<br />
-The expansion of bras in their basis should be clear following the above
-facts. For <span
-class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span>
-we have <span
-class="math display">\[\bra{X}=\sum_{i=1}^{n}c_{i}^{\ast}\bra{\alpha_{i}}.\]</span>
-Thus completes our investigation of the bra space, and now we can
-continue to reformulate old ideas in this new notation to familiarise
-ourselves with it.<br />
-<br />
-Further with inner label conventions: in general, for scalars we write
-<span class="math inline">\(\ket{aX}\)</span> to mean <span
-class="math inline">\(a\ket{X}\)</span>, and <span
-class="math inline">\(\bra{aX}\)</span> to mean <span
-class="math inline">\(a^{\ast}\bra{X}\)</span>. It is up to the reader
-to distinguish which are the scalars and which the placeholder letters
-for kets and bras in question, though the context should never make this
-in any real doubt if one follows the steps through. Similarly, we want
-to ensure brevity with this notation as one (but not the only) of the
-benefits of employing bra ket notation, so we also often write <span
-class="math inline">\(\ket{aX+bY}\)</span> instead of <span
-class="math inline">\(\ket{aX}+\ket{bY}\)</span> or <span
-class="math inline">\(a\ket{X}+b\ket{Y}\)</span>. Using the ket <span
-class="math inline">\(\ket{aX+bY}:=\ket{aX}+\ket{bY}\)</span> is
-somewhat easier than for example defining <span
-class="math display">\[\ket{Z}:=\ket{aX}+\ket{bY}\]</span> every time we
-sum two kets, where a new letter in the inner label would just be
-confusing.<br />
-<br />
-The inner product short-form facts are always helpful; indeed, we have
-<em>linearity in ket</em>: <span
-class="math display">\[\ip{V}{aX+bY}\equiv\bra{V}\times(\ket{aX}+\ket{bY})\equiv\ip{V}{aX}+\ip{V}{bY}\equiv
-a\ip{V}{X}+b\ip{V}{Y}.\]</span> This fact is one we have seen already
-(fact S7 in Chapter 3) for inner products, but expressed in Dirac
-notation. The comparable idea exists in bra: <span
-class="math display">\[\ip{aX+bY}{V}=(\bra{aX}+\bra{bY})\times\ket{X}=\ip{aX}{V}+\ip{bY}{V}=a^{\ast}\ip{X}{V}+b^{\ast}\ip{Y}{V}.\]</span><br />
-Next, we can also recall the ubiquitous expansion. Take an arbitrary ket
-<span class="math inline">\(\ket{X}\)</span> in the orthonormal basis
-<span class="math inline">\(\setof{\ket{\tilde{\alpha}_{i}}}\)</span>
-and the following will always hold: <span
+To start recall that for any state vector in the state space and
+orthonormal basis <span class="math inline">\(\{\alpha_{i}\}\)</span>
+the state vector can be expressed in terms of how it acts on those
+eigenvectors: <span
+class="math display">\[\Psi_{t}=\sum_{i=1}^{k}\oip{\alpha_{i}}{\Psi_{t}}\alpha_{i}.\]</span>
+where <span class="math inline">\(k\)</span> is the dimensionality of
+the space: in the state space, we would sum to infinity. There are
+infinite orthornormal bases which can we can choose to span the state
+space, but we have already seen that, for the action of an operator on
+the state vector, considering that state vector as a combination in the
+form above but with eigenvectors from the eigenbasis of that operator is
+natural and fruitful because we get simplifications involving
+eigenvalues, which also have clearer physical meaning. Now the
+Schrödinger Equation clearly puts the Hamiltonian to the forefront of
+our focus, and therefore we might like to consider the state vector
+<span class="math inline">\(\Psi\)</span> when it is expressed in the
+energy eigenbasis. The Schrödinger Equation states that <span
+class="math display">\[i\hbar\frac{\partial \Psi(t)}{\partial
+t}=\hat{H}\Psi(t).\]</span> If we take the eigenbasis of the Hamiltonian
+to be <span class="math inline">\(\{\varepsilon_{n}\}\)</span> and the
+corresponding energy eigenvalues to be <span
+class="math inline">\(\{E_{n}\}\)</span> then the state vector can be
+expressed as <span
+class="math display">\[\Psi_{t}(x)=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}\]</span>
+and the Schrödinger Equation now takes the form <span
+class="math display">\[i\hbar\frac{\partial}{\partial
+t}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\hat{H}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.\]</span>
+Continue by using the linear distributivity of Hermitian operators (fact
+H4). This tells us that the right hand side can be written <span
+class="math display">\[\hat{H}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\hat{H}\varepsilon_{n}=\sum_{n}E_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.\]</span>
+Then consider the time derivative of the quantities <span
+class="math inline">\(\oip{\varepsilon_{n}}{\Psi_{t}}\)</span>. The
+eigenvectors of the Hamiltonian in the state space must be independent
+of time, presuming the Hamiltonian itself isn’t varying over time (cases
+with time-varying Hamiltonians are far trickier to solve and thus will
+not be considered in this book). Therefore, they have 0 time derivative,
+which means we have <span
+class="math display">\[\frac{\partial}{\partial
+t}\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\frac{\partial}{\partial
+t}\Psi_{t}}.\]</span> One can be assured of this fact by explicitly
+writing out the summation form of the inner product. Next, by
+rearrangement of Schrödinger’s Equation, <span
+class="math display">\[\frac{\partial}{\partial
+t}\Psi_{t}=-\frac{i}{\hbar}\hat{H}\Psi_{t}\]</span> so we can substitute
+this into the above expression: <span
+class="math display">\[\frac{\partial}{\partial
+t}\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{-\frac{i}{\hbar}\hat{H}\Psi_{t}}=-\frac{i}{\hbar}\oip{\varepsilon_{n}}{\hat{H}\Psi_{t}}.\]</span>
+Then, substituting the energy eigenbasis expression of <span
+class="math inline">\(\Psi_{t}\)</span>, <span
 class="math display">\[\begin{aligned}
-\ket{X}&amp;:=\sum_{i=1}^{n}c_{i}\ket{\tilde{\alpha}_{i}} \implies
-\forall j, \stab
-\ip{\tilde{\alpha}_{j}}{X}=\bra{\tilde{\alpha}_{j}}\times\sum_{i=1}^{n}c_{i}\ket{\tilde{\alpha}_{i}}.
-&amp;
-\end{aligned}\]</span> By linearity in ket, the outside bra is absorbed
-into the sum notation so we get <span
-class="math display">\[\ip{\tilde{\alpha}_{j}}{X}=\sum_{i=1}^{n}c_{i}\ip{\tilde{\alpha}_{j}}{\tilde{\alpha}_{i}}=\sum_{i=1}^{n}c_{i}\delta_{ij}\]</span>
-by the orthonormality of the basis. Then, this is simply <span
-class="math display">\[\ip{\tilde{\alpha}_{j}}{X}=c_{j},\]</span> which
-should certainly be familiar now, though perhaps not before in Dirac
-notation. It tells us that, given a basis, if we orthonormalise it (with
-the Gram-Schmidt process), the expansion coefficients of any ket are not
-random: they are the inner products of the ket being expanded with the
-corresponding basis kets. So for any ket <span
-class="math inline">\(\ket{X}\)</span>, <span
-class="math display">\[\ket{X}=\sum_{i=1}^{n}\ket{\tilde{\alpha}_{i}}\ip{\tilde{\alpha}_{i}}{X}.\]</span>
-It is important to represent it explicitly here because the above will
-be used universally for problems to follow, and without explicitly
-stating that this is the expansion we already know it could otherwise be
-confusing. The reader should find it simple to produce a bra expansion
-in an orthonormal bra basis, though this is seldom as useful or commonly
-used.</p>
-<h3 id="operators-and-eigenkets">Operators and Eigenkets</h3>
-<p>The action of an operator <span class="math inline">\(\Omega\)</span>
-on a ket <span class="math inline">\(\ket{X}\)</span> is written <span
-class="math inline">\(\Omega\ket{X}\)</span>. This is perhaps why we
-incorporate scalars into the ket inner label, as noted above– so that
-there is no mixup between scalar multiplication and the action of an
-operator on a ket. The action of an operator on a bra is conversely
-written <span class="math inline">\(\bra{X}\Omega\)</span>.<br />
+\frac{\partial}{\partial
+t}\oip{\varepsilon_{n}}{\Psi_{t}}&amp;=-\frac{i}{\hbar}\oip{\varepsilon_{n}}{\hat{H}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
+=-\frac{i}{\hbar}\oip{\hat{H}\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}\\
+&amp;=-\frac{i}{\hbar}\oip{E_{n}\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
+=-\frac{i}{\hbar}E^{\ast}_{n}\oip{\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}\\
+&amp;=-\frac{i}{\hbar}E_{n}\oip{\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
+\end{aligned}\]</span> where the fact that <span
+class="math inline">\(\hat{H}\)</span> is hermitian is used in the
+algebraic manipulations. Then, as the inner product is linearly
+distributive across the sum term, this becomes <span
+class="math display">\[\frac{\partial}{\partial
+t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{n}}{\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}\]</span>
+and as the inner product <span
+class="math inline">\(\oip{\varepsilon_{m}}{\Psi_{t}}\)</span> is some
+constant for fixed <span class="math inline">\(m\)</span> and t, we can
+pull it out to write the expression as <span
+class="math display">\[\frac{\partial}{\partial
+t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\oip{\varepsilon_{n}}{\varepsilon_{m}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\delta_{nm},\]</span>
+which is, <span class="math display">\[\frac{\partial}{\partial
+t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\]</span>
+as the Kronecker delta resulting from the orthogonality of the
+eigenvectors cancels out all other sum terms except for when the index
+<span class="math inline">\(m\)</span> matches up with <span
+class="math inline">\(n\)</span>. This is clearly equivalent to the
+differential equation <span class="math display">\[\frac{\partial
+y}{\partial t}=ky\]</span> which has general solution <span
+class="math inline">\(x=Ce^{kt}\)</span> for some constant of
+integration <span class="math inline">\(C\)</span>. One might consider
+that the inner product is a constant and therefore not a traditional
+function one might find in differential equations of this form, but we
+recall that constants can be seen us functions of the form <span
+class="math inline">\(f(x)=c\)</span>. Substituting <span
+class="math inline">\(x:=\oip{\varepsilon_{n}}{\Psi_{t}}\)</span> and
+<span class="math inline">\(k:=-\frac{i}{\hbar}E_{n}\)</span>
+analogously leaves us with the solution <span
+class="math display">\[\oip{\varepsilon_{n}}{\Psi_{t}}=Ce^{-\frac{iE_{n}t}{\hbar}}.\]</span>
+The final step is to realise the constant <span
+class="math inline">\(C\)</span> is not random: at <span
+class="math inline">\(t=0\)</span> we should have <span
+class="math inline">\(\oip{\varepsilon_{n}}{\Psi_{0}}=C\)</span>, which
+implies that the constant is <span
+class="math inline">\(C=\oip{\varepsilon_{n}}{\Psi_{0}}\)</span>. Thus
+we conclude that the rule for time-evolution is <span
+class="math display">\[\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}
+\:\:\:\:\square\]</span><br />
+Many consequences for the solution of Schrödinger’s Equation derive
+themselves promptly. We list them in the taxonomical format again.<br />
+</p>
+<ol>
+<li><p>We first note what the fact above actually means. By the rule S8,
+the term <span
+class="math inline">\(\oip{\varepsilon_{n}}{\Psi_{t}}\)</span> is the
+component of <span class="math inline">\(\Psi_{t}\)</span> in the
+eigenbasis <span class="math inline">\(\{\varepsilon_{i}\}\)</span>
+corresponding to eigenvector <span
+class="math inline">\(\varepsilon_{n}\)</span>: <span
+class="math display">\[\Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.\]</span>
+The eigenvector <span class="math inline">\(\varepsilon_{n}\)</span>
+itself does not evolve with time. Therefore, by determining how the
+component <span
+class="math inline">\(\oip{\varepsilon_{n}}{\Psi_{t}}\)</span> evolves
+with time, we get: <span
+class="math display">\[\Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}\varepsilon_{n}.\]</span>
+We cannot fall for the common deception of thinking we can pull out the
+term <span class="math inline">\(e^{-{iE_{n}t}/{\hbar}}\)</span> from
+the sum, since the eigenvalues <span
+class="math inline">\(\setof{E_{n}}\)</span> corresponding to the
+eigenvectors <span
+class="math inline">\(\setof{\varepsilon_{n}}\)</span> change for each
+<span class="math inline">\(n\)</span> so it is not a constant. However,
+we do know now that, if we can determine the eigenvectors of the
+Hamiltonian for a given system, and the corresponding eigenvalues, and
+know the initial state (and therefore the components <span
+class="math inline">\(\oip{\varepsilon_{n}}{\Psi_{0}}\)</span> of the
+initial state vector) then we have a fully defined state <span
+class="math inline">\(\Psi_{t}\)</span> for any <span
+class="math inline">\(t\)</span> as we can track how each of its
+components evolve very easily. This amounts, of course, to solving the
+Schrödinger Equation: or, more satisfyingly put, solving the problem of
+time evolution and solving both the central problems of quantum
+mechanics.</p></li>
+<li><p>An important clarification which has been alluded to but not
+explicitly stated thus far must now be emphasised. There is no physical
+operator which changes form over time. Most operators, like the position
+and momentum operators, do not change even if there is a perturbation to
+the system. However, the Hamiltonian is not the same for all systems.
+Like all other observables operators, its formulation does not change-
+but, unlike most other operators, this formulation consists of something
+which can vary through perturbations. Specifically, the Hamiltonian is
+expressed as <span
+class="math display">\[\hat{H}=\frac{\hbar^{2}}{2m}\frac{\partial^2}{\partial
+x^2}+V(x)\]</span> where <span class="math inline">\(x\)</span> here is
+the position variable and the function <span
+class="math inline">\(V(x)\)</span> is the potential of the system. It
+is the potential which changes the form of the operator, as different
+systems have different potentials; moreover, these potentials can shift
+over time so in that way the form of the Hamiltonian changes over time.
+Note the difference: the formula to construct the Hamiltonian doesn’t
+change, but the Hamiltonian itself does– when <span
+class="math inline">\(V(x)\)</span> changes.<br />
 <br />
-We always focus on linear operators which map one ket onto another ket
-in the vector space. This makes sense: the application of observable
-operators for example we do not expect to make an impossible state, and
-any possible state is represented by some superposition of the state
-vectors which constitute the ket space. It is good to keep in mind very
-explicitly the notion that an operator acting on a ket always produces a
-new ket. More properties of linear operators can be expressed in bra-ket
-notation:</p>
-<ul>
-<li><p><span class="math inline">\(a\Omega\ket{X}=\Omega
-a\ket{X}\)</span></p></li>
-<li><p><span class="math inline">\(\bra{X}a\Omega=\bra{X}\Omega
-a\)</span></p></li>
-<li><p><span class="math inline">\(\Omega_{1}\ket{X}=\Omega_{2}\ket{X}
-\forall\ket{X}\implies\Omega_{1}=\Omega_{2}\)</span></p></li>
-<li><p><span
-class="math inline">\(\Omega\{a\ket{X}+b\ket{Y}\}=a\Omega\ket{X}+b\Omega\ket{Y}\)</span></p></li>
-<li><p><span
-class="math inline">\(\Omega\{a\bra{X}+b\bra{Y}\}=a\bra{X}\Omega+b\bra{Y}\Omega\)</span></p></li>
-</ul>
-<p>The product of two operators means to apply the “closer” operator to
-the ket or bra respectively and then apply the second, “further”
-operator to the resulting ket or bra. We already know from our study of
-compatibility in particular that the assumption that two given operators
-will commute is false. The commutator is denoted the same way: <span
-class="math display">\[[\Omega,
-\Lambda]:=\Omega\Lambda-\Lambda\Omega\]</span> and so is the
-anticommutator: <span class="math display">\[\{\Omega,
-\Lambda\}:=\Omega\Lambda+\Lambda\Omega.\]</span> The eigenvectors of the
-operators will now often be called eigenkets, for obvious reasons, and
-the name eigenbras follows for bras in bijection with eigenkets.<br />
+The role of energy eigenbases as the easiest way to solve the
+Schrödinger Equation is now however fully clear to us. For a given
+system, if we can formulate the Hamiltonian accurately, then we can find
+its eigenvalues and corresponding eigenvectors using the characteristic
+equation, and then by HE1 we can theoretically determine the answer to
+the time evolution problem for the state with that Hamiltonian. This is
+why almost invariably, for problems which are not immensely complicated,
+<strong>the goal of the Physicist is to formulate the
+Hamiltonian</strong>.</p></li>
+<li><p>Since we have established that formulating the Hamiltonian is
+crucial to the solution of all non-advanced quantum mechanical problems,
+we see that the secondary result is that the potential energy is often
+what makes (or, for advanced problems of truly complex systems, breaks)
+this energy eigenstate method of solving Schrödinger’s Equation. As the
+potential almost invariably is far more complicated than the kinetic
+energy operator which forms the other term in the sum which makes the
+Hamiltonian, we will see a host of illustrative problems where the
+potential is bounded by constraints (eg, the infinite potential well or
+the free particle question) in all introductory textbooks. The
+underlying idea, which we now understand despite the fact that often
+textbooks do not enunciate it, is that in these problems the potential
+is simple and therefore the Hamiltonian is simple, making a solution
+possible without advanced measures like perturbation theory and methods
+of approximation, which have to be used for complex or time-evolving
+potentials. Once we have the formulation of the Hamiltonian, our work is
+to solve its eigenvalue equation so we can obtain the eigenvectors:
+<span
+class="math display">\[\hat{H}\varepsilon_{n}=E_{n}\varepsilon_{n},\]</span>
+and after that we have a solution as shown above. The energy eigenvalue
+equation is often in literature referred to, misleadingly, as the
+time-independent Schrödinger Equation, because it consists of time
+independent eigenvectors. One should never be confused by this term,
+however, as it is nothing more than the energy eigenvalue problem;
+certainly, it is nothing of a postulate that such an equation would
+exist given any operator, including the Hamiltonian.</p></li>
+<li><p>Back to the mathematics, we note that there are other observables
+whose operators have the same eigenbasis as the eigenbasis of the
+Hamiltonian– by the Compatibility Theorem, this occurs when the two
+observable operators commute. In those cases we should convince
+themselves that we have this analogous time-evolution rule for the
+components of the state vector in the eigenbasis of that observable
+compatible to the Hamiltonian energy observable. This is because the
+above is really an exercise in understanding how the energy eigenvectors
+evolve in time, and compatible operators have the same
+eigenvectors.</p></li>
+<li><p>By Postulate 3, the value <span
+class="math inline">\(|\oip{\varepsilon_{n}}{\Psi_{t}}|^2\)</span> is
+the probability energy value <span class="math inline">\(E_{n}\)</span>
+is measured to be the value of energy for the system at time <span
+class="math inline">\(t\)</span>. In computing this amplitude we achieve
+very interesting results: <span class="math display">\[\begin{aligned}
+    |\oip{\varepsilon_{n}}{\Psi_{t}}|^2
+&amp;=  |\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}|^2\\
+    &amp;=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2e^{-\frac{iE_{n}t}{\hbar}}e^{\frac{iE_{n}t}{\hbar}}\\
+    &amp;=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2\times 1\\
+    &amp;=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2
+    \end{aligned}\]</span> In other words, the probability of measuring
+the energy <span class="math inline">\(E_{n}\)</span> at time <span
+class="math inline">\(t\)</span>, represented by <span
+class="math inline">\(|\oip{\varepsilon_{n}}{\Psi_{t}}|^2\)</span>, is
+the exact same as the probability of measuring that energy at time 0,
+which is <span
+class="math inline">\(|\oip{\varepsilon_{n}}{\Psi_{0}}|^2\)</span>. In
+another sense this means that, unless there is some perturbation to our
+system, there is no change in the probability of a certain energy value
+being measured; this rule of time evolution essentially amounts to the
+energy conservation law for a closed unperturbed system as whatever
+energy we measure it to have at time 0 stays the same for all time <span
+class="math inline">\(t\)</span>.<br />
 <br />
-We must now introduce the unique way to specify an operator as a matrix.
-This will allow us to perform some important operations in the
-future.<br />
+This is not the last of this important result! We once more see that the
+above holds for any observables with the eigenbasis <span
+class="math inline">\(\{\varepsilon_{i}\}\)</span> which is the same as
+the energy eigenbasis, as the energy values themselves cancel out,
+leaving the component amplitudes purely in terms of the eigenvectors.
+This in fact means that for other observables compatible with the
+energy- for other observables whose operators commute with the
+Hamiltonian– the probability of making a measurement of the eigenvalue
+corresponding to a certain eigenvector is also constant over time. This
+is significant, as we have just proven the quantum mechanical
+requirement for some observable to be a <strong>constant of
+motion</strong>.</p></li>
+<li><p>Consider the case when the state vector is in a pure energy
+eigenstate- when <span
+class="math display">\[\Psi_{t}=\varepsilon_{k}\]</span> for some <span
+class="math inline">\(k\)</span>. Then the probabilities of measuring
+the eigenvalues <span class="math inline">\(E_{n}\)</span> are <span
+class="math display">\[|\oip{\varepsilon_{n}}{\Psi_{t}}|^{2}=|\oip{\varepsilon_{n}}{\varepsilon_{k}}|^{2}=\delta_{nk},\]</span>
+which means that the probability of measuring the energy <span
+class="math inline">\(E_{k}\)</span> is 1 and the probability of
+measuring all other energies <span class="math inline">\(E_{n\neq
+k}\)</span> is 0. This is the deterministic energy pure state, whose
+relevance is clear due to the heavy discussion following Postulate 3 on
+measurement and quantum states. Yet there is more to be said: <span
+class="math display">\[\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\Psi_{0}}e^{-{iE_{n}t}/{\hbar}}\]</span>
+so the state vector would be <span
+class="math display">\[\Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\varepsilon_{k}}e^{-{iE_{n}t}/{\hbar}}\varepsilon_{n}=\sum_{n}\delta_{nk}e^{-{iE_{n}t}/{\hbar}}\varepsilon_{n}=e^{-{iE_{k}t}/{\hbar}}\varepsilon_{k}.\]</span>
+However, this is the same as the system at time <span
+class="math inline">\(0\)</span> because the exponential has modulus 1
+and therefore does not change the eigenvector in the Hilbert space from
+the ray <span class="math inline">\(\varepsilon_{k}\)</span> which
+represents the initial state. Thus the whole system does not change at
+all if it starts in a pure energy eigenstate; therefore, all observables
+remain constant under time evolution so long as the Hamiltonian remains
+the same.<br />
 <br />
-We start by noting that the action of an operator on the basis vectors
-of a ket space (any basis, not just its own eigenbasis!) is sufficient
-knowledge to specify its actions on all kets in that basis: <span
-class="math display">\[\Omega\ket{\alpha_{i}}=\ket{\alpha&#39;_{i}}\imp\:\:
-\forall \stab\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}, \mtab
-\Omega\ket{X}=\Omega\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span> and by
-the linearity of the operator, this is just <span
-class="math display">\[\Omega\ket{X}=\sum_{i=1}^{n}\Omega
-c_{i}\ket{\alpha_{i}}=\sum_{i=1}^{n}
-c_{i}\Omega\ket{\alpha_{i}}=\sum_{i=1}^{n}c_{i}\ket{\alpha&#39;_{i}}.\]</span>
-However, things are not over from the perspective of a matrix
-formulation. Not only does this specification not give any clue as to
-how to express the operator as a matrix, but the resulting ket after the
-transformation is made is also not in any way representable as a column
-vector. This is because we must remember that a linear transformation on
-the basis vectors of a space by no means produces another basis which
-still spans the space at all (in which case a vector of components makes
-no sense anymore). The best example of this, of course, would be if
-<span class="math inline">\(\Omega=\Omega_{0}\)</span>, the null
-operator, in which case all <span
-class="math inline">\(\ket{\alpha&#39;_{i}}\)</span> would be null kets
-and certainly span no space at all.<br />
+The consequence of this is that we can define the vectors: <span
+class="math display">\[\forall
+n\in\mathbb{Z}^+,\:\:\:\:\Psi_{t}^{(n)}:=e^{-iE_{n}t/\hbar}\varepsilon_{n}.\]</span>
+and these vectors <span class="math inline">\(\Psi_{t}^{(n)}\)</span>
+are the deterministic forms of the state vector if at initial state for
+<span class="math inline">\(t=0\)</span> the state vector is coincident
+with the eigenvector <span
+class="math inline">\(\varepsilon_{n}\)</span>. We call these
+<strong>stationary states</strong>, which belong to the specific system,
+as their value is contingent on the eigenbasis of the Hamiltonian which
+describes the system. Now, if at time 0 the system is in a pure energy
+eigenstate <span class="math inline">\(\varepsilon_{n}\)</span>, then:
+<span class="math display">\[\Psi_{t}=\Psi_{t}^{(n)}.\]</span>
+Otherwise, if it is in a mixed state at time 0, then <span
+class="math display">\[\Psi_{t}(x)=\sum_{n}e^{-iE_{n}t/\hbar}\oip{\varepsilon_{n}}{\Psi_{0}}\varepsilon_{n}\]</span>
+by HE1, which can then be written as <span
+class="math display">\[\Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{0}}\Psi_{t}^{(n)}\]</span>
+since <span class="math inline">\(\Psi_{0}^{(n)}\)</span> (the
+stationary state at time <span class="math inline">\(0\)</span>) is the
+initial pure state corresponding to stationary state <span
+class="math inline">\(n\)</span>, which is the eigenvector <span
+class="math inline">\(\varepsilon_{n}\)</span>. This gives us a
+physically meaningful method of describing the solution to the
+Schrödinger Equation: finding its stationary states along with knowledge
+of the initial state is sufficient to solve the Schrödinger
+Equation.<br />
 <br />
-So the above informs us that to complete the task we need to return all
-the above to the original basis, which we know is serviceable for matrix
-representations. We thus start by expressing the components of the
-transformed kets <span
-class="math inline">\(\setof{\ket{\alpha&#39;_{i}}}\)</span> in the
-original basis. If <span
-class="math display">\[\ket{\alpha&#39;_{j}}:=\sum_{i=1}^{n}c^{(j)}_{i}\ket{\alpha_{i}}\]</span>
-and we assume the starting basis <span
-class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span> is orthonormal,
-since otherwise it could be orthonormalised, then we clearly know the
-components <span class="math inline">\(c_{i}^{(j)}\)</span> are simply
-the inner products <span
-class="math inline">\(\ip{\alpha_{i}}{\alpha&#39;_{j}}\)</span>. This
-component is the component of the <span
-class="math inline">\(j\)</span>’th transformed ket corresponding to the
-<span class="math inline">\(i\)</span>’th basis ket. We can then define
-the entities <span
-class="math display">\[\Omega_{ij}:=\ip{\alpha_{i}}{\alpha&#39;_{j}}=\bra{\alpha_{i}}{\Omega}\ket{\alpha_{j}}\]</span>
-and these are the components of the transformed kets in the original
-basis before they were transformed. The original question can be
-reposed. If we define <span
-class="math display">\[\Omega\ket{X}:=\ket{x_{0}}:=\sum_{i=1}^{n}c&#39;_{i}\ket{\alpha_{i}}\]</span>
-for some components <span class="math inline">\(c&#39;_{i}\)</span>,
-then these components are <span
-class="math display">\[c&#39;_{i}=\ip{\alpha_{i}}{x_{0}}=\bra{\alpha_{i}}\Omega\ket{X}=\bra{\alpha_{i}}\Omega\biggl(\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\biggr).\]</span>
-By the linearity of the operator, this becomes <span
-class="math display">\[c&#39;_{i}=\bra{\alpha_{i}}\times\biggl(\sum_{j=1}^{n}c_{j}\Omega\ket{\alpha_{j}}\biggr),\]</span>
-and then by linearity in ket this becomes <span
-class="math display">\[c&#39;_{i}=\sum_{j=1}^{n}c_{j}\bra{\alpha_{i}}{\Omega}\ket{\alpha_{j}}.\]</span>
-Thus using the same notations defined above this is simply <span
-class="math display">\[c&#39;_{i}=\sum_{i=1}^{n}c_{i}\Omega_{ij}.\]</span>
-The notation <span class="math inline">\(\Omega_{ij}\)</span> is clearly
-meant to hint that these can be placed in some matrix where each value
-<span class="math inline">\(\Omega_{ij}\)</span> (note these are inner
-products, so they are indeed a scalar values) is the entry in the <span
-class="math inline">\(i\)</span>’th row and <span
-class="math inline">\(j\)</span>’th column of the matrix. And as each
-<span class="math inline">\(\Omega_{ij}\)</span> is the component of the
-<span class="math inline">\(j\)</span>’th transformed ket corresponding
-to the <span class="math inline">\(i\)</span>’th basis ket, we say that
-the upper limit of <span class="math inline">\(i\)</span> and <span
-class="math inline">\(j\)</span> are both <span
-class="math inline">\(n\)</span> since there are <span
-class="math inline">\(n\)</span> original basis kets, and therefore
-<span class="math inline">\(n\)</span> transformed kets as well. Thus we
-can create an <span class="math inline">\(n\times n\)</span> matrix for
-all the entries <span class="math inline">\(\Omega_{ij}\)</span>. The
-relationship we get is that <span class="math display">\[\begin{bmatrix}
-c&#39;_{1} \\
-c&#39;_{2} \\
-\vdots \\
-c&#39;_{n} \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-\langle{\alpha_{1}}|\Omega|{\alpha}_{1}\rangle &amp;
-\langle{\alpha_{1}}|\Omega|{\alpha}_{2}\rangle &amp;
-\dots &amp; \langle{\alpha_{1}}|\Omega|{\alpha}_{n}\rangle\\
-\langle{\alpha_{2}}|\Omega|{\alpha}_{1}\rangle &amp; \ddots &amp;
-\:\dots\: &amp; \vdots \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-\langle{\alpha_{n}}|\Omega|{\alpha}_{1}\rangle &amp; \dots &amp; \dots
-&amp; \langle{\alpha_{n}}|\Omega|{\alpha}_{n}\rangle
-\end{bmatrix}
-\begin{bmatrix}
-c_{1} \\
-c_{2} \\
-\vdots \\
-c_{n} \\
-\end{bmatrix}\]</span> as a way to relate the components of the
-transformed vector <span
-class="math inline">\(\Omega\ket{X}:=\ket{x_{0}}\)</span> to the
-original components of <span class="math inline">\(\ket{X}\)</span>
-before it was transformed. We see that the left hand side is the matrix
-representation of <span class="math inline">\(\ket{x_{0}}\)</span> in
-the basis we have been using, since it specifies the components of <span
-class="math inline">\(\ket{x_{0}}\)</span> as a column vector.
-Meanwhile, the right column vector clearly does the same for the
-original <span class="math inline">\(\ket{X}\)</span>. And therefore
-this whole matrix equation is clearly the matrix form of the definition
-<span class="math inline">\(\ket{x_{0}}=\Omega\ket{X}\)</span>, which
-then means that the <span class="math inline">\(n\times n\)</span>
-matrix in the middle is the matrix representation of <span
-class="math inline">\(\Omega\)</span>. So to conclude this discussion we
-restate the fact that <span class="math display">\[\begin{bmatrix}
-\langle{\alpha_{1}}|\Omega|{\alpha}_{1}\rangle &amp;
-\langle{\alpha_{1}}|\Omega|{\alpha}_{2}\rangle &amp;
-\dots &amp; \langle{\alpha_{1}}|\Omega|{\alpha}_{n}\rangle\\
-\langle{\alpha_{2}}|\Omega|{\alpha}_{1}\rangle &amp; \ddots &amp;
-\:\dots\: &amp; \vdots \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-\langle{\alpha_{n}}|\Omega|{\alpha}_{1}\rangle &amp; \dots &amp; \dots
-&amp; \langle{\alpha_{n}}|\Omega|{\alpha}_{n}\rangle
-\end{bmatrix}\]</span> is the way to represent the operator <span
-class="math inline">\(\Omega\)</span> in the <span
-class="math inline">\(n\)</span>-dimensional ket space spanned by the
-orthonormal basis vectors <span
-class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span>.</p>
-<h2 id="a-rudimentary-manipulation-toolbox">A Rudimentary Manipulation
-Toolbox</h2>
-<p>The introduction of Dirac notation is surprisingly powerful because
-its unorthodox aesthetic form allows for the formulation of some
-identities and operators which under normal circumstances would look
-like a long amalgamation of random algebraic entities, but look simple
-and orderly (and therefore easy to memorise and use) in Dirac notation.
-This section will introduce essential identities and axioms which will
-be used without second thought for advanced problem solving, and in
-doing so, I hope the reader can also continue the process of becoming
-fluent in Bra Ket.</p>
-<h3 id="general-solution-of-the-eigenvalue-problem">General Solution of
-the Eigenvalue Problem</h3>
-<p>The first tool we will see is a general solution of the eigenvalue
-problem, for which we have been waiting. The eigenvalue condition is
-always <span class="math display">\[\Omega\ket{\omega} =
-\lambda\ket{\omega}.\]</span> for some eigenvalue <span
-class="math inline">\(\lambda\)</span> and eigenvector <span
-class="math inline">\(\ket{\omega}\)</span> We know that all operators
-in the space can be represented by an <span
-class="math inline">\(n\times n\)</span> matrix (where <span
-class="math inline">\(n\)</span> is the dimensionality of the space).
-Just to convert the eigenvalue <span
-class="math inline">\(\lambda\)</span> into matrix form as well, we will
-multiply both sides by the <span class="math inline">\(n\times
-n\)</span> identity operator <span class="math inline">\(I\)</span>:
+Note that the solution now does not give us a deterministic state if the
+initial state was not a pure state; we get a mixed state in terms of the
+stationary states. Thus we might be confused as to how it amounts to a
+solution: but we recall that a fully defined mixed state is most of the
+time tantamount to achieving the highest level of understanding
+physically possible, by the measurement postulates– so it does count as
+a solution since it represents the precise superposition of possible
+states we get in reality. Finally, the solution of finding the
+stationary states is absolutely the same as the solution detailed in HE2
+and HE3– we’ve just labelled vectors to be stationary states, but the
+underlying procedure is still simple. This is:</p>
+<ol>
+<li><p>Formulate the Hamiltonian for the system</p></li>
+<li><p>Solve the time-independent Schrödinger, or energy eigenvalue
+equation.</p></li>
+<li><p>Formulate the state vector as a function of time and the initial
+state as shown above.</p></li>
+</ol></li>
+</ol>
+<h3 id="free-particle">Free Particle</h3>
+<p>The first problem we can easily solve is the solution of the time
+evolution of a free particle. A free particle is a particle in a zero
+potential: so <span class="math inline">\(V(x)=0\)</span>. We begin by
+listing out our procedure:</p>
+<ol>
+<li><p>List the boundary conditions.</p></li>
+<li><p>Formulate the Hamiltonian and solve its eigenvalue
+equation.</p></li>
+<li><p>Use the eigenvectors and their eigenvalues to formulate the
+stationary states and therefore the state vector.</p></li>
+</ol>
+<p>An important thing to note is that this procedure only applies for
+systems where the Hamiltonian remains constant. This occurs if and only
+if the potential of the system does not vary with time– we recall that
+the Hamiltonian consists of the kinetic energy operator and therefore is
+not affected by the kinetic energy of the particle changing! The energy
+of the state will be affected, but the operator representing all
+possible energy states will not because the kinetic energy operator is
+constant. For the questions in these chapters, as well as for most
+introductory quantum mechanical problems, time-varying potentials will
+not be considered, as they are extremely complex and do not have any
+place in the rudimentary foundations of quantum mechanics.<br />
+<br />
+Let us now solve this simplest problem in quantum mechanics with this
+procedure.</p>
+<h4 class="unnumbered" id="list-the-boundary-conditions">List the
+Boundary Conditions</h4>
+<p>The “boundary conditions" of a problem are simply all the conditions
+the problem sets up for a solution. Listing them at this stage can be
+very useful because there are many times, for example when evaluating
+integrals or probabilities, that the boundary conditions can provide
+insights to shortcuts where there seem like there are too many obstacles
+to a solution. For now, though, this as a separate step will not be
+vindicated considering there is one boundary condition specified here
+only.</p>
+<ol>
+<li><p>The potential energy is <span
+class="math inline">\(0\)</span>.</p></li>
+</ol>
+<h4 class="unnumbered" id="formulate-the-hamiltonian">Formulate the
+Hamiltonian</h4>
+<p>This is also quite easy, as we do not have to consider the potential.
+<span
+class="math display">\[\hat{H}:=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial
+x^2}+V(x), \stab V(x)=0 \Rightarrow
+\hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\]</span>
+Solving the eigenvalue equation will take more work since this is the
+first time we have done it for such a complicated problem. We want to
+find eigenstates and eigenvalues which satisfy the eigenvalue equation
+<span
+class="math display">\[\hat{H}\varepsilon_{n}=E_{n}\varepsilon_{n}\]</span>
+for real <span class="math inline">\(E_{n}\)</span>. This equation is,
+as aforementioned, also known as the time-independent Schrödinger
+Equation in literature. We can solve it for the free particle relatively
+easily. The Hamiltonian is <span
+class="math display">\[\hat{H}\Psi(x)=\frac{\hat{P}^2}{2m}\Psi(x)\]</span>
+and so the eigenvalue equation (time-independent Schrödinger) is to find
+eigenvectors <span
+class="math inline">\(\setof{\varepsilon_{n}}\)</span> which satisfy:
+<span
+class="math display">\[\frac{\hat{P}^2}{2m}\varepsilon_{n}=E_{n}\varepsilon_{n}\]</span>
+for some real constant eigenvalues <span
+class="math inline">\(E_{n}\)</span>. The crucial insight for this
+eigenvalue equation is that the Hamiltonian operator of the system
+commutes with the momentum operator! This is intuitively obvious, since
+the Hamiltonian operator is the momentum operator squared divided by a
+constant, and the momentum operator is just the momentum operator, so
+the commutator <span
+class="math display">\[\left[\frac{\hat{P}^2}{2m},\hat{P}\right]\]</span>
+consists of only the operator <span
+class="math inline">\(\hat{P}\)</span>, somewhat modified on one side.
+Constants clearly do not affect commutators and operators commute with
+themselves, so we would expect the commutator to be <span
+class="math inline">\(0\)</span>. It can be verified by the reader as
+well, if we put in <span
+class="math inline">\(\hat{P}=-i\hbar\nd{}{x}\)</span>, but this is not
+greatly necessary.<br />
+<br />
+From our vigilance, however, in checking the commutation relation
+between the Hamiltonian and momentum operators (over time, one gains an
+intuitive feeling for this vigilance) we achieve something much greater.
+As their operators commute, energy and position are compatible
+observables. And as they are compatible observables, they must possess a
+common eigenbasis! Therefore, to any energy eigenvector <span
+class="math inline">\(\varepsilon_{n}\)</span> there also exists a
+momentum eigenvector <span class="math inline">\(\phi_{n}\)</span> which
+is the same function! Let us therefore try to put that in instead, with
+this information. For all energy eigenvectors <span
+class="math inline">\(\varepsilon_{n}\)</span> such that <span
+class="math display">\[\hat{H}\varepsilon_{n}=\frac{\hat{P}^2}{2m}\varepsilon_{n}=E_{n}\varepsilon_{n},\]</span>
+there must exist a momentum eigenvector such that <span
+class="math display">\[\phi_{n}\equiv\varepsilon_{n}\implies
+\frac{\hat{P}^2}{2m}\phi_{n}=E_{n}\phi_{n}.\]</span> Now, if the
+eigenvalue of momentum corresponding to the eigenvector <span
+class="math inline">\(\phi_{n}\)</span> is <span
+class="math inline">\(P_{n}\)</span>, then the eigenvalue corresponding
+to <span class="math inline">\(\hat{P}^2\)</span> on <span
+class="math inline">\(\phi_{n}\)</span> is <span
+class="math inline">\(P_{n}^{2}\)</span>. So the above can be written
 <span class="math display">\[\begin{aligned}
-\Omega\ket{\omega} &amp;= \lambda I\ket{\omega}\\
-\Rightarrow\:\: (\Omega-\lambda I)\ket{\omega} &amp;= 0
-\end{aligned}\]</span> where 0 is the null matrix. Considering the whole
-in matrix form, we write: <span class="math display">\[\begin{bmatrix}
-\Omega_{1,1}-\lambda &amp; \Omega_{1,2} &amp; \dots  &amp; \Omega_{1,n}
-\\
-\vdots  &amp;   \Omega_{2,2}-\lambda &amp; \vdots &amp; \vdots \\
-\vdots &amp;  \dots &amp; \ddots &amp; \vdots \\
-\Omega_{n,1} &amp; \dots &amp; \dots &amp; \Omega_{n,n}-\lambda\\
-\end{bmatrix}
-\begin{bmatrix}
-c_{1} \\
-c_{2} \\
-\vdots \\
-c_{n} \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 \\
-0 \\
-\vdots \\
-0 \\
-\end{bmatrix}.\]</span> Looking at the matrix representation of the
-equation above, we can deduce that <span class="math display">\[\forall
-i, \:\: \sum_{j}c_{j}(\Omega_{ij}-\lambda\delta_{ij})=0\]</span> by the
-rules of matrix multiplication. This is a linear system of equations,
-with coefficients <span
-class="math inline">\(\Omega_{ij}-\lambda\delta_{ij}\)</span> and
-unknowns <span class="math inline">\(c_{i}\)</span>. Therefore the logic
-behind Cramer’s Rules apply: and since the <span
-class="math inline">\(c_{i}\)</span> are the components of <span
-class="math inline">\(\ket{\omega}\)</span> in the basis they are not
-all zero since <span class="math inline">\(\ket{\omega} \neq 0\)</span>,
-and thus we need nontrivial solutions and therefore the determinant of
-the leftmost term must be zero. In other words, <span
-class="math display">\[\det(\Omega-\lambda I) = 0 \iff
-\forall i, \:\: \sum_{j}c_{j}(\Omega_{ij}-\lambda\delta_{ij})=0\]</span>
-This is practically helpful, especially in problems with fewer
-dimensional spaces, and as a theoretical concept which shows us we can
-always solve the eigenvalue problem. There will be other methods to
-solve eigenvalue equations too, but these often rely somewhat more on
-inspection and then proof that one has all the solutions by inspection;
-these inspection methods only arise as shortcuts based on specific
-conditions we get.</p>
-<h3 id="the-associative-axiom">The Associative Axiom</h3>
-<p>Dirac introduced in his paper on Dirac notation a critical axiom
-called the Associative Axiom. This axiom will save a huge amount of
-confusion for those unfamiliar with Bra-Ket notation, and is possibly
-the most powerful idea of them all. This axiom states that all (legal)
-“multiplication” operations in Dirac notation are always
-associative.<br />
+\frac{\hat{P}^2}{2m}\phi_{n}=E_{n}\phi_{n}\iff\frac{P_{n}^{2}}{2m}\phi_{n}=E_{n}\phi_{n}.
+\end{aligned}\]</span> The eigenfunction <span
+class="math inline">\(\phi_{n}\)</span> is clearly not the null vector,
+and therefore the above implies that the <span
+class="math inline">\(n\)</span>’th eigenmomenta and eigenenergies are
+related by: <span
+class="math display">\[\frac{P_{n}^{2}}{2m}=E_{n}\implies
+P_{n}=\pm\sqrt{2mE}.\]</span> We can now try to find the free particle
+wavefunction. Replacing the momentum operator with its algebraic
+formulation (in position space, as we have been working thus far), we
+have <span
+class="math display">\[-{\frac{\hbar^2}{2m}}\frac{d^2\Psi}{dx^2} = E\Psi
+\Rightarrow\:\: \frac{d^2\Psi}{dx^2} =-{\frac{2mE}{h^2}}\Psi.\]</span>
+We could also express this as <span
+class="math display">\[\frac{d^2\Psi}{dx^2}
+=-{\frac{p^2}{h^2}}\Psi\]</span> since we know that for the free
+particle <span class="math inline">\(E=p^2/2m\)</span> as just shown. We
+have already seen that momentum has extra importance in the free
+particle problem as it is compatible with energy (though that is not to
+say this is the only such question where this may be true); therefore,
+the momentum eigenstates are also the energy eigenstates, which we know
+are very important due to their intimate relationship with time
+evolution. It is also very clear that the free particle problem is a
+fundamental conceptual problem. De Broglie therefore defined a
+relationship <span class="math display">\[k=p/\hbar \implies p = \hbar
+k\]</span> (where the latter form is far more commonly seen) for a
+constant <span class="math inline">\(k\)</span> which we will now plug
+into the equation we have above: <span
+class="math display">\[\frac{d^2\Psi}{dx^2} =-{\frac{p^2}{h^2}}\Psi,
+\stab p=\hbar k \implies \frac{d^2\Psi}{dx^2} =-k^2\Psi.\]</span> The
+physical meaning of the constant <span class="math inline">\(k\)</span>
+is somewhat tangential for this discussion, though it must be remarked
+that the De Broglie relations concern all the important aspects of a
+classical wave and are not simply random definitions. Nevertheless, for
+our purposes working with <span class="math inline">\(k\)</span> instead
+of <span class="math inline">\(p/\hbar\)</span> will be cleaner for the
+algebra to follow. A reader should clearly see that the equation we have
+just reached is perfectly analogous to the rudimentary differential
+equation <span class="math display">\[\frac{d^2y}{dx^2}=-k^2y.\]</span>
+Which has the general solution <span
+class="math display">\[y=Ae^{-ikx}+Be^{ikx}:=\Psi.\]</span> This is
+therefore the general solution to the free particle wavefunction where
+constants <span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are to be determined based on further
+boundary conditions of the physical problem! It looks generic, but when
+we do set bounds: whether these be positional bounds or any other
+bounds, we will see that we can suddenly get quite interesting and
+specific forms for the wavefunction. Such is for example shown in part
+8.2, where we see the free particle confined to an ellipse and get a
+very clear reult.</p>
+<h2 id="a-holistic-summary">A Holistic Summary</h2>
+<p>The meaning of these last three chapters has always been to provide a
+robust defence against the many conceptual pitfalls which one can fall
+into if they try to educate themselves on quantum mechanics purely
+mathematically without grasping the underlying ideas fully. Certainly,
+the rest of the book will be far more dense mathematically- though
+effort will still be made to be extremely clear with that discourse. It
+is therefore paramount, given that I have offered such a verbose
+discourse on the relationship between quantum mechanics and physical
+reality, to summarise everything we have learnt in a concise way; by
+revising this section, the reader should be able to answer all the
+physical questions they have about quantum mechanics.<br />
 <br />
-Put in scalar terms, this word associative is usually seen as <span
-class="math display">\[(a\times b)\times c = a \times (b\times
-c).\]</span> In other words, so long as the order of the terms <span
-class="math inline">\(a,b,c\)</span> are kept (here, <span
-class="math inline">\(a\)</span> before <span
-class="math inline">\(b\)</span> before <span
-class="math inline">\(c\)</span>), the two multiplication operations can
-be performed in either order. With numbers this is completely natural
-(as also is additive associativity, but not subtractive or divisive
-associativity), but with Dirac notation this is much less trivial and
-also much more powerful.<br />
+The problem of a physical model consists of two components, the state
+problem and the time-evolution problem. The state problem consists of
+two main problems: the first, how we represent physical information; the
+second, how we extract physical information.<br />
 <br />
-The first example we have seen but not explained explicitly is the inner
-product <span class="math display">\[\bra{X}{\Omega}\ket{Y}.\]</span>
-This is an inner product since it is the product of a bra, <span
-class="math inline">\(\bra{X}\)</span> with a ket <span
-class="math inline">\(\Omega\ket{Y}\)</span> (which is another ket in
-the ket space the operator <span class="math inline">\(\Omega\)</span>
-has mapped the original ket <span class="math inline">\(\ket{Y}\)</span>
-to). However, it can also be seen as a bra, <span
-class="math inline">\(\bra{X}\Omega\)</span>, multiplied by a ket <span
-class="math inline">\(\ket{Y}\)</span>. This is the associative axiom:
-in fact it does not matter which way the multiplication goes and only
-because of this can we write the concise <span
-class="math inline">\(\bra{X}{\Omega}\ket{Y}\)</span>.<br />
-<br />
-The ramifications of this fact are profound, as beginners with Dirac
-notation often get confused about which products are “bunched together”
-and must be performed first, leading to a great state of bewilderment
-when a term might have several bras, operators and kets next to each
-other. The answer is very simply that, so long as operations are being
-performed left to right, the order does not matter and the reader may
-read the multiplications in any way they like. It also immediately leads
-to theorems for entities in Dirac notation, by defining them through the
-perspective of other known products. The first example of this we will
-see is the following completeness relation.<br />
-<br />
-<strong><u>The Outer Product</u></strong><br />
-<br />
-We discussed above how the associative axiom holds for all legal
-multiplications between bras, kets and operators. What constitutes an
-illegal multiplication? Well, to start we can give the example of the
-orthonormal expansion of any ket <span
-class="math inline">\(\ket{X}\)</span>, <span
-class="math display">\[\ket{X}=\sum_{i=1}^{n}\ket{\talpha_{i}}\ip{\talpha_{i}}{X}.\]</span>
-Contrast this to the naive expansion <span
-class="math display">\[\ket{X}=\sum_{i=1}^{n}c_{i}\ket{\talpha_{i}}\]</span>
-which we might use if we were not sure the basis was orthonormal, for
-example. We see that the position of the component shifted from the
-leftmost sum term to the rightmost sum term when <span
-class="math inline">\(c_{i}\)</span> was replaced with <span
-class="math inline">\(\ip{\talpha_{i}}{X}\)</span>. One might ask why
-this is. The best answer for this is simply the associative axiom: if we
-had written <span
-class="math display">\[\ket{X}=\sum_{i=1}^{n}\ip{\talpha_{i}}{X}\ket{\talpha_{i}},\]</span>
-then we might think this is okay as we have a scalar <span
-class="math inline">\(\ip{\talpha_{i}}{X}\)</span> multiplying a ket
-<span class="math inline">\(\ket{\talpha_{i}}\)</span>. However, by the
-associative axiom we also expect the above to be equally well expressed
-as <span class="math display">\[\ket{X}=\sum_{i=1}^{n}
-\bra{\talpha_{i}}\times\biggl(\ket{X}\times\ket{\talpha_{i}}\biggr).\]</span>
-This is where our problem is– two kets cannot be multiplied together, as
-they are both <span class="math inline">\(n\times 1\)</span> matrices!
-Similarly, two bras cannot be multiplied together as they are both <span
-class="math inline">\(1\times n\)</span> matrices. So this is why we
-cannot write <span
-class="math display">\[\ket{X}=\sum_{i=1}^{n}\ip{\talpha_{i}}{X}\ket{\talpha_{i}}.\]</span>
-This however implies that for the expansion <span
-class="math display">\[\ket{X}=\sum_{i=1}^{n}\ket{\talpha_{i}}\ip{\talpha_{i}}{X}\]</span>
-it is correct and therefore not only is the operation <span
-class="math inline">\(\ket{\talpha_{i}}\times\ip{\talpha_{i}}{X}\)</span>
-legal (it is a scalar multiplying a ket, so it should be)- but also that
-the operation <span
-class="math display">\[\left(\op{\talpha_{i}}{\talpha_{i}}\right)\times
-\ket{X}\]</span> should be possible. This product <span
-class="math inline">\(\op{\talpha_{i}}{\talpha_{i}}\)</span> is called
-the outer product between the bra <span
-class="math inline">\(\bra{\talpha_{i}}\)</span> and ket <span
-class="math inline">\(\ket{\talpha_{i}}\)</span>. We can verify it
-should be possible, as it is an <span class="math inline">\(n\times
-1\)</span> matrix multiplied by a <span class="math inline">\(1\times
-n\)</span> matrix, which should give an <span
-class="math inline">\(n\times n\)</span> matrix. As it produces an <span
-class="math inline">\(n\times n\)</span> matrix it clearly does not
-result in a scalar like the inner product; rather, we might posit that
-it is an operator, as operators are represented by <span
-class="math inline">\(n\times n\)</span> matrices. This is in fact a
-true assumption: an outer product is fundamentally meant to be treated
-as an operator. However, before we discuss that we should establish and
-prove a fundamental theorem in quantum mechanics which will be
-surprisingly useful for manipulation. This is the completeness relation,
-which results from the associative axiom, and deserves its own section
-for its importance even though the proof requires no considerable
-thought if we have the associative axiom in mind.<br />
-<br />
-<strong><u>The Completeness Relation</u></strong><br />
-<br />
-We have seen that the representation <span
-class="math display">\[\ket{X}=\northexp{X}{\talpha_{i}}\]</span> is
-allowed because the sum term <span
-class="math inline">\(\sop{\talpha_{i}}\times \ket{X}\)</span> is just
-the action of the outer product on the ket <span
-class="math inline">\({X}\)</span>. However, by the rule of linear
-operators that <span
-class="math display">\[(\Omega_{1}+\Omega_{2})\ket{X}=\Omega_{1}\ket{X}+\Omega_{2}\ket{X}\]</span>
-and the fact that the outer products are operators, we can use the same
-principle to write <span
-class="math display">\[\ket{X}=\biggl(\sum_{i=1}^{n}\sop{\talpha_{i}}\biggr)\ket{X}.\]</span>
-And this is very revealing, of course, because this is true for any
-arbitrary ket <span class="math inline">\(\ket{X}\)</span>, and
-therefore we come to the conclusion that <span
-class="math display">\[\sum_{i=1}^{n}\sop{\talpha_{i}}=1.\]</span> This
-is the most commonly written form of the completeness relation, but one
-should be aware that the 1 here represents the identity operator, rather
-than a scalar– since the sum of <span class="math inline">\(n\times
-n\)</span> matrices will give us an <span class="math inline">\(n\times
-n\)</span> matrix rather than a scalar.<br />
-<br />
-On the other hand, the more we foray into problem solving the more we
-will see of this seemingly completely useless relation. One example can
-be in the proof that the sum of the modulus squared components of a
-normalised ket is also equal to <span class="math inline">\(1\)</span>:
-<span class="math display">\[\sip{X}=\bra{X}\times\ket{X}=\bra{X}\times
-(1\ket{X})=\bra{X}\times
-\sum_{i=1}^{n}\sop{\talpha_{i}}\times\ket{X}\]</span> where the number
-<span class="math inline">\(1\)</span> is the identity operator again
-and the kets <span class="math inline">\(\setof{\talpha_{i}}\)</span>
-are the orthonormal basis vectors. Then, by linearity in ket, we can
-write this as <span
-class="math display">\[\sip{X}=\sum_{i=1}^{n}\bra{X}\times\sop{\talpha_{i}}\times\ket{X}\]</span>
-and by the associative axiom this is just <span
-class="math display">\[\sip{X}=\sum_{i=1}^{n}\ip{X}{\talpha_{i}}\ip{\talpha_{i}}{X}=\sum_{i=1}^{n}\ip{\talpha_{i}}{X}\times(\ip{\talpha_{i}}{X})^{\ast}=\sum_{i=1}^{n}|\ip{\talpha_{i}}{X}|^{2}.\]</span>
-However, as the inner products <span
-class="math inline">\(\ip{\talpha_{i}}{X}\)</span> are the components of
-<span class="math inline">\(\ket{X}\)</span> in the basis <span
-class="math inline">\(\setof{\talpha_{i}}\)</span>, if the ket <span
-class="math inline">\(X\)</span> is normalised then the left side is
-<span class="math inline">\(1\)</span> so we get <span
-class="math display">\[1=\sum_{i=1}^{n}|c_{i}|^2.\]</span> So the
-modulus squared of the components of a normalised ket in a basis sum to
-<span class="math inline">\(1\)</span>. We know these modulus squared
-components are probabilities if we are working in an observable space by
-the measurement postulate! So what we have just proved, in a flick of
-the pen when working with Dirac notation, is that the reason we like
-working with discrete wavefunctions is because their components in this
-way perfectly represent probabilities summing in total to <span
-class="math inline">\(1\)</span>! We have already proved this fact, at
-the end of Chapter 4 on normalised discrete wavefunctions being
-interpreted as probability mass functions, but, if one takes a quite
-glance at that, the proof is neither so short, nor so elegant: it is
-positively clunky in comparision. The purpose of showing this is to
-exhibit that, just like in normal algebra, the world of Dirac notation
-can belie some extremely unusual and ingenious manipulations which
-without the notation would not be so easy to express, but with the
-fluency in the notations, can be done in just a few lines or seen in a
-matter of seconds.</p>
-<h2 id="change-of-basis">Change of Basis</h2>
-<p>One of the most important concepts in matrix mechanics is that of
-diagonal matrices. A square matrix is diagonal if all its elements are
-<span class="math inline">\(0\)</span> except those in the major
-diagonal: that is, elements <span class="math inline">\(M_{ii}\)</span>,
-which can be anything. One example of a diagonal matrix is the identity
-matrix, which has all zero entries except the major diagonal, which is
-filled with <span class="math inline">\(1\)</span>’s.<br />
-<br />
-<strong>Theorem: Every Hermitian operator has at least one
-orthonormal</strong><br />
-<strong>eigenbasis in which its matrix representation is diagonal.
-The</strong><br />
-<strong>diagonal entries are the eigenvalues of the
-operator.</strong><br />
-<br />
-This proof is quite tough and not particularly illustrative for our
-current needs, and therefore will not be shown for now. However, we will
-find that the implications of this theorem are hugely powerful, because
-it means that if we can diagonalise the operator matrix then we
-immediately solve the eigenvalue problem as the diagonal matrix values
-give us the eigenvalues from which deriving the eigenvectors should be
-easy: clearly, a great problem-solving step.<br />
-<br />
-So we want to diagonalise the operator. By the theorem, this means we
-want to take one matrix in any basis to the eigenbasis which
-diagonalises the operator. Thus we will often be interested in a
-<strong>change of basis</strong>.<br />
-<br />
-A change of basis is performed by applying an operator to the original
-basis kets and mapping them onto the new kets. Such is a common idea in
-quantum mechanics: to transform one ket to another we also try to see if
-there is a way we can formulate it as an operator equation. Here, we
-certainly can; such operators are usually denoted <span
-class="math inline">\(U\)</span>. So we guess that for some original
-basis <span class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span> and
-operator <span class="math inline">\(\Omega\)</span> with eigenvalues
-<span class="math inline">\(\setof{\beta_{i}}\)</span> and eigenvectors
-<span class="math inline">\(\setof{\ket{\beta_{i}}}\)</span>, <span
-class="math display">\[\forall i, \stab
-U\ket{\alpha_{i}}=\ket{\beta_{i}}.\]</span> Assuming without loss of
-generality that these basis sets are both orthonormal, the operator
-which works is <span
-class="math display">\[U:=\sum_{j}\op{\beta_{j}}{\alpha_{j}}.\]</span>
-We can prove this. For any original basis ket <span
-class="math inline">\(\ket{\alpha_{i}}\)</span>, <span
-class="math display">\[\biggl(\sum_{j}\op{\beta_{j}}{\alpha_{j}}\biggr)\ket{\alpha_{i}}=\sum_{j}\ket{\beta_{j}}\ip{\alpha_{j}}{\alpha_{i}}=\sum_{j}\ket{\beta_{j}}\delta_{ij}=\ket{\beta_{i}}\]</span>
-and this holds for any <span class="math inline">\(i\)</span> since we
-have orthonormal sets. What is much more important, however, is that the
-operator <span class="math inline">\(U\)</span> satisfies a very
-interesting condition. Consider, for the operator defined, the product
-<span class="math display">\[U^\dagger
-U=\biggl(\sum_{k}\op{\alpha_{k}}{\beta_{k}}\biggr)\times\biggl(\sum_{j}\op{\beta_{j}}{\alpha_{j}}\biggr)\]</span>
-As the basis sets are orthonormal, we see that all the terms disappear
-on account of the inner product <span
-class="math inline">\(\ip{\beta_{k}}{\beta_{j}}\)</span>, except when
-<span class="math inline">\(k=j\)</span>. In those cases, we get <span
-class="math display">\[\sum_{k}\sop{\alpha_{k}}=1.\]</span> So for this
-“transformation operator”, we have <span
-class="math inline">\(U^{\dagger}U=1\)</span>. Similarly, <span
-class="math inline">\(U U^{\dagger}=1\)</span>. Such an operator is
-called <strong>unitary</strong>. Now consider some arbitrary operator
-which is unitary and its action on a state ket which is normalised. We
-know that for the ket <span class="math inline">\(\ket{\Psi
-}\)</span></p>
-<h2 id="exercises-from-chapter-6ast">Exercises from Chapter 6<span
+<strong><u>The representation of physical information</u></strong></p>
+<ul>
+<li><p>The representation of physical information is carried out by the
+state vector and its wavefunctions in quantum mechanics. It is
+represented by a normed Hilbert space vector; all scalar multiples are
+the same ray so represent the same state.</p></li>
+<li><p>In the book we have referred to the state vector at times as
+“storing information", which is somewhat of a shorthand and can be
+confusing. What really is true is that the state vector is given meaning
+by the relation <span
+class="math display">\[P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^{2}\]</span>
+for any arbitrary eigenstate <span
+class="math inline">\(\alpha_{i}\)</span>, which means we can convert it
+to wavefunctions which are probability distribution functions.
+Subsequently, the wavefunction does store information because it is
+defined by its components, which must correspond to specific
+eigenvectors and therefore are probability amplitudes. As every
+arbitrary state vector must have a unique expansion in every basis
+spanning the space, every state vector therefore inherently can be
+converted to its expression in any space, and therefore every state
+vector possesses components in observable eigenspaces- which are,
+probability amplitudes of measurements with respect to those physical
+observables whose eigenspace it is in. That is how a state vector
+encapsulates information.</p></li>
+<li><p>Physical observables are represented by hermitian operators,
+which do not change over time. The distinct eigenvectors of these
+observable operators and the corresponding eigenvalues are also
+therefore unchanging over time. The Hamiltonian is an exception, but not
+because its formulation changes over time, but because its form changes
+over time as the potential <span class="math inline">\(V(x)\)</span> may
+change over time.</p></li>
+<li><p>The vector space expressed as being spanned by an observable’s
+eigenbasis is called its eigenspace. It is especially useful when
+considering measurements of that observable, since the components of the
+state vector in that eigenbasis are the probability amplitudes
+corresponding to measurements of the observable.</p></li>
+</ul>
+<h2 id="exercises-from-chapter-5ast">Exercises from Chapter 5<span
 class="math inline">\(\ast\)</span></h2>
 <ol>
 <li></li>

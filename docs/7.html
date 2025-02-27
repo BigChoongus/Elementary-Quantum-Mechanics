@@ -96,924 +96,804 @@
     \newcommand{\oip}[2]{\left(#1,#2\right)}
     \newcommand{\obip}[2]{\left(#1,#2\right)}
     $$
-<h1 id="chapter-7-continuous-spectra">Chapter 7: Continuous Spectra</h1>
-<p>In this section, we take a huge leap forwards towards full physical
-reality by finally loosening the discrete spectrum restraint which we
-have been working under for the entire book so far. If we recall,
-eigenvalues of observable operators represent physically measurable
-valuables for those observables represented by those operators. Now,
-quantum mechanics does show us that some observables can be discretely
-distributed: most notably, energy as in the free particle solution.
-However, we also know that some observables must never be able to be
-discretely distributed. In particular, position being discretely
-distributed would be a huge issue in any physical model, because it
-would mean that us and any object moves by teleporting between discrete
-positions with increments between them which we somehow cannot move
-into. This is clearly nonsense; position must be continuous. Thus, we
-must also be prepared to deal with continuous spectra in quantum
-mechanics because, if nothing else, position eigenvalues must always be
-in a continuous spectrum. In the end, position is not the only
-observable which exhibits continuous spectra at all, but the
-illustration is already there.</p>
-<h2 id="a-conceptual-definition-of-continuity">A Conceptual Definition
-of Continuity</h2>
-<p>Clearly, as just established, some observables like position must
-take infinite continuously distributed eigenvalues. Now, if we take the
-eigenvalue definition: <span
-class="math display">\[\Omega\ket{\omega}=\lambda\ket{\omega}\]</span>
-then we can come to a clear realisation that we must also have infinite
-eigenkets as well. This is a result of the fact that the number of
-eigenvectors (eigenkets) must be greater than or equal to the number of
-eigenvalues. Otherwise, if there were fewer eigenvectors than
-eigenvalues, at least one eigenvector would correspond to multiple
-different eigenvalues. Then this would be: <span
-class="math display">\[\Omega\ket{\omega}=\lambda\ket{\omega}\]</span>
-and <span
-class="math display">\[\Omega\ket{\omega}=\lambda&#39;\ket{\omega}\]</span>
-but <span
-class="math display">\[\lambda\neq\lambda&#39;\implies\lambda\ket{\omega}\neq\lambda&#39;\ket{\omega}\]</span>
-so <span class="math display">\[\Omega\ket{\omega}\]</span> would
-simultaneously be two different kets, even though it is the same
-operator acting on the same input ket. Then, <span
-class="math inline">\(\Omega\)</span> simply could not be a linear
-operator, as it would have two outputs for a single input.<br />
+<h1 id="chapter-7-dirac-notation-and-matrix-mechanics">Chapter 7: Dirac
+Notation and Matrix Mechanics</h1>
+<p>The second part of this book, starting now, will be far more
+mathematically demanding. It seeks to complete the original aim of this
+pragmatic book: to allow a reader to segue onto mathematically advanced
+quantum mechanics texts without chronic confusions of what the
+mathematics <em>means</em>. Particularly, we will now tackle the
+challenging case of extending our quantum mechanics to cover
+continuously distributed observables.<br />
 <br />
-So now that we have established the number of eigenvectors is greater
-than (the degenerate case) or equal to (the non-degenerate case) the
-number of eigenvalues, and we know that some observable operators take
-infinite eigenvalues, we must have indeed infinite eigenvectors as well
-in such cases.<br />
+We have covered now all of the quantum mechanical postulates we need to
+cover. On the other hand, our problem solving skills, which are very
+different in quantum mechanics to just standard algebra, are still very
+limited in the wider scope of things. There are many manipulative
+techniques we have not covered which are fundamental, but far from
+trivial. Furthermore, learning these techniques will require a
+reformulation of almost everything we have done so far into a new
+notation. This switch will be strange and unwelcome at first, but sooner
+than later the reader will find that the new notation is far more useful
+than confusing, and at that point they will be on a very good path
+indeed.<br />
 <br />
-Now, consider what practical function a eigenket has. It is an
-abstraction, so the answer is nothing in itself! The reason why an
-eigenket is important is because it is interpreted as the eigenstate
-where a corresponding eigenvalue has probability 1 of being measured.
-Thus, as already described in our section on inner labelling when we
-started with Dirac notation, we often just label eigenkets by that
-eigenvalue they are connected to.<br />
+The benefit of this somewhat counterintuitive approach of learning one
+way and then reformulating into a new notation is not only that we don’t
+have several factors affecting our understanding at once and causing
+trouble, but that the reader gets training to an undoubtedly
+undergraduate level without wrecking their ability to appreciate nuances
+as they grapple with difficult problems. Without a wider context of
+measurements and probabilities and state evolution within which to frame
+the mathematics in this book, it would seem like an endless barrage of
+symbols for which we have no use and no appreciation. On the other hand,
+after reading the previous chapters, we are capable of understanding why
+components are important– they are probability amplitudes; how the state
+vector is both a label and can be used as a substitute for a physical
+state; how operators are central to the measurements we achieve for
+different operators. With all this conceptual learning done, in many
+ways our task from hereon is relatively simple– change notation and
+crunch algebra without any other concerns any more! Remember what
+started things off. That <span class="math inline">\(\uspin\)</span>
+notation, which was designed to show how unimportant symbols themselves
+are, was where our discussion started, and we now come full circle to
+this idea that notation is far from sacred and must be evaluated simply
+based on pragmatic convenience. This new Dirac notation we are switching
+too will certainly make things more convenient, even though the state
+vector is still a state vector and the wavefunctions are still
+wavefunctions and the operators are still operators. Subsequently,
+looking in greater detail at the mathematical processes of quantum
+mechanics will become easier with our increased ability to engage in
+more efficient algebra. Nothing has changed. We are just switching from
+more intuitive symbols to the proper quantum mechanical convention of
+Dirac notation, which one might not have seen before but which needn’t
+be mystified.<br />
 <br />
-Considering position eigenkets now, we would label them by <span
-class="math display">\[\ket{x_{0}}\]</span> being the eigenstate where a
-measurement of position would yield position <span
-class="math inline">\(x_{0}\)</span> with certainty. We might also have
-for example <span class="math display">\[\ket{0}, \ket{L}\]</span> if we
-were working bounded in some length <span
-class="math inline">\(L\)</span> where a position could not be further
-than distance <span class="math inline">\(L\)</span> away from the other
-end we labelled position <span class="math inline">\(0\)</span>. Now, we
-would never write: <span class="math display">\[\ket{L} &gt; \ket{L/2}
-&gt; \ket{0}\]</span> because kets are abstract vectors and it makes no
-sense to compare their magnitudes with a ‘greater than’ sign. Yet at the
-same time, that <span
-class="math inline">\(\ket{L}&gt;\ket{L/2}&gt;\ket{0}\)</span> would be
-easy to mistake as somewhat valid, because <span
-class="math inline">\(L\)</span> is a positive distance so indeed the
-values these kets represent themselves do satisfy <span
-class="math inline">\(L&gt;L/2&gt;0\)</span>. We can see that inner
-label confusion can occur when it comes to magnitudes, because if we a
-label a ket by a specific value: usually an eigenket by an eigenvalue,
-we can be tempted to compare the magnitudes of those inner labels.<br />
+In addition, it is simply necessary to cover the conventional notation,
+called Dirac notation for its founder, and the pertinent techniques
+which follow it, because there does not exist a textbook whose level is
+a step up from this one and which does not use such conventions and even
+in many cases assume it is prior mastered. We will also see that it
+would have been difficult to understand what it means outright before we
+understood what a state vector is, for example, but on the other hand
+now that we do understand what the state vector is, it will make problem
+solving more powerful without any danger of confusions.<br />
 <br />
-What this pedantic clarification is to say is that <span
-class="math display">\[\ket{L} &gt; \ket{0}\]</span> is mathematically
-void, but there is some concept of comparing the values labelling kets
-when it is a situation where values are labelling kets. Specifically,
-this means that when we write <span
-class="math display">\[\ket{x_{0}+dx},\]</span> we can claim it is
-‘infinitesimally close’ to <span
-class="math inline">\(\ket{x_{0}}\)</span> as <span
-class="math inline">\(dx\to0\)</span>. Now, that technically would not
-be correct syntax, considering kets cannot be infinitesimally close if
-they do not have magnitudes and therefore the definitions of ‘close’ and
-‘infinitesimal’ do not exist. However, the idea is that <span
-class="math inline">\(\ket{x_{0}+dx}\)</span> and <span
-class="math inline">\(\ket{x_{0}}\)</span> may be infinitesimally close
-in that they represent eigenstates of positions which are
-infinitesimally close to each other! This is another case of the
-unfortunate semantic clarifications which result when we need to
-postulate so many abstractions in bijections, but at the same time, now
-that this is said, the reader should no longer scratch their heads when
-I or other texts say “<span
-class="math inline">\(\ket{x_{0}+dx}\)</span> is infinitesimally close
-to <span class="math inline">\(\ket{x_{0}}\)</span>” rather than “<span
-class="math inline">\(\ket{x_{0}+dx}\)</span> represents a position
-which is infinitesimally close to the position represented by <span
-class="math inline">\(\ket{x_{0}}\)</span>”. Most compendia would not
-make such clarifications, but I think it is useful here.<br />
+In this chapter, we will set forwards some new limitations so we can
+focus on the algebraic content (given that we understand the concepts of
+the postulates quite well now). The primary limitation will be the one
+maintained in previous chapters: that we are working in discrete cases.
+The next chapter will be all dealing with continuity, which contains
+some extremely difficult mathematics resulting from the mathematics in
+this chapter, so this limitation will be soon loosened. We will also be
+avoiding any thoughts about the wavefunctions being the primary
+‘tangible’ representations of abstract state vectors, because we will
+see that with Dirac’s notation comes another natural and powerful idea
+of matrix representations! We can also feel free to ignore measurements
+and related probabilities so that we can focus on developing algebraic
+techniques which will make problem solving more efficient and workable,
+because we already understand the postulates we need to therein. So for
+now, the job is mainly to forget the wavefunction, and focus on the more
+explicitly state vector (and matrix) focused approach we will start
+below. We appreciate throughout that wavefunctions (and therefore
+measurement probabilities) are still obtainable, by taking the inner
+product of a state vector with the relevant input basis vectors in that
+component function transformation we have seen, so its absence is far
+from its demise.</p>
+<h2 id="dirac-bra-ket-notation">Dirac Bra-Ket Notation</h2>
+<p>Our new notation begins here. Like any new notation, our job will be
+changing the way we label the objects we want to consider. The starting
+point will be the state vector, and its notation. We will not change any
+properties of the state vector! Things may look different because the
+notation looks nothing like we have ever seen before, but that does not
+mean at all that the characteristics are different.<br />
 <br />
-Now, then we can finally understand how continuity occurs in quantum
-mechanics and in the abstract state spaces we are working in. While kets
-cannot exhibit continuity, they can represent values exhibiting
-continuity, and this can be seen as one and the same.<br />
+The state vector will now be written as <span
+class="math inline">\(\ket{\Psi}\)</span>. This called
+<strong>ket</strong> psi. We simply call it a ket instead of vector
+because Dirac notation is so ubiquitous in quantum mechanics that its
+authority over the discourse of quantum mechanics has turned the word
+ket into a common noun in itself. The ket and the state vector are one
+and the same! The only difference is that we now use the notation <span
+class="math inline">\(\ket{\Psi}\)</span> instead of the notation <span
+class="math inline">\(\Psi\)</span>.<br />
 <br />
-The mathematical definitions of continuity are:</p>
+The space of possible physical states will now be called the ket space
+instead of the state space. Obviously, since kets are the same as state
+vectors, kets are still in bijection with physical states. The vectors
+which span the ket space are also kets themselves. Therefore, an
+arbitrary ket can be expressed with components <span
+class="math inline">\(\setof{c_{i}}\)</span> as <span
+class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span>
+for a basis set <span
+class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span>. We can define
+scalar multiplication exactly as we have before: <span
+class="math display">\[k\times\ket{X}=k\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}=\sum_{i=1}^{n}(kc_{i})\ket{\alpha_{i}}\]</span>
+where the scalar multiplies each component of the vector to give it new
+components. Addition is defined by summing corresponding components as
+well: <span
+class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}},
+\ket{Y}:=\sum_{i=1}^{n}c&#39;_{i}\ket{\alpha_{i}}\implies
+\ket{X}+\ket{Y}=\sum_{i=1}^{n}(c+c&#39;_{i})\ket{\alpha_{i}}\]</span><br />
+<br />
+An extremely important point, again, is that the ket is an abstract
+object. Recall that the state vector could not be given a form until we
+chose a specific basis. Since the ket is the same, we will here need to
+chose a basis for the ket to take a form. The key novelty of our new way
+of approaching the same ideas is that, in our bid to make our state
+vector, now ket, more ‘tangible’, we will this time try to divorce the
+ket from the idea of a wavefunction representation and replace this with
+yet another representation in bijection to the state vector– a matrix
+representation! This is because ideas of matrices will be very useful to
+us in our work and manipulation. To do this, recall that in any basis a
+constituent of any vector space has unique components in that basis,
+most often referred to as its unique expansion in that basis. This
+allows us to create a unique matrix expression of any ket: for any <span
+class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span>
+in the basis <span
+class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span>, we can express
+it as a column vector of its components <span
+class="math display">\[\ket{X}=\begin{bmatrix}
+c_{1}\\
+c_{2}\\
+\vdots\\
+c_{n}\\
+\end{bmatrix}\]</span> and this is a unique way to express the ket in
+that basis. As all kets have the same dimensions in this matrix
+expression (since the dimension of the ket space is the same so the
+number of components specifying them are the same), we can form any
+linear combinations of them since we are just summing matrices of the
+same dimensions, which is acceptable, and this matrix expression will
+not be meaningless.<br />
+<br />
+Another important point is for the inner labelling of kets: i.e- <span
+class="math display">\[\ket{\textbf{Inner Label}}.\]</span> The inner
+label of a ket never has any mathematical meaning. We can label kets
+<span class="math display">\[\ket{1}, \ket{2}, ... \ket{5}\]</span> if
+we want to. They are absolutely nothing to do with the numbers <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(5\)</span>. Instead, the inner label serves to
+<strong>organise</strong> different kets: above, we have ordered ket
+<span class="math inline">\(1\)</span>, ket <span
+class="math inline">\(2\)</span>, ket <span
+class="math inline">\(3\)</span>, and so on in some arbitrary way which
+is meaningful to us. We could also label them <span
+class="math display">\[\ket{\text{Dirac}}, \ket{\text{Heisenberg}},
+\ket{\text{Feynman}}\]</span> except this provides no logical order for
+us and is long to write. Sometimes one will see some long-winded labels,
+such as <span
+class="math display">\[\ket{P=\sqrt{{2mE}/{\hbar}}\:}\]</span> which is
+an example taken from Chapter 8, where we needed to label a ket by its
+momentum value <span class="math inline">\(\sqrt{{2mE}/{\hbar}}\)</span>
+to distinguish it from another ket with another momentum value (but
+otherwise identical characteristics). One should not be confused if
+there are numerical numbers as inner labels of kets: they are part of a
+taxonomy we have chosen ourselves. For example, in this book and
+ubiquitously in all books, convention is to denote eigenkets by the
+eigenvalue they represent. This is not to say that the label is
+physically meaningful– we could easily label each eigenket by the square
+of its eigenvalue, for example- but it is useful to remember and use
+because it makes things clear for us when we have several lines of
+algebra simultaneously. Next, we need to complete the new notation for
+the inner product.</p>
+<h3 id="bra-space-and-inner-products">Bra space and Inner Products</h3>
+<p>One operation we cannot perform with a ket alone is the all-crucial
+inner product. To define this, we first define a new vector space. This
+vector space is the bra space, and is made by a simple transformation:
+for every ket <span class="math inline">\(\ket{X}\)</span>, the
+corresponding bra is written <span
+class="math inline">\(\bra{X}\)</span> and is defined by <span
+class="math display">\[\bra{X}=\ket{X}^{\dagger}.\]</span> The “dagger”
+notation means the <strong>Hermitian adjoint</strong> of the ket <span
+class="math inline">\(\ket{X}\)</span>. This is the formal way to refer
+to the transpose conjugate of any matrix (see the matrix preliminary) –
+that is, complex conjugate all the matrix element values and then
+transpose the matrix. For the column vector kets, this therefore turns
+them to row vectors with the complex conjugate entries: <span
+class="math display">\[\ket{X}=\begin{bmatrix}
+c_{1}\\
+c_{2}\\
+\vdots\\
+c_{n}\\
+\end{bmatrix}\Rightarrow\stab\bra{X}=\begin{bmatrix}
+c^{\ast}_{1}\stab c^{\ast}_{2} \dots c^{\ast}_{n}.
+\end{bmatrix}\]</span> One sees that the relationship exhibited between
+the two vector spaces of the ket space of kets and the bra space of bras
+is bijection. This is because every ket is unique as a column vector–
+due to its unique expansion in any basis set– and therefore taking the
+Hermitian adjoint will give us one single unique bra. For every element
+of the ket space there is therefore a single element in the bra space,
+and vice versa. This exists precisely because of the way we have defined
+the bra space.<br />
+<br />
+Why define such a bra space? Bras never represent physical states
+directly- even though they are in bijection with the state vectors
+(kets) which are in bijection with physical states so each bra is in
+bijection with physical states. The answer is simple– because we need
+the inner product to be a real scalar given two input states: as we have
+already seen for the last few chapters. We cannot simply multiply two
+kets because we cannot multiply two column vectors by the rules of
+matrix multiplication! Therefore, we define the bra, which is a row
+vector with the complex conjugate entries, and now if we multiply them:
+<span class="math display">\[\bra{X} \times \ket{X}\]</span> we should
+get a <span class="math inline">\(1\times n\)</span> row vector
+multiplying an <span class="math inline">\(n\times 1\)</span> column
+vector, and therefore a <span class="math inline">\(1\times 1\)</span>
+result: eg, a scalar, as desired.<br />
+<br />
+We should be convinced that this new inner product is exactly the same
+as the old inner product. Take any two state vectors <span
+class="math display">\[\forall\stab\ket{\beta}:=\sum_{i=1}^{n}b_{i}\ket{\alpha_{i}},
+\:\: \ket{\gamma}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}},\]</span> By the
+rules of matrix multiplication, the <span
+class="math inline">\(i\)</span>’th column component of the row vector
+multiplies the <span class="math inline">\(i\)</span>’th row component
+of the column vector. Thus we have <span
+class="math display">\[\bra{\beta}\times\ket{\gamma}:=\ip{\beta}{\gamma}=\sum_{i=1}^{n}b^{\ast}_{i}c_{i}.\]</span>
+as the components of the ket column vector, here <span
+class="math inline">\(\ket{\beta}\)</span> are replaced by their complex
+conjugates in the bra row vector. There is absolutely no difference to
+the inner product operation: only, we consider it from a new perspective
+due to the matrix representations we have introduced.<br />
+<br />
+Several properties we have established previously can now be written in
+the new notation:</p>
 <ul>
-<li><p>A variable <span class="math inline">\(Z\)</span> is continuous
-over an interval <span class="math inline">\([a,b]\)</span> if: <span
-class="math display">\[\forall\stab z=Z\in[a,b], \stab dz\to 0, \mtab
-z+dz\in[a,b].\]</span> This is probably already intuitive and not much
-more needs to be said: simply, there is a continuum of values which
-exist such that no matter how infinitesimal a scale we go down to, we
-will not be able to distinguish values by a discernible
-increment.</p></li>
-<li><p>A function <span class="math inline">\(f(x)\)</span> is
-continuous over <span class="math inline">\(x\)</span> if <span
-class="math inline">\(x\)</span> is a continuous variable and <span
-class="math display">\[\forall x, \lim_{dx\to 0}f(x+dx)=f(x).\]</span>
-This means that there are no sudden jumps over infinitesimal intervals,
-and the graph of the function is <em>smooth</em>.</p></li>
+<li><p><span
+class="math inline">\(\ip{X}{Y}=\ip{Y}{X}^{\ast}\)</span></p></li>
+<li><p><span class="math inline">\(\ip{X}{X}\geq0\)</span></p></li>
+<li><p>A normalised ket <span
+class="math inline">\(\ket{\tilde{\alpha}}\)</span> is such that <span
+class="math inline">\(\ip{\tilde{\alpha}}{{\tilde{\alpha}}}=1\)</span>.</p></li>
+<li><p>Two kets <span class="math inline">\(\ket{\alpha}\)</span> and
+<span class="math inline">\(\ket{\beta}\)</span> are orthogonal if <span
+class="math inline">\(\ip{\alpha}{\beta}=0\)</span>.</p></li>
 </ul>
-<h3 id="infinities">Infinities</h3>
-<p>A discussion on continuity necessarily involves a thought about
-infinities. The issue herein is that the mathematics of infinities is
-rather inaccessible; in fact, all we primarily need to understand is
-this extremely simplistic idea of <span class="math inline">\(\infty + 1
-\ngtr \infty\)</span>. I want to stray as far from these sums including
-infinities and arithmetic numbers as I can, and this is achievable to us
-in quantum mechanics. Quite simply, the less thought here, the
-better.<br />
-<br />
-The one clarification I would like to make is on the comparison between
-discrete and continuous spectra in an infinite dimensional vector
+<p>To further the bijection between the ket space and bra space, as bras
+will prove more useful than only to appear in inner products, we have,
+using the conventional <span
+class="math inline">\(\leftrightarrow\)</span> symbol to mean
+“corresponds to”: <span class="math display">\[\begin{aligned}
+\ket{X}&amp;\duac\bra{X}\\
+c\ket{X}&amp;\duac c^{\ast}\bra{X}\\
+\ket{X}+\ket{Y}&amp;\duac \bra{X}+\bra{Y}.\\
+\end{aligned}\]</span> The way we obtain this is an important algebraic
+point: by performing the operation “dagger” on any linear combination of
+kets, we immediately create a new set of bras in bijection with linear
+combinations of kets of that type, in much of a similar argument to the
+one we used originally to show the bra space is in bijection to the ket
 space.<br />
 <br />
-If a vector space is infinite dimensional, then, we know that the basis
-of that space– that is, the set of linearly independent vectors in that
-space– must have infinite cardinality (there are infinite basis
-vectors), by definition of dimensionality. The state space, we know, is
-an example of a vector space of infinite dimensions, and is critical to
-our study. Now, if we compare discretely distributed and continuously
-distributed eigenbases, we must make the clarification of how an
-infinite dimensional space can be spanned by both discrete bases and
-continuous bases. A reader might be surprised by this. If dimensionality
-is to do with the number of linearly independent basis vectors we can
-accommodate in the space, how could it be that one basis could be
-discrete and still have all the maximum number of basis vectors, while
-another basis is continuous? There is a sense, which is not unfounded,
-that the very point of continuous sets is that they have infinite
-elements between discrete points, and so they must have more elements
-than any discrete set.<br />
+The expansion of bras in their basis should be clear following the above
+facts. For <span
+class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span>
+we have <span
+class="math display">\[\bra{X}=\sum_{i=1}^{n}c_{i}^{\ast}\bra{\alpha_{i}}.\]</span>
+Thus completes our investigation of the bra space, and now we can
+continue to reformulate old ideas in this new notation to familiarise
+ourselves with it.<br />
 <br />
-This idea is countered by the question “How many integers are there?”.
-Of course, we know there are infinite integers– that is, after all, the
-original point of having the entity infinity in the first place: if we
-keep on going through the consecutive positive integers we reach
-infinity. Can we say that there are more decimals than integers? In
-feeling, perhaps, but this is not mathematically rigorous. The idea is
-in fact of <strong>countable and uncountable infinities</strong>.<br />
-<br />
-A countable infinity is an infinity where one can hypothetically number
-each of those infinite elements. The positive integers are natural for
-demonstrate this, because they are already numbered- the integer 1 is
-the first element, the integer 2 the second, and so on, but yet they are
-definitely infinite in number. On the other hand, all decimal numbers
-constitute an uncountable infinity- we cannot number them since we could
-by definition always produce at least 1 decimal between the decimal we
-have numbered to be the first and the decimal we have numbered to be the
-second.<br />
-<br />
-This answers our question of how discrete and continuous basis can both
-span the same vector spaces. If a continuous basis spans a space, there
-must be infinite basis vectors, which is why the space is infinite
-dimensional. However, we could also span the space with a discrete
-basis, which has a <em>countably</em> infinite number of basis vectors
-rather than an uncountably infinite one. A continuous basis cannot span
-a finite dimensional vector space, but a discrete basis can span both
-finite and infinite dimensional vector spaces depending on what bases we
-are considering. Discrete and finite are not synonyms, even though we
-might consider them to be. Thus what might appear confusing in regards
-to these discrete versus continuous bases is in fact answered by the
-idea that uncountable infinities are not larger in magnitude than
-countable infinities since both of them are infinite! Perhaps this
-section may be simplified, but quite frankly I am not interested in
-entering such fringe discussions which are extremely unimportant to our
-learning of quantum mechanics, and doubt the reader is either, so we can
-close this discussion.</p>
-<h2 id="continuous-wavefunctions">Continuous Wavefunctions</h2>
-<p>Having a continuous case in our work will necessitate that some of
-our old summation and matrix notation seems defunct, because thinking of
-summing infinite terms or infinitely large matrices is not natural.
-However, the generalisation to infinite dimensions is in fact quite
-fine. Starting with infinitely sized matrices, We can consider the
-position basis for example to be column kets represented by <span
-class="math display">\[\ket{x_{i}}\duac
-\begin{bmatrix}0 \\ 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \\
-\end{bmatrix}\]</span> with the unity in the <span
-class="math inline">\(i\)</span>’th row, <span
-class="math inline">\(0\)</span> elsewhere, and infinite rows. Clearly,
-they constitute an orthonormal basis and the actual number of rows of
-the vector is already not of much concern.<br />
-<br />
-Meanwhile, in continuous cases, we can simply replace the sum terms we
-have been using with integrals– infinite sums over continuous variables–
-instead! This is an idea which generalises both in continuous cases and
-to infinities: the idea of an integral is that we are taking the sum of
-values separated by increments when that increment approaches <span
-class="math inline">\(0\)</span>: thereby an infinite sum over
-infinitesimally different (continuous) values.<br />
-<br />
-For the inner product, we have thus far used sums for our
-multiplications in Dirac notation: we set up a column entity, which we
-called a ket, and a row entity, a bra, and we simply multiplied them
-together, but matrix multiplication in finite dimensions is an algorithm
-which is essentially a sum of <span class="math inline">\(n\)</span>
-values: <span class="math display">\[\begin{bmatrix}
-a_{1} &amp; a_{2} &amp; \dots &amp; a_{n}
-\end{bmatrix}\times \begin{bmatrix}
-b_{1}\\
-b_{2}\\
-\vdots\\
-b_{n}\\
-\end{bmatrix}=\sum_{i=1}^{n}a_{i}b_{i}.\]</span> The inner product we
-have been so far using in the Dirac notation sections is therefore the
-exact same idea, but with a conjugate transpose of column vector kets
-rather than just a transpose as the bras. That is, <span
-class="math display">\[\ip{\alpha}{\beta}=\sum_{i=1}^{n}a^{\ast}_{i}b_{i}\]</span>
-with components <span class="math inline">\(\setof{a_{i}}\)</span> and
-<span class="math inline">\(\setof{b_{i}}\)</span> for <span
-class="math inline">\(\ket{\alpha}\)</span> and <span
-class="math inline">\(\ket{\beta}\)</span> respectively in an <span
-class="math inline">\(n\)</span>-dimensional space.<br />
-<br />
-The problem we now face is that, while we wish to integrate kets in some
-way to create a continuous inner product, we cannot do this currently as
-kets are in no way related to any functions, which are our natural
-inputs for integrals– kets are abstract vectors. However we have seen
-this problem of getting by an abstract ket: or, state vector, already!
-All we need to generate a function which exists in a bijection with
-state kets. We require this function to be continuous so we can
-integrate it.<br />
-<br />
-The function which makes sense, then is the same component function we
-worked with before <span class="math display">\[\ket{\Psi}\to
-\psi(x).\]</span> This should be governed by:</p>
-<ul>
-<li><p>Input: Basis ket.</p></li>
-<li><p>Output: Component corresponding to the input basis ket.</p></li>
-<li><p>Domain: All kets in the basis.</p></li>
-<li><p>Range: Complex numbers (the components).</p></li>
-</ul>
-<p>which changes with the input position <span
-class="math inline">\(x\)</span> and gives as an output the component
-corresponding to basis eigenket <span
-class="math inline">\(\ket{x}\)</span>.<br />
-<br />
-Well, this is the wavefunction, we know, because we have done exactly
-this already in the discrete case. Here, the argument <span
-class="math inline">\((x)\)</span> represents that we are inputting
-position values, so this is the position wavefunction, which is only
-possible now because the position observable exhibits a continuous
-spectrum. One problem we do have with this is that, if we are trying to
-denote the value of the function evaluated at position <span
-class="math inline">\(0\)</span>, for example, the form becomes <span
-class="math display">\[\psi(0)\]</span> where it is now unclear whether
-or not it is a position wavefunction with position value <span
-class="math inline">\(0\)</span> or momentum wavefunction with momentum
-value <span class="math inline">\(0\)</span> or so on. Unfortunately, if
-we want to leave space for a subscript identifying separate
-wavefunctions apart from each other, for example in <span
-class="math display">\[\ket{\Psi_{1}}\duac\psi_{1}(x),\stab
-\ket{\Psi_{2}}\duac \psi_{2}(x)\]</span> we have to sacrifice the
-ability to tell when the argument is absent which basis a wavefunction
-is expressed in. The other side of the coin is that first of all,
-context should always make it abundantly clear which basis everything is
-expressed in anyway, and secondly, reserving the same letter <span
-class="math inline">\(\psi\)</span> representing wavefunctions is more
-valuable than alternative possibilities such as identifying different
-observable wavefunctions with different letters, which would be just
+Further with inner label conventions: in general, for scalars we write
+<span class="math inline">\(\ket{aX}\)</span> to mean <span
+class="math inline">\(a\ket{X}\)</span>, and <span
+class="math inline">\(\bra{aX}\)</span> to mean <span
+class="math inline">\(a^{\ast}\bra{X}\)</span>. It is up to the reader
+to distinguish which are the scalars and which the placeholder letters
+for kets and bras in question, though the context should never make this
+in any real doubt if one follows the steps through. Similarly, we want
+to ensure brevity with this notation as one (but not the only) of the
+benefits of employing bra ket notation, so we also often write <span
+class="math inline">\(\ket{aX+bY}\)</span> instead of <span
+class="math inline">\(\ket{aX}+\ket{bY}\)</span> or <span
+class="math inline">\(a\ket{X}+b\ket{Y}\)</span>. Using the ket <span
+class="math inline">\(\ket{aX+bY}:=\ket{aX}+\ket{bY}\)</span> is
+somewhat easier than for example defining <span
+class="math display">\[\ket{Z}:=\ket{aX}+\ket{bY}\]</span> every time we
+sum two kets, where a new letter in the inner label would just be
 confusing.<br />
 <br />
-Now we can see easily that the position wavefunction is a continuous
-function since, <span class="math display">\[\forall x_{0}, \stab
-\lim_{dx\to 0} \psi(x_{0}+dx)=\psi(x_{0}).\]</span> This intuitively
-makes sense, since the component corresponding to the position <span
-class="math inline">\(x+dx\)</span> should approach the component as we
-rotate to the direction corresponding to position <span
-class="math inline">\(x\)</span>. A final convincing of this should be
-completed by the fact that the component relates the probability of
-measuring a certain position, by the measurement postulate: thus as we
-approach one position the component (probability) of measuring positions
-approaching that specific position should become progressively closer to
-the probability of measuring that specific position. Note also that we
-could have <span class="math display">\[\psi(p)\]</span> which changes
-depending on input momentum– assuming we are working in instances of
-continuous momentum, which do exist– to give the corresponding component
-of the eigenket which is the eigenstate with that input momentum. This
-would simply be used if we were working in momentum space.<br />
+The inner product short-form facts are always helpful; indeed, we have
+<em>linearity in ket</em>: <span
+class="math display">\[\ip{V}{aX+bY}\equiv\bra{V}\times(\ket{aX}+\ket{bY})\equiv\ip{V}{aX}+\ip{V}{bY}\equiv
+a\ip{V}{X}+b\ip{V}{Y}.\]</span> This fact is one we have seen already
+(fact S7 in Chapter 3) for inner products, but expressed in Dirac
+notation. The comparable idea exists in bra: <span
+class="math display">\[\ip{aX+bY}{V}=(\bra{aX}+\bra{bY})\times\ket{X}=\ip{aX}{V}+\ip{bY}{V}=a^{\ast}\ip{X}{V}+b^{\ast}\ip{Y}{V}.\]</span><br />
+Next, we can also recall the ubiquitous expansion. Take an arbitrary ket
+<span class="math inline">\(\ket{X}\)</span> in the orthonormal basis
+<span class="math inline">\(\setof{\ket{\tilde{\alpha}_{i}}}\)</span>
+and the following will always hold: <span
+class="math display">\[\begin{aligned}
+\ket{X}&amp;:=\sum_{i=1}^{n}c_{i}\ket{\tilde{\alpha}_{i}} \implies
+\forall j, \stab
+\ip{\tilde{\alpha}_{j}}{X}=\bra{\tilde{\alpha}_{j}}\times\sum_{i=1}^{n}c_{i}\ket{\tilde{\alpha}_{i}}.
+&amp;
+\end{aligned}\]</span> By linearity in ket, the outside bra is absorbed
+into the sum notation so we get <span
+class="math display">\[\ip{\tilde{\alpha}_{j}}{X}=\sum_{i=1}^{n}c_{i}\ip{\tilde{\alpha}_{j}}{\tilde{\alpha}_{i}}=\sum_{i=1}^{n}c_{i}\delta_{ij}\]</span>
+by the orthonormality of the basis. Then, this is simply <span
+class="math display">\[\ip{\tilde{\alpha}_{j}}{X}=c_{j},\]</span> which
+should certainly be familiar now, though perhaps not before in Dirac
+notation. It tells us that, given a basis, if we orthonormalise it (with
+the Gram-Schmidt process), the expansion coefficients of any ket are not
+random: they are the inner products of the ket being expanded with the
+corresponding basis kets. So for any ket <span
+class="math inline">\(\ket{X}\)</span>, <span
+class="math display">\[\ket{X}=\sum_{i=1}^{n}\ket{\tilde{\alpha}_{i}}\ip{\tilde{\alpha}_{i}}{X}.\]</span>
+It is important to represent it explicitly here because the above will
+be used universally for problems to follow, and without explicitly
+stating that this is the expansion we already know it could otherwise be
+confusing. The reader should find it simple to produce a bra expansion
+in an orthonormal bra basis, though this is seldom as useful or commonly
+used.</p>
+<h3 id="operators-and-eigenkets">Operators and Eigenkets</h3>
+<p>The action of an operator <span class="math inline">\(\Omega\)</span>
+on a ket <span class="math inline">\(\ket{X}\)</span> is written <span
+class="math inline">\(\Omega\ket{X}\)</span>. This is perhaps why we
+incorporate scalars into the ket inner label, as noted above– so that
+there is no mixup between scalar multiplication and the action of an
+operator on a ket. The action of an operator on a bra is conversely
+written <span class="math inline">\(\bra{X}\Omega\)</span>.<br />
 <br />
-Now, the components of a ket <span
-class="math inline">\(\ket{\Psi}\)</span> in a given basis <span
-class="math inline">\(\setof{\ket{x}}\)</span>, which we will use since
-it is most natural, are given by <span
-class="math display">\[\ip{x_{i}}{\Psi}=c_{i}.\]</span> Thus the
-position wavefunction is <span
-class="math display">\[\psi(x):=\ip{x}{\Psi}.\]</span> which is, the
-component of the ket <span class="math inline">\(\ket{\Psi}\)</span> in
-the direction of the basis vector <span
-class="math inline">\(\ket{x}\)</span>.<br />
+We always focus on linear operators which map one ket onto another ket
+in the vector space. This makes sense: the application of observable
+operators for example we do not expect to make an impossible state, and
+any possible state is represented by some superposition of the state
+vectors which constitute the ket space. It is good to keep in mind very
+explicitly the notion that an operator acting on a ket always produces a
+new ket. More properties of linear operators can be expressed in bra-ket
+notation:</p>
+<ul>
+<li><p><span class="math inline">\(a\Omega\ket{X}=\Omega
+a\ket{X}\)</span></p></li>
+<li><p><span class="math inline">\(\bra{X}a\Omega=\bra{X}\Omega
+a\)</span></p></li>
+<li><p><span class="math inline">\(\Omega_{1}\ket{X}=\Omega_{2}\ket{X}
+\forall\ket{X}\implies\Omega_{1}=\Omega_{2}\)</span></p></li>
+<li><p><span
+class="math inline">\(\Omega\{a\ket{X}+b\ket{Y}\}=a\Omega\ket{X}+b\Omega\ket{Y}\)</span></p></li>
+<li><p><span
+class="math inline">\(\Omega\{a\bra{X}+b\bra{Y}\}=a\bra{X}\Omega+b\bra{Y}\Omega\)</span></p></li>
+</ul>
+<p>The product of two operators means to apply the “closer” operator to
+the ket or bra respectively and then apply the second, “further”
+operator to the resulting ket or bra. We already know from our study of
+compatibility in particular that the assumption that two given operators
+will commute is false. The commutator is denoted the same way: <span
+class="math display">\[[\Omega,
+\Lambda]:=\Omega\Lambda-\Lambda\Omega\]</span> and so is the
+anticommutator: <span class="math display">\[\{\Omega,
+\Lambda\}:=\Omega\Lambda+\Lambda\Omega.\]</span> The eigenvectors of the
+operators will now often be called eigenkets, for obvious reasons, and
+the name eigenbras follows for bras in bijection with eigenkets.<br />
 <br />
-Now, we pause, because the above definition in ket form is prone to
-confusion, especially on passing glances, so it is important the next
-clarification is understood thoroughly before we move on.<br />
+We must now introduce the unique way to specify an operator as a matrix.
+This will allow us to perform some important operations in the
+future.<br />
 <br />
-The reason the function definition we have just reached looks so
-absolutely wrong is because on the right hand side we have what appears
-exactly as an inner product, which we instantly associate (rightly) with
-a scalar constant, but on the left we have the position wavefunction we
-have just learnt about as a continuous function. What is very important
-here is that the inner label of the bra <span
-class="math inline">\(\bra{x}\)</span> in the inner product is meant to
-represent a varying index, rather than just an inner tag on a static bra
-obtained from a static ket. So we would have <span
-class="math display">\[\psi(0)=\ip{0}{\Psi}\]</span> which is, the
-component of the state <span class="math inline">\(\ket{\Psi}\)</span>
-corresponding to position <span class="math inline">\(0\)</span> which
-is represented by the ket <span class="math inline">\(\ket{0}\)</span>
-the corresponding bra of which is <span
-class="math inline">\(\bra{0}\)</span>. We could also have <span
-class="math display">\[\psi(L)=\ip{L}{\Psi}\]</span> which is, the
-component according to position <span
-class="math inline">\(L\)</span>.<br />
+We start by noting that the action of an operator on the basis vectors
+of a ket space (any basis, not just its own eigenbasis!) is sufficient
+knowledge to specify its actions on all kets in that basis: <span
+class="math display">\[\Omega\ket{\alpha_{i}}=\ket{\alpha&#39;_{i}}\imp\:\:
+\forall \stab\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}, \mtab
+\Omega\ket{X}=\Omega\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span> and by
+the linearity of the operator, this is just <span
+class="math display">\[\Omega\ket{X}=\sum_{i=1}^{n}\Omega
+c_{i}\ket{\alpha_{i}}=\sum_{i=1}^{n}
+c_{i}\Omega\ket{\alpha_{i}}=\sum_{i=1}^{n}c_{i}\ket{\alpha&#39;_{i}}.\]</span>
+However, things are not over from the perspective of a matrix
+formulation. Not only does this specification not give any clue as to
+how to express the operator as a matrix, but the resulting ket after the
+transformation is made is also not in any way representable as a column
+vector. This is because we must remember that a linear transformation on
+the basis vectors of a space by no means produces another basis which
+still spans the space at all (in which case a vector of components makes
+no sense anymore). The best example of this, of course, would be if
+<span class="math inline">\(\Omega=\Omega_{0}\)</span>, the null
+operator, in which case all <span
+class="math inline">\(\ket{\alpha&#39;_{i}}\)</span> would be null kets
+and certainly span no space at all.<br />
 <br />
-It is not wrong for the reader to find the above somewhat unusual, since
-a single inner product is always a scalar constant. It therefore might
-seem like a bit of an abuse of notation to write <span
-class="math display">\[\ip{x}{\Psi}\]</span> to be a varying quantity,
-since before our inner labels were stationary orders for kets and
-nothing more. Unfortunately, this is one point in quantum mechanics
-which convention has not seen fit to bother with changing notation to
-accommodate. The best way to deal with it is that in this book I will
-always use <span class="math inline">\(\ket{x}\)</span> to represent a
-variable position ket, <span class="math inline">\(\ket{p}\)</span> a
-variable momentum ket and <span class="math inline">\(\ket{E}\)</span> a
-variable energy ket. Otherwise, for static single position kets I will
-use notation such as <span class="math inline">\(\ket{x_{0}}\)</span> or
-<span class="math inline">\(\ket{x_{1}}\)</span> to denote these fixed
-points – usually, just <span class="math inline">\(x_{0}\)</span> if we
-only require one fixed point to compare to, as this notation is quite
-common in quantum mechanics. Now we can fully enunciate the action of
-this wavefunction is through the following steps:</p>
-<ol>
-<li><p>Take the input observable value.</p></li>
-<li><p>Find the eigenket corresponding to that observable value, which
-is a pure eigenstate with probability 1 of obtaining that
-value.</p></li>
-<li><p>Find the inner product product of that eigenket with the state
-ket.</p></li>
-<li><p>Output that inner product value.</p></li>
-</ol>
-<h2 id="dirac-delta-function">Dirac Delta Function</h2>
-<p>That notational liberty of variable kets is aesthetically cumbersome,
-so we should demand it to be at least useful to us. It is useful, in
-fact, since we can finally define the integral for our abstract kets and
-bras: <span
-class="math display">\[\ip{\Psi_{1}}{\Psi_{2}}=\int_{-\infty}^{\infty}\psi_{1}^{\ast}(x)\psi_{2}(x)\,dx
-.\]</span> Finally, we have the continuous inner product! We indeed see
-that the above is very much related to the discrete inner product, since
-instead of discrete components we now have a continuous wavefunction
-storing the components to deal with the fact there are infinitely many
-continuous eigenkets, and finally we integrate just as an integral is a
-continuous sum. The same varying input variable <span
-class="math inline">\(x\)</span> ensures that the coefficients are
-matched up for both states <span
-class="math inline">\(\ket{\Psi_{1}}\)</span> and <span
-class="math inline">\(\ket{\Psi_{2}}\)</span> since each time the
-functions <span class="math inline">\(\psi_{1}(x)\)</span> and <span
-class="math inline">\(\psi_{2}(x)\)</span> give the components
-corresponding to the eigenket representing the inputted position, by
-their definition.<br />
+So the above informs us that to complete the task we need to return all
+the above to the original basis, which we know is serviceable for matrix
+representations. We thus start by expressing the components of the
+transformed kets <span
+class="math inline">\(\setof{\ket{\alpha&#39;_{i}}}\)</span> in the
+original basis. If <span
+class="math display">\[\ket{\alpha&#39;_{j}}:=\sum_{i=1}^{n}c^{(j)}_{i}\ket{\alpha_{i}}\]</span>
+and we assume the starting basis <span
+class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span> is orthonormal,
+since otherwise it could be orthonormalised, then we clearly know the
+components <span class="math inline">\(c_{i}^{(j)}\)</span> are simply
+the inner products <span
+class="math inline">\(\ip{\alpha_{i}}{\alpha&#39;_{j}}\)</span>. This
+component is the component of the <span
+class="math inline">\(j\)</span>’th transformed ket corresponding to the
+<span class="math inline">\(i\)</span>’th basis ket. We can then define
+the entities <span
+class="math display">\[\Omega_{ij}:=\ip{\alpha_{i}}{\alpha&#39;_{j}}=\bra{\alpha_{i}}{\Omega}\ket{\alpha_{j}}\]</span>
+and these are the components of the transformed kets in the original
+basis before they were transformed. The original question can be
+reposed. If we define <span
+class="math display">\[\Omega\ket{X}:=\ket{x_{0}}:=\sum_{i=1}^{n}c&#39;_{i}\ket{\alpha_{i}}\]</span>
+for some components <span class="math inline">\(c&#39;_{i}\)</span>,
+then these components are <span
+class="math display">\[c&#39;_{i}=\ip{\alpha_{i}}{x_{0}}=\bra{\alpha_{i}}\Omega\ket{X}=\bra{\alpha_{i}}\Omega\biggl(\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\biggr).\]</span>
+By the linearity of the operator, this becomes <span
+class="math display">\[c&#39;_{i}=\bra{\alpha_{i}}\times\biggl(\sum_{j=1}^{n}c_{j}\Omega\ket{\alpha_{j}}\biggr),\]</span>
+and then by linearity in ket this becomes <span
+class="math display">\[c&#39;_{i}=\sum_{j=1}^{n}c_{j}\bra{\alpha_{i}}{\Omega}\ket{\alpha_{j}}.\]</span>
+Thus using the same notations defined above this is simply <span
+class="math display">\[c&#39;_{i}=\sum_{i=1}^{n}c_{i}\Omega_{ij}.\]</span>
+The notation <span class="math inline">\(\Omega_{ij}\)</span> is clearly
+meant to hint that these can be placed in some matrix where each value
+<span class="math inline">\(\Omega_{ij}\)</span> (note these are inner
+products, so they are indeed a scalar values) is the entry in the <span
+class="math inline">\(i\)</span>’th row and <span
+class="math inline">\(j\)</span>’th column of the matrix. And as each
+<span class="math inline">\(\Omega_{ij}\)</span> is the component of the
+<span class="math inline">\(j\)</span>’th transformed ket corresponding
+to the <span class="math inline">\(i\)</span>’th basis ket, we say that
+the upper limit of <span class="math inline">\(i\)</span> and <span
+class="math inline">\(j\)</span> are both <span
+class="math inline">\(n\)</span> since there are <span
+class="math inline">\(n\)</span> original basis kets, and therefore
+<span class="math inline">\(n\)</span> transformed kets as well. Thus we
+can create an <span class="math inline">\(n\times n\)</span> matrix for
+all the entries <span class="math inline">\(\Omega_{ij}\)</span>. The
+relationship we get is that <span class="math display">\[\begin{bmatrix}
+c&#39;_{1} \\
+c&#39;_{2} \\
+\vdots \\
+c&#39;_{n} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\langle{\alpha_{1}}|\Omega|{\alpha}_{1}\rangle &amp;
+\langle{\alpha_{1}}|\Omega|{\alpha}_{2}\rangle &amp;
+\dots &amp; \langle{\alpha_{1}}|\Omega|{\alpha}_{n}\rangle\\
+\langle{\alpha_{2}}|\Omega|{\alpha}_{1}\rangle &amp; \ddots &amp;
+\:\dots\: &amp; \vdots \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+\langle{\alpha_{n}}|\Omega|{\alpha}_{1}\rangle &amp; \dots &amp; \dots
+&amp; \langle{\alpha_{n}}|\Omega|{\alpha}_{n}\rangle
+\end{bmatrix}
+\begin{bmatrix}
+c_{1} \\
+c_{2} \\
+\vdots \\
+c_{n} \\
+\end{bmatrix}\]</span> as a way to relate the components of the
+transformed vector <span
+class="math inline">\(\Omega\ket{X}:=\ket{x_{0}}\)</span> to the
+original components of <span class="math inline">\(\ket{X}\)</span>
+before it was transformed. We see that the left hand side is the matrix
+representation of <span class="math inline">\(\ket{x_{0}}\)</span> in
+the basis we have been using, since it specifies the components of <span
+class="math inline">\(\ket{x_{0}}\)</span> as a column vector.
+Meanwhile, the right column vector clearly does the same for the
+original <span class="math inline">\(\ket{X}\)</span>. And therefore
+this whole matrix equation is clearly the matrix form of the definition
+<span class="math inline">\(\ket{x_{0}}=\Omega\ket{X}\)</span>, which
+then means that the <span class="math inline">\(n\times n\)</span>
+matrix in the middle is the matrix representation of <span
+class="math inline">\(\Omega\)</span>. So to conclude this discussion we
+restate the fact that <span class="math display">\[\begin{bmatrix}
+\langle{\alpha_{1}}|\Omega|{\alpha}_{1}\rangle &amp;
+\langle{\alpha_{1}}|\Omega|{\alpha}_{2}\rangle &amp;
+\dots &amp; \langle{\alpha_{1}}|\Omega|{\alpha}_{n}\rangle\\
+\langle{\alpha_{2}}|\Omega|{\alpha}_{1}\rangle &amp; \ddots &amp;
+\:\dots\: &amp; \vdots \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+\langle{\alpha_{n}}|\Omega|{\alpha}_{1}\rangle &amp; \dots &amp; \dots
+&amp; \langle{\alpha_{n}}|\Omega|{\alpha}_{n}\rangle
+\end{bmatrix}\]</span> is the way to represent the operator <span
+class="math inline">\(\Omega\)</span> in the <span
+class="math inline">\(n\)</span>-dimensional ket space spanned by the
+orthonormal basis vectors <span
+class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span>.</p>
+<h2 id="a-rudimentary-manipulation-toolbox">A Rudimentary Manipulation
+Toolbox</h2>
+<p>The introduction of Dirac notation is surprisingly powerful because
+its unorthodox aesthetic form allows for the formulation of some
+identities and operators which under normal circumstances would look
+like a long amalgamation of random algebraic entities, but look simple
+and orderly (and therefore easy to memorise and use) in Dirac notation.
+This section will introduce essential identities and axioms which will
+be used without second thought for advanced problem solving, and in
+doing so, I hope the reader can also continue the process of becoming
+fluent in Bra Ket.</p>
+<h3 id="general-solution-of-the-eigenvalue-problem">General Solution of
+the Eigenvalue Problem</h3>
+<p>The first tool we will see is a general solution of the eigenvalue
+problem, for which we have been waiting. The eigenvalue condition is
+always <span class="math display">\[\Omega\ket{\omega} =
+\lambda\ket{\omega}.\]</span> for some eigenvalue <span
+class="math inline">\(\lambda\)</span> and eigenvector <span
+class="math inline">\(\ket{\omega}\)</span> We know that all operators
+in the space can be represented by an <span
+class="math inline">\(n\times n\)</span> matrix (where <span
+class="math inline">\(n\)</span> is the dimensionality of the space).
+Just to convert the eigenvalue <span
+class="math inline">\(\lambda\)</span> into matrix form as well, we will
+multiply both sides by the <span class="math inline">\(n\times
+n\)</span> identity operator <span class="math inline">\(I\)</span>:
+<span class="math display">\[\begin{aligned}
+\Omega\ket{\omega} &amp;= \lambda I\ket{\omega}\\
+\Rightarrow\:\: (\Omega-\lambda I)\ket{\omega} &amp;= 0
+\end{aligned}\]</span> where 0 is the null matrix. Considering the whole
+in matrix form, we write: <span class="math display">\[\begin{bmatrix}
+\Omega_{1,1}-\lambda &amp; \Omega_{1,2} &amp; \dots  &amp; \Omega_{1,n}
+\\
+\vdots  &amp;   \Omega_{2,2}-\lambda &amp; \vdots &amp; \vdots \\
+\vdots &amp;  \dots &amp; \ddots &amp; \vdots \\
+\Omega_{n,1} &amp; \dots &amp; \dots &amp; \Omega_{n,n}-\lambda\\
+\end{bmatrix}
+\begin{bmatrix}
+c_{1} \\
+c_{2} \\
+\vdots \\
+c_{n} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0 \\
+\vdots \\
+0 \\
+\end{bmatrix}.\]</span> Looking at the matrix representation of the
+equation above, we can deduce that <span class="math display">\[\forall
+i, \:\: \sum_{j}c_{j}(\Omega_{ij}-\lambda\delta_{ij})=0\]</span> by the
+rules of matrix multiplication. This is a linear system of equations,
+with coefficients <span
+class="math inline">\(\Omega_{ij}-\lambda\delta_{ij}\)</span> and
+unknowns <span class="math inline">\(c_{i}\)</span>. Therefore the logic
+behind Cramer’s Rules apply: and since the <span
+class="math inline">\(c_{i}\)</span> are the components of <span
+class="math inline">\(\ket{\omega}\)</span> in the basis they are not
+all zero since <span class="math inline">\(\ket{\omega} \neq 0\)</span>,
+and thus we need nontrivial solutions and therefore the determinant of
+the leftmost term must be zero. In other words, <span
+class="math display">\[\det(\Omega-\lambda I) = 0 \iff
+\forall i, \:\: \sum_{j}c_{j}(\Omega_{ij}-\lambda\delta_{ij})=0\]</span>
+This is practically helpful, especially in problems with fewer
+dimensional spaces, and as a theoretical concept which shows us we can
+always solve the eigenvalue problem. There will be other methods to
+solve eigenvalue equations too, but these often rely somewhat more on
+inspection and then proof that one has all the solutions by inspection;
+these inspection methods only arise as shortcuts based on specific
+conditions we get.</p>
+<h3 id="the-associative-axiom">The Associative Axiom</h3>
+<p>Dirac introduced in his paper on Dirac notation a critical axiom
+called the Associative Axiom. This axiom will save a huge amount of
+confusion for those unfamiliar with Bra-Ket notation, and is possibly
+the most powerful idea of them all. This axiom states that all (legal)
+“multiplication” operations in Dirac notation are always
+associative.<br />
 <br />
-The integral bounds can become definite, and often do, in physical
-problems. An example of this fact might be if we are considering
-position functions on a string– in which case the variable <span
-class="math inline">\(x\)</span> might be considered, and the bounds
-might be <span class="math inline">\(0\)</span> to <span
-class="math inline">\(L\)</span>– the other end of the string of length
-<span class="math inline">\(L\)</span> from the end we defined to be
-position <span class="math inline">\(0\)</span>. It is clear that in
-this case it does not make sense to take an integral from <span
-class="math inline">\(0\)</span> to <span
-class="math inline">\(70000\)</span>km displaced from <span
-class="math inline">\(0\)</span>, for example, if a string is say <span
-class="math inline">\(50\)</span>cm long, as we do not expect any
-particles we consider to be any further than <span
-class="math inline">\(50\)</span>cm (in the one dimension we are
-considering) from the point on the other end which we defined to be
-position <span class="math inline">\(0\)</span>. This is some sort of
-way to saying that we can ignore the bounds of the integrals in
-continuous quantum mechanics until a physical problem sets them for
-us.<br />
+Put in scalar terms, this word associative is usually seen as <span
+class="math display">\[(a\times b)\times c = a \times (b\times
+c).\]</span> In other words, so long as the order of the terms <span
+class="math inline">\(a,b,c\)</span> are kept (here, <span
+class="math inline">\(a\)</span> before <span
+class="math inline">\(b\)</span> before <span
+class="math inline">\(c\)</span>), the two multiplication operations can
+be performed in either order. With numbers this is completely natural
+(as also is additive associativity, but not subtractive or divisive
+associativity), but with Dirac notation this is much less trivial and
+also much more powerful.<br />
 <br />
-With this given, the orthogonal condition is the same: two kets <span
-class="math inline">\(\ket{x_{0}}\)</span> and <span
-class="math inline">\(\ket{x_{1}}\)</span> (which, by the aforementioned
-convention we are using, represent static kets corresponding to
-positions <span class="math inline">\(x_{0}\)</span> and <span
-class="math inline">\(x_{1}\)</span> respectively) are orthogonal if
-<span class="math display">\[\ip{x_{0}}{x_{1}}=0.\]</span> However, the
-normalisation condition is different. To understand this, consider the
-completeness relation, which we expect to be: <span
-class="math display">\[\infint \sop{x}\,dx=1\]</span> where we have
-continued the convention of <span class="math inline">\(x\)</span>
-without any subscripts representing a variable inner label. Left
-multiplying by <span class="math inline">\(\bra{x_{0}}\)</span> and
-right multiplying by any non-basis ket <span
-class="math inline">\(\ket{\alpha}\)</span> gives us <span
-class="math display">\[\infint
-dx\,\ip{x_{0}}{x}\ip{x}{\alpha}=\ip{x_{0}}{\alpha}\]</span> which is,
-the component <span class="math inline">\(\psi_{\alpha}(x_{0})\)</span>
-of the ket <span class="math inline">\(\ket{\alpha}\)</span>in the
-direction of eigenket <span class="math inline">\(\ket{x_{0}}\)</span>
-corresponding to position value <span
-class="math inline">\(x_{0}\)</span>.<br />
+The first example we have seen but not explained explicitly is the inner
+product <span class="math display">\[\bra{X}{\Omega}\ket{Y}.\]</span>
+This is an inner product since it is the product of a bra, <span
+class="math inline">\(\bra{X}\)</span> with a ket <span
+class="math inline">\(\Omega\ket{Y}\)</span> (which is another ket in
+the ket space the operator <span class="math inline">\(\Omega\)</span>
+has mapped the original ket <span class="math inline">\(\ket{Y}\)</span>
+to). However, it can also be seen as a bra, <span
+class="math inline">\(\bra{X}\Omega\)</span>, multiplied by a ket <span
+class="math inline">\(\ket{Y}\)</span>. This is the associative axiom:
+in fact it does not matter which way the multiplication goes and only
+because of this can we write the concise <span
+class="math inline">\(\bra{X}{\Omega}\ket{Y}\)</span>.<br />
 <br />
-Denote now the inner product between basis vectors <span
-class="math inline">\(\ket{x}\)</span> and <span
-class="math inline">\(\ket{x_{0}}\)</span> as <span
-class="math display">\[\ip{x}{x_{0}}:=
-\delta(x-x_{0}).\]</span> The way of presenting the two arguments <span
-class="math inline">\(x\)</span> and <span
-class="math inline">\(x_{0}\)</span>, which are, the inputs, of the
-function should not throw one off: it is convention, which has a not so
-significant but still very much logical reason. We know that <span
-class="math display">\[\forall x\neq x_{0}, \btab
-\delta(x-x_{0})=0\]</span> since the position kets are all orthogonal to
-each other as they are non-degenerate eigenkets of a hermitian operator.
-Now, we can look at the above expression again: <span
-class="math display">\[\infint
-\ip{x_{0}}{x}\ip{x}{\alpha}\,dx=\ip{x_{0}}{\alpha}\implies \infint
-\delta(x_{0}-x)\psi_{\alpha}(x)\,dx=\psi_{\alpha}(x_{0})\]</span> The
-range over negative infinity to positive infinity seems expansive, but
-in fact, an infinite part of it is redundant; this is because the inner
-product <span class="math inline">\(\delta(x-x_{0})\)</span> is 0 for
-all <span class="math inline">\(x\neq x_{0}\)</span>! Now it is clear we
-need to continue to consider infinities since we are working with
-continuous variables rather than discrete ones. Consider an infinitely
-small region <span class="math inline">\([x_{0}-\Delta x,x_{0}+\Delta
-x]\)</span> for an infinitesimal difference <span
-class="math inline">\(\Delta x\)</span>, which centres at <span
-class="math inline">\(x_{0}\)</span>. In this region we can consider the
-integral because it is only here where we can consider <span
-class="math inline">\(\delta(x-x_{0})\)</span> to not definitively be
-<span class="math inline">\(0\)</span> since if <span
-class="math inline">\(x\)</span> is infinitely close to <span
-class="math inline">\(x_{0}\)</span> we cannot just easily say <span
-class="math inline">\(x\neq x_{0}\)</span>. With these new bounds, <span
-class="math display">\[\int_{x_{0}-\Delta x}^{x_{0}+\Delta
-x}\delta(x-x_{0})\psi_{\alpha}(x)=\psi_{\alpha}(x_{0})\]</span> since
-this region is the only area where we cannot say the inner product <span
-class="math inline">\(\delta(x-x_{0})\)</span> is <span
-class="math inline">\(0\)</span>. As all values of <span
-class="math inline">\(x\)</span> in the integral lie in this
-infinitesimal region, we can as we assume in the limit that the
-components <span
-class="math inline">\(\psi_{\alpha}(x)=\psi_{\alpha}(x_{0})\)</span>
-since the input direction <span class="math inline">\(\ket{x}\)</span>
-is infinitesimally different from the fixed direction <span
-class="math inline">\(\ket{x_{0}}\)</span>. This then is a specific
-value (not a function, despite the notation), so we can pull it out as a
-constant: <span class="math display">\[\int_{x_{0}-\Delta
-x}^{x_{0}+\Delta
-x}\delta(x-x_{0})\psi_{\alpha}(x)\,dx=\psi_{\alpha}(x_{0})\int_{x_{0}-\Delta
-x}^{x_{0}+\Delta x}\delta(x-x_{0})\,dx=\psi_{\alpha}(x_{0}).\]</span>
-That is, <span class="math display">\[\int_{x_{0}-\Delta
-x}^{x_{0}+\Delta x}\delta(x-x_{0})\,dx_{0}=1.\]</span> What implications
-does this have for the inner product <span
-class="math inline">\(\delta(x-x_{0})\)</span>, which we call the
-(Dirac) delta function? The most intuitive answer comes from using the
-conventional visualisation of an integral as a way to measure the area
-under a smooth function. We know the delta function <span
-class="math inline">\(\delta(x-x_{0})\)</span> is <span
-class="math inline">\(0\)</span> until it reaches an infinitely small
-interval around the value <span class="math inline">\(x_{0}\)</span>.
-Yet the integral of the whole function with respect to <span
-class="math inline">\(x\)</span> is <span
-class="math inline">\(1\)</span>. So if we draw a horizontal axis for
-varying <span class="math inline">\(x\)</span> and a vertical axis for
-the value of <span class="math inline">\(\delta(x-x_{0})\)</span> (with
-<span class="math inline">\(x_{0}\)</span> fixed), we will get a flat
-line for all infinity until we get infinitely close to <span
-class="math inline">\(x_{0}\)</span>. Yet, this as a whole must have
-area <span class="math inline">\(1\)</span>! So the infinitely small
-width interval close to <span class="math inline">\(x\)</span> is the
-only region which contributes any area to the integral, and this whole
-area is <span class="math inline">\(1\)</span>. So, in the picture we
-have created, the value <span
-class="math inline">\(\delta(x-x_{0})\)</span> in this region is the
-height which contributes <span class="math inline">\(1\)</span> to the
-area despite having an infinitely small width. The only explanation
-therefore is that at the infinitesimally small region, the delta
-function has infinite value. Otherwise, the infinitely small width
-interval could not have any area which is not infinitely small! Then the
-infinitesimally small domain for <span class="math inline">\(x\)</span>
-around <span class="math inline">\(x_{0}\)</span> can simply be reduced
-to <span class="math inline">\(x=x_{0}\)</span>, so <span
-class="math inline">\(\delta(x_{0}-x_{0}):=\delta(0)\)</span> is
-infinity!<br />
+The ramifications of this fact are profound, as beginners with Dirac
+notation often get confused about which products are “bunched together”
+and must be performed first, leading to a great state of bewilderment
+when a term might have several bras, operators and kets next to each
+other. The answer is very simply that, so long as operations are being
+performed left to right, the order does not matter and the reader may
+read the multiplications in any way they like. It also immediately leads
+to theorems for entities in Dirac notation, by defining them through the
+perspective of other known products. The first example of this we will
+see is the following completeness relation.<br />
 <br />
-We summarise with the following: <span
-class="math display">\[\delta(x-x_{0})=
-\begin{cases}
-0\stab\text{if}\stab x\neq x_{0}\\
-\infty\stab\text{if}\stab x=x_{0}\\
-\end{cases}\]</span> Of course, we do not like writing the infinity
-symbol as if it is a value very often in mathematics, so this is better
-put <span class="math display">\[\]</span> <span
-class="math display">\[\delta(x-x_{0})=
-0\stab\text{if}\stab x\neq x_{0}, \btab\btab
-\int\delta(x-x_{0})\,dx=1\]</span> where the bounds of integration do
-not matter since the function is <span class="math inline">\(0\)</span>
-anyway until we get infinitesimally close to <span
-class="math inline">\(x_{0}\)</span>. This will be commonplace any time
-we consider a continuous basis. Another way to summarise this is also in
-the framework of viewing the delta function as a <em>sampling
-function</em>, which means that <span
-class="math display">\[\int\delta(x-x_{0})f(x)\,dx=f(x_{0})\]</span>
-That is- because the range where <span class="math inline">\(x\)</span>
-and <span class="math inline">\(x_{0}\)</span> are completely distinct
-vanishes, the integral only selects the value of <span
-class="math inline">\(f(x_{0})\)</span>, which changes over a
-continuously varying <span class="math inline">\(x_{0}\)</span>, which
-is the same as that at point <span class="math inline">\(x\)</span>.
-Finally, it is crucial to know that the delta function is real! This
-means that <span
-class="math display">\[\delta(x-x_{0})=\ip{x}{x_{0}}=\ip{x_{0}}{x}^{\ast}=\delta(x_{0}-x)^{\ast}\]</span>
-but as the delta function is real, <span
-class="math display">\[\dd{x_{0}}{x}^{\ast}=\dd{x_{0}}{x}\]</span> which
-altogether means that <span
-class="math display">\[\dd{x}{x_{0}}=\dd{x_{0}}{x}\]</span> -an
-important point, of course. It is also very important to know that the
-minus sign in the function is meant to be taken literally (technically,
-the Delta function is a function of the difference between its two
-arguments, but this point is not important at all). So we will often see
-expressions like <span
-class="math display">\[\delta(x)=\dd{x}{0}=\dd{0}{x}\]</span> or <span
-class="math display">\[\delta(0)=\dd{x}{x}\]</span> and even <span
-class="math display">\[\delta(k)=\dd{x+k}{x}\]</span> in shorthand. A
-reader should not get confused by this, and should also remember that
-<span class="math display">\[\delta(k)=\delta(-k)\]</span> since <span
-class="math inline">\(\delta(x+k-x)=\delta(x-(x+k))\)</span>.<br />
+<strong><u>The Outer Product</u></strong><br />
 <br />
-</p>
-<h2 id="position-and-momentum">Position and Momentum</h2>
-<p>In order to understand the importance of orthonormalising to the
-Dirac delta function as the continuous analogue of orthonormalising to
-the Kronecker delta in the discrete case we have beforehand been working
-on, we will undergo the necessary algebraic steps to work with the two
-canonical quantum mechanical operators. Through this, one can practice
-both the algebra and rationale of the Dirac delta function.</p>
-<h3 id="position-and-momentum-operators">Position and Momentum
-Operators</h3>
-<p>The first step we can take using the Dirac Delta function is to
-confirm the action of the position operator– the operator in quantum
-mechanics which represents the physical variable of position– in
-<strong>position space</strong>, the space spanned by the continuous
-position eigenkets. Take some function <span
-class="math inline">\(f(x):=\ip{x}{f}\)</span> represented by the ket
-<span class="math inline">\(\ket{f}\)</span> and define <span
-class="math display">\[\hat{X}\ket{f}:=\ket{F}\]</span> with <span
-class="math display">\[F(x_{0}):=\ip{x_{0}}{F}.\]</span> Now in the
-usual way we can determine the action of an operator on a ket by left
-multiplying it by a basis bra: <span
-class="math display">\[\optrip{x_{0}}{X}{f}=\ip{x_{0}}{F}\]</span> We
-can then insert the continuous completeness relation: <span
-class="math display">\[\int\sop{x}\,dx=I\implies\optrip{x_{0}}{X}{f}\equiv
-\int\optrip{x_{0}}{X}{x}\ip{x}{f}\,dx=\int
-x\ip{x_{0}}{x}\ip{x}{f}\,dx.\]</span> In Delta notation, this is <span
-class="math display">\[\int\optrip{x_{0}}{X}{x}\ip{x}{f}\,dx=\int
-x\dd{x}{x_{0}}f(x)\,dx.\]</span> As per usual, the delta function
-vanishes all the integrated terms except for when <span
-class="math inline">\(x=x_{0}\)</span>. Therefore we can assume the
-<span class="math inline">\(x\)</span> variable is only relevant when
-<span class="math inline">\(x=x_{0}\)</span> and thus pull it out as
-<span class="math inline">\(x_{0}\)</span>. To finalise the result, we
-simply get the sampling property of the delta function. <span
-class="math display">\[\int x\dd{x}{x_{0}}f(x)\,dx\equiv
-x_{0}\int\dd{x}{x_{0}}f(x)\,dx = x_{0}f(x_{0}).\]</span> So we have
-<span class="math display">\[\optrip{x_{0}}{X}{f}=\ip{x_{0}}{F}
-=F(x_{0})=x_{0}f(x_{0})\]</span> So <span
-class="math display">\[\hat{X}f(x_{0})=F(x_{0})=x_{0}f(x_{0}).\]</span>
-Since this holds true for all <span
-class="math inline">\(x_{0}\)</span>, we can generalise this for any
-input of the position variable <span class="math inline">\(x\)</span> as
-simply: <span class="math display">\[\hat{X}f(x)=xf(x)\]</span> in the
-position basis; indeed, this is the position operator we are familiar
-with. The matrix elements of <span
-class="math inline">\(\hat{X}\)</span> in the position basis are
-trivial: <span
-class="math display">\[\optrip{x_{1}}{X}{x_{0}}=x_{0}\ip{x_{1}}{x_{0}}=x_{0}\dd{x_{1}}{x_{0}}.\]</span><br />
+We discussed above how the associative axiom holds for all legal
+multiplications between bras, kets and operators. What constitutes an
+illegal multiplication? Well, to start we can give the example of the
+orthonormal expansion of any ket <span
+class="math inline">\(\ket{X}\)</span>, <span
+class="math display">\[\ket{X}=\sum_{i=1}^{n}\ket{\talpha_{i}}\ip{\talpha_{i}}{X}.\]</span>
+Contrast this to the naive expansion <span
+class="math display">\[\ket{X}=\sum_{i=1}^{n}c_{i}\ket{\talpha_{i}}\]</span>
+which we might use if we were not sure the basis was orthonormal, for
+example. We see that the position of the component shifted from the
+leftmost sum term to the rightmost sum term when <span
+class="math inline">\(c_{i}\)</span> was replaced with <span
+class="math inline">\(\ip{\talpha_{i}}{X}\)</span>. One might ask why
+this is. The best answer for this is simply the associative axiom: if we
+had written <span
+class="math display">\[\ket{X}=\sum_{i=1}^{n}\ip{\talpha_{i}}{X}\ket{\talpha_{i}},\]</span>
+then we might think this is okay as we have a scalar <span
+class="math inline">\(\ip{\talpha_{i}}{X}\)</span> multiplying a ket
+<span class="math inline">\(\ket{\talpha_{i}}\)</span>. However, by the
+associative axiom we also expect the above to be equally well expressed
+as <span class="math display">\[\ket{X}=\sum_{i=1}^{n}
+\bra{\talpha_{i}}\times\biggl(\ket{X}\times\ket{\talpha_{i}}\biggr).\]</span>
+This is where our problem is– two kets cannot be multiplied together, as
+they are both <span class="math inline">\(n\times 1\)</span> matrices!
+Similarly, two bras cannot be multiplied together as they are both <span
+class="math inline">\(1\times n\)</span> matrices. So this is why we
+cannot write <span
+class="math display">\[\ket{X}=\sum_{i=1}^{n}\ip{\talpha_{i}}{X}\ket{\talpha_{i}}.\]</span>
+This however implies that for the expansion <span
+class="math display">\[\ket{X}=\sum_{i=1}^{n}\ket{\talpha_{i}}\ip{\talpha_{i}}{X}\]</span>
+it is correct and therefore not only is the operation <span
+class="math inline">\(\ket{\talpha_{i}}\times\ip{\talpha_{i}}{X}\)</span>
+legal (it is a scalar multiplying a ket, so it should be)- but also that
+the operation <span
+class="math display">\[\left(\op{\talpha_{i}}{\talpha_{i}}\right)\times
+\ket{X}\]</span> should be possible. This product <span
+class="math inline">\(\op{\talpha_{i}}{\talpha_{i}}\)</span> is called
+the outer product between the bra <span
+class="math inline">\(\bra{\talpha_{i}}\)</span> and ket <span
+class="math inline">\(\ket{\talpha_{i}}\)</span>. We can verify it
+should be possible, as it is an <span class="math inline">\(n\times
+1\)</span> matrix multiplied by a <span class="math inline">\(1\times
+n\)</span> matrix, which should give an <span
+class="math inline">\(n\times n\)</span> matrix. As it produces an <span
+class="math inline">\(n\times n\)</span> matrix it clearly does not
+result in a scalar like the inner product; rather, we might posit that
+it is an operator, as operators are represented by <span
+class="math inline">\(n\times n\)</span> matrices. This is in fact a
+true assumption: an outer product is fundamentally meant to be treated
+as an operator. However, before we discuss that we should establish and
+prove a fundamental theorem in quantum mechanics which will be
+surprisingly useful for manipulation. This is the completeness relation,
+which results from the associative axiom, and deserves its own section
+for its importance even though the proof requires no considerable
+thought if we have the associative axiom in mind.<br />
 <br />
-The position and momentum operators in any basis are related solely by
-the commutation relation <span
-class="math display">\[[\hat{X},\hat{P}]=i\hbar.\]</span> The choice one
-makes for the momentum operator in position space is therefore <span
-class="math display">\[\hat{P}:=-i\hbar\nd{}{x}.\]</span> Solving its
-eigenvalue problem in the continuous position space will prove a more
-challenging task, as it contains a derivative. We start by considering
-its action on a function in the position basis: <span
-class="math display">\[\optrip{x_{0}}{P}{f}\equiv
--i\hbar\bip{x_{0}}{\nd{f}{x}}=-i\hbar f&#39;(x)\]</span> where <span
-class="math inline">\(f&#39;(x)\)</span> is the component in the <span
-class="math inline">\(x\)</span> direction of the derivative of <span
-class="math inline">\(f\)</span> with respect to <span
-class="math inline">\(x\)</span>. Expanding again with the completeness
-relation, we also have the alternate equations <span
-class="math display">\[\optrip{x_{0}}{P}{f}=\int\optrip{x_{0}}{P}{x}\ip{x}{f}\,dx=\int\optrip{x_{0}}{P}{x}f(x)\,dx\]</span>
-So this means that <span class="math display">\[-i\hbar
-f&#39;(x)=\optrip{x_{0}}{P}{f}=\int\optrip{x_{0}}{P}{x}f(x)\,dx.\]</span>
-The form we expect is that <span
-class="math display">\[\optrip{x_{0}}{P}{x}=-i\hbar\dd{x}{x_{0}}\nd{}{x}.\]</span>
-Indeed, this form works with the delta function. We get: <span
-class="math display">\[\optrip{x_{0}}{P}{f}=\int-i\hbar\dd{x}{x_{0}}\nd{}{x}f(x)\,dx=-i\hbar\int\dd{x}{x_{0}}f&#39;(x)\,dx\]</span>
-and this is, by the sampling property, <span
-class="math display">\[-i\hbar f&#39;(x)\biggl\vert_{x=x_{0}}=-i\hbar
-f&#39;(x_{0})\]</span> so we get <span
-class="math display">\[\optrip{x_{0}}{P}{f}=\hat{P}f(x_{0})=-i\hbar
-f&#39;(x_{0})\]</span> as required. So we have the matrix element <span
-class="math display">\[\optrip{x_{0}}{P}{x}=-i\hbar\dd{x}{x_{0}}\nd{}{x}.\]</span>
-Interestingly, this is in fact <span
-class="math display">\[\optrip{x_{0}}{P}{x}=-i\hbar\delta&#39;(x-x_{0}),\]</span>
-that is, <span class="math inline">\(-i\hbar\)</span> multiplied by the
-derivative of <span class="math inline">\(\dd{x}{x_{0}}\)</span> with
-respect to its first argument (which here is <span
-class="math inline">\(x\)</span>)! The rule for the derivatives of Delta
-functions, which are too mysterious and challenging to warrant their own
-proofs for now but which must be stated, is that <span
-class="math display">\[\frac{d^{(n)}\dd{x}{x_{0}}}{dx^{(n)}}=\delta&#39;^{(n)}(x-x_{0})=\dd{x}{x_{0}}\frac{d^{(n)}}{dx^{(n)}}\]</span>
-where the exponent <span class="math inline">\(n\)</span> represents the
-order of the derivative. Do note that the derivative is with respect to
-<span class="math inline">\(x\)</span> here because here <span
-class="math inline">\(x\)</span> is the first argument of the delta
-function and the argument which is variable.<br />
+<strong><u>The Completeness Relation</u></strong><br />
 <br />
-It is equally important to know that a very different definition for the
-operators and their matrix elements occurs if we are in a different
-basis- for example, the momentum space. Our original definition in
-Postulate 6 was that the position operator was <span
-class="math inline">\(\hat{X}=x\)</span> and the momentum operator was
-<span class="math inline">\(\hat{P}=-i\hbar\nd{}{x}\)</span>, but this
-only holds true in position space. Position space is generally the space
-used, as aforementioned in chapter 5, as it is in physical reality, and
-it usually is easier to express keep the potential <span
-class="math inline">\(V(x)\)</span>, a function of position, in the
-position basis than it is to find its form in momentum space.
-Nevertheless, momentum space can also for example be considered.<br />
+We have seen that the representation <span
+class="math display">\[\ket{X}=\northexp{X}{\talpha_{i}}\]</span> is
+allowed because the sum term <span
+class="math inline">\(\sop{\talpha_{i}}\times \ket{X}\)</span> is just
+the action of the outer product on the ket <span
+class="math inline">\({X}\)</span>. However, by the rule of linear
+operators that <span
+class="math display">\[(\Omega_{1}+\Omega_{2})\ket{X}=\Omega_{1}\ket{X}+\Omega_{2}\ket{X}\]</span>
+and the fact that the outer products are operators, we can use the same
+principle to write <span
+class="math display">\[\ket{X}=\biggl(\sum_{i=1}^{n}\sop{\talpha_{i}}\biggr)\ket{X}.\]</span>
+And this is very revealing, of course, because this is true for any
+arbitrary ket <span class="math inline">\(\ket{X}\)</span>, and
+therefore we come to the conclusion that <span
+class="math display">\[\sum_{i=1}^{n}\sop{\talpha_{i}}=1.\]</span> This
+is the most commonly written form of the completeness relation, but one
+should be aware that the 1 here represents the identity operator, rather
+than a scalar– since the sum of <span class="math inline">\(n\times
+n\)</span> matrices will give us an <span class="math inline">\(n\times
+n\)</span> matrix rather than a scalar.<br />
 <br />
-Now observe the way in which we derived the action of the position
-operator in position space. It should be convincing to the reader that
-if we were to replace the position operator with the momentum operator,
-and multiply it by a momentum eigenbra, and use the completeness
-relation but with momentum eigenkets, we will observe the exact same
-result! Nothing at all is contributed by the fact that it was the
-position operator we were discussing, other than that it was the
-position operator whose eigenbasis was spanning the space above while we
-were trying to express its action on constituent kets. Therefore, if we
-consider any other continuous operator in a space spanned by its
-orthonormal basis, we should obtain the exact same result– but simply
-expressed for a different physical variable!<br />
+On the other hand, the more we foray into problem solving the more we
+will see of this seemingly completely useless relation. One example can
+be in the proof that the sum of the modulus squared components of a
+normalised ket is also equal to <span class="math inline">\(1\)</span>:
+<span class="math display">\[\sip{X}=\bra{X}\times\ket{X}=\bra{X}\times
+(1\ket{X})=\bra{X}\times
+\sum_{i=1}^{n}\sop{\talpha_{i}}\times\ket{X}\]</span> where the number
+<span class="math inline">\(1\)</span> is the identity operator again
+and the kets <span class="math inline">\(\setof{\talpha_{i}}\)</span>
+are the orthonormal basis vectors. Then, by linearity in ket, we can
+write this as <span
+class="math display">\[\sip{X}=\sum_{i=1}^{n}\bra{X}\times\sop{\talpha_{i}}\times\ket{X}\]</span>
+and by the associative axiom this is just <span
+class="math display">\[\sip{X}=\sum_{i=1}^{n}\ip{X}{\talpha_{i}}\ip{\talpha_{i}}{X}=\sum_{i=1}^{n}\ip{\talpha_{i}}{X}\times(\ip{\talpha_{i}}{X})^{\ast}=\sum_{i=1}^{n}|\ip{\talpha_{i}}{X}|^{2}.\]</span>
+However, as the inner products <span
+class="math inline">\(\ip{\talpha_{i}}{X}\)</span> are the components of
+<span class="math inline">\(\ket{X}\)</span> in the basis <span
+class="math inline">\(\setof{\talpha_{i}}\)</span>, if the ket <span
+class="math inline">\(X\)</span> is normalised then the left side is
+<span class="math inline">\(1\)</span> so we get <span
+class="math display">\[1=\sum_{i=1}^{n}|c_{i}|^2.\]</span> So the
+modulus squared of the components of a normalised ket in a basis sum to
+<span class="math inline">\(1\)</span>. We know these modulus squared
+components are probabilities if we are working in an observable space by
+the measurement postulate! So what we have just proved, in a flick of
+the pen when working with Dirac notation, is that the reason we like
+working with discrete wavefunctions is because their components in this
+way perfectly represent probabilities summing in total to <span
+class="math inline">\(1\)</span>! We have already proved this fact, at
+the end of Chapter 4 on normalised discrete wavefunctions being
+interpreted as probability mass functions, but, if one takes a quite
+glance at that, the proof is neither so short, nor so elegant: it is
+positively clunky in comparision. The purpose of showing this is to
+exhibit that, just like in normal algebra, the world of Dirac notation
+can belie some extremely unusual and ingenious manipulations which
+without the notation would not be so easy to express, but with the
+fluency in the notations, can be done in just a few lines or seen in a
+matter of seconds.</p>
+<h2 id="change-of-basis">Change of Basis</h2>
+<p>One of the most important concepts in matrix mechanics is that of
+diagonal matrices. A square matrix is diagonal if all its elements are
+<span class="math inline">\(0\)</span> except those in the major
+diagonal: that is, elements <span class="math inline">\(M_{ii}\)</span>,
+which can be anything. One example of a diagonal matrix is the identity
+matrix, which has all zero entries except the major diagonal, which is
+filled with <span class="math inline">\(1\)</span>’s.<br />
 <br />
-If one is convinced that we <em>derived</em> the action of the position
-operator in its own space simply by using continuous relations and
-manipulation with its own eigenkets, they should then be convinced that
-in momentum space we have: <span
-class="math display">\[\hat{P}f(p)=pf(p).\]</span> Its matrix elements
-in this basis are easy as well: <span
-class="math display">\[\optrip{p&#39;}{P}{p}=p\ip{p&#39;}{p}=p\dd{p&#39;}{p}.\]</span></p>
-<h3 id="position-and-momentum-eigenfunctions">Position and Momentum
-eigenfunctions</h3>
-<p>Fruitful (but difficult) discussions come out of considering the
-eigenfunctions of position and momentum. We will work in the position
-space, as that is sufficient to provide the necessary discourse and is
-the most common space to work in.<br />
+<strong>Theorem: Every Hermitian operator has at least one
+orthonormal</strong><br />
+<strong>eigenbasis in which its matrix representation is diagonal.
+The</strong><br />
+<strong>diagonal entries are the eigenvalues of the
+operator.</strong><br />
 <br />
-One might assume that the eigenvalues of <span
-class="math inline">\(\hat{X}\)</span> in its own space are natural. We
-can denote an eigenvector as <span class="math inline">\(\xi(x)\)</span>
-and the corresponding eigenvalue as <span
-class="math inline">\(x_{0}\)</span>. Then we have <span
-class="math display">\[\hat{X}\xi(x)=x\xi(x)=x_{0}\xi(x).\]</span>
-Consider this now carefully. We have <span
-class="math display">\[x\xi(x)=x_{0}\xi(x)\]</span> where <span
-class="math inline">\(x\)</span> is a continuous variable and <span
-class="math inline">\(x_{0}\)</span> is a single constant eigenvalue!
-Clearly something is wrong. It is impossible for a single eigenvalue to
-be multiple values of <span class="math inline">\(x\)</span> at the same
-time; if it was a function instead, it would not be viable as an
-eigenvalue and therefore <span class="math inline">\(\xi(x)\)</span>
-would also not be an eigenvector.<br />
+This proof is quite tough and not particularly illustrative for our
+current needs, and therefore will not be shown for now. However, we will
+find that the implications of this theorem are hugely powerful, because
+it means that if we can diagonalise the operator matrix then we
+immediately solve the eigenvalue problem as the diagonal matrix values
+give us the eigenvalues from which deriving the eigenvectors should be
+easy: clearly, a great problem-solving step.<br />
 <br />
-It turns out this problem is fixed if we make the eigenvector <span
-class="math inline">\(\xi(x)\)</span> a special type of function. Of
-course, by now one should anticipate this is the Dirac delta function
-(we can see how useful it is), with arguments <span
-class="math inline">\(x_{0}\)</span> and <span
-class="math inline">\(x\)</span>. That way, if we have <span
-class="math display">\[\hat{X}\dd{x_{0}}{x}=x\dd{x_{0}}{x}=x_{0}\dd{x_{0}}{x}\]</span>
-we will see that the function does the work for us! We get a crude <span
-class="math inline">\(0=0\)</span> for all the values of continuous
-variable <span class="math inline">\(x\)</span> which are not <span
-class="math inline">\(x_{0}\)</span>, and then for <span
-class="math inline">\(x=x_{0}\)</span> clearly the eigenvalue and
-eigenvector conditions are satisfied. We will rewrite this as <span
-class="math display">\[\hat{X}\dd{x}{x_{0}}=x_{0}\dd{x}{x_{0}}\]</span>
-as it is more conventional to write <span
-class="math inline">\(\dd{x}{x_{0}}\)</span> than <span
-class="math inline">\(\dd{x_{0}}{x}\)</span>, even though they are the
-same thing.<br />
+So we want to diagonalise the operator. By the theorem, this means we
+want to take one matrix in any basis to the eigenbasis which
+diagonalises the operator. Thus we will often be interested in a
+<strong>change of basis</strong>.<br />
 <br />
-The momentum eigenvalue problem in position space is more important, and
-difficult. The problem is <span
-class="math display">\[\hat{P}\phi(x)=-i\hbar\nd{}{x}\phi(x)=p\phi(x)\]</span>
-for an arbitrary eigenvector <span
-class="math inline">\(\phi(x)\)</span> corresponding to eigenvalue <span
-class="math inline">\(p\)</span>. We can tell that immediately the
-problem we had with the position eigenvectors in position space isn’t
-going to be prominent here simply due to the form of the operator;
-indeed, we will not need the delta function. Instead, what one finds is
-that this is very simply a recognisable first order differential
-equation. <span class="math display">\[\begin{aligned}
-p\phi(x)&amp;=-i\hbar\nd{}{x}\phi(x)\\
-\Rightarrow\stab\nd{\phi}{x}&amp;=ip/\hbar\phi(x)
-\end{aligned}\]</span> and this is an equation of the form <span
-class="math display">\[\nd{y}{x}=ky\]</span> with general solution <span
-class="math inline">\(y=Ae^{kx}\)</span>. So matching these two
-equations we have the comparisons <span
-class="math inline">\(y=\phi(x)\)</span>, <span
-class="math inline">\(x=x\)</span> and <span
-class="math inline">\(k=ip/\hbar\)</span>. Therefore, the solution to
-the eigenvector problem is <span
-class="math display">\[\phi(x)=Ae^{ipx/\hbar}.\]</span> for some
-arbitrary constant <span class="math inline">\(A\)</span>. It should be
-noted that <span class="math inline">\(i,\hbar\)</span> are both
-constants, and <span class="math inline">\(p\)</span> is the eigenvalue
-corresponding to the eigenvector, which is not a single constant unless
-we are only concerned with a single eigenvector. Therefore, <span
-class="math inline">\(x\)</span> is the only variable which changes the
-value of the position space momentum eigenfunction as it is itself
-varied, which is why we can call it a function of the position variable
-<span class="math inline">\(x\)</span>. Now, it might seem like our job
-is done in this section, but the form of the momentum eigenvectors bring
-significant imperfections to the Hilbert space we have so far seen as
-quite perfect for our job of describing physical reality. We must deal
-with these in any valid discussion of quantum mechanics.<br />
-<br />
-As mentioned in the section on infinities, an exponential function rises
-exponentially to infinity as <span class="math inline">\(x\)</span> goes
-to infinity (when its exponent is positive, as it is here). The reader
-should therefore realise that, no matter what constant <span
-class="math inline">\(A\)</span> we try to multiply it with, we will
-never be able to gain a finite integral over all space and therefore
-position <span class="math inline">\(x\)</span>. As there is no
-normalisation which produces a finite norm for a momentum eigenstate, we
-can only do the next best thing, which is try to normalise it in a way
-which encapsulates this infinite behaviour while being still mainly
-serviceable for the needs of algebraic manipulations. Of course, this
-can be best done through the Dirac delta function. We have seen how
-useful it is, in that its derivatives are defined, it has secondary
-properties like sampling which greatly simplify algebra with it, and it
-is very commonly seen across what we have already done. Thus, for such
-non-finite norm vectors we want to use the process of <em>normalising to
-the Dirac delta function</em>, the continuous analogue of normalising to
-unity!<br />
-<br />
-In the case of momentum eigenvectors, a constant <span
-class="math inline">\(A\)</span> is already set up in the general
-solution. So we can try to find a constant <span
-class="math inline">\(A\)</span> which normalises the momentum
-eigenvectors to the Dirac delta function. In arbitrary terms, we have,
-still in the position basis, <span
-class="math display">\[\ip{p}{p&#39;}=\int\ip{p}{x}\ip{x}{p&#39;}\,dx\]</span>
-and we would like <span class="math inline">\(\ip{p}{p&#39;}\)</span> to
-be equal to <span class="math inline">\(\dd{p}{p&#39;}\)</span> after we
-have modified <span class="math inline">\(\ket{p}\)</span> (we can use
-the variable label <span class="math inline">\(p\)</span> since it
-should hold for all eigenkets) by multiplying it by some constant.
-Currently the above is <span class="math display">\[\begin{aligned}
-\ip{p}{p&#39;}&amp;=\int\ip{p}{x}\ip{x}{p&#39;}\,dx
-=\int\ip{x}{p}^{\ast}\ip{x}{p&#39;}\,dx\\
-&amp;=\int\psi_{p}^{\ast}(x)\psi_{p&#39;}(x)\,dx = \int
-A^{\ast}e^{-ipx/\hbar}Ae^{ip&#39;x/\hbar}\,dx\\
-&amp;=|A|^{2}\int e^{-ix(p-p&#39;)/\hbar}\,dx.
-\end{aligned}\]</span> Unfortunately, at this point we cannot use any
-mathematics we know or will be able to quickly learn to move forwards,
-as the answer lies in a relationship given by Fourier transforms, which
-are too advanced for this book. Therefore a relationship will just have
-to be stated and taken as given. This is the relationship <span
-class="math display">\[\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{-ik(x-x_{0})}\,dk=\delta(x-x_{0}).\]</span>
-It looks haphazard, but at the heart of it lies the connections between
-complex numbers, exponentials and pi, of which an example is the Euler
-formula. Any further explanation would be meaningless without the reader
-understanding Fourier transforms (where from the relationship is
-derived) in the first place, and that is hardly assumed knowledge
-here.<br />
-<br />
-This is reasonably closely related to our momentum eigenstate
-normalisation question, with a bridge step. We had: <span
-class="math display">\[|A|^{2}\int e^{-ix(p-p&#39;)/\hbar}\,dx\]</span>
-for some normalisation constant <span class="math inline">\(A\)</span>
-we are trying to find. We can rewrite this as <span
-class="math display">\[|A|^{2}\int
-e^{-i(\frac{p}{\hbar}-\frac{p&#39;}{\hbar})x}\,dx,\]</span> which is
-extremely close to the expression above. The only lemma we need to is
-that <span class="math inline">\(\delta(\frac{x}{a})=a\delta(x)\)</span>
-for some constant <span class="math inline">\(a\)</span>. Now we can use
-the relations to get <span class="math display">\[|A|^{2}\int
-e^{-ix(p-p&#39;)/\hbar}\,dx=\frac{|A|^2}{2\pi}\delta\left(\frac{1}{\hbar}(p-p&#39;)\right)\]</span>
-and by the lemma this is <span
-class="math display">\[\frac{|A|^2\hbar}{2\pi}\delta(p-p&#39;).\]</span>
-Finally, we can see what constant we want <span
-class="math inline">\(A\)</span> to be! Simply <span
-class="math inline">\(A=\frac{1}{\sqrt{2\pi\hbar}}\)</span> will work,
-and, retracing our steps and replacing <span
-class="math inline">\(A\)</span> with <span
-class="math inline">\((2\pi\hbar)^{-1/2}\)</span> we will get <span
-class="math display">\[\ket{p}\duac\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}\implies\ip{p}{p&#39;}=\delta(p-p&#39;).\]</span>
-This has taken a lot of labour and a couple of steps we can only take
-for granted without more advanced mathematical tools: but one should now
-be able to fully understand that orthonormalising to the Dirac delta
-function is the continuous analogue of orthonormalising to the Kronecker
-delta in the discrete case, and that both are necessary, possible, and
-useful.</p>
-<h2 id="probability-distribution-functions">Probability Distribution
-Functions</h2>
-<p>The state problem was said at its introduction in this book to be a
-problem of encapsulation and extraction. The question of extraction is
-answered by observable operators and their eigenbases, and elaborated on
-by the Compatibility Theorem and Heisenberg Uncertainty Principle, which
-result from those observable and measurement postulates. The question of
-encapsulation has been already largely answered by state vectors, but
-both elegance and historical justice can be demonstrated with the
-following formalisation, which will show that the continuous
-wavefunction can be interpreted as a probability distribution function
-which therefore encapsulates not only all the possible measurements, but
-also their probabilities. This is naturally a direct mirror image of the
-probability mass function we obtained for the discrete case
-wavefunction. After that, the only difficulty– though it will prove
-itself to be much more diverse and challenging than any other– would be
-to solve for the state vector in some basis given the conditions of a
-physical problem we are given.<br />
-<br />
-We know how to extract probabilities from our representation of a state:
-<span
-class="math display">\[P(\alpha_{i})=|(\alpha_{i},\Psi)|^{2}\]</span> if
-<span class="math inline">\(\alpha_{i}\)</span> is some orthonormal
-eigenvector. It is important to remember that there are bases of the
-state space which do not consist of eigenvectors of some operator, but
-since we have already seen that we are exclusively interested in
-observable eigenbases when we work in quantum mechanics, we might often
-write eigenvector instead of vector with the implicit assumption that
-the basis vector we are using would be an eigenbasis vector. We also
-know that <span class="math display">\[(\alpha_{i},\Psi)=c_{i},\]</span>
-the component of the state vector in the orthonormal basis <span
-class="math inline">\(\setof{\alpha_{i}}\)</span>. Therefore the
-components of the state vector in some observable basis are the links to
-probabilities in the state problem. We call them <strong>probability
-amplitudes</strong>, and the modulus squared of these probability
-amplitudes are called <strong>probability densities</strong>. If we work
-in discrete cases, probability densities, called probability masses in
-the discrete case, are simply synonymous with probabilities, as the
-postulate shows. Very minor differences exist in the continuous case,
-which we now have the correct definitions to tackle as well.<br />
-<br />
-The generalisation to continuous dimensions of probability mass
-functions are well covered in mathematics already. The problem we have
-is that continuity implies infinite eigenstates, and therefore, from the
-perspective of probability, infinite events. If there are infinite
-events, then all of them must have technically have <span
-class="math inline">\(0\)</span> probability because we cannot pin a
-probability down to a single value when there is a value which
-corresponds to shifting that value by an infinitely small
-increment.<br />
-<br />
-Again, this is pure mathematics rather than quantum mechanics speaking.
-It is convention to call the probability distribution functions
-<strong>probability density functions</strong> in the continuous case.
-Since it is a continuous function, we cannot take a certain value for a
-probability as discussed, but we can integrate it between certain
-bounds!<br />
-<br />
-The integral <span
-class="math display">\[\int_{x=a}^{x=b}|\psi(x)|^2\,dx\]</span> with a
-continuous wavefunction, here the position wavefunction, is the
-probability that the state is measured to be somewhere between the
-eigenstates <span class="math inline">\(\ket{a}\)</span> and <span
-class="math inline">\(\ket{b}\)</span> corresponding to position values
-<span class="math inline">\(a\)</span> and <span
-class="math inline">\(b\)</span>. Thus we have a way to find the
-probabilities we need now for the continuous case as well, and see why
-wavefunctions are probability density functions with respect to certain
-measurements of observables.<br />
-<br />
-The state problem, which we left as finished for the discrete case, is
-now complete for the continuous case as well. The physical state
-corresponds to the state vector, which can be transformed into
-wavefunctions by eigenvector inner products. The resulting functions are
-either probability mass functions, in the discrete case, or probability
-distribution functions, in the continuous case. Finally, I am justified
-in calling wavefunctions ‘tangible’ when I sounded strange beforehand.
-More importantly, we are done with all the conceptual learning we will
-be covering in this book!</p>
-<h2 id="exercises-from-chapter-7">Exercises from Chapter 7</h2>
+A change of basis is performed by applying an operator to the original
+basis kets and mapping them onto the new kets. Such is a common idea in
+quantum mechanics: to transform one ket to another we also try to see if
+there is a way we can formulate it as an operator equation. Here, we
+certainly can; such operators are usually denoted <span
+class="math inline">\(U\)</span>. So we guess that for some original
+basis <span class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span> and
+operator <span class="math inline">\(\Omega\)</span> with eigenvalues
+<span class="math inline">\(\setof{\beta_{i}}\)</span> and eigenvectors
+<span class="math inline">\(\setof{\ket{\beta_{i}}}\)</span>, <span
+class="math display">\[\forall i, \stab
+U\ket{\alpha_{i}}=\ket{\beta_{i}}.\]</span> Assuming without loss of
+generality that these basis sets are both orthonormal, the operator
+which works is <span
+class="math display">\[U:=\sum_{j}\op{\beta_{j}}{\alpha_{j}}.\]</span>
+We can prove this. For any original basis ket <span
+class="math inline">\(\ket{\alpha_{i}}\)</span>, <span
+class="math display">\[\biggl(\sum_{j}\op{\beta_{j}}{\alpha_{j}}\biggr)\ket{\alpha_{i}}=\sum_{j}\ket{\beta_{j}}\ip{\alpha_{j}}{\alpha_{i}}=\sum_{j}\ket{\beta_{j}}\delta_{ij}=\ket{\beta_{i}}\]</span>
+and this holds for any <span class="math inline">\(i\)</span> since we
+have orthonormal sets. What is much more important, however, is that the
+operator <span class="math inline">\(U\)</span> satisfies a very
+interesting condition. Consider, for the operator defined, the product
+<span class="math display">\[U^\dagger
+U=\biggl(\sum_{k}\op{\alpha_{k}}{\beta_{k}}\biggr)\times\biggl(\sum_{j}\op{\beta_{j}}{\alpha_{j}}\biggr)\]</span>
+As the basis sets are orthonormal, we see that all the terms disappear
+on account of the inner product <span
+class="math inline">\(\ip{\beta_{k}}{\beta_{j}}\)</span>, except when
+<span class="math inline">\(k=j\)</span>. In those cases, we get <span
+class="math display">\[\sum_{k}\sop{\alpha_{k}}=1.\]</span> So for this
+“transformation operator”, we have <span
+class="math inline">\(U^{\dagger}U=1\)</span>. Similarly, <span
+class="math inline">\(U U^{\dagger}=1\)</span>. Such an operator is
+called <strong>unitary</strong>. Now consider some arbitrary operator
+which is unitary and its action on a state ket which is normalised. We
+know that for the ket <span class="math inline">\(\ket{\Psi
+}\)</span></p>
+<h2 id="exercises-from-chapter-6ast">Exercises from Chapter 6<span
+class="math inline">\(\ast\)</span></h2>
 <ol>
 <li></li>
 <li></li>

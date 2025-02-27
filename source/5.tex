@@ -1,384 +1,279 @@
-\chapter{Chapter 5: Time Evolution and Problem Solving Techniques}
-We will complete our study of the postulates of quantum mechanics in this chapter, which will be more pragmatic than the precedent two chapters where we had to deal with abstract mathematical theory in vector spaces and operators. The time-evolution problem, which we will study in this chapter, will prove to be a double-edged challenge. On one hand, the time evolution postulate is completely trivial conceptually, especially compared to the state vector, observable and measurement postulates, so the reader can breathe a sigh of relief and know they won't have to deal with learning a new field of mathematics just to tackle this problem. All it will include is learning one equation: the all-famous Schr\"{o}dinger Equation postulated by Erwin Schr\"{o}dinger, and this equation will not be difficult to understand. On the other hand, the time evolution problem has by far the most potential to be complex, and in some advanced cases, impossible to solve without new intensely demanding mathematical techniques for manipulation and indeed often (though still very accurate) approximation. This should not be disheartening, however. The fact that it is very difficult for the reader to produce numerical predictions for a very complex multi-particle system in a constantly varying electrical field simply with nothing but an A4 sheet and their algebraic knowledge is nothing other than to be expected. Feynman, Dirac, Heisenberg, Pauli were not immortalised for only reaching the depth of an introductory book like this one. The Schr\"{o}dinger Equation is still always valid, even when it is difficult for us to practically solve the actual complete solutions of it.
+\chapter{Chapter 5: Commutation Relations}
+Another question still remains. We know that state vectors represent states-- and that is, physical states. If we think to use our classical intuition, we know a physical state can be thought about from the perspective of one observable (such as when we consider the momentum of two colliding objects). However, that does not mean it does not possess any values for all other physical observables, as it still has energy, angular momentum, and so on: only that we are not currently considering the other observables. Similarly, we would not be particularly pleased if the physical states pertaining to a certain measurement of one specific observable-- these so called pure states-- suddenly contained absolutely no information on any other observables. This is a question of information encapsulation: how does an energy pure state store extractable information about momentum, for example? To understand this question, which is far more complicated than the classical one of ``it's there, and just hasn't been measured yet'', we treat the two seminal theorems on the matter. Along the way, we will also be able to practise the mathematical operations we have introduced at a level and intensity we have not had the occasion to do so far.
 \\\\
-Before we start on that, however, there are two pragmatic clarifications to be made, both of which are related to the explicit forms of operators and how we use them in problem solving. These are, observable spaces and formulation of the observable operators. 
-\section{More on Observable Operators}
-\subsection{Observable Spaces}
-When we refer to an `observable space", we do not mean a space we can observe. We mean the state space when it is spanned by a physical observable. Precisely, that means working with the state space where the underlying basis is an eigenbasis of some observable operator.
+We have already seen in the last chapter how important the commutation relation between two observable operators in our Hilbert space can be. Starting from Dirac's Canonical Commutation relation, we deduced the form of the position and momentum operators in both the position and momentum space.
 \\\\
-A large component of problem solving in quantum mechanics consists of being able to apply two concepts related to bases:
-\begin{enumerate}
-    \item Staying flexible without committing to a specific base and considering the state vector without a basis first.
-    \item Switching into a basis which is useful for our specific needs and algebraic manipulations. 
-\end{enumerate}
-It is clear, even from the very early section on orthonormality, that not a bases are created equal. Some are simply better selected because algebraic manipulation becomes a lot easier when a problem is considered in those bases. Out of such bases, the eigenbases of physical observables are the most significant. Thus we reach this definition of `observable spaces', which sounds strange but is simply translated to `position space', `momentum space', `energy space' when we actually do have a physical observable in mind. We understand that all these observable spaces are not actually new vector spaces: they are all this same state space we have been studying, but simply with different eigenbases spanning the space and therefore where the same vectors will take different expansions. Nevertheless, these terms of position space and momentum space and so on are completely essential technical terms when we refer to these ideas.
+Here, we explore more consequences of the commutation relation between two arbitrary observable operators.
+\section{The Position and Momentum Operators}
+Very early on in classical mechanics, it was already established that two observables, position and momentum, are enough to completely specify the state of a single body. We will not concern ourselves with why that is true, but the same logic carries over to quantum mechanics. There are three operators which are by far the most important:
+\section{Simultaneous states}
+The question of ``simultaneous states'' deals with the segue from the previous section onto this one. We want to investigate which states (state vectors) can contain information on multiple observables at a time, and which observables these are. We have seen in the Stern Gerlach experiment that for example $x$ and $y$ spin simultaneous states are impossible, so this is a relevant, fully quantum in nature, problem.
 \\\\
-%# ACTUALLY NEED MORE IN CHAPTER 6
-All quantum mechanics problems are solved in the end in one of these spaces. Rarely, we might solve one part of a problem in one observable space and then switch bases (more in Chapter 6), after taking what we have learnt from that part, to solve the rest of the problem. Most of the time -- especially overwhelmingly in this book -- we work in position space  where possible. This is not only because it makes sense to work with time and position as the two most important variables, as in our physical reality, but also because there are important variables to consider in the time evolution problem -- in particular the potential $V(x)$, a function of position-- which are easier to express in the position basis than any other. Momentum space is by far the other main counterpart in quantum mechanics, and usually we might work in momentum space in problems where the conditions or potential are easily expressed in terms of the momentum. Only rarely will we see energy space in action, and any other observable space will essentially be inferior to position and momentum space because the observables of position and momentum are far more important than any other.
-\\\\
-Now, there is an important conceptual detail to understand. Recall back to when we first were introduced to hermitian operators; we proved that each operator's action can be uniquely specified in its own eigenbasis if we have its eigenvalues. Consider some vector $\Psi$ in a the state space spanned by the eigenbasis $\setof{\omega_{i}}$ with eigenvalues $\setof{\lambda_{i}}$ of an operator $\Omega$. We have, by the common inner product expansion:
-$$
-\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}.
-$$
-Then the action of the operator $\Omega$ is 
-$$
-\Omega \Psi = \Omega\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}
-$$
-which, as it is a linear operator,
-$$
-\Omega\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\Omega\omega_{i}
-$$
-which is,
-$$
-\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.
-$$
-So quite simply, we get 
-$$
-\Omega \Psi = \sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.
-$$
-Of course, it is very clear that these eigenvalues $\lambda_{i}$ are not obtained if we are not working in the space spanned by the eigenbasis of $\Omega$. This in turn shows us the very important fact: that the action of the operator-- not just the forms of the state vectors-- is different if we are working in different spaces! It is important to know this idea, that the formulation of observable operators we are to see in the following section is based specifically in one space -- here, in the common position space. The operator formulations would not look the same were we in other observable spaces, such as momentum or energy space.
-\subsection{Formulation of Observable Operators}
-We've studied the observable operators, their hermiticity and eigenbases in good detail, but this has all been done theoretically. Of course, there would be no point knowing about operators and eigenvalue equations if we didn't actually know what action the operators performed (remember, operators are functions with state vectors as inputs and state vectors as outputs), because there would be nothing to solve and no measurable eigenvalues to find. The next step in our work is therefore to actually give form to the physical form operators we want to work with. It turns out there is a very simple rule, presented in the next postulate, that we can use to correctly define any operator we need. We are certainly glad we do not have to run a massive set of definitions again to answer this question, and so the section is duly and appreciatedly short.
-\subsubsection{Formation of Observable Operators}
-\Answer
-\textbf{\underline{Postulate 4: The Formation of Observable Operators}}
-\\\\
-The two canonical operators in quantum mechanics, expressed in position space, are the position operator:
-$$
-\hat{X}\Psi=x\Psi
-$$
-and the momentum operator:
-$$
-\hat{P}\Psi=-i\hbar\frac{\partial}{\partial x}\Psi.
-$$  
-which can be both shown to be Hermitian. To form any other physical observable operator, express the classical observable in terms of the classical variables of $x$ (position) and $p$ (momentum), and replace the $x$ terms with the operator $\hat{X}$ and the $p$ terms with the operator $\hat{P}$. 
-\Answerend
-Note that the position operator and momentum operator are here one dimensional: if instead we were considering position and momentum in three directions then all we would do would be to replace the $x$ with the $y$ and $z$ variables for the $y$ and $z$ directional operators instead. Generalising up physical dimensions (as in, position dimensions) is only marginally more complicated because we have more terms to consider, and otherwise this rationale stays the same and everything is straightforward. Let us, to punch this in, consider the kinetic energy operator, which will become very useful. Note again that everything is happening in position space, or things would look quite different in another space with a different eigenbasis.
-\subsubsection{Kinetic Energy Operator}
-The classical formula for kinetic energy is of course
-$$
-KE=\frac{1}{2}mv^2.
-$$
-We want this in terms of position and momentum. It is important that mass is treated as a constant so does not interfere in this as a separate observable. The kinetic energy formula expressed in momentum and position is 
-$$
-KE=\frac{1}{2}mv^2=\biggl(\frac{m}{2m}\biggr)mv^2=\frac{m^2v^2}{2m}
-$$
-which is, 
-$$
-KE=\frac{p^2}{2m}
-$$
-where position does not appear in this particular observable expression, which is completely fine. Then, by the postulate, all we need to do is to replace the classical variable $p$ with the momentum operator:
-$$
-KE=\frac{p^2}{2m}\duac \hat{KE}=\frac{\hat{P}^2}{2m}.
-$$
-The notation $\hat{KE}$ looks foolish and so convention uses $\hat{T}$ instead. The expression $\hat{P}^2$, we know, means applying the same momentum operator twice.
-\\\\
-Therefore, in position space, where the momentum operator is 
-$$
-\hat{P}\Psi=-i\hbar\frac{\partial}{\partial x}\Psi,
-$$
-we get 
-$$
-\hat{T}\Psi=\frac{\hat{P}^2}{2m}\Psi=-\frac{i\hbar}{2m}\biggl(\frac{\partial}{\partial x}\biggl(-i\hbar\frac{\partial\Psi}{\partial x}\biggr)\biggr)
-$$
-which is, 
-$$
-\hat{T}{\Psi}=\frac{(i\hbar)^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}=-\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}.
-$$
-Thus we are done, and have the position space form of the kinetic operator:
-$$
-\hat{T}\Psi=-\frac{\hbar^2}{2m}\frac{\partial \Psi}{\partial x^2}.
-$$
-There is a final note to make, on mass and time. Both of these are not treated as observables in quantum mechanics. This makes intuitive sense for time: in experiments we would measure the duration of an event, but this is first of all not something which pertains to the state problem but more importantly not something we expect to involve probability. The time at which we are measuring the time obviously should not be probabilistic; it is therefore treated more like an underlying variable just like the space of the universe. 
-\\\\
-With mass, the answer is not so clear. The best way to think about mass operators at this stage-- and indeed the way that quantum mechanics generally thinks of mass operators-- is to not think about mass operators at all. They do not exist, for whatever reason, in non-relativistic quantum mechanics, which always treats the mass of a particle as constant until more mass is added by external sources to the system. So we treat mass as a constant, and time as some universal external parameter; neither time nor mass have an operator attached to them.
-\\\\
-Finally, now that we have completed our survey into observable operators fully, we can move onto the Time Evolution Problem and Schr\"{o}dinger'
-s Equation
-\section{Time Evolution and Schr\"{o}dinger's Equation} 
-Now that we have established the stationary properties of quantum states, observables and measurements, we are done with the quantum mechanical state problem. The second paramount question of Physics is the question of time evolution. One might be relieved to find that, theoretically speaking, the time evolution problem is much simpler and will not require us to do so much complex postulating as the state problem did. In fact, we only need one more postulate to introduce time evolution; this is the famous Schr\"{o}dinger Equation (which is a postulate, not a derivation!), which will be important to quantum mechanics much similar to the way $F=ma$ is ubiquitous in classical mechanics.
-\begin{tcolorbox}
-\underline{\textbf{Postulate 5: Schr\"{o}dinger Equation and the Hamiltonian}}\\\\
-In quantum mechanics, there exists the Hamiltonian operator, written $\hat{H}$, which corresponds to the total energy of the system. It is also hermitian, and it plays an integral role in the time-evolution equation in quantum mechanics, the Sch\"{o}dinger Equation:
-$$
-i\hbar\frac{\partial \Psi(t)}{\partial t}=\hat{H}\Psi(t)
-$$
-which determines how the wavefunction will evolve in time provided there are no perturbations to the system.
-\end{tcolorbox} 
-Note that we have moved from $\Psi_{t}$ to $\Psi(t)$
-which is a better shorthand notation now that we are not discussing stationary states. This function notation doesn't clash with the fact that the state vector is a state vector: it just means that the input is a time value and the output is the state vector corresponding to the state at that time.
-\\\\
-Now, we once more start by listing the assertions of this postulate for clarity.
-\begin{enumerate}
-    \item[P5A1.] There is a total energy, regardless of the specific qualities of the potential, which is integral to quantum mechanics. Clearly it is a physical observable since it is represented by a hermitian operator, the Hamiltonian.
-    \item[P5A2.] The Hamiltonian operator is the operator form of the classical Hamiltonian- that is, the quantum mechanical version of 
-    $$
-    H(x,p)=\frac{p^2}{2m}+V(x).
-    $$
-    This, of course, contains the kinetic energy operator we have just found in 5.1.2; the other part of the Hamiltonian, the more tricky potential, will be dealt with subsequently as it does not change much of the conceptual discussion right now.
-    \item[P5A3.] Since we say that this Hamiltonian operator exists, there must be eigenvalues (also called eigenenergies for obvious reasons) which are the possible measured values of energy and corresponding eigenvectors of the Hamiltonian- or, energy eigenstates. In fact we often get that the eigenvalues are discretely distributed for the Hamiltonian operator: which means energy is quantised. Bohr's famous electron model results from this energy quantisation.
-    \item[P5A4.] Given a state vector at time $0$ it evolves in a completely deterministic way. This is surely a great relief. The state may not be deterministic-- in which case it is a mixed state for which the strongest predictive statements which can be made are those detailed in Postulate 3. However, it will evolve into a new state vector in a predictable way. That is not to say at all that after the evolution it will not still be in a mixed state, as the new state it has evolved over time into may well still be a superposition of eigenstates. It is just to say that we can determine future state vectors (not necessarily measurements) well given the starting one and the Hamiltonian for the given system.
-\end{enumerate}
-For all quantum mechanics problems, solving the Schr\"{o}dinger equation is the most difficult part of the problem. The reason for this is that the Hamiltonian operator is the only major operator which will change depending on the conditions of the problem. The position operator, momentum operator, spin operators all remain the same, but the Hamiltonian is subject to great variation and even variation over time if the potential of the system is varying over time. This means that for different physical problems we always have to go through the considerable difficulty of finding the form of the Hamiltonian given the different conditions, and then solving the eigenvalue equation for that Hamiltonian, which is rarely not incredibly difficult. With all that said, this next section details why such painstaking effort is worth it: with the energy eigenvalue, or Hamiltonian eigenvalue, equation solved, Schr\"{o}dinger's Equation is also immediately solved.
-\subsection{Solving with Energy Eigenstates}
-This section will require a difficult mixing of the rules we have thus far learnt and to be able to follow the developments we make will be tantamount to truly consolidating our grasps on the postulates and mathematics up to this point. It also gives many procedural insights into how one should approach problems (not just subproblems, but full problems) in quantum mechanics, by giving the most elementary way to solve the Schr\"{o}dinger equation. This method is through considering \textbf{energy eigenstates}: that is, the eigenstates of the Hamiltonian operator and the state vectors in the orthonormal basis they form which spans the Hilbert space. 
-\\\\
-To start recall that for any state vector in the state space and orthonormal basis $\{\alpha_{i}\}$ the state vector can be expressed in terms of how it acts on those eigenvectors:
-$$
-\Psi_{t}=\sum_{i=1}^{k}\oip{\alpha_{i}}{\Psi_{t}}\alpha_{i}.
-$$
-where $k$ is the dimensionality of the space: in the state space, we would sum to infinity. There are infinite orthornormal bases which can we can choose to span the state space, but we have already seen that, for the action of an operator on the state vector, considering that state vector as a combination in the form above but with eigenvectors from the eigenbasis of that operator is natural and fruitful because we get simplifications involving eigenvalues, which also have clearer physical meaning. Now the Schr\"{o}dinger Equation clearly puts the Hamiltonian to the forefront of our focus, and therefore we might like to consider the state vector $\Psi$ when it is expressed in the energy eigenbasis. The Schr\"{o}dinger Equation states that 
-$$
-i\hbar\frac{\partial \Psi(t)}{\partial t}=\hat{H}\Psi(t).
-$$
-If we take the eigenbasis of the Hamiltonian to be $\{\varepsilon_{n}\}$ and the corresponding energy eigenvalues to be $\{E_{n}\}$ then the state vector can be expressed as
-$$
-\Psi_{t}(x)=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}
-$$
-and the Schr\"{o}dinger Equation now takes the form 
-$$i\hbar\frac{\partial}{\partial t}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\hat{H}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.
-$$
-Continue by using the linear distributivity of Hermitian operators (fact H4). This tells us that the right hand side can be written 
-$$
-\hat{H}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\hat{H}\varepsilon_{n}=\sum_{n}E_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.
-$$
-Then consider the time derivative of the quantities $\oip{\varepsilon_{n}}{\Psi_{t}}$. The eigenvectors of the Hamiltonian in the state space must be independent of time, presuming the Hamiltonian itself isn't varying over time (cases with time-varying Hamiltonians are far trickier to solve and thus will not be considered in this book). Therefore, they have 0 time derivative, which means we have
-$$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\frac{\partial}{\partial t}\Psi_{t}}.
-$$
-One can be assured of this fact by explicitly writing out the summation form of the inner product. Next, by rearrangement of Schr\"{o}dinger's Equation, 
-$$
-\frac{\partial}{\partial t}\Psi_{t}=-\frac{i}{\hbar}\hat{H}\Psi_{t}
-$$
-so we can substitute this into the above expression:
-$$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{-\frac{i}{\hbar}\hat{H}\Psi_{t}}=-\frac{i}{\hbar}\oip{\varepsilon_{n}}{\hat{H}\Psi_{t}}.
-$$ 
-Then, substituting the energy eigenbasis expression of $\Psi_{t}$,
-$$
-\begin{aligned}
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}&=-\frac{i}{\hbar}\oip{\varepsilon_{n}}{\hat{H}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}} =-\frac{i}{\hbar}\oip{\hat{H}\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}\\
-&=-\frac{i}{\hbar}\oip{E_{n}\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
-=-\frac{i}{\hbar}E^{\ast}_{n}\oip{\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}\\
-&=-\frac{i}{\hbar}E_{n}\oip{\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
-\end{aligned}
-$$
-where the fact that $\hat{H}$ is hermitian is used in the algebraic manipulations. Then, as the inner product is linearly distributive across the sum term, this becomes
-$$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{n}}{\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
-$$
-and as the inner product $\oip{\varepsilon_{m}}{\Psi_{t}}$ is some constant for fixed $m$ and t, we can pull it out to write the expression as
-$$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\oip{\varepsilon_{n}}{\varepsilon_{m}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\delta_{nm},
-$$
-which is,
-$$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\oip{\varepsilon_{n}}{\Psi_{t}}
-$$
-as the Kronecker delta resulting from the orthogonality of the eigenvectors cancels out all other sum terms except for when the index $m$ matches up with $n$. This is clearly equivalent to the differential equation
-$$
-\frac{\partial y}{\partial t}=ky
-$$
-which has general solution $x=Ce^{kt}$ for some constant of integration $C$. One might consider that the inner product is a constant and therefore not a traditional function one might find in differential equations of this form, but we recall that constants can be seen us functions of the form $f(x)=c$. Substituting $x:=\oip{\varepsilon_{n}}{\Psi_{t}}$ and $k:=-\frac{i}{\hbar}E_{n}$ analogously leaves us with the solution
-$$
-\oip{\varepsilon_{n}}{\Psi_{t}}=Ce^{-\frac{iE_{n}t}{\hbar}}.
-$$
-The final step is to realise the constant $C$ is not random: at $t=0$ we should have $\oip{\varepsilon_{n}}{\Psi_{0}}=C$, which implies that the constant is $C=\oip{\varepsilon_{n}}{\Psi_{0}}$. Thus we conclude that the rule for time-evolution is 
-$$
-\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}} \:\:\:\:\square
-$$
-\\
-Many consequences for the solution of Schr\"{o}dinger's Equation derive themselves promptly. We list them in the taxonomical format again.
-%A general point about these lists of items. I don't immediately feel clear what HE1 stands for, which I felt about a couple of previous lists too. If you're just listing, I'd just use 1,2,3 or bullets; if you're going to refer to these labels later, as you did with H1 etc, then, for them to stick in the reader's mind, it needs to be clear what they mean.
-\\
-\begin{enumerate}
-    \item[HE1.] We first note what the fact above actually means. By the rule S8, the term $\oip{\varepsilon_{n}}{\Psi_{t}}$ is the component of $\Psi_{t}$ in the eigenbasis $\{\varepsilon_{i}\}$ corresponding to eigenvector  $\varepsilon_{n}$:
-    $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.
-    $$
-    The eigenvector $\varepsilon_{n}$ itself does not evolve with time. Therefore, by determining how the component $\oip{\varepsilon_{n}}{\Psi_{t}}$ evolves with time, we get:
-    $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}\varepsilon_{n}.
-    $$
-    We cannot fall for the common deception of thinking we can pull out the term $e^{-{iE_{n}t}/{\hbar}}$ from the sum, since the eigenvalues $\setof{E_{n}}$ corresponding to the eigenvectors $\setof{\varepsilon_{n}}$ change for each $n$ so it is not a constant. However, we do know now that, if we can determine the eigenvectors of the Hamiltonian for a given system, and the corresponding eigenvalues, and know the initial state (and therefore the components $\oip{\varepsilon_{n}}{\Psi_{0}}$ of the initial state vector) then we have a fully defined state $\Psi_{t}$ for any $t$ as we can track how each of its components evolve very easily. This amounts, of course, to solving the Schr\"{o}dinger Equation: or, more satisfyingly put, solving the problem of time evolution and solving both the central problems of quantum mechanics.
-    \item[HE2.] An important clarification which has been alluded to but not explicitly stated thus far must now be emphasised. There is no physical operator which changes form over time. Most operators, like the position and momentum operators, do not change even if there is a perturbation to the system. However, the Hamiltonian is not the same for all systems. Like all other observables operators, its formulation does not change- but, unlike most other operators, this formulation consists of something which can vary through perturbations. Specifically, the Hamiltonian is expressed as 
-    $$
-    \hat{H}=\frac{\hbar^{2}}{2m}\frac{\partial^2}{\partial x^2}+V(x)
-    $$
-    where $x$ here is the position variable and the function $V(x)$ is the potential of the system. It is the potential which changes the form of the operator, as different systems have different potentials; moreover, these potentials can shift over time so in that way the form of the Hamiltonian changes over time. Note the difference: the formula to construct the Hamiltonian doesn't change, but the Hamiltonian itself does-- when $V(x)$ changes. 
-    \\\\
-    The role of energy eigenbases as the easiest way to solve the Schr\"{o}dinger Equation is now however fully clear to us. For a given system, if we can formulate the Hamiltonian accurately, then we can find its eigenvalues and corresponding eigenvectors using the characteristic equation, and then by HE1 we can theoretically determine the answer to the time evolution problem for the state with that Hamiltonian. This is why almost invariably, for problems which are not immensely complicated, \textbf{the goal of the Physicist is to formulate the Hamiltonian}. 
-    \item[HE3.] Since we have established that formulating the Hamiltonian is crucial to the solution of all non-advanced quantum mechanical problems, we see that the secondary result is that the potential energy is often what makes (or, for advanced problems of truly complex systems, breaks) this energy eigenstate method of solving Schr\"{o}dinger's Equation. As the potential almost invariably is far more complicated than the kinetic energy operator which forms the other term in the sum which makes the Hamiltonian, we will see a host of illustrative problems where the potential is bounded by constraints (eg, the infinite potential well or the free particle question) in all introductory textbooks. The underlying idea, which we now understand despite the fact that often textbooks do not enunciate it, is that in these problems the potential is simple and therefore the Hamiltonian is simple, making a solution possible without advanced measures like perturbation theory and methods of approximation, which have to be used for complex or time-evolving potentials. Once we have the formulation of the Hamiltonian, our work is to solve its eigenvalue equation so we can obtain the eigenvectors:
-    $$
-    \hat{H}\varepsilon_{n}=E_{n}\varepsilon_{n},
-    $$
-    and after that we have a solution as shown above. The energy eigenvalue equation is often in literature referred to, misleadingly, as the time-independent Schr\"{o}dinger Equation, because it consists of time independent eigenvectors. One should never be confused by this term, however, as it is nothing more than the energy eigenvalue problem; certainly, it is nothing of a postulate that such an equation would exist given any operator, including the Hamiltonian.
-    \item[HE4.] Back to the mathematics, we note that there are other observables whose operators have the same eigenbasis as the eigenbasis of the Hamiltonian-- by the Compatibility Theorem, this occurs when the two observable operators commute. In those cases we should convince themselves that we have this analogous time-evolution rule for the components of the state vector in the eigenbasis of that observable compatible to the Hamiltonian energy observable. This is because the above is really an exercise in understanding how the energy eigenvectors evolve in time, and compatible operators have the same eigenvectors.
-    \item[HE5.] By Postulate 3, the value $|\oip{\varepsilon_{n}}{\Psi_{t}}|^2$ is the probability energy value $E_{n}$ is measured to be the value of energy for the system at time $t$. In computing this amplitude we achieve very interesting results:
-    $$
-    \begin{aligned}
-    |\oip{\varepsilon_{n}}{\Psi_{t}}|^2 &=  |\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}|^2\\
-    &=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2e^{-\frac{iE_{n}t}{\hbar}}e^{\frac{iE_{n}t}{\hbar}}\\
-    &=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2\times 1\\
-    &=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2
-    \end{aligned}
-    $$
-    In other words, the probability of measuring the energy $E_{n}$ at time $t$, represented by $|\oip{\varepsilon_{n}}{\Psi_{t}}|^2$, is the exact same as the probability of measuring that energy at time 0, which is $|\oip{\varepsilon_{n}}{\Psi_{0}}|^2$. In another sense this means that, unless there is some perturbation to our system, there is no change in the probability of a certain energy value being measured; this rule of time evolution essentially amounts to the energy conservation law for a closed unperturbed system as whatever energy we measure it to have at time 0 stays the same for all time $t$.
-    \\\\
-    This is not the last of this important result! We once more see that the above holds for any observables with the eigenbasis $\{\varepsilon_{i}\}$ which is the same as the energy eigenbasis, as the energy values themselves cancel out, leaving the component amplitudes purely in terms of the eigenvectors. This in fact means that for other observables compatible with the energy- for other observables whose operators commute with the Hamiltonian-- the probability of making a measurement of the eigenvalue corresponding to a certain eigenvector is also constant over time. This is significant, as we have just proven the quantum mechanical requirement for some observable to be a \textbf{constant of motion}.
-    \item[HE6.] Consider the case when the state vector is in a pure energy eigenstate- when 
-    $$
-    \Psi_{t}=\varepsilon_{k}
-    $$
-    for some $k$. Then the probabilities of measuring the eigenvalues $E_{n}$ are 
-    $$
-    |\oip{\varepsilon_{n}}{\Psi_{t}}|^{2}=|\oip{\varepsilon_{n}}{\varepsilon_{k}}|^{2}=\delta_{nk},
-    $$
-    which means that the probability of measuring the energy $E_{k}$ is 1 and the probability of measuring all other energies $E_{n\neq k}$ is 0. This is the deterministic energy pure state, whose relevance is clear due to the heavy discussion following Postulate 3 on measurement and quantum states. Yet there is more to be said:
-    $$
-   \oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\Psi_{0}}e^{-{iE_{n}t}/{\hbar}}
-    $$
-    so the state vector would be
-    $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\varepsilon_{k}}e^{-{iE_{n}t}/{\hbar}}\varepsilon_{n}=\sum_{n}\delta_{nk}e^{-{iE_{n}t}/{\hbar}}\varepsilon_{n}=e^{-{iE_{k}t}/{\hbar}}\varepsilon_{k}.
-    $$
-    However, this is the same as the system at time $0$ because the exponential has modulus 1 and therefore does not change the eigenvector in the Hilbert space from the ray
-    %*You've used the term ``ray'' here rather out of the blue. It's a useful term, but certainly couldn't be assumed knowledge at the level you're pitching this book.
-    $\varepsilon_{k}$ which represents the initial state. Thus the whole system does not change at all if it starts in a pure energy eigenstate; therefore, all observables remain constant under time evolution so long as the Hamiltonian remains the same.
-    \\\\
-    The consequence of this is that we can define the vectors:
-    $$
-    \forall n\in\mathbb{Z}^+,\:\:\:\:\Psi_{t}^{(n)}:=e^{-iE_{n}t/\hbar}\varepsilon_{n}.
-    $$
-    and these vectors $\Psi_{t}^{(n)}$ are the deterministic forms of the state vector if at initial state for $t=0$ the state vector is coincident with the eigenvector $\varepsilon_{n}$. We call these \textbf{stationary states}, which belong to the specific system, as their value is contingent on the eigenbasis of the Hamiltonian which describes the system. Now, if at time 0 the system is in a pure energy eigenstate $\varepsilon_{n}$, then:
-    $$
-    \Psi_{t}=\Psi_{t}^{(n)}.
-    $$
-    Otherwise, if it is in a mixed state at time 0, then 
-    $$
-    \Psi_{t}(x)=\sum_{n}e^{-iE_{n}t/\hbar}\oip{\varepsilon_{n}}{\Psi_{0}}\varepsilon_{n}
-    $$
-    by HE1, which can then be written as
-    $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{0}}\Psi_{t}^{(n)}
-    $$
-    since $\Psi_{0}^{(n)}$ (the stationary state at time $0$) is the initial pure state corresponding to stationary state $n$, which is the eigenvector $\varepsilon_{n}$. This gives us a physically meaningful method of describing the solution to the Schr\"{o}dinger Equation: finding its stationary states along with knowledge of the initial state is sufficient to solve the Schr\"{o}dinger Equation. 
-    \\\\
-    Note that the solution now does not give us a deterministic state if the initial state was not a pure state; we get a mixed state in terms of the stationary states. Thus we might be confused as to how it amounts to a solution: but we recall that a fully defined mixed state is most of the time tantamount to achieving the highest level of understanding physically possible, by the measurement postulates-- so it does count as a solution since it represents the precise superposition of possible states we get in reality. Finally, the solution of finding the stationary states is absolutely the same as the solution detailed in HE2 and HE3-- we've just labelled vectors to be stationary states, but the underlying procedure is still simple. This is:
-    \begin{enumerate}
-        \item Formulate the Hamiltonian for the system
-        \item Solve the time-independent Schr\"{o}dinger, or energy eigenvalue equation.
-        \item Formulate the state vector as a function of time and the initial state as shown above.
-    \end{enumerate}
-\end{enumerate}
-\subsection{Free Particle}
-The first problem we can easily solve is the solution of the time evolution of a free particle. A free particle is a particle in a zero potential: so $V(x)=0$. We begin by listing out our procedure:
-\begin{enumerate}
-    \item List the boundary conditions.
-    \item Formulate the Hamiltonian and solve its eigenvalue equation.
-    \item Use the eigenvectors and their eigenvalues to formulate the stationary states and therefore the state vector.
-\end{enumerate}
-An important thing to note is that this procedure only applies for systems where the Hamiltonian remains constant. This occurs if and only if the potential of the system does not vary with time-- we recall that the Hamiltonian consists of the kinetic energy operator and therefore is not affected by the kinetic energy of the particle changing! The energy of the state will be affected, but the operator representing all possible energy states will not because the kinetic energy operator is constant. For the questions in these chapters, as well as for most introductory quantum mechanical problems, time-varying potentials will not be considered, as they are extremely complex and do not have any place in the rudimentary foundations of quantum mechanics.
-\\\\
-Let us now solve this simplest problem in quantum mechanics with this procedure.
-\subsubsection*{List the Boundary Conditions}
-The ``boundary conditions" of a problem are simply all the conditions the problem sets up for a solution. Listing them at this stage can be very useful because there are many times, for example when evaluating integrals or probabilities, that the boundary conditions can provide insights to shortcuts where there seem like there are too many obstacles to a solution. For now, though, this as a separate step will not be vindicated considering there is one boundary condition specified here only.
-\begin{enumerate}
-    \item The potential energy is $0$.
-\end{enumerate}
-\subsubsection*{Formulate the Hamiltonian}
-This is also quite easy, as we do not have to consider the potential.
-$$
-\hat{H}:=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x), \stab V(x)=0 \Rightarrow \hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}
-$$
-Solving the eigenvalue equation will take more work since this is the first time we have done it for such a complicated problem. We want to find eigenstates and eigenvalues which satisfy the eigenvalue equation
-$$
-\hat{H}\varepsilon_{n}=E_{n}\varepsilon_{n}
-$$
-for real $E_{n}$. This equation is, as aforementioned, also known as the time-independent Schr\"{o}dinger Equation in literature. We can solve it for the free particle relatively easily. The Hamiltonian is
-$$
-\hat{H}\Psi(x)=\frac{\hat{P}^2}{2m}\Psi(x)
-$$
-and so the eigenvalue equation (time-independent Schr\"{o}dinger) is to find eigenvectors $\setof{\varepsilon_{n}}$ which satisfy:
-$$
-\frac{\hat{P}^2}{2m}\varepsilon_{n}=E_{n}\varepsilon_{n}
-$$
-for some real constant eigenvalues $E_{n}$. The crucial insight for this eigenvalue equation is that the Hamiltonian operator of the system commutes with the momentum operator! This is intuitively obvious, since the Hamiltonian operator is the momentum operator squared divided by a constant, and the momentum operator is just the momentum operator, so the commutator 
-$$
-\left[\frac{\hat{P}^2}{2m},\hat{P}\right]
-$$
-consists of only the operator $\hat{P}$, somewhat modified on one side. Constants clearly do not affect commutators and operators commute with themselves, so we would expect the commutator to be $0$. It can be verified by the reader as well, if we put in $\hat{P}=-i\hbar\nd{}{x}$, but this is not greatly necessary.
-\\\\
-From our vigilance, however, in checking the commutation relation between the Hamiltonian and momentum operators (over time, one gains an intuitive feeling for this vigilance) we achieve something much greater. As their operators commute, energy and position are compatible observables. And as they are compatible observables, they must possess a common eigenbasis! Therefore, to any energy eigenvector $\varepsilon_{n}$ there also exists a momentum eigenvector $\phi_{n}$ which is the same function! Let us therefore try to put that in instead, with this information. For all energy eigenvectors $\varepsilon_{n}$ such that
-$$
-\hat{H}\varepsilon_{n}=\frac{\hat{P}^2}{2m}\varepsilon_{n}=E_{n}\varepsilon_{n}, 
-$$
-there must exist a momentum eigenvector such that
-$$
-\phi_{n}\equiv\varepsilon_{n}\implies \frac{\hat{P}^2}{2m}\phi_{n}=E_{n}\phi_{n}.
-$$
-%#CONSIDER WHETHER THIS SHOULD BE IN POSITION SPACE FROM START
-Now, if the eigenvalue of momentum corresponding to the eigenvector $\phi_{n}$ is $P_{n}$, then the eigenvalue corresponding to $\hat{P}^2$ on $\phi_{n}$ is $P_{n}^{2}$. So the above can be written
-$$
-\begin{aligned}
-\frac{\hat{P}^2}{2m}\phi_{n}=E_{n}\phi_{n}\iff\frac{P_{n}^{2}}{2m}\phi_{n}=E_{n}\phi_{n}.
-\end{aligned}
-$$
-The eigenfunction $\phi_{n}$ is clearly not the null vector, and therefore the above implies that the $n$'th eigenmomenta and eigenenergies are related by:
-$$
-\frac{P_{n}^{2}}{2m}=E_{n}\implies P_{n}=\pm\sqrt{2mE}.
-$$
-We can now try to find the free particle wavefunction. Replacing the momentum operator with its algebraic formulation (in position space, as we have been working thus far), we have
-$$
--{\frac{\hbar^2}{2m}}\frac{d^2\Psi}{dx^2} = E\Psi \Rightarrow\:\: \frac{d^2\Psi}{dx^2} =-{\frac{2mE}{h^2}}\Psi.
-$$
-We could also express this as 
-$$
-\frac{d^2\Psi}{dx^2} =-{\frac{p^2}{h^2}}\Psi
-$$
-since we know that for the free particle $E=p^2/2m$ as just shown. We have already seen that momentum has extra importance in the free particle problem as it is compatible with energy (though that is not to say this is the only such question where this may be true); therefore, the momentum eigenstates are also the energy eigenstates, which we know are very important due to their intimate relationship with time evolution. It is also very clear that the free particle problem is a fundamental conceptual problem. De Broglie therefore defined a relationship
-$$
-k=p/\hbar \implies p = \hbar k
-$$
-(where the latter form is far more commonly seen) for a constant $k$ which we will now plug into the equation we have above:
-$$
-\frac{d^2\Psi}{dx^2} =-{\frac{p^2}{h^2}}\Psi, \stab p=\hbar k \implies \frac{d^2\Psi}{dx^2} =-k^2\Psi.
-$$
-The physical meaning of the constant $k$ is somewhat tangential for this discussion, though it must be remarked that the De Broglie relations concern all the important aspects of a classical wave and are not simply random definitions. Nevertheless, for our purposes working with $k$ instead of $p/\hbar$ will be cleaner for the algebra to follow. A reader should clearly see that the equation we have just reached is perfectly analogous to the rudimentary differential equation 
-$$
-\frac{d^2y}{dx^2}=-k^2y.
-$$
-Which has the general solution
-$$
-y=Ae^{-ikx}+Be^{ikx}:=\Psi.
-$$
-This is therefore the general solution to the free particle wavefunction where constants $A$ and $B$ are to be determined based on further boundary conditions of the physical problem! It looks generic, but when we do set bounds: whether these be positional bounds or any other bounds, we will see that we can suddenly get quite interesting and specific forms for the wavefunction. Such is for example shown in part 8.2, where we see the free particle confined to an ellipse and get a very clear reult.
-\section{A Holistic Summary}
-The meaning of these last three chapters has always been to provide a robust defence against the many conceptual pitfalls which one can fall into if they try to educate themselves on quantum mechanics purely mathematically without grasping the underlying ideas fully. Certainly, the rest of the book will be far more dense mathematically- though effort will still be made to be extremely clear with that discourse. It is therefore paramount, given that I have offered such a verbose discourse on the relationship between quantum mechanics and physical reality, to summarise everything we have learnt in a concise way; by revising this section, the reader should be able to answer all the physical questions they have about quantum mechanics.
-\\\\
-The problem of a physical model consists of two components, the state problem and the time-evolution problem. The state problem consists of two main problems: the first, how we represent physical information; the second, how we extract physical information.
-\\\\
-\textbf{\underline{The representation of physical information}}
+It turns out that the ability for different observables to have information represented in the same state vectors depends strongly on the relationship between their observable operators, as these in turn relate their orthonormal eigenvectors. To see this, there is one sweeping but simple theorem on operators for observables which can be measured simultaneously, and one dramatically anticlassical one for observables which cannot.
+\subsection{The Compatibility Theorem}
+Consider an unperturbed system, two physical observables, and three measurements ordered chronologically. The first and third measurements are for the first physical observable, but the second measurement is for the second observable. We know from the Measurement Postulate that:
 \begin{itemize}
-    \item The representation of physical information is carried out by the state vector and its wavefunctions in quantum mechanics. It is represented by a normed Hilbert space vector; all scalar multiples are the same ray so represent the same state.
-    \item In the book we have referred to the state vector at times as ``storing information", which is somewhat of a shorthand and can be confusing. What really is true is that the state vector is given meaning by the relation
-    $$
-    P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^{2}
-    $$
-    for any arbitrary eigenstate $\alpha_{i}$, which means we can convert it to wavefunctions which are probability distribution functions. Subsequently, the wavefunction does store information because it is defined by its components, which must correspond to specific eigenvectors and therefore are probability amplitudes. As every arbitrary state vector must have a unique expansion in every basis spanning the space, every state vector therefore inherently can be converted to its expression in any space, and therefore every state vector possesses components in observable eigenspaces- which are, probability amplitudes of measurements with respect to those physical observables whose eigenspace it is in. That is how a state vector encapsulates information.
-    \item Physical observables are represented by hermitian operators, which do not change over time. The distinct eigenvectors of these observable operators and the corresponding eigenvalues are also therefore unchanging over time. The Hamiltonian is an exception, but not because its formulation changes over time, but because its form changes over time as the potential $V(x)$ may change over time.
-    \item The vector space expressed as being spanned by an observable's eigenbasis is called its eigenspace. It is especially useful when considering measurements of that observable, since the components of the state vector in that eigenbasis are the probability amplitudes corresponding to measurements of the observable.
+    \item The first measurement forces the wavefunction into a pure eigenstate of the first physical observable operator. 
+    \item The second measurement forces the wavefunction into a pure eigenstate of the second physical observable operator.
+    \item If the second measurement of the different observable did not exist, then we would have successive measurements of the same state (which is, the operator acting on the same eigenstate the starting state vector was forced into following the first measurement) and we would expect the same measurement for the observable as we originally obtained.
 \end{itemize}
-\section{Exercises from Chapter 5$\ast$}
-\begin{enumerate}
-    \item 
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-\end{enumerate}
+The question is therefore whether or not this second measurement changes the result of the third. This is a profound question, because if it does, then we would conclude the simple act of measuring the second observable has moved the state vector out of the pure eigenstate it was in after the first measurement; that would then imply the second measurement is in itself a perturbation to the system: a confusing result. Indeed-- the reader will recognise that this is exactly the class of behaviour which appeared so shockingly in the Stern Gerlach experiment.
+\\\\ 
+We shall see that the determining factor is what the relationship between the two observable operators is. To start off, we will use the notations $\mathcal{A}$ and $\mathcal{B}$ as shorthand to distinguish between the two observables, so we do not have to name them. We define $\mathcal{A}$ and $\mathcal{B}$ to be \textbf{compatible observables} if the first and third measurements yield the same value regardless of the starting state and the value of the second observable measured in the second measurement. If we call the values measured $\mathcal{A}^{(1)}$, $\mathcal{B}^{(1)}$, $\mathcal{A}^{(2)}$, then observable $\mathcal{A}$ and $\mathcal{B}$ are compatible iff 
+$$
+\forall\:\Psi,\:\mathcal{B}^{(1)},\:\:\mathcal{A}^{(1)}=\mathcal{A}^{(2)}.
+$$
+\textbf{Compatibility Theorem}: Two observables $\mathcal{A}$ and $\mathcal{B}$ are defined compatible if they possess a common eigenbasis or their operators commute. These three conditions in fact all imply each other.
+\underline{Proof:}
+\\\\
+First we prove that $\hat{A}$ commutes with $\hat{B}$ iff they possess a common eigenbasis. Consider two observable operators which commute, and define their eigenbases to be $\{\bm{\alpha}_{i}\}$ and $\{\bm{\beta}_{i}\}$. Now take an arbitrary eigenvector $\bm{\alpha}_{i}$ of $\hat{A}$ with eigenvalue $A_{i}$. We have
+$$
+\hat{A}\hat{B}=\hat{B}\hat{A}
+$$
+so we get 
+$$
+\hat{A}\hat{B}\bm{\alpha}_{i}=\hat{B}\hat{A}\bm{\alpha}_{i}=\hat{B}A_{i}\bm{\alpha}_{i}.
+$$
+However, we can now pull the constant eigenvalue out:
+$$
+\hat{A}(\hat{B}\bm{\alpha}_{i})=A_{i}(\hat{B}\bm{\alpha}_{i})
+$$
+so clearly $\hat{B}\bm{\alpha}_{i}$ is an eigenvector of $\hat{A}$ corresponding to eigenvalue $A_{i}$. Assuming that the eigenvalues are nondegenerate this implies that $\hat{B}(\bm{\alpha}_{i})$ coincides with $\bm{\alpha}_{i}$ as the eigenvalue $A_{i}$ has only one distinguishable eigenvector. The fact that 
+$$
+\hat{B}\bm{\alpha}_{i}\equiv\bm{\alpha}_{i}
+$$
+means we must have
+$$
+\hat{B}\bm{\alpha}_{i}=c\bm{\alpha}_{i}
+$$
+for some scalar multiple $c$. This means that $\bm{\alpha}_{i}$ is an eigenvector of $\hat{B}$ corresponding to eigenvalue $c$. So we can say that $\forall\:i, \bm{\alpha}_{i}$ is an eigenvector of $\hat{A}$ and $\hat{B}$: which means that they have the same eigenbasis. This isn't of course, to say, the eigenvalues are the same for $\hat{B}$ and $\hat{A}$ even though it may correspond to the same eigenvector (above, they are not the same unless $A_{i}=c$), since we expect the operators to be formulated differently so there will still be different values measured for each observable. Yet at the same time this is clearly helpful: if we know two physical observable operators commute and we have the eigenbasis of one then we automatically have the eigenbasis of the other. 
+\\\\
+Now, we prove it the other way around. Assume $\hat{A}$ and $\hat{B}$ both possess the eigenbasis $\{\gamma_{i}\}$. We want to prove they commute. As they possess the same eigenbasis with eigenvalues $\{A_{i}\}$ and $\{B_{i}\}$ respectively, we can write
+$$
+\hat{A}\hat{B}\gamma_{i}=\hat{A}B_{i}\gamma_{i}=B_{i}\hat{A}\gamma_{i}=B_{i}A_{i}\gamma_{i}
+$$
+and the exact same applies for $\hat{B}\hat{A}\gamma_{i}$:
+$$
+\hat{B}\hat{A}\gamma_{i}=\hat{B}A_{i}\gamma_{i}=A_{i}\hat{B}\gamma_{i}=A_{i}B_{i}\gamma_{i}.
+$$
+Clearly, as $A_{i}$ and $B_{i}$ are constant eigenvalues, 
+$$
+A_{i}B_{i}\equiv B_{i}A_{i}.
+$$
+So this easily proves that two observable operators possessing the same eigenbasis must commute. Thus the implication works both ways and therefore two observable operators commute iff they share a common eigenbasis.
+\\\\
+Now to look at the practical definition: we are probably more interested in the concept of compatibility, as it concerns whether or not a measurement of a second observable in between measurements of a first observable will alter the measured results from the first measurement, effectively  forcing the state vector out of the pure eigenstate it was forced into. Let's first prove that two observables having common operator eigenbases is necessary and sufficient for the above defined definition of compatibility to hold.
+\\\\
+Start by considering two observables $\mathcal{A}$ and $\mathcal{B}$ represented by operators $\hat{A}$ and $\hat{B}$ respectively. Define the measurements to be $\mathcal{A}^{(1)},\mathcal{B}^{(1)}$, $\mathcal{A}^{(2)}$. For the observables to be compatible we need $\mathcal{A}^{(1)}$ to be the same as $\mathcal{A}^{(2)}$ regardless of the starting state and $\mathcal{B}^{(2)}$. Assume to begin with that the two operators $\hat{A}$ and $\hat{B}$ have the common eigenbasis $\{\gamma_{i}\}$. By definition the first measurement of $\mathcal{A}$ must force the state vector into a single eigenvector in the eigenbasis of the operator $\hat{A}$: that is, some $\gamma_{i}$ such that the measured value is for observable $\mathcal{A}$ the eigenvalue $A_{i}$. Next, measurement ${{B}}^{(1)}$ is the action of the operator $\hat{B}$ on the eigenvector $\gamma_{i}$. But by the Measurement Postulate of quantum mechanics,
+$$
+P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\Psi}|^2
+$$
+That is, the probability that the arbitrary operator $\hat{A}$ forces the state vector into an arbitrary eigenvector $\bm{\alpha}_{i}$ from its eigenbasis. Here, then, since the state vector has been forced into the eigenstate $\gamma_{i}$ by the first measurement, the probability the second measurement of the other observable $\mathcal{B}$ forces the state vector into the same eigenstate is:
+$$
+P(\gamma_{i})=|\oip{\gamma_{i}}{\gamma_{i}}|^2=1
+$$
+where we assume as per usual that the eigenvectors $\gamma_{i}$ have been normalised. So we can say that measurement B will not alter the eigenstate the state vector is in and therefore the third measurement will follow the same logic to yield the exact same value, the eigenvalue $A_{i}$ corresponding to $\gamma_{i}$. Thus, if two observable operators possess the same eigenbasis, they are compatible observables.
+\\\\
+If the observables are compatible then this implies their operators have the same eigenbasis. The proof for this is simple. If the observables $\mathcal{A}$ and $\mathcal{B}$ are compatible then for the successive measurements $\mathcal{A}^{(1)},\mathcal{B}^{(1)},\mathcal{A}^{(2)}$ the measured values for $\mathcal{A}^{(1)}$ and $\mathcal{A}^{(2)}$ must be the same. The measurement $\mathcal{A}^{(1)}$ must have forced the wavefunction into an eigenvector of $\hat{A}$, some arbitrary $\bm{\alpha}_{i}$. Then, the measurement $\mathcal{B}^{(1)}$ must force the wavefunction into some arbitrary eigenvector $\bm{\beta}_{i}$ of the operator $\hat{B}$. However, the final measurement must yield the same result as the first if the observables are compatible, which is, the same eigenvalue corresponding to the same eigenvector $\bm{\alpha}_{i}$ of operator $\hat{A}$ as it originally was in. The probability that the measurement forces the wavefunction, currently in the eigenstate $\bm{\beta}_{i}$ of $\hat{B}$ as the measurement $\mathcal{B}^{(1)}$ has just been performed, into the same eigenstate $\bm{\alpha}_{i}$ as originally measured is:
+$$
+P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\bm{\beta}_{i}}|^2.
+$$
+However, if these observables are to be compatible, the final measurement must with certainty yield the eigenvalue $A_{i}$ again and therefore the above probability of measurement $\mathcal{A}^{(2)}$ forcing it back into the original eigenstate must be 1. So 
+$$
+|\oip{\bm{\alpha}_{i}}{\bm{\beta}_{i}}|^2=1 \Rightarrow\:\: \bm{\alpha}_{i}\equiv\bm{\beta}_{i}
+$$
+and therefore their eigenbases must be the same as the above holds true for any arbitrary $\bm{\alpha}_{i}$ and corresponding $\bm{\beta}_{i}$ from the measurements.
+\\\\
+The Compatibility Theorem is now complete. We have shown that:
+\begin{itemize}
+    \item Two operators commuting is necessary and sufficient for them to possess a common eigenbasis.
+    \item Two operators possessing a common eigenbasis is necessary and sufficient for the two observables they represent to be compatible.
+    \item Therefore, two observable operators commuting is also necessary and sufficient for them to represent compatible observables.
+\end{itemize}
+The logical implications of these facts all run three ways.
+\\\\
+While we have now seen facts about compatible observables, an example of incompatible observables sticks in our mind-- that of the Stern Gerlach experiment. We saw exactly that $x$ and $y$ spins were incompatible, because measuring the $x$ spin in between two $y$ measurements stopped the second $y$ measurement from being the same as the first with certainty-- which is to say, we now know, that the measurement of $x$ spin forced it out of the eigenstate of $y$ spin it had been previously forced into. All the questions about the quantum state raised by the Stern Gerlach experiment will finally come to an end with this section. We would like to formalise our understanding of how incompatibility affected the experiment. To explain it all, we witness-- and prove ourselves!-- one of Physics' most groundbreaking and shocking theorems.
+\section{The Heisenberg Uncertainty Principle}
+The idea of commuting observable operators being necessary and sufficient for the two observables they represent to be compatible is a very important one for the question of simultaneous states, and has been shown above. Now we must surely consider when two observable operators do not commute: in other words, when they represent \textbf{incompatible} observables. One of the most important and dramatic results of all quantum mechanics, the Heisenberg Uncertainty Principle, results when we carry out some elegant mathematics to investigate this problem. Before we begin the statement and proof, let us define the commutator between two operators to be 
+$$
+[\hat{A},\hat{B}]:=\hat{A}\hat{B}-\hat{B}\hat{A}
+$$
+so that if we have two commuting operators $\hat{A}$ and $\hat{B}$, then 
+$$
+[\hat{A},\hat{B}]=\hat{A}\hat{B}-\hat{B}\hat{A}=0
+$$
+since $\hat{A}\hat{B}=\hat{B}\hat{A}$ iff they commute. For operators which do not commute, their commutator may take a wide variety of forms: which is why it is useful under universal convention to have this shorthand.
+\begin{tcolorbox}
+\textbf{\underline{Heisenberg Uncertainty Principle}}\\\\
+For any state $\Psi_{t}$,
+$$
+\Delta A_{t}\Delta B_{t}\geq\frac{1}{2}|\oip{\Psi_{t}}{[\hat{A},\hat{B}]\Psi_{t}}|
+$$
+where $\Delta A_{t}$ is the standard deviation of measurable values of observable $\mathcal{A}$ at time $t$: which is therefore a measure of uncertainty for these variables.
+\end{tcolorbox}
+\underline{\textbf{Proof:}}\\\\
+We will continue to refer to arbitrary observables $\mathcal{A}$ and $\mathcal{B}$ for the proof; all the proof is relevant at any instant of time and so time subscripts will be eschewed. The notation $\Delta A$ refers to the standard deviation of the measurements of observable $\mathcal{A}$; this standard deviation is no different from the statistical definition:
+$$
+\Delta A=\sqrt{\langle \hat{A}^2\rangle-\langle \hat{A}\rangle^2}
+$$
+where the symbol $\langle X\rangle$ is the expected value of the variable $X$, as seen in the probability preliminary. First we note that this principle is valid for compatible observables: as compatible observables, their operators must commute. Thus
+$$
+[\hat{A},\hat{B}]=0 \Rightarrow\:\: \Delta A_{t}\Delta B_{t}\geq\frac{1}{2}|\oip{\Psi_{t}}{[\hat{A},\hat{B}]\Psi_{t}}| = \frac{1}{2}|\oip{\Psi_{t}}{0} |=0. 
+$$
+So for compatible observables, 
+$$
+\Delta A_{t}\Delta B_{t}\geq 0
+$$
+which is neither interesting nor invalid at all since the standard deviation of any measurement can never be negative. Now, we will prove this for all physical operators, regardless of whether they commute.
+\\\\
+\underline{\textbf{Lemma 1:}}\\
+Any operator $\hat{X}':=\hat{X}-\qexp{\hat{X}}$ where $\hat{X}$ is a Hermitian physical operator is also Hermitian.\\\\
+\underline{\textbf{Proof:}}\\\\
+Recall that the definition for an expected value of a variable is the sum of its possible values multiplied by the probabilities of the variable taking those values. Therefore, we can say that, over the eigenbasis $\{\xi_{i}\}$ of $\hat{X}$ with eigenvalues $\{X_{i}\}$, 
+$$
+\qexp{\hat{X}}=\sum_{\{i\}}P(\xi_{i})X_{i},
+$$
+but by our knowledge of the previous postulates we can describe the probability more precisely: the measurement postulate defines this to be
+$$
+\qexp{\hat{X}}=\sum_{\{i\}}X_{i}|\oip{\xi_{i}}{\Psi}|^2.
+$$
+Our job is to prove that the operator $\hat{X}':=\hat{X}-\qexp{\hat{X}}$ is hermitian if $\hat{X}$ is hermitian for all quantum operators. That is, we need to prove that:
+$$
+\oip{\Psi_{1}}{\hat{X}'\Psi_{2}}=\oip{\hat{X}'\Psi_{1}}{\Psi_{2}}
+$$
+for all Hilbert space functions $\Psi_{1}$ and $\Psi_{2}$. The operator $\hat{X}$ must be hermitian as $\hat{X}$ is defined to be a quantum operator corresponding to a physical observable. Meanwhile, the expectation value
+$$
+\qexp{\hat{X}}=\sum_{\{i\}}X_{i}|\oip{\xi_{i}}{\Psi}|^2.
+$$
+is clearly a real scalar, as the probabilities, which are square moduli, will all be real numbers and so will each eigenvalue of the hermitian operators. Therefore, 
+$$
+\oip{\hat{X}\Psi_{1}}{\Psi_{2}}\equiv\oip{\Psi_{1}}{\hat{X}\Psi_{2}}
+$$
+and 
+$$
+\oip{\qexp{\hat{X}}\Psi_{1}}{\Psi_{2}}\equiv\oip{\Psi_{1}}{\langle\hat{X}\rangle\Psi_{2}}\equiv\qexp{\hat{X}}\oip{\Psi_{1}}{\Psi_{2}}
+$$
+so for any physical operator $\hat{X}$ the defined operator $\hat{X}'$ is the sum of two hermitian operators. So
+$$
+\begin{aligned}
+\oip{\hat{X}'\Psi_{1}}{\Psi_{2}}&=\oip{[\hat{X}-\langle\hat{X}\rangle]\Psi_{1}}{\Psi_{2}}=\oip{\hat{X}\Psi_{1}}{\Psi_{2}}-\oip{\langle\hat{X}\rangle\Psi_{1}}{\Psi_{2}}\\
+&=\oip{\Psi_{1}}{\hat{X}\Psi_{2}}-\oip{\Psi_{1}}{\langle\hat{X}\rangle\Psi_{2}}\\
+&=\oip{\Psi_{1}}{\hat{X}'\Psi_{2}}
+\end{aligned}
+$$
+using the linear properties of the inner product. Thus, the operator $\hat{X}'$ is Hermitian for any physical operator. Therefore, defining $\hat{A'}:=\hat{A}-\qexp{\hat{A}}$ and $\hat{B}':=\hat{B}-\qexp{\hat{B}}$ for the purpose of the problem also gives us two hermitian operators. $\square$
+\\\\
+The commutator in the generalised principle might give pause with regards to the development of these new operators, but, importantly,
+$$
+[\hat{A}',\hat{B}']=[\hat{A},\hat{B}].
+$$
+This fact can be proved quite simply:
+$$
+\begin{aligned}
+[\hat{A}',\hat{B}']&= \hat{A}'\hat{B}'- \hat{A}'\hat{B}'\\
+&= (\hat{A}-\qexp{\hat{A}})(\hat{B}-\qexp{\hat{B}})-(\hat{B}-\qexp{\hat{B}}) (\hat{A}-\qexp{\hat{A}})\\
+&=(\hat{A}\hat{B}-\hat{A}\qexp{\hat{B}}-\qexp{\hat{A}}\hat{B}-\qexp{\hat{A}}\qexp{\hat{B}})-(\hat{B}\hat{A}-\hat{B}\qexp{\hat{A}}-\qexp{\hat{B}}\hat{A}-\qexp{\hat{B}}\qexp{\hat{A}})
+\end{aligned}
+$$
+but as the expectation values $\qexp{\hat{A}}$ and $\qexp{\hat{B}}$ are real scalars it is clear that $\qexp{\hat{A}}\qexp{\hat{B}}=\qexp{\hat{B}}\qexp{\hat{A}}$, and $\qexp{\hat{A}}\hat{B}=\hat{B}\qexp{\hat{A}}$ and vice versa swapping the $A$ and $B$ around. So the terms cancel out and we are left with
+$$
+[\hat{A}',\hat{B}']=\hat{A}\hat{B}-\hat{B}\hat{A}:=[\hat{A},\hat{B}]. \:\:\square
+$$
+Now, one last important lemma:\\\\
+\underline{\textbf{Lemma 2:}}\\
+$$\oip{\hat{A}'\Psi}{\hat{A}'\Psi}=(\Delta\hat{A})^2$$
+\\\\
+\underline{\textbf{Proof:}}\\
+By the Hermiticity of $\hat{A}'$,
+$$
+\oip{\hat{A}'\Psi}{\hat{A}'\Psi}=\oip{\Psi}{([\hat{A}']^2\Psi}.
+$$
+Expanding the definition,
+$$
+\begin{aligned}
+\oip{\hat{A}'\Psi}{\hat{A}'\Psi}&=\oip{\Psi}{\hat{A}'^2\Psi}\\
+&=\oip{\Psi}{[\hat{A}-\qexp{\hat{A}}][\hat{A}-\qexp{\hat{A}}]\Psi}\\
+&=\oip{\Psi}{[\hat{A}^{2}]\Psi-2\qexp{\hat{A}}\hat{A}\Psi+\qexp{\hat{A}}^2\Psi}\\
+&=\oip{\Psi}{[\hat{A}^{2}]\Psi}-2\qexp{\hat{A}}\oip{\Psi}{\hat{A}\Psi}+\qexp{\hat{A}}^2\oip{\Psi}{\Psi}\\
+&=\langle\hat{A}^2\rangle\oip{\Psi}{\Psi}-2\qexp{\hat{A}}\qexp{\hat{A}}\oip{\Psi}{\Psi}+\qexp{\hat{A}}^2\oip{\Psi}{\Psi}\\
+&= \langle\hat{A}^2\rangle-2\qexp{\hat{A}}\qexp{\hat{A}}+\qexp{\hat{A}}^2\\
+&=\langle\hat{A}^2\rangle-\qexp{\hat{A}}^2\\
+&=(\Delta\hat{A})^2 \:\:\:\:\:\:\square
+\end{aligned}
+$$
+Now we can use these lemmas to prove the problem. We want to prove that 
+$$
+\Delta{A}\Delta{B}\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|
+$$
+at all times $t$. We start by replacing $[\hat{A},\hat{B}]$ with $[\hat{A}',\hat{B}']$. Then, we have,
+$$
+\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\Psi}{[\hat{A}',\hat{B}']\Psi}=\oip{\Psi}{[\hat{A}'\hat{B}'-\hat{B}'\hat{A}']\Psi}.
+$$
+This is, 
+$$
+\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\Psi}{\hat{A}'\hat{B}'\Psi}-\oip{\Psi}{\hat{B}'\hat{A}'\Psi}
+.$$
+We can rearrange this by the hermiticity of $\hat{A}'$ and $\hat{B}'$:
+$$
+\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=\oip{\hat{A}'\Psi}{\hat{B}'\Psi}-\oip{\hat{B}'\Psi}{\hat{A}'\Psi}=\oip{\hat{A}'\Psi}{\hat{B}'\Psi}-\oip{\hat{A}'\Psi}{\hat{B}'\Psi}^{\ast}
+$$
+so this is
+$$
+\oip{\Psi}{[\hat{A},\hat{B}]\Psi}=2i\text{Im}\left(\oip{\hat{A}'\Psi}{\hat{B}'\Psi}\right)
+$$
+according to rudimentary arithmetic of complex numbers. Then, the expression we need is
+$$
+\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|\leq\frac{1}{2}\times2|\oip{\hat{A}'\Psi}{\hat{B}'\Psi}|=|\oip{\hat{A}'\Psi}{\hat{B}'\Psi}|.
+$$
+This is because of the above expression for $\oip{\Psi}{[\hat{A},\hat{B}]\Psi}$ and the fact that the modulus of the imaginary part of a scalar cannot be greater than the modulus of the scalar (Exercise 1.3.2a). Then, by Lemma 2
+$$
+\oip{\hat{A}'\Psi}{\hat{A}'\Psi}=(\Delta\hat{A})^2\Rightarrow\:\:\Delta\hat{A}=\sqrt{\oip{\hat{A}'\Psi}{\hat{A}'\Psi}}.
+$$
+So 
+$$
+\Delta\hat{A}\Delta\hat{B}=\sqrt{\oip{\hat{A}'\Psi}{\hat{A}'\Psi}}\sqrt{\oip{\hat{B}'\Psi}{\hat{B}'\Psi}}.
+$$
+By Cauchy-Schwartz, 
+$$
+\sqrt{\oip{\hat{A}'\Psi}{\hat{A}'\Psi}}\sqrt{\oip{\hat{B}'\Psi}{\hat{B}'\Psi}}\geq|\oip{\hat{A}'\Psi}{\hat{B}'\Psi}|
+$$
+and so, conclusively,
+$$
+\Delta\hat{A}\Delta\hat{B}=\sqrt{(\hat{A}'\Psi,\hat{A}'\Psi)}\sqrt{(\hat{B}'\Psi,\hat{B}'\Psi)}\geq|\oip{\hat{A}'\Psi}{\hat{B}'\Psi}|\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|
+$$
+so 
+$$
+\Delta\hat{A}\Delta\hat{B}\geq\frac{1}{2}|\oip{\Psi}{[\hat{A},\hat{B}]\Psi}|.
+$$
+This proves Heisenberg's Uncertainty Principle. $\square$
+\\\\
+This general form we have above is still difficult to interpret, but if we consider a few examples we will realise this is a very important result. One of the most famous iterations comes with considering simply the two central operators of quantum mechanics: the position and momentum operators, which we have not yet introduced but will for now just use for calculation purposes. We can calculate the commutator:
+$$
+\begin{aligned}
+&[\hat{X},\hat{P}]=\hat{X}\hat{P}-\hat{P}\hat{X}\\
+\Rightarrow\:\:&[\hat{X},\hat{P}]\Psi(x)=-xi\hbar\frac{\partial}{\partial x}\Psi(x)--i\hbar\frac{\partial}{\partial x}\biggl(x\Psi(x)\biggr)\\
+\Rightarrow\:\:&[\hat{X},\hat{P}]\Psi(x)=-i\hbar x\frac{\partial \Psi}{\partial x}--i\hbar\biggl[\frac{dx}{dx}\Psi(x)+x\frac{\partial\Psi}{\partial x}\biggr]\\
+\Rightarrow\:\:&[\hat{X},\hat{P}]\Psi(x)=-i\hbar\biggl[x\frac{\partial\Psi}{\partial x}-\Psi(x)-x\frac{\partial\Psi}{\partial x}\biggr]\\
+\Rightarrow\:\:&[\hat{X},\hat{P}]\Psi(x)=i\hbar\Psi(x)\\
+\Rightarrow\:\:&[\hat{X},\hat{P}]\equiv i\hbar.
+\end{aligned}
+$$
+After this, if we plug this into the Generalised Uncertainty principle and assume that the wavefunction is normalised,
+$$
+\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|\oip{\Psi}{i\hbar\Psi}| \Rightarrow \Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|i\hbar\oip{\Psi}{\Psi}|=\frac{1}{2}|i\hbar|=\frac{1}{2}\sqrt{-i\hbar\times i\hbar}=\frac{\hbar}{2}.
+$$
+The key end result is that 
+$$
+\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{\hbar}{2}.
+$$
+This is the most well known form of the Uncertainty Principle, but we can see that the Generalised Uncertainty Principle can be applied more broadly than just to the two observables of position and momentum. 
+\\\\
+Returning to our considerations of the physical results of trying to measure two incompatible observables, it is clear how bizarre this result is. Consider if we have just made a measurement for the position of a particle. Then we have forced its wavefunction into a position eigenstate and therefore we can say that the uncertainty in the position is now $0$: we know the successive measurement must yield the same position value with probability 1. However, if we plug in $\Delta{\hat{X}}$ into the Uncertainty Principle we get 
+$$
+0\times\Delta\hat{P}\geq\frac{\hbar}{2}
+$$
+which implies somehow that the uncertainty in momentum must be infinite! So if we know the value of the position with certainty we are completely unable to distinguish between infinite possibilities for the momentum. The relationship works both ways so the same applies for the momentum: if we know the momentum of a particle then we necessarily have infinite uncertainty in the position of the particle and we have not a clue where it is. This is undoubtedly one of the most anti-classical results in quantum mechanics, and yet it results beautifully from the mathematics we have defined (and has never been experimentally refuted). If nothing else, it should now be clear that the mathematical manipulations of quantum mechanics are rich and impactful.
+\\\\
+The same is manifested, of course, in the Stern-Gerlach experiment. By knowing $x$ spin, we had infinite uncertainty in $y$ spin- with absolutely no way to tell if an electron would be up or down spin. By knowing the $y$ spin, we had infinite uncertainty in the $x$ spin. This is one example of an experimental verification of the Heisenberg Uncertainty Principle.
+\\\\
+Now, we are ready to move onto time evolution.
