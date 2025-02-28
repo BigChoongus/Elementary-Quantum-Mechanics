@@ -1,42 +1,7 @@
 \chapter{Chapter 6: Time Evolution and Problem Solving Techniques}
 We will complete our study of the postulates of quantum mechanics in this chapter, which will be more pragmatic than the precedent two chapters where we had to deal with abstract mathematical theory in vector spaces and operators. The time-evolution problem, which we will study in this chapter, will prove to be a double-edged challenge. On one hand, the time evolution postulate is completely trivial conceptually, especially compared to the state vector, observable and measurement postulates, so the reader can breathe a sigh of relief and know they won't have to deal with learning a new field of mathematics just to tackle this problem. All it will include is learning one equation: the all-famous Schr\"{o}dinger Equation postulated by Erwin Schr\"{o}dinger, and this equation will not be difficult to understand. On the other hand, the time evolution problem has by far the most potential to be complex, and in some advanced cases, impossible to solve without new intensely demanding mathematical techniques for manipulation and indeed often (though still very accurate) approximation. This should not be disheartening, however. The fact that it is very difficult for the reader to produce numerical predictions for a very complex multi-particle system in a constantly varying electrical field simply with nothing but an A4 sheet and their algebraic knowledge is nothing other than to be expected. Feynman, Dirac, Heisenberg, Pauli were not immortalised for only reaching the depth of an introductory book like this one. The Schr\"{o}dinger Equation is still always valid, even when it is difficult for us to practically solve the actual complete solutions of it.
 \\\\
-Before we start on that, however, there are two pragmatic clarifications to be made, both of which are related to the explicit forms of operators and how we use them in problem solving. These are, observable spaces and formulation of the observable operators. 
-\section{More on Observable Operators}
-\subsection{Observable Spaces}
-When we refer to an `observable space", we do not mean a space we can observe. We mean the state space when it is spanned by a physical observable. Precisely, that means working with the state space where the underlying basis is an eigenbasis of some observable operator.
-\\\\
-A large component of problem solving in quantum mechanics consists of being able to apply two concepts related to bases:
-\begin{enumerate}
-    \item Staying flexible without committing to a specific base and considering the state vector without a basis first.
-    \item Switching into a basis which is useful for our specific needs and algebraic manipulations. 
-\end{enumerate}
-It is clear, even from the very early section on orthonormality, that not a bases are created equal. Some are simply better selected because algebraic manipulation becomes a lot easier when a problem is considered in those bases. Out of such bases, the eigenbases of physical observables are the most significant. Thus we reach this definition of `observable spaces', which sounds strange but is simply translated to `position space', `momentum space', `energy space' when we actually do have a physical observable in mind. We understand that all these observable spaces are not actually new vector spaces: they are all this same state space we have been studying, but simply with different eigenbases spanning the space and therefore where the same vectors will take different expansions. Nevertheless, these terms of position space and momentum space and so on are completely essential technical terms when we refer to these ideas.
-\\\\
-%# ACTUALLY NEED MORE IN CHAPTER 6
-All quantum mechanics problems are solved in the end in one of these spaces. Rarely, we might solve one part of a problem in one observable space and then switch bases (more in Chapter 6), after taking what we have learnt from that part, to solve the rest of the problem. Most of the time -- especially overwhelmingly in this book -- we work in position space  where possible. This is not only because it makes sense to work with time and position as the two most important variables, as in our physical reality, but also because there are important variables to consider in the time evolution problem -- in particular the potential $V(x)$, a function of position-- which are easier to express in the position basis than any other. Momentum space is by far the other main counterpart in quantum mechanics, and usually we might work in momentum space in problems where the conditions or potential are easily expressed in terms of the momentum. Only rarely will we see energy space in action, and any other observable space will essentially be inferior to position and momentum space because the observables of position and momentum are far more important than any other.
-\\\\
-Now, there is an important conceptual detail to understand. Recall back to when we first were introduced to hermitian operators; we proved that each operator's action can be uniquely specified in its own eigenbasis if we have its eigenvalues. Consider some vector $\Psi$ in a the state space spanned by the eigenbasis $\setof{\omega_{i}}$ with eigenvalues $\setof{\lambda_{i}}$ of an operator $\Omega$. We have, by the common inner product expansion:
-$$
-\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}.
-$$
-Then the action of the operator $\Omega$ is 
-$$
-\Omega \Psi = \Omega\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}
-$$
-which, as it is a linear operator,
-$$
-\Omega\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\Omega\omega_{i}
-$$
-which is,
-$$
-\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.
-$$
-So quite simply, we get 
-$$
-\Omega \Psi = \sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.
-$$
-Of course, it is very clear that these eigenvalues $\lambda_{i}$ are not obtained if we are not working in the space spanned by the eigenbasis of $\Omega$. This in turn shows us the very important fact: that the action of the operator-- not just the forms of the state vectors-- is different if we are working in different spaces! It is important to know this idea, that the formulation of observable operators we are to see in the following section is based specifically in one space -- here, in the common position space. The operator formulations would not look the same were we in other observable spaces, such as momentum or energy space.
+Before we start on that, however, there is one pragmatic clarification to be made, both of which are related to the explicit forms of operators and how we use them in problem solving. This is regarding the formulation of the observable operators. 
 \subsection{Formulation of Observable Operators}
 We've studied the observable operators, their hermiticity and eigenbases in good detail, but this has all been done theoretically. Of course, there would be no point knowing about operators and eigenvalue equations if we didn't actually know what action the operators performed (remember, operators are functions with state vectors as inputs and state vectors as outputs), because there would be nothing to solve and no measurable eigenvalues to find. The next step in our work is therefore to actually give form to the physical form operators we want to work with. It turns out there is a very simple rule, presented in the next postulate, that we can use to correctly define any operator we need. We are certainly glad we do not have to run a massive set of definitions again to answer this question, and so the section is duly and appreciatedly short.
 \subsubsection{Formation of Observable Operators}

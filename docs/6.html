@@ -124,90 +124,10 @@ this one. The Schrödinger Equation is still always valid, even when it
 is difficult for us to practically solve the actual complete solutions
 of it.<br />
 <br />
-Before we start on that, however, there are two pragmatic clarifications
+Before we start on that, however, there is one pragmatic clarification
 to be made, both of which are related to the explicit forms of operators
-and how we use them in problem solving. These are, observable spaces and
+and how we use them in problem solving. This is regarding the
 formulation of the observable operators.</p>
-<h2 id="more-on-observable-operators">More on Observable Operators</h2>
-<h3 id="observable-spaces">Observable Spaces</h3>
-<p>When we refer to an ‘observable space", we do not mean a space we can
-observe. We mean the state space when it is spanned by a physical
-observable. Precisely, that means working with the state space where the
-underlying basis is an eigenbasis of some observable operator.<br />
-<br />
-A large component of problem solving in quantum mechanics consists of
-being able to apply two concepts related to bases:</p>
-<ol>
-<li><p>Staying flexible without committing to a specific base and
-considering the state vector without a basis first.</p></li>
-<li><p>Switching into a basis which is useful for our specific needs and
-algebraic manipulations.</p></li>
-</ol>
-<p>It is clear, even from the very early section on orthonormality, that
-not a bases are created equal. Some are simply better selected because
-algebraic manipulation becomes a lot easier when a problem is considered
-in those bases. Out of such bases, the eigenbases of physical
-observables are the most significant. Thus we reach this definition of
-‘observable spaces’, which sounds strange but is simply translated to
-‘position space’, ‘momentum space’, ‘energy space’ when we actually do
-have a physical observable in mind. We understand that all these
-observable spaces are not actually new vector spaces: they are all this
-same state space we have been studying, but simply with different
-eigenbases spanning the space and therefore where the same vectors will
-take different expansions. Nevertheless, these terms of position space
-and momentum space and so on are completely essential technical terms
-when we refer to these ideas.<br />
-<br />
-All quantum mechanics problems are solved in the end in one of these
-spaces. Rarely, we might solve one part of a problem in one observable
-space and then switch bases (more in Chapter 6), after taking what we
-have learnt from that part, to solve the rest of the problem. Most of
-the time – especially overwhelmingly in this book – we work in position
-space where possible. This is not only because it makes sense to work
-with time and position as the two most important variables, as in our
-physical reality, but also because there are important variables to
-consider in the time evolution problem – in particular the potential
-<span class="math inline">\(V(x)\)</span>, a function of position– which
-are easier to express in the position basis than any other. Momentum
-space is by far the other main counterpart in quantum mechanics, and
-usually we might work in momentum space in problems where the conditions
-or potential are easily expressed in terms of the momentum. Only rarely
-will we see energy space in action, and any other observable space will
-essentially be inferior to position and momentum space because the
-observables of position and momentum are far more important than any
-other.<br />
-<br />
-Now, there is an important conceptual detail to understand. Recall back
-to when we first were introduced to hermitian operators; we proved that
-each operator’s action can be uniquely specified in its own eigenbasis
-if we have its eigenvalues. Consider some vector <span
-class="math inline">\(\Psi\)</span> in a the state space spanned by the
-eigenbasis <span class="math inline">\(\setof{\omega_{i}}\)</span> with
-eigenvalues <span class="math inline">\(\setof{\lambda_{i}}\)</span> of
-an operator <span class="math inline">\(\Omega\)</span>. We have, by the
-common inner product expansion: <span
-class="math display">\[\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}.\]</span>
-Then the action of the operator <span
-class="math inline">\(\Omega\)</span> is <span
-class="math display">\[\Omega \Psi =
-\Omega\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\omega_{i}\]</span> which, as
-it is a linear operator, <span
-class="math display">\[\Omega\Psi=\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\Omega\omega_{i}\]</span>
-which is, <span
-class="math display">\[\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.\]</span>
-So quite simply, we get <span class="math display">\[\Omega \Psi =
-\sum_{i=1}^{n}\oip{\omega_{i}}{\Psi}\lambda_{i}\omega_{i}.\]</span> Of
-course, it is very clear that these eigenvalues <span
-class="math inline">\(\lambda_{i}\)</span> are not obtained if we are
-not working in the space spanned by the eigenbasis of <span
-class="math inline">\(\Omega\)</span>. This in turn shows us the very
-important fact: that the action of the operator– not just the forms of
-the state vectors– is different if we are working in different spaces!
-It is important to know this idea, that the formulation of observable
-operators we are to see in the following section is based specifically
-in one space – here, in the common position space. The operator
-formulations would not look the same were we in other observable spaces,
-such as momentum or energy space.</p>
 <h3 id="formulation-of-observable-operators">Formulation of Observable
 Operators</h3>
 <p>We’ve studied the observable operators, their hermiticity and
