@@ -113,58 +113,64 @@ of information encapsulation: how does an energy pure state store
 extractable information about momentum, for example? To understand this
 question, which is far more complicated than the classical one of “it’s
 there, and just hasn’t been measured yet”, we treat the two seminal
-theorems on the matter. Along the way, we will also be able to practise
-the mathematical operations we have introduced at a level and intensity
-we have not had the occasion to do so far.<br />
+theorems on the matter.<br />
 <br />
-We have already seen in the last chapter how important the commutation
-relation between two observable operators in our Hilbert space can be.
-Starting from Dirac’s Canonical Commutation relation, we deduced the
-form of the position and momentum operators in both the position and
-momentum space.<br />
+It turns out that much of this information, on whether a state made hold
+certain values for both observables represented by a given pair of
+observable operators– in short, whether it can be a <strong>simultaneous
+state</strong> for these two observables– turns out to be related
+intimately with their <em>commutation relation</em>. That is, if we
+define the <strong>commutator</strong> <span
+class="math display">\[[\hat{A},\hat{B}] :=
+\hat{A}\hat{B}-\hat{B}\hat{A}\]</span> then the specific value of this
+commutator relates to our question of “simultaneous states".<br />
 <br />
 Here, we explore more consequences of the commutation relation between
-two arbitrary observable operators.</p>
-<h2 id="the-position-and-momentum-operators">The Position and Momentum
-Operators</h2>
-<p>Very early on in classical mechanics, it was already established that
-two observables, position and momentum, are enough to completely specify
-the state of a single body. We will not concern ourselves with why that
-is true, but the same logic carries over to quantum mechanics. There are
-three operators which are by far the most important:</p>
+two arbitrary observable operators. Along the way, we will also be able
+to practise the mathematical operations we have introduced at a level
+and intensity we have not had the occasion to do so far.</p>
 <h2 id="simultaneous-states">Simultaneous states</h2>
-<p>The question of “simultaneous states” deals with the segue from the
-previous section onto this one. We want to investigate which states
-(state vectors) can contain information on multiple observables at a
-time, and which observables these are. We have seen in the Stern Gerlach
-experiment that for example <span class="math inline">\(x\)</span> and
-<span class="math inline">\(y\)</span> spin simultaneous states are
+<p>The question of “simultaneous states” is to investigate which states
+(<span class="math inline">\(\leftrightarrow\)</span> state vectors) can
+contain information on multiple observables at a time, and which
+observables these are. We have seen in the Stern Gerlach experiment that
+for example <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> spin simultaneous states are
 impossible, so this is a relevant, fully quantum in nature,
 problem.<br />
 <br />
 It turns out that the ability for different observables to have
 information represented in the same state vectors depends strongly on
-the relationship between their observable operators, as these in turn
-relate their orthonormal eigenvectors. To see this, there is one
-sweeping but simple theorem on operators for observables which can be
-measured simultaneously, and one dramatically anticlassical one for
-observables which cannot.</p>
+the commutator of their observable operators, as these in turn relate
+their orthonormal eigenvectors. To see this, there is one sweeping but
+simple theorem on operators for observables which can be measured
+simultaneously, and one dramatically anticlassical one for observables
+which cannot.</p>
 <h3 id="the-compatibility-theorem">The Compatibility Theorem</h3>
 <p>Consider an unperturbed system, two physical observables, and three
 measurements ordered chronologically. The first and third measurements
-are for the first physical observable, but the second measurement is for
-the second observable. We know from the Measurement Postulate that:</p>
+are for the first physical observable denoted <span
+class="math inline">\(\mathcal{A}\)</span>, but the second measurement
+is for the second observable <span
+class="math inline">\(\mathcal{B}\)</span>. We know from the Measurement
+Postulate that:</p>
 <ul>
-<li><p>The first measurement forces the wavefunction into a pure
-eigenstate of the first physical observable operator.</p></li>
-<li><p>The second measurement forces the wavefunction into a pure
-eigenstate of the second physical observable operator.</p></li>
+<li><p>The first measurement forces the wavefunction into some pure
+eigenstate <span class="math inline">\(\bm{\alpha_{i}}\)</span> of the
+first physical observable operator <span
+class="math inline">\(\hat{A}\)</span>.</p></li>
+<li><p>The second measurement forces the wavefunction into some pure
+eigenstate <span class="math inline">\(\bm{\beta}_{i}\)</span> of the
+second physical observable operator <span
+class="math inline">\(\hat{B}\)</span>.</p></li>
 <li><p>If the second measurement of the different observable did not
 exist, then we would have successive measurements of the same state
-(which is, the operator acting on the same eigenstate the starting state
+(which is, the operator acting on the same pure state the starting state
 vector was forced into following the first measurement) and we would
-expect the same measurement for the observable as we originally
-obtained.</p></li>
+expect with certainty the same measured value of <span
+class="math inline">\(\mathcal{A}\)</span> which is the eigenvalue <span
+class="math inline">\(A_{i}\)</span> associated with the pure state
+<span class="math inline">\(\bm{\alpha_{i}}\)</span>.</p></li>
 </ul>
 <p>The question is therefore whether or not this second measurement
 changes the result of the third. This is a profound question, because if
@@ -173,35 +179,44 @@ observable has moved the state vector out of the pure eigenstate it was
 in after the first measurement; that would then imply the second
 measurement is in itself a perturbation to the system: a confusing
 result. Indeed– the reader will recognise that this is exactly the class
-of behaviour which appeared so shockingly in the Stern Gerlach
+of behaviour which appeared so surpisingly in the Stern Gerlach
 experiment.<br />
 <br />
-We shall see that the determining factor is what the relationship
-between the two observable operators is. To start off, we will use the
-notations <span class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> as shorthand to distinguish
-between the two observables, so we do not have to name them. We define
-<span class="math inline">\(\mathcal{A}\)</span> and <span
+We define <span class="math inline">\(\mathcal{A}\)</span> and <span
 class="math inline">\(\mathcal{B}\)</span> to be <strong>compatible
-observables</strong> if the first and third measurements yield the same
-value regardless of the starting state and the value of the second
-observable measured in the second measurement. If we call the values
-measured <span class="math inline">\(\mathcal{A}^{(1)}\)</span>, <span
+observables</strong> iff the first and third measurements yield the same
+value regardless of the starting state before measurement 1, and
+regardless of the value of the second observable measured in the second
+measurement. If we call the values measured <span
+class="math inline">\(\mathcal{A}^{(1)}\)</span>, <span
 class="math inline">\(\mathcal{B}^{(1)}\)</span>, <span
 class="math inline">\(\mathcal{A}^{(2)}\)</span>, then observable <span
 class="math inline">\(\mathcal{A}\)</span> and <span
 class="math inline">\(\mathcal{B}\)</span> are compatible iff <span
-class="math display">\[\forall\:\Psi,\:\mathcal{B}^{(1)},\:\:\mathcal{A}^{(1)}=\mathcal{A}^{(2)}.\]</span>
-<strong>Compatibility Theorem</strong>: Two observables <span
-class="math inline">\(\mathcal{A}\)</span> and <span
-class="math inline">\(\mathcal{B}\)</span> are defined compatible if
-they possess a common eigenbasis or their operators commute. These three
-conditions in fact all imply each other. <u>Proof:</u><br />
+class="math display">\[\forall\:\Psi,\:\forall\:\mathcal{B}^{(1)},\:\:\mathcal{A}^{(1)}=\mathcal{A}^{(2)}.\]</span>
+<u><strong>Compatibility Theorem</strong></u>:<br />
+<br />
+The following three conditions all equivalent to each other:</p>
+<ol>
+<li><p><span class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span> are compatible
+observables.</p></li>
+<li><p><span class="math inline">\(\hat{A}\)</span> and <span
+class="math inline">\(\hat{B}\)</span> share a common
+eigenbasis.</p></li>
+<li><p><span class="math inline">\(\hat{A}\)</span> and <span
+class="math inline">\(\hat{B}\)</span> commute.</p></li>
+</ol>
+<p><br />
+<br />
+<u>Proof:</u><br />
 <br />
 First we prove that <span class="math inline">\(\hat{A}\)</span>
 commutes with <span class="math inline">\(\hat{B}\)</span> iff they
-possess a common eigenbasis. Consider two observable operators which
-commute, and define their eigenbases to be <span
+possess a common eigenbasis.<br />
+<br />
+Consider two observable operators which commute, and define their
+eigenbases to be <span
 class="math inline">\(\{\bm{\alpha}_{i}\}\)</span> and <span
 class="math inline">\(\{\bm{\beta}_{i}\}\)</span>. Now take an arbitrary
 eigenvector <span class="math inline">\(\bm{\alpha}_{i}\)</span> of
@@ -235,18 +250,19 @@ same eigenbasis. This isn’t of course, to say, the eigenvalues are the
 same for <span class="math inline">\(\hat{B}\)</span> and <span
 class="math inline">\(\hat{A}\)</span> even though it may correspond to
 the same eigenvector (above, they are not the same unless <span
-class="math inline">\(A_{i}=c\)</span>), since we expect the operators
-to be formulated differently so there will still be different values
-measured for each observable. Yet at the same time this is clearly
-helpful: if we know two physical observable operators commute and we
-have the eigenbasis of one then we automatically have the eigenbasis of
-the other.<br />
+class="math inline">\(A_{i}=c\)</span>). Yet at the same time this is
+clearly helpful: if we know two physical observable operators commute
+and we have the eigenbasis of one then we automatically have an
+eigenbasis of the other.<br />
 <br />
 Now, we prove it the other way around. Assume <span
 class="math inline">\(\hat{A}\)</span> and <span
 class="math inline">\(\hat{B}\)</span> both possess the eigenbasis <span
-class="math inline">\(\{\gamma_{i}\}\)</span>. We want to prove they
-commute. As they possess the same eigenbasis with eigenvalues <span
+class="math inline">\(\{\gamma_{i}\}\)</span>: that is, the vectors
+<span class="math inline">\(\bm{\gamma}_{i}\)</span> are eigenvectors
+for both <span class="math inline">\(\hat{A}\)</span> and <span
+class="math inline">\(\hat{B}\)</span>. We want to prove they commute.
+As they possess the same eigenbasis with eigenvalues <span
 class="math inline">\(\{A_{i}\}\)</span> and <span
 class="math inline">\(\{B_{i}\}\)</span> respectively, we can write
 <span

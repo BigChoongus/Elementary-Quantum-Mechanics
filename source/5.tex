@@ -1,32 +1,43 @@
 \chapter{Chapter 5: Commutation Relations and Simultaneous States}
-Another question still remains. We know that state vectors represent states-- and that is, physical states. If we think to use our classical intuition, we know a physical state can be thought about from the perspective of one observable (such as when we consider the momentum of two colliding objects). However, that does not mean it does not possess any values for all other physical observables, as it still has energy, angular momentum, and so on: only that we are not currently considering the other observables. Similarly, we would not be particularly pleased if the physical states pertaining to a certain measurement of one specific observable-- these so called pure states-- suddenly contained absolutely no information on any other observables. This is a question of information encapsulation: how does an energy pure state store extractable information about momentum, for example? To understand this question, which is far more complicated than the classical one of ``it's there, and just hasn't been measured yet'', we treat the two seminal theorems on the matter. Along the way, we will also be able to practise the mathematical operations we have introduced at a level and intensity we have not had the occasion to do so far.
+Another question still remains. We know that state vectors represent states-- and that is, physical states. If we think to use our classical intuition, we know a physical state can be thought about from the perspective of one observable (such as when we consider the momentum of two colliding objects). However, that does not mean it does not possess any values for all other physical observables, as it still has energy, angular momentum, and so on: only that we are not currently considering the other observables. Similarly, we would not be particularly pleased if the physical states pertaining to a certain measurement of one specific observable-- these so called pure states-- suddenly contained absolutely no information on any other observables. This is a question of information encapsulation: how does an energy pure state store extractable information about momentum, for example? To understand this question, which is far more complicated than the classical one of ``it's there, and just hasn't been measured yet'', we treat the two seminal theorems on the matter. 
 \\\\
-We have already seen in the last chapter how important the commutation relation between two observable operators in our Hilbert space can be. Starting from Dirac's Canonical Commutation relation, we deduced the form of the position and momentum operators in both the position and momentum space.
+It turns out that much of this information, on whether a state made hold certain values for both observables represented by a given pair of observable operators-- in short, whether it can be a \textbf{simultaneous state} for these two observables-- turns out to be related intimately with their \textit{commutation relation}. That is, if we define the \textbf{commutator}
+$$
+[\hat{A},\hat{B}] := \hat{A}\hat{B}-\hat{B}\hat{A}
+$$
+then the specific value of this commutator relates to our question of ``simultaneous states".
 \\\\
-Here, we explore more consequences of the commutation relation between two arbitrary observable operators.
-\section{The Position and Momentum Operators}
-Very early on in classical mechanics, it was already established that two observables, position and momentum, are enough to completely specify the state of a single body. We will not concern ourselves with why that is true, but the same logic carries over to quantum mechanics. There are three operators which are by far the most important:
+Here, we explore more consequences of the commutation relation between two arbitrary observable operators. Along the way, we will also be able to practise the mathematical operations we have introduced at a level and intensity we have not had the occasion to do so far.
+% \section{The Position and Momentum Operators}
+% Very early on in classical mechanics, it was already established that two observables, position and momentum, are enough to completely specify the state of a single body. We will not concern ourselves with why that is true, but the same logic carries over to quantum mechanics. There are three operators which are by far the most important:
 \section{Simultaneous states}
-The question of ``simultaneous states'' deals with the segue from the previous section onto this one. We want to investigate which states (state vectors) can contain information on multiple observables at a time, and which observables these are. We have seen in the Stern Gerlach experiment that for example $x$ and $y$ spin simultaneous states are impossible, so this is a relevant, fully quantum in nature, problem.
+The question of ``simultaneous states'' is to investigate which states ($\leftrightarrow$ state vectors) can contain information on multiple observables at a time, and which observables these are. We have seen in the Stern Gerlach experiment that for example $x$ and $y$ spin simultaneous states are impossible, so this is a relevant, fully quantum in nature, problem.
 \\\\
-It turns out that the ability for different observables to have information represented in the same state vectors depends strongly on the relationship between their observable operators, as these in turn relate their orthonormal eigenvectors. To see this, there is one sweeping but simple theorem on operators for observables which can be measured simultaneously, and one dramatically anticlassical one for observables which cannot.
+It turns out that the ability for different observables to have information represented in the same state vectors depends strongly on the commutator of their observable operators, as these in turn relate their orthonormal eigenvectors. To see this, there is one sweeping but simple theorem on operators for observables which can be measured simultaneously, and one dramatically anticlassical one for observables which cannot.
 \subsection{The Compatibility Theorem}
-Consider an unperturbed system, two physical observables, and three measurements ordered chronologically. The first and third measurements are for the first physical observable, but the second measurement is for the second observable. We know from the Measurement Postulate that:
+Consider an unperturbed system, two physical observables, and three measurements ordered chronologically. The first and third measurements are for the first physical observable denoted $\mathcal{A}$, but the second measurement is for the second observable $\mathcal{B}$. We know from the Measurement Postulate that:
 \begin{itemize}
-    \item The first measurement forces the wavefunction into a pure eigenstate of the first physical observable operator. 
-    \item The second measurement forces the wavefunction into a pure eigenstate of the second physical observable operator.
-    \item If the second measurement of the different observable did not exist, then we would have successive measurements of the same state (which is, the operator acting on the same eigenstate the starting state vector was forced into following the first measurement) and we would expect the same measurement for the observable as we originally obtained.
+    \item The first measurement forces the wavefunction into some pure eigenstate $\bm{\alpha_{i}}$ of the first physical observable operator $\hat{A}$.
+    \item The second measurement forces the wavefunction into some pure eigenstate $\bm{\beta}_{i}$ of the second physical observable operator $\hat{B}$.
+    \item If the second measurement of the different observable did not exist, then we would have successive measurements of the same state (which is, the operator acting on the same pure state the starting state vector was forced into following the first measurement) and we would expect with certainty the same measured value of $\mathcal{A}$ which is the eigenvalue $A_{i}$ associated with the pure state $\bm{\alpha_{i}}$.
 \end{itemize}
-The question is therefore whether or not this second measurement changes the result of the third. This is a profound question, because if it does, then we would conclude the simple act of measuring the second observable has moved the state vector out of the pure eigenstate it was in after the first measurement; that would then imply the second measurement is in itself a perturbation to the system: a confusing result. Indeed-- the reader will recognise that this is exactly the class of behaviour which appeared so shockingly in the Stern Gerlach experiment.
+The question is therefore whether or not this second measurement changes the result of the third. This is a profound question, because if it does, then we would conclude the simple act of measuring the second observable has moved the state vector out of the pure eigenstate it was in after the first measurement; that would then imply the second measurement is in itself a perturbation to the system: a confusing result. Indeed-- the reader will recognise that this is exactly the class of behaviour which appeared so surpisingly in the Stern Gerlach experiment.
 \\\\ 
-We shall see that the determining factor is what the relationship between the two observable operators is. To start off, we will use the notations $\mathcal{A}$ and $\mathcal{B}$ as shorthand to distinguish between the two observables, so we do not have to name them. We define $\mathcal{A}$ and $\mathcal{B}$ to be \textbf{compatible observables} if the first and third measurements yield the same value regardless of the starting state and the value of the second observable measured in the second measurement. If we call the values measured $\mathcal{A}^{(1)}$, $\mathcal{B}^{(1)}$, $\mathcal{A}^{(2)}$, then observable $\mathcal{A}$ and $\mathcal{B}$ are compatible iff 
+We define $\mathcal{A}$ and $\mathcal{B}$ to be \textbf{compatible observables} iff the first and third measurements yield the same value regardless of the starting state before measurement 1, and regardless of the value of the second observable measured in the second measurement. If we call the values measured $\mathcal{A}^{(1)}$, $\mathcal{B}^{(1)}$, $\mathcal{A}^{(2)}$, then observable $\mathcal{A}$ and $\mathcal{B}$ are compatible iff 
 $$
-\forall\:\Psi,\:\mathcal{B}^{(1)},\:\:\mathcal{A}^{(1)}=\mathcal{A}^{(2)}.
+\forall\:\Psi,\:\forall\:\mathcal{B}^{(1)},\:\:\mathcal{A}^{(1)}=\mathcal{A}^{(2)}.
 $$
-\textbf{Compatibility Theorem}: Two observables $\mathcal{A}$ and $\mathcal{B}$ are defined compatible if they possess a common eigenbasis or their operators commute. These three conditions in fact all imply each other.
+\underline{\textbf{Compatibility Theorem}}:\\\\
+The following three conditions all equivalent to each other:
+\begin{enumerate}
+    \item $\mathcal{A}$ and $\mathcal{B}$ are compatible observables.
+    \item $\hat{A}$ and $\hat{B}$ share a common eigenbasis.
+    \item $\hat{A}$ and $\hat{B}$ commute.
+\end{enumerate}
+\\\\
 \underline{Proof:}
 \\\\
-First we prove that $\hat{A}$ commutes with $\hat{B}$ iff they possess a common eigenbasis. Consider two observable operators which commute, and define their eigenbases to be $\{\bm{\alpha}_{i}\}$ and $\{\bm{\beta}_{i}\}$. Now take an arbitrary eigenvector $\bm{\alpha}_{i}$ of $\hat{A}$ with eigenvalue $A_{i}$. We have
+First we prove that $\hat{A}$ commutes with $\hat{B}$ iff they possess a common eigenbasis. \\\\ Consider two observable operators which commute, and define their eigenbases to be $\{\bm{\alpha}_{i}\}$ and $\{\bm{\beta}_{i}\}$. Now take an arbitrary eigenvector $\bm{\alpha}_{i}$ of $\hat{A}$ with eigenvalue $A_{i}$. We have
 $$
 \hat{A}\hat{B}=\hat{B}\hat{A}
 $$
@@ -46,9 +57,9 @@ means we must have
 $$
 \hat{B}\bm{\alpha}_{i}=c\bm{\alpha}_{i}
 $$
-for some scalar multiple $c$. This means that $\bm{\alpha}_{i}$ is an eigenvector of $\hat{B}$ corresponding to eigenvalue $c$. So we can say that $\forall\:i, \bm{\alpha}_{i}$ is an eigenvector of $\hat{A}$ and $\hat{B}$: which means that they have the same eigenbasis. This isn't of course, to say, the eigenvalues are the same for $\hat{B}$ and $\hat{A}$ even though it may correspond to the same eigenvector (above, they are not the same unless $A_{i}=c$), since we expect the operators to be formulated differently so there will still be different values measured for each observable. Yet at the same time this is clearly helpful: if we know two physical observable operators commute and we have the eigenbasis of one then we automatically have the eigenbasis of the other. 
+for some scalar multiple $c$. This means that $\bm{\alpha}_{i}$ is an eigenvector of $\hat{B}$ corresponding to eigenvalue $c$. So we can say that $\forall\:i, \bm{\alpha}_{i}$ is an eigenvector of $\hat{A}$ and $\hat{B}$: which means that they have the same eigenbasis. This isn't of course, to say, the eigenvalues are the same for $\hat{B}$ and $\hat{A}$ even though it may correspond to the same eigenvector (above, they are not the same unless $A_{i}=c$). Yet at the same time this is clearly helpful: if we know two physical observable operators commute and we have the eigenbasis of one then we automatically have an eigenbasis of the other. 
 \\\\
-Now, we prove it the other way around. Assume $\hat{A}$ and $\hat{B}$ both possess the eigenbasis $\{\gamma_{i}\}$. We want to prove they commute. As they possess the same eigenbasis with eigenvalues $\{A_{i}\}$ and $\{B_{i}\}$ respectively, we can write
+Now, we prove it the other way around. Assume $\hat{A}$ and $\hat{B}$ both possess the eigenbasis $\{\gamma_{i}\}$: that is, the vectors $\bm{\gamma}_{i}$ are eigenvectors for both $\hat{A}$ and $\hat{B}$. We want to prove they commute. As they possess the same eigenbasis with eigenvalues $\{A_{i}\}$ and $\{B_{i}\}$ respectively, we can write
 $$
 \hat{A}\hat{B}\gamma_{i}=\hat{A}B_{i}\gamma_{i}=B_{i}\hat{A}\gamma_{i}=B_{i}A_{i}\gamma_{i}
 $$
