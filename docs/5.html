@@ -404,8 +404,9 @@ had been previously forced into. All the questions about the quantum
 state raised by the Stern Gerlach experiment will finally come to an end
 with this section. We would like to formalise our understanding of how
 incompatibility affected the experiment. To explain it all, we witness–
-and prove ourselves!– one of Physics’ most groundbreaking and shocking
-theorems.</p>
+and prove ourselves– one of Physics’ most groundbreaking and shocking
+theorems, the famous <strong>Heisenberg Uncertainty
+Principle</strong>.</p>
 <h2 id="the-heisenberg-uncertainty-principle">The Heisenberg Uncertainty
 Principle</h2>
 <p>The idea of commuting observable operators being necessary and
@@ -624,9 +625,10 @@ class="math display">\[\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|\oip{\Psi}{
 \Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{1}{2}|i\hbar\oip{\Psi}{\Psi}|=\frac{1}{2}|i\hbar|=\frac{1}{2}\sqrt{-i\hbar\times
 i\hbar}=\frac{\hbar}{2}.\]</span> The key end result is that <span
 class="math display">\[\Delta{\hat{X}}\Delta{\hat{P}}\geq\frac{\hbar}{2}.\]</span>
-This is the most well known form of the Uncertainty Principle, but we
-can see that the Generalised Uncertainty Principle can be applied more
-broadly than just to the two observables of position and momentum.<br />
+This is the most well known case of the Uncertainty Principle in action,
+but we can see that the Generalised Uncertainty Principle can be applied
+more broadly than just to the two observables of position and
+momentum.<br />
 <br />
 Returning to our considerations of the physical results of trying to
 measure two incompatible observables, it is clear how bizarre this
@@ -639,17 +641,20 @@ However, if we plug in <span
 class="math inline">\(\Delta{\hat{X}}\)</span> into the Uncertainty
 Principle we get <span
 class="math display">\[0\times\Delta\hat{P}\geq\frac{\hbar}{2}\]</span>
-which implies somehow that the uncertainty in momentum must be infinite!
-So if we know the value of the position with certainty we are completely
-unable to distinguish between infinite possibilities for the momentum.
-The relationship works both ways so the same applies for the momentum:
-if we know the momentum of a particle then we necessarily have infinite
-uncertainty in the position of the particle and we have not a clue where
-it is. This is undoubtedly one of the most anti-classical results in
-quantum mechanics, and yet it results beautifully from the mathematics
-we have defined (and has never been experimentally refuted). If nothing
-else, it should now be clear that the mathematical manipulations of
-quantum mechanics are rich and impactful.<br />
+which implies somehow that the uncertainty in momentum must be
+infinite!<br />
+<br />
+Thus, Heisenberg’s Uncertainty Principle tells us that if we know the
+value of the position with certainty we are completely have infinite
+uncertainty in momentum. The relationship works both ways so the same
+applies for the momentum: if we know the momentum of a particle then we
+necessarily have infinite uncertainty in the position of the particle
+and we have not a clue where it is. This is undoubtedly one of the most
+anti-classical results in quantum mechanics, and yet it results
+beautifully from the mathematics we have defined (and has never been
+experimentally refuted). If nothing else, it should now be clear that
+the mathematical manipulations of quantum mechanics are rich and
+impactful.<br />
 <br />
 The same is manifested, of course, in the Stern-Gerlach experiment. By
 knowing <span class="math inline">\(x\)</span> spin, we had infinite
@@ -660,7 +665,180 @@ uncertainty in the <span class="math inline">\(x\)</span> spin. This is
 one example of an experimental verification of the Heisenberg
 Uncertainty Principle.<br />
 <br />
-Now, we are ready to move onto time evolution.</p>
+</p>
+<h2 id="formulation-of-observable-operators">Formulation of Observable
+Operators</h2>
+<p>We have discussed in Chapter 4 the fact that the specific functional
+form of an operator, just like the specific expansion of a state vector,
+depends on the basis we are working on. Nevertheless, we would like to
+ask the question of how to form the observable operator for a given
+physical observable. Otherwise, our discussions above on Compatibility
+and Incompatibility, specifically via the study of commutation
+relations, would be completely useless, as we would never be able to
+specify the commutator at all!</p>
+<h3 id="diracs-canonical-commutation-relation">Dirac’s Canonical
+Commutation Relation</h3>
+<p>Very early on in classical mechanics, it was already established that
+two observables, position, <span class="math inline">\(x\)</span> and
+momentum, <span class="math inline">\(p\)</span>, are enough to
+completely specify the state of a single body. We will not concern
+ourselves with why that is true, but the same logic carries over to
+quantum mechanics. Position and momentum are, it turns out, the only two
+operators we need to generate any new observable operator, at least for
+observables which have classical counterparts.<br />
+<br />
+The form of the position and momentum operators, in position space, are:
+<span class="math display">\[\hat{X}\psi(x) = x\psi(x)\]</span> and
+<span class="math display">\[\hat{P}\psi(x) = -i\hbar
+\frac{\partial}{\partial x}\psi(x)\]</span> There are a few things to
+note with these forms:</p>
+<ol>
+<li><p>Note that we use <span class="math inline">\(\psi(x)\)</span>
+instead of the usual notation for the general state vector, <span
+class="math inline">\(\Psi\)</span>. This is because we are working in
+position space, so the position/momentum operators in the position space
+must act on the position space expansion <span
+class="math inline">\(\psi(x)\)</span> of <span
+class="math inline">\(\Psi\)</span>.</p></li>
+<li><p>The position space expansion, of course, can be written as <span
+class="math inline">\(\psi(x)\)</span> since we explicitly defined it as
+the map from basis vectors to the components of the state vector in
+those basis directions. Thus, everything depends on an input eigenstate
+of <span class="math inline">\(\hat{X}\)</span>; hence, we use <span
+class="math inline">\(x\)</span> to denote this.</p></li>
+<li><p>These forms would not be the same in, for example, momentum
+space! The reason why we use the position space form is because, as
+aforementioned, the majority of quantum problems are solved in position
+space.</p></li>
+</ol>
+<p>How do we know these forms? Are they postulates? The answer is that
+they are <em>derived</em> from a postulate. The postulate which really
+generates these forms is Dirac’s Canonical Commutation Relation:<br />
+<br />
+<strong><u>Dirac’s Canonical Commutation Relation</u></strong><br />
+<br />
+<span class="math display">\[[\hat{X},\hat{P}]=i\hbar\]</span> where
+<span class="math inline">\(i\hbar\)</span> is the notation for the
+scalar <span class="math inline">\(i\hbar\)</span> multiplying the
+identity operator.<br />
+<br />
+We already quoted this commutation relation, when we plugged it into the
+Heisenberg Uncertainty Principle. Here, the reader understands that it
+is a postulate. However, this simple postulate remarkably generates the
+forms of nearly all observable operators!<br />
+<br />
+Indeed, from this seemingly small postulate, we can <em>deduce</em> the
+position space (and momentum space) forms of the position operator <span
+class="math inline">\(\hat{X}\)</span> and <span
+class="math inline">\(\hat{P}\)</span> shown above. The full derivation
+will come in Chapter 8, since we require the tools developed there to
+handle continuous observables, but for now we can take the position
+space form of the operators for granted.<br />
+<br />
+With this in mind, we can introduce the next Postulate, which tells us
+how to form the observable operator of any observable, within a given
+basis.</p>
+<h3 id="formation-of-observable-operators">Formation of Observable
+Operators</h3>
+<p><strong><u>Postulate 4: The Formation of Observable
+Operators</u></strong><br />
+<br />
+The two canonical operators in quantum mechanics, expressed in position
+space, are the position operator: <span
+class="math display">\[\hat{X}\Psi=x\Psi\]</span> and the momentum
+operator: <span
+class="math display">\[\hat{P}\Psi=-i\hbar\frac{\partial}{\partial
+x}\Psi.\]</span> which can be both shown to be Hermitian. To form any
+other physical observable operator, express the classical observable in
+terms of the classical variables of <span
+class="math inline">\(x\)</span> (position) and <span
+class="math inline">\(p\)</span> (momentum), and replace the <span
+class="math inline">\(x\)</span> terms with the operator <span
+class="math inline">\(\hat{X}\)</span> and the <span
+class="math inline">\(p\)</span> terms with the operator <span
+class="math inline">\(\hat{P}\)</span>. Note that the position operator
+and momentum operator are here one dimensional: if instead we were
+considering position and momentum in three directions then all we would
+do would be to replace the <span class="math inline">\(x\)</span> with
+the <span class="math inline">\(y\)</span> and <span
+class="math inline">\(z\)</span> variables for the <span
+class="math inline">\(y\)</span> and <span
+class="math inline">\(z\)</span> directional operators instead.
+Generalising up physical dimensions (as in, position dimensions) is only
+marginally more complicated because we have more terms to consider, and
+otherwise this rationale stays the same and everything is
+straightforward. Let us, to punch this in, consider the kinetic energy
+operator, which will become very useful. Note again that everything is
+happening in position space, or things would look quite different in
+another space with a different eigenbasis.</p>
+<h4 id="kinetic-energy-operator">Kinetic Energy Operator</h4>
+<p>The classical formula for kinetic energy is of course <span
+class="math display">\[KE=\frac{1}{2}mv^2.\]</span> We want this in
+terms of position and momentum. It is important that mass is treated as
+a constant so does not interfere in this as a separate observable. The
+kinetic energy formula expressed in momentum and position is <span
+class="math display">\[KE=\frac{1}{2}mv^2=\biggl(\frac{m}{2m}\biggr)mv^2=\frac{m^2v^2}{2m}\]</span>
+which is, <span class="math display">\[KE=\frac{p^2}{2m}\]</span> where
+position does not appear in this particular observable expression, which
+is completely fine. Then, by the postulate, all we need to do is to
+replace the classical variable <span class="math inline">\(p\)</span>
+with the momentum operator: <span
+class="math display">\[KE=\frac{p^2}{2m}\duac
+\hat{KE}=\frac{\hat{P}^2}{2m}.\]</span> The notation <span
+class="math inline">\(\hat{KE}\)</span> looks foolish and so convention
+uses <span class="math inline">\(\hat{T}\)</span> instead. The
+expression <span class="math inline">\(\hat{P}^2\)</span>, we know,
+means applying the same momentum operator twice.<br />
+<br />
+Therefore, in position space, where the momentum operator is <span
+class="math display">\[\hat{P}\Psi=-i\hbar\frac{\partial}{\partial
+x}\Psi,\]</span> we get <span
+class="math display">\[\hat{T}\Psi=\frac{\hat{P}^2}{2m}\Psi=-\frac{i\hbar}{2m}\biggl(\frac{\partial}{\partial
+x}\biggl(-i\hbar\frac{\partial\Psi}{\partial x}\biggr)\biggr)\]</span>
+which is, <span
+class="math display">\[\hat{T}{\Psi}=\frac{(i\hbar)^2}{2m}\frac{\partial^2
+\Psi}{\partial x^2}=-\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial
+x^2}.\]</span> Thus we are done, and have the position space form of the
+kinetic operator: <span
+class="math display">\[\hat{T}\Psi=-\frac{\hbar^2}{2m}\frac{\partial
+\Psi}{\partial x^2}.\]</span></p>
+<h3 id="mass-and-time">Mass and Time</h3>
+<p>There is a final note to make, on mass and time. Both of these are
+not treated as observables in quantum mechanics. This makes intuitive
+sense for time: in experiments we would measure the duration of an
+event, but this is first of all not something which pertains to the
+state problem but more importantly not something we expect to involve
+probability. The time at which we are measuring the time obviously
+should not be probabilistic; it is therefore treated more like an
+underlying variable just like the space of the universe.<br />
+<br />
+With mass, the complete justification is more nuanced. It turns out that
+particle physics shows the existence of so-called “fundamental
+particles", and that everything is made up of these particles. Then, we
+create a notion of mass simply based on the “quantum number" of those
+particles: which turns out to be impossible to change, hence the idea of
+being ‘fundamental’. Since mass is built up concretely from this bedrock
+of fundamental properties, then, it is not subject to the probabilistic
+superpositions and uncertainties of other observables. Hence, it may
+also be treated as a constant in a given stationary equation.<br />
+<br />
+The best thing to do, then, is to treat <span
+class="math inline">\(m\)</span> as a constant and <span
+class="math inline">\(t\)</span> as a varying but non-probabilistic
+parameter. In both cases, they are not really observables and thus do
+not require an observable operator to be linked to them.</p>
+<h2 id="summary">Summary</h2>
+<p>In this chapter, we finished addressing all the uniquely quantum
+behaviour the Stern-Gerlach experiment threw at us. We proved the
+incredible Heisenberg Uncertainty Principle, as well as the less
+explosive but equally insightful Compatibility Theorem, and showed that
+the mathematical manipulations of quantum mechanics, specifically herein
+with respect to the commutation relations between two observable
+operators, can really yield very rich conceptual and algebraic
+connections. Finally, we also explicitly showed how to construct
+observable operators without needing to postulate the form of every
+single one, even though this story is still to be completed more
+carefully in Chapter 7 and Chapter 8.</p>
 <hr>
 <div style="text-align: center; font-size: 1.2em; padding-top: 20px;">
     <a href='4.html'>&larr; Previous Chapter</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href='6.html'>Next Chapter &rarr;</a>

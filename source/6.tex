@@ -1,65 +1,5 @@
 \chapter{Chapter 6: Time Evolution and Problem Solving Techniques}
-We will complete our study of the postulates of quantum mechanics in this chapter, which will be more pragmatic than the precedent two chapters where we had to deal with abstract mathematical theory in vector spaces and operators. The time-evolution problem, which we will study in this chapter, will prove to be a double-edged challenge. On one hand, the time evolution postulate is completely trivial conceptually, especially compared to the state vector, observable and measurement postulates, so the reader can breathe a sigh of relief and know they won't have to deal with learning a new field of mathematics just to tackle this problem. All it will include is learning one equation: the all-famous Schr\"{o}dinger Equation postulated by Erwin Schr\"{o}dinger, and this equation will not be difficult to understand. On the other hand, the time evolution problem has by far the most potential to be complex, and in some advanced cases, impossible to solve without new intensely demanding mathematical techniques for manipulation and indeed often (though still very accurate) approximation. This should not be disheartening, however. The fact that it is very difficult for the reader to produce numerical predictions for a very complex multi-particle system in a constantly varying electrical field simply with nothing but an A4 sheet and their algebraic knowledge is nothing other than to be expected. Feynman, Dirac, Heisenberg, Pauli were not immortalised for only reaching the depth of an introductory book like this one. The Schr\"{o}dinger Equation is still always valid, even when it is difficult for us to practically solve the actual complete solutions of it.
-\\\\
-Before we start on that, however, there is one pragmatic clarification to be made, both of which are related to the explicit forms of operators and how we use them in problem solving. This is regarding the formulation of the observable operators. 
-\subsection{Formulation of Observable Operators}
-We've studied the observable operators, their hermiticity and eigenbases in good detail, but this has all been done theoretically. Of course, there would be no point knowing about operators and eigenvalue equations if we didn't actually know what action the operators performed (remember, operators are functions with state vectors as inputs and state vectors as outputs), because there would be nothing to solve and no measurable eigenvalues to find. The next step in our work is therefore to actually give form to the physical form operators we want to work with. It turns out there is a very simple rule, presented in the next postulate, that we can use to correctly define any operator we need. We are certainly glad we do not have to run a massive set of definitions again to answer this question, and so the section is duly and appreciatedly short.
-\subsubsection{Formation of Observable Operators}
-\Answer
-\textbf{\underline{Postulate 4: The Formation of Observable Operators}}
-\\\\
-The two canonical operators in quantum mechanics, expressed in position space, are the position operator:
-$$
-\hat{X}\Psi=x\Psi
-$$
-and the momentum operator:
-$$
-\hat{P}\Psi=-i\hbar\frac{\partial}{\partial x}\Psi.
-$$  
-which can be both shown to be Hermitian. To form any other physical observable operator, express the classical observable in terms of the classical variables of $x$ (position) and $p$ (momentum), and replace the $x$ terms with the operator $\hat{X}$ and the $p$ terms with the operator $\hat{P}$. 
-\Answerend
-Note that the position operator and momentum operator are here one dimensional: if instead we were considering position and momentum in three directions then all we would do would be to replace the $x$ with the $y$ and $z$ variables for the $y$ and $z$ directional operators instead. Generalising up physical dimensions (as in, position dimensions) is only marginally more complicated because we have more terms to consider, and otherwise this rationale stays the same and everything is straightforward. Let us, to punch this in, consider the kinetic energy operator, which will become very useful. Note again that everything is happening in position space, or things would look quite different in another space with a different eigenbasis.
-\subsubsection{Kinetic Energy Operator}
-The classical formula for kinetic energy is of course
-$$
-KE=\frac{1}{2}mv^2.
-$$
-We want this in terms of position and momentum. It is important that mass is treated as a constant so does not interfere in this as a separate observable. The kinetic energy formula expressed in momentum and position is 
-$$
-KE=\frac{1}{2}mv^2=\biggl(\frac{m}{2m}\biggr)mv^2=\frac{m^2v^2}{2m}
-$$
-which is, 
-$$
-KE=\frac{p^2}{2m}
-$$
-where position does not appear in this particular observable expression, which is completely fine. Then, by the postulate, all we need to do is to replace the classical variable $p$ with the momentum operator:
-$$
-KE=\frac{p^2}{2m}\duac \hat{KE}=\frac{\hat{P}^2}{2m}.
-$$
-The notation $\hat{KE}$ looks foolish and so convention uses $\hat{T}$ instead. The expression $\hat{P}^2$, we know, means applying the same momentum operator twice.
-\\\\
-Therefore, in position space, where the momentum operator is 
-$$
-\hat{P}\Psi=-i\hbar\frac{\partial}{\partial x}\Psi,
-$$
-we get 
-$$
-\hat{T}\Psi=\frac{\hat{P}^2}{2m}\Psi=-\frac{i\hbar}{2m}\biggl(\frac{\partial}{\partial x}\biggl(-i\hbar\frac{\partial\Psi}{\partial x}\biggr)\biggr)
-$$
-which is, 
-$$
-\hat{T}{\Psi}=\frac{(i\hbar)^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}=-\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}.
-$$
-Thus we are done, and have the position space form of the kinetic operator:
-$$
-\hat{T}\Psi=-\frac{\hbar^2}{2m}\frac{\partial \Psi}{\partial x^2}.
-$$
-There is a final note to make, on mass and time. Both of these are not treated as observables in quantum mechanics. This makes intuitive sense for time: in experiments we would measure the duration of an event, but this is first of all not something which pertains to the state problem but more importantly not something we expect to involve probability. The time at which we are measuring the time obviously should not be probabilistic; it is therefore treated more like an underlying variable just like the space of the universe. 
-\\\\
-With mass, the answer is not so clear. The best way to think about mass operators at this stage-- and indeed the way that quantum mechanics generally thinks of mass operators-- is to not think about mass operators at all. They do not exist, for whatever reason, in non-relativistic quantum mechanics, which always treats the mass of a particle as constant until more mass is added by external sources to the system. So we treat mass as a constant, and time as some universal external parameter; neither time nor mass have an operator attached to them.
-\\\\
-Finally, now that we have completed our survey into observable operators fully, we can move onto the Time Evolution Problem and Schr\"{o}dinger'
-s Equation
+We will complete our study of the postulates of quantum mechanics in this chapter, which will be more pragmatic than the preceding two chapters where we had to deal with abstract mathematical theory in vector spaces and operators. The time-evolution problem, which we will study in this chapter, will prove to be a double-edged challenge. On one hand, the time evolution postulate is completely trivial conceptually, especially compared to the state vector, observable and measurement postulates, so the reader can breathe a sigh of relief and know they won't have to deal with learning a new field of mathematics just to tackle this problem. All it will include is learning one equation: the all-famous Schr\"{o}dinger Equation postulated by Erwin Schr\"{o}dinger, and this equation will not be difficult to understand. On the other hand, the time evolution problem has by far the most potential to be complex, and in some advanced cases, impossible to solve without new intensely demanding mathematical techniques for manipulation and indeed often (though still very accurate) approximation. This should not be disheartening, however. The fact that it is very difficult for the reader to produce numerical predictions for a very complex multi-particle system in a constantly varying electrical field simply with nothing but an A4 sheet and their algebraic knowledge is nothing other than to be expected. Feynman, Dirac, Heisenberg, Pauli were not immortalised for only reaching the depth of an introductory book like this one. The Schr\"{o}dinger Equation is still always valid, even when it is difficult for us to practically solve the actual complete solutions of it.
 \section{Time Evolution and Schr\"{o}dinger's Equation} 
 Now that we have established the stationary properties of quantum states, observables and measurements, we are done with the quantum mechanical state problem. The second paramount question of Physics is the question of time evolution. One might be relieved to find that, theoretically speaking, the time evolution problem is much simpler and will not require us to do so much complex postulating as the state problem did. In fact, we only need one more postulate to introduce time evolution; this is the famous Schr\"{o}dinger Equation (which is a postulate, not a derivation!), which will be important to quantum mechanics much similar to the way $F=ma$ is ubiquitous in classical mechanics.
 \begin{tcolorbox}
@@ -80,7 +20,7 @@ Now, we once more start by listing the assertions of this postulate for clarity.
     $$
     H(x,p)=\frac{p^2}{2m}+V(x).
     $$
-    This, of course, contains the kinetic energy operator we have just found in 5.1.2; the other part of the Hamiltonian, the more tricky potential, will be dealt with subsequently as it does not change much of the conceptual discussion right now.
+    which is obtained merely by replacing the classical $p$ with $\hat{P}$ and the function $V(x)$ of the classical $x$ with the same function $V$ but of $\hat{X}$.
     \item[P5A3.] Since we say that this Hamiltonian operator exists, there must be eigenvalues (also called eigenenergies for obvious reasons) which are the possible measured values of energy and corresponding eigenvectors of the Hamiltonian- or, energy eigenstates. In fact we often get that the eigenvalues are discretely distributed for the Hamiltonian operator: which means energy is quantised. Bohr's famous electron model results from this energy quantisation.
     \item[P5A4.] Given a state vector at time $0$ it evolves in a completely deterministic way. This is surely a great relief. The state may not be deterministic-- in which case it is a mixed state for which the strongest predictive statements which can be made are those detailed in Postulate 3. However, it will evolve into a new state vector in a predictable way. That is not to say at all that after the evolution it will not still be in a mixed state, as the new state it has evolved over time into may well still be a superposition of eigenstates. It is just to say that we can determine future state vectors (not necessarily measurements) well given the starting one and the Hamiltonian for the given system.
 \end{enumerate}
@@ -168,9 +108,9 @@ Many consequences for the solution of Schr\"{o}dinger's Equation derive themselv
     We cannot fall for the common deception of thinking we can pull out the term $e^{-{iE_{n}t}/{\hbar}}$ from the sum, since the eigenvalues $\setof{E_{n}}$ corresponding to the eigenvectors $\setof{\varepsilon_{n}}$ change for each $n$ so it is not a constant. However, we do know now that, if we can determine the eigenvectors of the Hamiltonian for a given system, and the corresponding eigenvalues, and know the initial state (and therefore the components $\oip{\varepsilon_{n}}{\Psi_{0}}$ of the initial state vector) then we have a fully defined state $\Psi_{t}$ for any $t$ as we can track how each of its components evolve very easily. This amounts, of course, to solving the Schr\"{o}dinger Equation: or, more satisfyingly put, solving the problem of time evolution and solving both the central problems of quantum mechanics.
     \item[HE2.] An important clarification which has been alluded to but not explicitly stated thus far must now be emphasised. There is no physical operator which changes form over time. Most operators, like the position and momentum operators, do not change even if there is a perturbation to the system. However, the Hamiltonian is not the same for all systems. Like all other observables operators, its formulation does not change- but, unlike most other operators, this formulation consists of something which can vary through perturbations. Specifically, the Hamiltonian is expressed as 
     $$
-    \hat{H}=\frac{\hbar^{2}}{2m}\frac{\partial^2}{\partial x^2}+V(x)
+    \hat{H}=\frac{\hbar^{2}}{2m}\frac{\partial^2}{\partial x^2}+V(\hat{X})
     $$
-    where $x$ here is the position variable and the function $V(x)$ is the potential of the system. It is the potential which changes the form of the operator, as different systems have different potentials; moreover, these potentials can shift over time so in that way the form of the Hamiltonian changes over time. Note the difference: the formula to construct the Hamiltonian doesn't change, but the Hamiltonian itself does-- when $V(x)$ changes. 
+    where $x$ here is the position variable and the function $V(\hat{X})$ is the potential of the system. It is the potential which changes the form of the operator, as different systems have different potentials; moreover, these potentials can shift over time so in that way the form of the Hamiltonian changes over time. Note the difference: the formula to construct the Hamiltonian doesn't change, but the Hamiltonian itself does-- when $V(\hat{X})$ changes. 
     \\\\
     The role of energy eigenbases as the easiest way to solve the Schr\"{o}dinger Equation is now however fully clear to us. For a given system, if we can formulate the Hamiltonian accurately, then we can find its eigenvalues and corresponding eigenvectors using the characteristic equation, and then by HE1 we can theoretically determine the answer to the time evolution problem for the state with that Hamiltonian. This is why almost invariably, for problems which are not immensely complicated, \textbf{the goal of the Physicist is to formulate the Hamiltonian}. 
     \item[HE3.] Since we have established that formulating the Hamiltonian is crucial to the solution of all non-advanced quantum mechanical problems, we see that the secondary result is that the potential energy is often what makes (or, for advanced problems of truly complex systems, breaks) this energy eigenstate method of solving Schr\"{o}dinger's Equation. As the potential almost invariably is far more complicated than the kinetic energy operator which forms the other term in the sum which makes the Hamiltonian, we will see a host of illustrative problems where the potential is bounded by constraints (eg, the infinite potential well or the free particle question) in all introductory textbooks. The underlying idea, which we now understand despite the fact that often textbooks do not enunciate it, is that in these problems the potential is simple and therefore the Hamiltonian is simple, making a solution possible without advanced measures like perturbation theory and methods of approximation, which have to be used for complex or time-evolving potentials. Once we have the formulation of the Hamiltonian, our work is to solve its eigenvalue equation so we can obtain the eigenvectors:
@@ -237,7 +177,7 @@ Many consequences for the solution of Schr\"{o}dinger's Equation derive themselv
     \end{enumerate}
 \end{enumerate}
 \subsection{Free Particle}
-The first problem we can easily solve is the solution of the time evolution of a free particle. A free particle is a particle in a zero potential: so $V(x)=0$. We begin by listing out our procedure:
+The first problem we can easily solve is the solution of the time evolution of a free particle. A free particle is a particle in a zero potential: so $V(\hat{X})=0$. We begin by listing out our procedure:
 \begin{enumerate}
     \item List the boundary conditions.
     \item Formulate the Hamiltonian and solve its eigenvalue equation.
@@ -254,7 +194,7 @@ The ``boundary conditions" of a problem are simply all the conditions the proble
 \subsubsection*{Formulate the Hamiltonian}
 This is also quite easy, as we do not have to consider the potential.
 $$
-\hat{H}:=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x), \stab V(x)=0 \Rightarrow \hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}
+\hat{H}:=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(\hat{X}), \stab V(\hat{X})=0 \Rightarrow \hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}
 $$
 Solving the eigenvalue equation will take more work since this is the first time we have done it for such a complicated problem. We want to find eigenstates and eigenvalues which satisfy the eigenvalue equation
 $$
@@ -331,7 +271,7 @@ The problem of a physical model consists of two components, the state problem an
     P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^{2}
     $$
     for any arbitrary eigenstate $\alpha_{i}$, which means we can convert it to wavefunctions which are probability distribution functions. Subsequently, the wavefunction does store information because it is defined by its components, which must correspond to specific eigenvectors and therefore are probability amplitudes. As every arbitrary state vector must have a unique expansion in every basis spanning the space, every state vector therefore inherently can be converted to its expression in any space, and therefore every state vector possesses components in observable eigenspaces- which are, probability amplitudes of measurements with respect to those physical observables whose eigenspace it is in. That is how a state vector encapsulates information.
-    \item Physical observables are represented by hermitian operators, which do not change over time. The distinct eigenvectors of these observable operators and the corresponding eigenvalues are also therefore unchanging over time. The Hamiltonian is an exception, but not because its formulation changes over time, but because its form changes over time as the potential $V(x)$ may change over time.
+    \item Physical observables are represented by hermitian operators, which do not change over time. The distinct eigenvectors of these observable operators and the corresponding eigenvalues are also therefore unchanging over time. The Hamiltonian is an exception, but not because its formulation changes over time, but because its form changes over time as the potential $V(\hat{X})$ may change over time.
     \item The vector space expressed as being spanned by an observable's eigenbasis is called its eigenspace. It is especially useful when considering measurements of that observable, since the components of the state vector in that eigenbasis are the probability amplitudes corresponding to measurements of the observable.
 \end{itemize}
 \section{Exercises from Chapter 5$\ast$}
