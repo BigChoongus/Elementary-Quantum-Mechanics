@@ -1,5 +1,9 @@
 \chapter{Chapter 6: Time Evolution and Problem Solving Techniques}
-We will complete our study of the postulates of quantum mechanics in this chapter, which will be more pragmatic than the preceding two chapters where we had to deal with abstract mathematical theory in vector spaces and operators. The time-evolution problem, which we will study in this chapter, will prove to be a double-edged challenge. On one hand, the time evolution postulate is completely trivial conceptually, especially compared to the state vector, observable and measurement postulates, so the reader can breathe a sigh of relief and know they won't have to deal with learning a new field of mathematics just to tackle this problem. All it will include is learning one equation: the all-famous Schr\"{o}dinger Equation postulated by Erwin Schr\"{o}dinger, and this equation will not be difficult to understand. On the other hand, the time evolution problem has by far the most potential to be complex, and in some advanced cases, impossible to solve without new intensely demanding mathematical techniques for manipulation and indeed often (though still very accurate) approximation. This should not be disheartening, however. The fact that it is very difficult for the reader to produce numerical predictions for a very complex multi-particle system in a constantly varying electrical field simply with nothing but an A4 sheet and their algebraic knowledge is nothing other than to be expected. Feynman, Dirac, Heisenberg, Pauli were not immortalised for only reaching the depth of an introductory book like this one. The Schr\"{o}dinger Equation is still always valid, even when it is difficult for us to practically solve the actual complete solutions of it.
+We will complete our study of the postulates of quantum mechanics in this chapter, which will be less cumbersome than the preceding two chapters where we had to deal with abstract mathematical theory in vector spaces and operators. This will provide quantum mechanics' answer to the other major problem of a Physical Model: the Time-Evolution Problem.
+\\\\
+The quantum time-evolution problem will prove to be a double-edged challenge. On one hand, the time evolution postulate is completely trivial conceptually, especially compared to the state vector, observable and measurement postulates, so the reader can breathe a sigh of relief and know they won't have to deal with learning a new field of mathematics just to tackle this problem. All it will include, indeed, is learning one equation: the all-famous Schr\"{o}dinger Equation postulated by Erwin Schr\"{o}dinger, and this equation will not be difficult to understand. 
+\\\\
+On the other hand, the time evolution problem has by far the most potential to be complex, and in many advanced cases, \textit{impossible} to solve without new intensely demanding mathematical techniques for manipulation and indeed often (though still very accurate) approximation. This should not be disheartening, however. The great physicists of the $20$th century were not immortalised for only reaching the depth of an introductory book like this one. The Schr\"{o}dinger Equation is still always valid, even when it is difficult, or impossible, for us to practically solve the actual complete solutions of it. 
 \section{Time Evolution and Schr\"{o}dinger's Equation} 
 Now that we have established the stationary properties of quantum states, observables and measurements, we are done with the quantum mechanical state problem. The second paramount question of Physics is the question of time evolution. One might be relieved to find that, theoretically speaking, the time evolution problem is much simpler and will not require us to do so much complex postulating as the state problem did. In fact, we only need one more postulate to introduce time evolution; this is the famous Schr\"{o}dinger Equation (which is a postulate, not a derivation!), which will be important to quantum mechanics much similar to the way $F=ma$ is ubiquitous in classical mechanics.
 \begin{tcolorbox}
@@ -8,48 +12,92 @@ In quantum mechanics, there exists the Hamiltonian operator, written $\hat{H}$, 
 $$
 i\hbar\frac{\partial \Psi(t)}{\partial t}=\hat{H}\Psi(t)
 $$
-which determines how the wavefunction will evolve in time provided there are no perturbations to the system.
+with the Hamiltonian Operator $\hat{H}$ defined as
+$$
+H = \frac{\hat{P^2}}{2m} + V(\hat{X})
+$$
+for some function $V$ of the position operator $\hat{X}$ which is called the potential. This equation determines how the wavefunction will evolve in time provided there are no perturbations to the system.
 \end{tcolorbox} 
 Note that we have moved from $\Psi_{t}$ to $\Psi(t)$
 which is a better shorthand notation now that we are not discussing stationary states. This function notation doesn't clash with the fact that the state vector is a state vector: it just means that the input is a time value and the output is the state vector corresponding to the state at that time.
 \\\\
 Now, we once more start by listing the assertions of this postulate for clarity.
 \begin{enumerate}
-    \item[P5A1.] There is a total energy, regardless of the specific qualities of the potential, which is integral to quantum mechanics. Clearly it is a physical observable since it is represented by a hermitian operator, the Hamiltonian.
-    \item[P5A2.] The Hamiltonian operator is the operator form of the classical Hamiltonian- that is, the quantum mechanical version of 
+    \item [P5A1.] This equation is \textit{basis-independent}, because the derivative which appears is with respect to time, which is a parameter of the wavefunction regardless of which basis we are working in.
+    \\\\
+    For example, in position space, the Schr\"{o}dinger Equation is:
     $$
-    H(x,p)=\frac{p^2}{2m}+V(x).
+    i\hbar\frac{\partial \psi(x,t)}{\partial t}= \biggl(-\frac{\hbar^2}{2m}\frac{\partial^2 \psi(x,t)}{\partial x^2}+ V(x)\biggr)\psi(x,t)
     $$
-    which is obtained merely by replacing the classical $p$ with $\hat{P}$ and the function $V(x)$ of the classical $x$ with the same function $V$ but of $\hat{X}$.
-    \item[P5A3.] Since we say that this Hamiltonian operator exists, there must be eigenvalues (also called eigenenergies for obvious reasons) which are the possible measured values of energy and corresponding eigenvectors of the Hamiltonian- or, energy eigenstates. In fact we often get that the eigenvalues are discretely distributed for the Hamiltonian operator: which means energy is quantised. Bohr's famous electron model results from this energy quantisation.
-    \item[P5A4.] Given a state vector at time $0$ it evolves in a completely deterministic way. This is surely a great relief. The state may not be deterministic-- in which case it is a mixed state for which the strongest predictive statements which can be made are those detailed in Postulate 3. However, it will evolve into a new state vector in a predictable way. That is not to say at all that after the evolution it will not still be in a mixed state, as the new state it has evolved over time into may well still be a superposition of eigenstates. It is just to say that we can determine future state vectors (not necessarily measurements) well given the starting one and the Hamiltonian for the given system.
+    after substituting the position space forms
+    $$
+    \hat{X}=x, \:\: \hat{P}=-i\hbar\frac{\partial}{\partial x}, \:\: \Psi(t) = \psi(x,t)
+    $$
+    Note that 
+    \item[P5A2.] There is a total energy, regardless of the specific qualities of the potential, which is integral to quantum mechanics. Clearly it is a physical observable since it is represented by a hermitian operator, the Hamiltonian.
+    \item[P5A3.] The Hamiltonian operator is the operator form of the classical Hamiltonian- that is, the quantum mechanical version of 
+    $$
+    \mathscr{H}(x,p)=\frac{p^2}{2m}+V(x).
+    $$
+    which is obtained merely by replacing the classical $p$ with $\hat{P}$ and the function $V(x)$ of the classical $x$, called the potential, with the same function $V$ but of $\hat{X}$.
+    \item[P5A4.] The potential $V(x)$ may not be familiar to a reader who has not studied classical mechanics. However, note that the kinetic energy operator $$\hat{T}= \hat{H}-V(\hat{X})= \frac{\hat{P^2}}{2m}$$ is a very rigid term. Therefore, it is really the potential which makes $\hat{H}$ a complicated operator.
+    \\\\
+    The potential make take a variety of forms, depending on the setting of our quantum system which we are trying to solve. Some examples might be:
+    \begin{enumerate}
+        \item The free potential (no potential at all):
+        $$
+        V(x)\equiv 0 \implies V(\hat{X}) \equiv 0 \implies \hat{H} = \frac{\hat{P}^{2}}{2m}
+        $$
+        \item A linear potential, 
+        $$
+        V(x)= -\gamma x\implies V(\hat{X}) = -\gamma\hat{X}\implies \hat{H} = \frac{\hat{P}^{2}}{2m}-\gamma\hat{X}
+        $$
+        for some real number $\gamma$.
+        \item The oscillator potential:
+        $$
+        V(x) = \frac{1}{2}m\omega^{2}x^2 \implies V(\hat{X}) = \frac{1}{2}m\omega^{2}\hat{X}^2
+        $$
+    \end{enumerate}
+    Note that we are showing explicitly that these potentials come from classical mechanics by transforming them into quantum potentials with the substitution $x\to \hat{X}$.
+    \\\\
+    It is hard to provide in short words an intuition for what the potential is, but for our purposes it can be thought of as defining the ``backdrop" of our problem-- almost a ``shape" our solution must fit into-- given its spacial dependence, which stretches through all values of position $x$.
+    \\\\
+    Importantly, it is the form of this potential, which can be very exotic, which determines whether our Hamiltonian will be \textit{solvable}, that is, if we can determine its eigenstates analytically. It turns out that most complicated potentials such as 
+    $$
+    V(\hat{X}) = X^4
+    $$
+    make the Hamiltonian unsolvable.
+    \item[P5A5.] Since we say that this Hamiltonian operator exists, there must be eigenvalues (also called eigenenergies for obvious reasons) which are the possible measured values of energy and corresponding eigenvectors of the Hamiltonian- or, energy eigenstates. In fact we often get that the eigenvalues are discretely distributed for the Hamiltonian operator: which means energy is quantised. Bohr's famous electron model results from this energy quantisation.
+    \\\\
+    Finding the eigenstates of the Hamiltonian is sufficient to solve Schr\"{o}dinger's Equation. We will see why below.
+    \item[P5A6.] Given a state vector at time $0$ it evolves in a completely deterministic way. This is surely a great relief. The state may not be deterministic-- in which case it is a mixed state for which the strongest predictive statements which can be made are those detailed in Postulate 3. However, it will evolve into a new state vector in a predictable way. That is not to say at all that after the evolution it will not still be in a mixed state, as the new state it has evolved over time into may well still be a superposition of eigenstates. It is just to say that we can determine future state vectors (not necessarily measurements) well given the starting one and the Hamiltonian for the given system.
 \end{enumerate}
 For all quantum mechanics problems, solving the Schr\"{o}dinger equation is the most difficult part of the problem. The reason for this is that the Hamiltonian operator is the only major operator which will change depending on the conditions of the problem. The position operator, momentum operator, spin operators all remain the same, but the Hamiltonian is subject to great variation and even variation over time if the potential of the system is varying over time. This means that for different physical problems we always have to go through the considerable difficulty of finding the form of the Hamiltonian given the different conditions, and then solving the eigenvalue equation for that Hamiltonian, which is rarely not incredibly difficult. With all that said, this next section details why such painstaking effort is worth it: with the energy eigenvalue, or Hamiltonian eigenvalue, equation solved, Schr\"{o}dinger's Equation is also immediately solved.
 \subsection{Solving with Energy Eigenstates}
 This section will require a difficult mixing of the rules we have thus far learnt and to be able to follow the developments we make will be tantamount to truly consolidating our grasps on the postulates and mathematics up to this point. It also gives many procedural insights into how one should approach problems (not just subproblems, but full problems) in quantum mechanics, by giving the most elementary way to solve the Schr\"{o}dinger equation. This method is through considering \textbf{energy eigenstates}: that is, the eigenstates of the Hamiltonian operator and the state vectors in the orthonormal basis they form which spans the Hilbert space. 
 \\\\
-To start recall that for any state vector in the state space and orthonormal basis $\{\alpha_{i}\}$ the state vector can be expressed in terms of how it acts on those eigenvectors:
+To start recall that for any state vector in the state space and orthonormal basis $\{\bm{\alpha}_{i}\}$ the state vector can be expressed in terms of how it acts on those eigenvectors:
 $$
-\Psi_{t}=\sum_{i=1}^{k}\oip{\alpha_{i}}{\Psi_{t}}\alpha_{i}.
+\Psi_{t}=\sum_{i=1}^{k}\oip{\bm{\alpha}_{i}}{\Psi_{t}}\bm{\alpha}_{i}.
 $$
 where $k$ is the dimensionality of the space: in the state space, we would sum to infinity. There are infinite orthornormal bases which can we can choose to span the state space, but we have already seen that, for the action of an operator on the state vector, considering that state vector as a combination in the form above but with eigenvectors from the eigenbasis of that operator is natural and fruitful because we get simplifications involving eigenvalues, which also have clearer physical meaning. Now the Schr\"{o}dinger Equation clearly puts the Hamiltonian to the forefront of our focus, and therefore we might like to consider the state vector $\Psi$ when it is expressed in the energy eigenbasis. The Schr\"{o}dinger Equation states that 
 $$
 i\hbar\frac{\partial \Psi(t)}{\partial t}=\hat{H}\Psi(t).
 $$
-If we take the eigenbasis of the Hamiltonian to be $\{\varepsilon_{n}\}$ and the corresponding energy eigenvalues to be $\{E_{n}\}$ then the state vector can be expressed as
+If we take the eigenbasis of the Hamiltonian to be $\{\bm{\bm{\varepsilon}}_{n}\}$ and the corresponding energy eigenvalues to be $\{E_{n}\}$ then the state vector can be expressed as
 $$
-\Psi_{t}(x)=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}
+\Psi_{t}(x)=\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\bm{\varepsilon}_{n}
 $$
 and the Schr\"{o}dinger Equation now takes the form 
-$$i\hbar\frac{\partial}{\partial t}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\hat{H}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.
+$$i\hbar\frac{\partial}{\partial t}\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\bm{\varepsilon}_{n}=\hat{H}\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\bm{\varepsilon}_{n}.
 $$
 Continue by using the linear distributivity of Hermitian operators (fact H4). This tells us that the right hand side can be written 
 $$
-\hat{H}\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\hat{H}\varepsilon_{n}=\sum_{n}E_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.
+\hat{H}\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\bm{\varepsilon}_{n}=\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\hat{H}\bm{\varepsilon}_{n}=\sum_{n}E_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\bm{\varepsilon}_{n}.
 $$
-Then consider the time derivative of the quantities $\oip{\varepsilon_{n}}{\Psi_{t}}$. The eigenvectors of the Hamiltonian in the state space must be independent of time, presuming the Hamiltonian itself isn't varying over time (cases with time-varying Hamiltonians are far trickier to solve and thus will not be considered in this book). Therefore, they have 0 time derivative, which means we have
+Then consider the time derivative of the quantities $\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}$. The eigenvectors of the Hamiltonian in the state space must be independent of time, presuming the Hamiltonian itself isn't varying over time (cases with time-varying Hamiltonians are far trickier to solve and thus will not be considered in this book). Therefore, they have 0 time derivative, which means we have
 $$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\frac{\partial}{\partial t}\Psi_{t}}.
+\frac{\partial}{\partial t}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=\oip{\bm{\varepsilon}_{n}}{\frac{\partial}{\partial t}\Psi_{t}}.
 $$
 One can be assured of this fact by explicitly writing out the summation form of the inner product. Next, by rearrangement of Schr\"{o}dinger's Equation, 
 $$
@@ -57,119 +105,126 @@ $$
 $$
 so we can substitute this into the above expression:
 $$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{-\frac{i}{\hbar}\hat{H}\Psi_{t}}=-\frac{i}{\hbar}\oip{\varepsilon_{n}}{\hat{H}\Psi_{t}}.
+\frac{\partial}{\partial t}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=\oip{\bm{\varepsilon}_{n}}{-\frac{i}{\hbar}\hat{H}\Psi_{t}}=-\frac{i}{\hbar}\oip{\bm{\varepsilon}_{n}}{\hat{H}\Psi_{t}}.
 $$ 
 Then, substituting the energy eigenbasis expression of $\Psi_{t}$,
 $$
 \begin{aligned}
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}&=-\frac{i}{\hbar}\oip{\varepsilon_{n}}{\hat{H}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}} =-\frac{i}{\hbar}\oip{\hat{H}\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}\\
-&=-\frac{i}{\hbar}\oip{E_{n}\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
-=-\frac{i}{\hbar}E^{\ast}_{n}\oip{\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}\\
-&=-\frac{i}{\hbar}E_{n}\oip{\varepsilon_{n}}{\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
+\frac{\partial}{\partial t}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}&=-\frac{i}{\hbar}\oip{\bm{\varepsilon}_{n}}{\hat{H}\sum_{m}\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\bm{\varepsilon}_{m}} =-\frac{i}{\hbar}\oip{\hat{H}\bm{\varepsilon}_{n}}{\sum_{m}\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\bm{\varepsilon}_{m}}\\
+&=-\frac{i}{\hbar}\oip{E_{n}\bm{\varepsilon}_{n}}{\sum_{m}\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\bm{\varepsilon}_{m}}
+=-\frac{i}{\hbar}E^{\ast}_{n}\oip{\bm{\varepsilon}_{n}}{\sum_{m}\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\bm{\varepsilon}_{m}}\\
+&=-\frac{i}{\hbar}E_{n}\oip{\bm{\varepsilon}_{n}}{\sum_{m}\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\bm{\varepsilon}_{m}}
 \end{aligned}
 $$
 where the fact that $\hat{H}$ is hermitian is used in the algebraic manipulations. Then, as the inner product is linearly distributive across the sum term, this becomes
 $$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{n}}{\oip{\varepsilon_{m}}{\Psi_{t}}\varepsilon_{m}}
+\frac{\partial}{\partial t}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\bm{\varepsilon}_{n}}{\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\bm{\varepsilon}_{m}}
 $$
-and as the inner product $\oip{\varepsilon_{m}}{\Psi_{t}}$ is some constant for fixed $m$ and t, we can pull it out to write the expression as
+and as the inner product $\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}$ is some constant for fixed $m$ and t, we can pull it out to write the expression as
 $$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\oip{\varepsilon_{n}}{\varepsilon_{m}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\varepsilon_{m}}{\Psi_{t}}\delta_{nm},
+\frac{\partial}{\partial t}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\oip{\bm{\varepsilon}_{n}}{\bm{\varepsilon}_{m}}=-\frac{i}{\hbar}E_{n}\sum_{m}\oip{\bm{\varepsilon}_{m}}{\Psi_{t}}\delta_{nm},
 $$
 which is,
 $$
-\frac{\partial}{\partial t}\oip{\varepsilon_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\oip{\varepsilon_{n}}{\Psi_{t}}
+\frac{\partial}{\partial t}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=-\frac{i}{\hbar}E_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}
 $$
 as the Kronecker delta resulting from the orthogonality of the eigenvectors cancels out all other sum terms except for when the index $m$ matches up with $n$. This is clearly equivalent to the differential equation
 $$
 \frac{\partial y}{\partial t}=ky
 $$
-which has general solution $x=Ce^{kt}$ for some constant of integration $C$. One might consider that the inner product is a constant and therefore not a traditional function one might find in differential equations of this form, but we recall that constants can be seen us functions of the form $f(x)=c$. Substituting $x:=\oip{\varepsilon_{n}}{\Psi_{t}}$ and $k:=-\frac{i}{\hbar}E_{n}$ analogously leaves us with the solution
+which has general solution $x=Ce^{kt}$ for some constant of integration $C$. One might consider that the inner product is a constant and therefore not a traditional function one might find in differential equations of this form, but we recall that constants can be seen as functions of the form $f(x)\equiv c$. Substituting $x:=\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}$ and $k:=-\frac{i}{\hbar}E_{n}$ analogously leaves us with the solution
 $$
-\oip{\varepsilon_{n}}{\Psi_{t}}=Ce^{-\frac{iE_{n}t}{\hbar}}.
+\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=Ce^{-\frac{iE_{n}t}{\hbar}}.
 $$
-The final step is to realise the constant $C$ is not random: at $t=0$ we should have $\oip{\varepsilon_{n}}{\Psi_{0}}=C$, which implies that the constant is $C=\oip{\varepsilon_{n}}{\Psi_{0}}$. Thus we conclude that the rule for time-evolution is 
+The final step is to realise the constant $C$ is not random: at $t=0$ we should have $\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}=C$, which implies that the constant is $C=\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}$. Thus we conclude that the rule for time-evolution is 
 $$
-\oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}} \:\:\:\:\square
+\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}} \:\:\:\:\square
 $$
-\\
+\\\\
+All the above suggest the critical importance of the energy eigenstates. Finding these energy eigenstates essentially amounts to solving the SE! So we therefore call the eigenvalue equation of the Hamiltonian its own name: the \textbf{time-independent Schr\"{o}dinger Equation (TISE)]}:
+$$
+\hat{H}\Psi_{n}= \biggl(\frac{\hat{P}^2}{2m}+V(\hat{X})\biggr)\Psi_{n}=E_{n}\Psi_{n}
+$$
+for the energy eigenstates $\Psi_{n}$. We will continue to refer to this as the TISE, and we will refer to the original Schr\"{o}dinger Equation
+$$
+i\hbar \frac{\partial \Psi}{\partial t} = \hat{H}\Upsilon
+$$
+as the time-dependent Schr\"{o}dinger Equation, as it is time-dependent.
+\\\\
 Many consequences for the solution of Schr\"{o}dinger's Equation derive themselves promptly. We list them in the taxonomical format again.
-%A general point about these lists of items. I don't immediately feel clear what HE1 stands for, which I felt about a couple of previous lists too. If you're just listing, I'd just use 1,2,3 or bullets; if you're going to refer to these labels later, as you did with H1 etc, then, for them to stick in the reader's mind, it needs to be clear what they mean.
 \\
 \begin{enumerate}
-    \item[HE1.] We first note what the fact above actually means. By the rule S8, the term $\oip{\varepsilon_{n}}{\Psi_{t}}$ is the component of $\Psi_{t}$ in the eigenbasis $\{\varepsilon_{i}\}$ corresponding to eigenvector  $\varepsilon_{n}$:
+    \item[SE1.] We first note what the fact above actually means. By the rule S8, the term $\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}$ is the component of $\Psi_{t}$ in the eigenbasis $\{\bm{\varepsilon}_{i}\}$ corresponding to eigenvector  $\bm{\varepsilon}_{n}$:
     $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}.
+    \Psi_{t}=\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\bm{\varepsilon}_{n}.
     $$
-    The eigenvector $\varepsilon_{n}$ itself does not evolve with time. Therefore, by determining how the component $\oip{\varepsilon_{n}}{\Psi_{t}}$ evolves with time, we get:
+    The eigenvector $\bm{\varepsilon}_{n}$ itself does not evolve with time. Therefore, by determining how the component $\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}$ evolves with time, we get:
     $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{t}}\varepsilon_{n}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}\varepsilon_{n}.
+    \Psi_{t}=\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}\bm{\varepsilon}_{n}=\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}\bm{\varepsilon}_{n}.
     $$
-    We cannot fall for the common deception of thinking we can pull out the term $e^{-{iE_{n}t}/{\hbar}}$ from the sum, since the eigenvalues $\setof{E_{n}}$ corresponding to the eigenvectors $\setof{\varepsilon_{n}}$ change for each $n$ so it is not a constant. However, we do know now that, if we can determine the eigenvectors of the Hamiltonian for a given system, and the corresponding eigenvalues, and know the initial state (and therefore the components $\oip{\varepsilon_{n}}{\Psi_{0}}$ of the initial state vector) then we have a fully defined state $\Psi_{t}$ for any $t$ as we can track how each of its components evolve very easily. This amounts, of course, to solving the Schr\"{o}dinger Equation: or, more satisfyingly put, solving the problem of time evolution and solving both the central problems of quantum mechanics.
-    \item[HE2.] An important clarification which has been alluded to but not explicitly stated thus far must now be emphasised. There is no physical operator which changes form over time. Most operators, like the position and momentum operators, do not change even if there is a perturbation to the system. However, the Hamiltonian is not the same for all systems. Like all other observables operators, its formulation does not change- but, unlike most other operators, this formulation consists of something which can vary through perturbations. Specifically, the Hamiltonian is expressed as 
+    We cannot fall for the common deception of thinking we can pull out the term $e^{-{iE_{n}t}/{\hbar}}$ from the sum, since the eigenvalues $\setof{E_{n}}$ corresponding to the eigenvectors $\setof{\bm{\varepsilon}_{n}}$ change for each $n$ so it is not a constant. However, we do know now that, if we can determine the eigenvectors of the Hamiltonian for a given system, and the corresponding eigenvalues, and know the initial state (and therefore the components $\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}$ of the initial state vector) then we have a fully defined state $\Psi_{t}$ for any $t$ as we can track how each of its components evolve very easily. This amounts, of course, to solving the Schr\"{o}dinger Equation: or, more satisfyingly put, solving the problem of time evolution and solving both the central problems of quantum mechanics.
+    \item[SE2.] An important clarification which has been alluded to but not explicitly stated thus far must now be emphasised. There is no physical operator which changes form over time. Most operators, like the position and momentum operators, do not change even if there is a perturbation to the system. However, the Hamiltonian is not the same for all systems. Like all other observables operators, its formulation does not change- but, unlike most other operators, this formulation consists of something which can vary through perturbations. Specifically, the Hamiltonian is expressed as 
     $$
     \hat{H}=\frac{\hbar^{2}}{2m}\frac{\partial^2}{\partial x^2}+V(\hat{X})
     $$
     where $x$ here is the position variable and the function $V(\hat{X})$ is the potential of the system. It is the potential which changes the form of the operator, as different systems have different potentials; moreover, these potentials can shift over time so in that way the form of the Hamiltonian changes over time. Note the difference: the formula to construct the Hamiltonian doesn't change, but the Hamiltonian itself does-- when $V(\hat{X})$ changes. 
     \\\\
-    The role of energy eigenbases as the easiest way to solve the Schr\"{o}dinger Equation is now however fully clear to us. For a given system, if we can formulate the Hamiltonian accurately, then we can find its eigenvalues and corresponding eigenvectors using the characteristic equation, and then by HE1 we can theoretically determine the answer to the time evolution problem for the state with that Hamiltonian. This is why almost invariably, for problems which are not immensely complicated, \textbf{the goal of the Physicist is to formulate the Hamiltonian}. 
-    \item[HE3.] Since we have established that formulating the Hamiltonian is crucial to the solution of all non-advanced quantum mechanical problems, we see that the secondary result is that the potential energy is often what makes (or, for advanced problems of truly complex systems, breaks) this energy eigenstate method of solving Schr\"{o}dinger's Equation. As the potential almost invariably is far more complicated than the kinetic energy operator which forms the other term in the sum which makes the Hamiltonian, we will see a host of illustrative problems where the potential is bounded by constraints (eg, the infinite potential well or the free particle question) in all introductory textbooks. The underlying idea, which we now understand despite the fact that often textbooks do not enunciate it, is that in these problems the potential is simple and therefore the Hamiltonian is simple, making a solution possible without advanced measures like perturbation theory and methods of approximation, which have to be used for complex or time-evolving potentials. Once we have the formulation of the Hamiltonian, our work is to solve its eigenvalue equation so we can obtain the eigenvectors:
-    $$
-    \hat{H}\varepsilon_{n}=E_{n}\varepsilon_{n},
-    $$
-    and after that we have a solution as shown above. The energy eigenvalue equation is often in literature referred to, misleadingly, as the time-independent Schr\"{o}dinger Equation, because it consists of time independent eigenvectors. One should never be confused by this term, however, as it is nothing more than the energy eigenvalue problem; certainly, it is nothing of a postulate that such an equation would exist given any operator, including the Hamiltonian.
-    \item[HE4.] Back to the mathematics, we note that there are other observables whose operators have the same eigenbasis as the eigenbasis of the Hamiltonian-- by the Compatibility Theorem, this occurs when the two observable operators commute. In those cases we should convince themselves that we have this analogous time-evolution rule for the components of the state vector in the eigenbasis of that observable compatible to the Hamiltonian energy observable. This is because the above is really an exercise in understanding how the energy eigenvectors evolve in time, and compatible operators have the same eigenvectors.
-    \item[HE5.] By Postulate 3, the value $|\oip{\varepsilon_{n}}{\Psi_{t}}|^2$ is the probability energy value $E_{n}$ is measured to be the value of energy for the system at time $t$. In computing this amplitude we achieve very interesting results:
+    The role of energy eigenbases as the easiest way to solve the Schr\"{o}dinger Equation is now however fully clear to us. For a given system, if we can formulate the Hamiltonian accurately, then we can attempt to find its eigenvalues and corresponding eigenvectors using the characteristic equation, and then by SE1 we can theoretically determine the answer to the time evolution problem for the state with that Hamiltonian. This is why almost invariably, for a given quantum system of interest for which we are trying to understand the dynamics (that is, the time evolution) the goal of the physicists are:
+    \begin{enumerate}
+        \item Formulate the Hamiltonian. This can be exceptionally difficult, for example if you have a group of electrons interacting with each other for which the form of the potential is very difficult to derive. Many problems in ongoing research are to find the Hamiltonian of relevant systems.
+        \item Try to solve, either analytically or by numerical approximation, what the eigenstates of the given Hamiltonian are. This can also be essentially impossible for some problems, which is why considerably ingenuity in algebraic manipulation and improved approximation schemes is needed. Looking for such techniques is also a very important part of modern-day quantum research.
+    \end{enumerate}
+    \item[SE3.] By Postulate 3, the value $|\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}|^2$ is the probability energy value $E_{n}$ is measured to be the value of energy for the system at time $t$. In computing this amplitude we achieve very interesting results:
     $$
     \begin{aligned}
-    |\oip{\varepsilon_{n}}{\Psi_{t}}|^2 &=  |\oip{\varepsilon_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}|^2\\
-    &=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2e^{-\frac{iE_{n}t}{\hbar}}e^{\frac{iE_{n}t}{\hbar}}\\
-    &=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2\times 1\\
-    &=|\oip{\varepsilon_{n}}{\Psi_{0}}|^2
+    |\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}|^2 &=  |\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}e^{-\frac{iE_{n}t}{\hbar}}|^2\\
+    &=|\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}|^2e^{-\frac{iE_{n}t}{\hbar}}e^{\frac{iE_{n}t}{\hbar}}\\
+    &=|\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}|^2\times 1\\
+    &=|\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}|^2
     \end{aligned}
     $$
-    In other words, the probability of measuring the energy $E_{n}$ at time $t$, represented by $|\oip{\varepsilon_{n}}{\Psi_{t}}|^2$, is the exact same as the probability of measuring that energy at time 0, which is $|\oip{\varepsilon_{n}}{\Psi_{0}}|^2$. In another sense this means that, unless there is some perturbation to our system, there is no change in the probability of a certain energy value being measured; this rule of time evolution essentially amounts to the energy conservation law for a closed unperturbed system as whatever energy we measure it to have at time 0 stays the same for all time $t$.
+    In other words, the probability of measuring the energy $E_{n}$ at time $t$, represented by $|\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}|^2$, is the exact same as the probability of measuring that energy at time 0, which is $|\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}|^2$. In another sense this means that, unless there is some perturbation to our system, there is no change in the probability of a certain energy value being measured; this rule of time evolution essentially amounts to the energy conservation law for a closed unperturbed system as whatever energy we measure it to have at time 0 stays the same for all time $t$.
     \\\\
-    This is not the last of this important result! We once more see that the above holds for any observables with the eigenbasis $\{\varepsilon_{i}\}$ which is the same as the energy eigenbasis, as the energy values themselves cancel out, leaving the component amplitudes purely in terms of the eigenvectors. This in fact means that for other observables compatible with the energy- for other observables whose operators commute with the Hamiltonian-- the probability of making a measurement of the eigenvalue corresponding to a certain eigenvector is also constant over time. This is significant, as we have just proven the quantum mechanical requirement for some observable to be a \textbf{constant of motion}.
-    \item[HE6.] Consider the case when the state vector is in a pure energy eigenstate- when 
+    This is not the last of this important result! We once more see that the above holds for any observables with the eigenbasis $\{\bm{\varepsilon}_{i}\}$ which is the same as the energy eigenbasis, as the energy values themselves cancel out, leaving the component amplitudes purely in terms of the eigenvectors. This in fact means that for other observables compatible with the energy- for other observables whose operators commute with the Hamiltonian-- the probability of making a measurement of the eigenvalue corresponding to a certain eigenvector is also constant over time. This is significant, as we have just proven the quantum mechanical requirement for some observable to be a \textbf{constant of motion}.
+    \item[SE4.] Consider the case when the state vector is in a pure energy eigenstate- when 
     $$
-    \Psi_{t}=\varepsilon_{k}
+    \Psi_{t}=\bm{\varepsilon}_{k}
     $$
     for some $k$. Then the probabilities of measuring the eigenvalues $E_{n}$ are 
     $$
-    |\oip{\varepsilon_{n}}{\Psi_{t}}|^{2}=|\oip{\varepsilon_{n}}{\varepsilon_{k}}|^{2}=\delta_{nk},
+    |\oip{\bm{\varepsilon}_{n}}{\Psi_{t}}|^{2}=|\oip{\bm{\varepsilon}_{n}}{\bm{\varepsilon}_{k}}|^{2}=\delta_{nk},
     $$
     which means that the probability of measuring the energy $E_{k}$ is 1 and the probability of measuring all other energies $E_{n\neq k}$ is 0. This is the deterministic energy pure state, whose relevance is clear due to the heavy discussion following Postulate 3 on measurement and quantum states. Yet there is more to be said:
     $$
-   \oip{\varepsilon_{n}}{\Psi_{t}}=\oip{\varepsilon_{n}}{\Psi_{0}}e^{-{iE_{n}t}/{\hbar}}
+   \oip{\bm{\varepsilon}_{n}}{\Psi_{t}}=\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}e^{-{iE_{n}t}/{\hbar}}
     $$
     so the state vector would be
     $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\varepsilon_{k}}e^{-{iE_{n}t}/{\hbar}}\varepsilon_{n}=\sum_{n}\delta_{nk}e^{-{iE_{n}t}/{\hbar}}\varepsilon_{n}=e^{-{iE_{k}t}/{\hbar}}\varepsilon_{k}.
+    \Psi_{t}=\sum_{n}\oip{\bm{\varepsilon}_{n}}{\bm{\varepsilon}_{k}}e^{-{iE_{n}t}/{\hbar}}\bm{\varepsilon}_{n}=\sum_{n}\delta_{nk}e^{-{iE_{n}t}/{\hbar}}\bm{\varepsilon}_{n}=e^{-{iE_{k}t}/{\hbar}}\bm{\varepsilon}_{k}.
     $$
     However, this is the same as the system at time $0$ because the exponential has modulus 1 and therefore does not change the eigenvector in the Hilbert space from the ray
     %*You've used the term ``ray'' here rather out of the blue. It's a useful term, but certainly couldn't be assumed knowledge at the level you're pitching this book.
-    $\varepsilon_{k}$ which represents the initial state. Thus the whole system does not change at all if it starts in a pure energy eigenstate; therefore, all observables remain constant under time evolution so long as the Hamiltonian remains the same.
+    $\bm{\varepsilon}_{k}$ which represents the initial state. Thus the whole system does not change at all if it starts in a pure energy eigenstate; therefore, all observables remain constant under time evolution so long as the Hamiltonian remains the same.
     \\\\
     The consequence of this is that we can define the vectors:
     $$
-    \forall n\in\mathbb{Z}^+,\:\:\:\:\Psi_{t}^{(n)}:=e^{-iE_{n}t/\hbar}\varepsilon_{n}.
+    \forall n\in\mathbb{Z}^+,\:\:\:\:\Psi_{t}^{(n)}:=e^{-iE_{n}t/\hbar}\bm{\varepsilon}_{n}.
     $$
-    and these vectors $\Psi_{t}^{(n)}$ are the deterministic forms of the state vector if at initial state for $t=0$ the state vector is coincident with the eigenvector $\varepsilon_{n}$. We call these \textbf{stationary states}, which belong to the specific system, as their value is contingent on the eigenbasis of the Hamiltonian which describes the system. Now, if at time 0 the system is in a pure energy eigenstate $\varepsilon_{n}$, then:
+    and these vectors $\Psi_{t}^{(n)}$ are the deterministic forms of the state vector if at initial state for $t=0$ the state vector is coincident with the eigenvector $\bm{\varepsilon}_{n}$. We call these \textbf{stationary states}, which belong to the specific system, as their value is contingent on the eigenbasis of the Hamiltonian which describes the system. Now, if at time 0 the system is in a pure energy eigenstate $\bm{\varepsilon}_{n}$, then:
     $$
     \Psi_{t}=\Psi_{t}^{(n)}.
     $$
     Otherwise, if it is in a mixed state at time 0, then 
     $$
-    \Psi_{t}(x)=\sum_{n}e^{-iE_{n}t/\hbar}\oip{\varepsilon_{n}}{\Psi_{0}}\varepsilon_{n}
+    \Psi_{t}(x)=\sum_{n}e^{-iE_{n}t/\hbar}\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}\bm{\varepsilon}_{n}
     $$
-    by HE1, which can then be written as
+    by SE1, which can then be written as
     $$
-    \Psi_{t}=\sum_{n}\oip{\varepsilon_{n}}{\Psi_{0}}\Psi_{t}^{(n)}
+    \Psi_{t}=\sum_{n}\oip{\bm{\varepsilon}_{n}}{\Psi_{0}}\Psi_{t}^{(n)}
     $$
-    since $\Psi_{0}^{(n)}$ (the stationary state at time $0$) is the initial pure state corresponding to stationary state $n$, which is the eigenvector $\varepsilon_{n}$. This gives us a physically meaningful method of describing the solution to the Schr\"{o}dinger Equation: finding its stationary states along with knowledge of the initial state is sufficient to solve the Schr\"{o}dinger Equation. 
+    since $\Psi_{0}^{(n)}$ (the stationary state at time $0$) is the initial pure state corresponding to stationary state $n$, which is the eigenvector $\bm{\varepsilon}_{n}$. This gives us a physically meaningful method of describing the solution to the Schr\"{o}dinger Equation: finding its stationary states along with knowledge of the initial state is sufficient to solve the Schr\"{o}dinger Equation. 
     \\\\
-    Note that the solution now does not give us a deterministic state if the initial state was not a pure state; we get a mixed state in terms of the stationary states. Thus we might be confused as to how it amounts to a solution: but we recall that a fully defined mixed state is most of the time tantamount to achieving the highest level of understanding physically possible, by the measurement postulates-- so it does count as a solution since it represents the precise superposition of possible states we get in reality. Finally, the solution of finding the stationary states is absolutely the same as the solution detailed in HE2 and HE3-- we've just labelled vectors to be stationary states, but the underlying procedure is still simple. This is:
+    Note that the solution now does not give us a deterministic state if the initial state was not a pure state; we get a mixed state in terms of the stationary states. Thus we might be confused as to how it amounts to a solution: but we recall that a fully defined mixed state is most of the time tantamount to achieving the highest level of understanding physically possible, by the measurement postulates-- so it does count as a solution since it represents the precise superposition of possible states we get in reality. Finally, the solution of finding the stationary states is absolutely the same as the solution detailed in SE2 and SE3-- we've just labelled vectors to be stationary states, but the underlying procedure is still simple. This is:
     \begin{enumerate}
         \item Formulate the Hamiltonian for the system
         \item Solve the time-independent Schr\"{o}dinger, or energy eigenvalue equation.
@@ -198,15 +253,15 @@ $$
 $$
 Solving the eigenvalue equation will take more work since this is the first time we have done it for such a complicated problem. We want to find eigenstates and eigenvalues which satisfy the eigenvalue equation
 $$
-\hat{H}\varepsilon_{n}=E_{n}\varepsilon_{n}
+\hat{H}\bm{\varepsilon}_{n}=E_{n}\bm{\varepsilon}_{n}
 $$
 for real $E_{n}$. This equation is, as aforementioned, also known as the time-independent Schr\"{o}dinger Equation in literature. We can solve it for the free particle relatively easily. The Hamiltonian is
 $$
 \hat{H}\Psi(x)=\frac{\hat{P}^2}{2m}\Psi(x)
 $$
-and so the eigenvalue equation (time-independent Schr\"{o}dinger) is to find eigenvectors $\setof{\varepsilon_{n}}$ which satisfy:
+and so the eigenvalue equation (time-independent Schr\"{o}dinger) is to find eigenvectors $\setof{\bm{\varepsilon}_{n}}$ which satisfy:
 $$
-\frac{\hat{P}^2}{2m}\varepsilon_{n}=E_{n}\varepsilon_{n}
+\frac{\hat{P}^2}{2m}\bm{\varepsilon}_{n}=E_{n}\bm{\varepsilon}_{n}
 $$
 for some real constant eigenvalues $E_{n}$. The crucial insight for this eigenvalue equation is that the Hamiltonian operator of the system commutes with the momentum operator! This is intuitively obvious, since the Hamiltonian operator is the momentum operator squared divided by a constant, and the momentum operator is just the momentum operator, so the commutator 
 $$
@@ -214,15 +269,15 @@ $$
 $$
 consists of only the operator $\hat{P}$, somewhat modified on one side. Constants clearly do not affect commutators and operators commute with themselves, so we would expect the commutator to be $0$. It can be verified by the reader as well, if we put in $\hat{P}=-i\hbar\nd{}{x}$, but this is not greatly necessary.
 \\\\
-From our vigilance, however, in checking the commutation relation between the Hamiltonian and momentum operators (over time, one gains an intuitive feeling for this vigilance) we achieve something much greater. As their operators commute, energy and position are compatible observables. And as they are compatible observables, they must possess a common eigenbasis! Therefore, to any energy eigenvector $\varepsilon_{n}$ there also exists a momentum eigenvector $\phi_{n}$ which is the same function! Let us therefore try to put that in instead, with this information. For all energy eigenvectors $\varepsilon_{n}$ such that
+From our vigilance, however, in checking the commutation relation between the Hamiltonian and momentum operators (over time, one gains an intuitive feeling for this vigilance) we achieve something much greater. As their operators commute, energy and position are compatible observables. And as they are compatible observables, they must possess a common eigenbasis! Therefore, to any energy eigenvector $\bm{\varepsilon}_{n}$ there also exists a momentum eigenvector $\phi_{n}$ which is the same function! Let us therefore try to put that in instead, with this information. For all energy eigenvectors $\bm{\varepsilon}_{n}$ such that
 $$
-\hat{H}\varepsilon_{n}=\frac{\hat{P}^2}{2m}\varepsilon_{n}=E_{n}\varepsilon_{n}, 
+\hat{H}\bm{\varepsilon}_{n}=\frac{\hat{P}^2}{2m}\bm{\varepsilon}_{n}=E_{n}\bm{\varepsilon}_{n}, 
 $$
 there must exist a momentum eigenvector such that
 $$
-\phi_{n}\equiv\varepsilon_{n}\implies \frac{\hat{P}^2}{2m}\phi_{n}=E_{n}\phi_{n}.
+\phi_{n}\equiv\bm{\varepsilon}_{n}\implies \frac{\hat{P}^2}{2m}\phi_{n}=E_{n}\phi_{n}.
 $$
-%#CONSIDER WHETHER THIS SHOULD BE IN POSITION SPACE FROM START
+%#CONSIDER WSETSER THIS SHOULD BE IN POSITION SPACE FROM START
 Now, if the eigenvalue of momentum corresponding to the eigenvector $\phi_{n}$ is $P_{n}$, then the eigenvalue corresponding to $\hat{P}^2$ on $\phi_{n}$ is $P_{n}^{2}$. So the above can be written
 $$
 \begin{aligned}
@@ -259,18 +314,18 @@ y=Ae^{-ikx}+Be^{ikx}:=\Psi.
 $$
 This is therefore the general solution to the free particle wavefunction where constants $A$ and $B$ are to be determined based on further boundary conditions of the physical problem! It looks generic, but when we do set bounds: whether these be positional bounds or any other bounds, we will see that we can suddenly get quite interesting and specific forms for the wavefunction. Such is for example shown in part 8.2, where we see the free particle confined to an ellipse and get a very clear reult.
 \section{A Holistic Summary}
-The meaning of these last three chapters has always been to provide a robust defence against the many conceptual pitfalls which one can fall into if they try to educate themselves on quantum mechanics purely mathematically without grasping the underlying ideas fully. Certainly, the rest of the book will be far more dense mathematically- though effort will still be made to be extremely clear with that discourse. It is therefore paramount, given that I have offered such a verbose discourse on the relationship between quantum mechanics and physical reality, to summarise everything we have learnt in a concise way; by revising this section, the reader should be able to answer all the physical questions they have about quantum mechanics.
+The meaning of these last three chapters has always been to provide a robust defence against the many conceptual pitfalls which one can fall into if they try to educate themselves on quantum mechanics purely mathematically without grasping the underlying ideas fully. Certainly, the rest of the book will be far more dense mathematically- though effort will still be made to be extremely clear with that discourse. It is therefore important, given that I have offered such a verbose discourse on the relationship between quantum mechanics and physical reality, to summarise everything we have learnt in a concise way; by revising this section, the reader should be able to answer all the physical questions they have about quantum mechanics.
 \\\\
 The problem of a physical model consists of two components, the state problem and the time-evolution problem. The state problem consists of two main problems: the first, how we represent physical information; the second, how we extract physical information.
 \\\\
 \textbf{\underline{The representation of physical information}}
 \begin{itemize}
-    \item The representation of physical information is carried out by the state vector and its wavefunctions in quantum mechanics. It is represented by a normed Hilbert space vector; all scalar multiples are the same ray so represent the same state.
+    \item The representation of physical information is carried out by the state vector and its wavefunctions in quantum mechanics. It is represented by a normed Hilbert space vector; all unphysically scaled multiples are considered the same ray so represent the same state.
     \item In the book we have referred to the state vector at times as ``storing information", which is somewhat of a shorthand and can be confusing. What really is true is that the state vector is given meaning by the relation
     $$
-    P(\alpha_{i})=|\oip{\alpha_{i}}{\Psi}|^{2}
+    P(\bm{\alpha}_{i})=|\oip{\bm{\alpha}_{i}}{\Psi}|^{2}
     $$
-    for any arbitrary eigenstate $\alpha_{i}$, which means we can convert it to wavefunctions which are probability distribution functions. Subsequently, the wavefunction does store information because it is defined by its components, which must correspond to specific eigenvectors and therefore are probability amplitudes. As every arbitrary state vector must have a unique expansion in every basis spanning the space, every state vector therefore inherently can be converted to its expression in any space, and therefore every state vector possesses components in observable eigenspaces- which are, probability amplitudes of measurements with respect to those physical observables whose eigenspace it is in. That is how a state vector encapsulates information.
+    for any arbitrary eigenstate $\bm{\alpha}_{i}$, which means we can convert it to wavefunctions which are probability distribution functions. Subsequently, the wavefunction does store information because it is defined by its components, which must correspond to specific eigenvectors and therefore are probability amplitudes. As every arbitrary state vector must have a unique expansion in every basis spanning the space, every state vector therefore inherently can be converted to its expression in any space, and therefore every state vector possesses components in observable eigenspaces- which are, probability amplitudes of measurements with respect to those physical observables whose eigenspace it is in. That is how a state vector encapsulates information.
     \item Physical observables are represented by hermitian operators, which do not change over time. The distinct eigenvectors of these observable operators and the corresponding eigenvalues are also therefore unchanging over time. The Hamiltonian is an exception, but not because its formulation changes over time, but because its form changes over time as the potential $V(\hat{X})$ may change over time.
     \item The vector space expressed as being spanned by an observable's eigenbasis is called its eigenspace. It is especially useful when considering measurements of that observable, since the components of the state vector in that eigenbasis are the probability amplitudes corresponding to measurements of the observable.
 \end{itemize}
