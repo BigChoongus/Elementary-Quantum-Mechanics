@@ -22,16 +22,86 @@
     }
   </style>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    window.MathJax = {
+      loader: { load: ['[tex]/newcommand', '[tex]/boldsymbol'] },
+      tex: {
+        packages: { '[+]': ['base', 'ams', 'newcommand', 'boldsymbol'] },
+        macros: {
+          bm: ["\\boldsymbol{#1}", 1]  // Define \bm{} using \boldsymbol{}
+        },
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+      
 </head>
 <body>
-<h1 id="my-quantum-mechanics-book">📖 My Quantum Mechanics Book</h1>
-<p>Welcome to the online version of this introductory textbook for
-quantum mechanics. This book is written to be accessible even to
-highschoolers, and achieves mathematical rigour by being a bit wordier
-than the average introductory textbook. Please note that elements of
-some chapters are still under construction, particularly when it comes
-to the correction of typos and other errata which might currently
-occur.</p>
+    $$
+    \newcommand{\Answer}{\begin{tcolorbox}}
+    \newcommand{\Answerend}{\end{tcolorbox}}
+    \newcommand{\ket}[1]{|#1\rangle}
+    \newcommand{\bra}[1]{\langle#1|}
+    \newcommand{\ip}[2]{\langle#1|#2\rangle}
+    \newcommand{\bip}[2]{\left\langle#1\middle|#2\right\rangle}
+    \newcommand{\qexp}[1]{\langle#1\rangle}
+    \newcommand{\apos}[1]{``#1"}
+    \newcommand{\sapos}[1]{`#1'}
+    \newcommand{\elec}{e^{-}}
+    \newcommand{\uspin}{(\uparrow)}
+    \newcommand{\dspin}{(\downarrow)}
+    \newcommand{\lspin}{(\leftarrow)}
+    \newcommand{\rspin}{(\rightarrow)}
+    \newcommand{\ulspin}{(\uparrow\leftarrow)}
+    \newcommand{\urspin}{(\uparrow\rightarrow)}
+    \newcommand{\dlspin}{(\downarrow\leftarrow)}
+    \newcommand{\drspin}{(\downarrow\rightarrow)}
+    \newcommand{\R}{\mathbb{R}}
+    \newcommand{\stab}{\:\:}
+    \newcommand{\mtab}{\:\:\:}
+    \newcommand{\btab}{\:\:\:}
+    \newcommand{\imp}{\Rightarrow}
+    \newcommand{\doubimp}{\Leftrightarrow}
+    \newcommand{\setof}[1]{\{#1\}}
+    \newcommand{\infint}{\int_{-\infty}^{\infty}}
+    \newcommand{\trans}[1]{\mathcal{T}(#1)}
+    \newcommand{\dd}[2]{\delta(#1-#2)}
+    \newcommand{\ipbig}[2]{\langle#1|#2\rangle}
+    \newcommand{\talpha}{\tilde{\alpha}}
+    \newcommand{\op}[2]{|#1\rangle\langle#2|}
+    \newcommand{\sop}[1]{|#1\rangle\langle#1|}
+    \newcommand{\prop}[2]{\mathcal{U}(#1,#2)}
+    \newcommand{\propdagg}[2]{\mathcal{U}^{\dagger}(#1,#2)}
+    \newcommand{\sip}[1]{\langle#1|#1\rangle}
+    \newcommand{\optrip}[3]{\langle#1|\hat{#2}|#3\rangle}
+    \newcommand{\nhoptrip}[3]{\langle#1|{#2}|#3\rangle}
+    \newcommand{\northexp}[2]{\sum_{i=1}^{n}|#2\rangle\langle#2|#1\rangle}
+    \newcommand{\orthexp}[4]{\sum_{#3=1}^#4|#2\rangle\langle#2|#1\rangle}
+    \newcommand{\schrodeq}{i\hbar\frac{\partial \Psi(x,t)}{\partial t}=\hat{H}\Psi(x,t)}
+    \newcommand{\nd}[2]{\frac{d#1}{d #2}}
+    \newcommand{\snd}[2]{\frac{d^{2}#1}{d#2^2}}
+    \newcommand{\pd}[2]{\frac{\partial#1}{\partial #2}}
+    \newcommand{\spd}[2]{\frac{\partial^{2}#1}{\partial #2^2}}
+    \newcommand{\duac}{\leftrightarrow}
+    \newcommand{\oip}[2]{\left(#1,#2\right)}
+    \newcommand{\obip}[2]{\left(#1,#2\right)}
+    $$
+<h1 id="elementary-quantum-mechanics">📖 Elementary Quantum
+Mechanics</h1>
+<p>Welcome to the online version of this expository textbook for quantum
+mechanics. This book is written to be accessible even to highschoolers,
+and achieves mathematical rigour by being wordier than the average
+introductory textbook.</p>
+<p>Please note that elements of some chapters are still under
+construction, particularly when it comes to the correction of typos and
+other errata which might currently occur.</p>
 <p>Click on the links below to access the chapters:</p>
 <h2 id="chapters">📚 Chapters</h2>
 <ul>
