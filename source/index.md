@@ -19,4 +19,4 @@ Click on the links below to access the chapters:
 - [Chapter 9](9.html)
 
 ---
-**Math and Formatting:** This document is formatted using static html and MathJax for rendering LaTeX. The GitHub Repository for this book can be found at https://github.com/BigChoongus/Elementary-Quantum-Mechanics. I would very grateful if you could email me at the address listed there should you have spot any errors in this book.
+**Math and Formatting:** This document is formatted using static html and MathJax for rendering LaTeX. The GitHub Repository for this book can be found at https://github.com/BigChoongus/Elementary-Quantum-Mechanics. I would very grateful if you could email me at the address listed there should you spot any errors in this book.
