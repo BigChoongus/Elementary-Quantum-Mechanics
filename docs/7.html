@@ -98,20 +98,20 @@
     $$
 <h1 id="chapter-7-dirac-notation-and-matrix-mechanics">Chapter 7: Dirac
 Notation and Matrix Mechanics</h1>
-<p>The second part of this book, starting now, will be far more
+<p>The second part of this book, starting now, will be more
 mathematically demanding. It seeks to complete the original aim of this
 pragmatic book: to allow a reader to segue onto mathematically advanced
-quantum mechanics texts without chronic confusions of what the
-mathematics <em>means</em>. Particularly, we will now tackle the
-challenging case of extending our quantum mechanics to cover
-continuously distributed observables.<br />
+quantum mechanics texts with a stronger grasp of what the mathematics
+<em>means</em>. Particularly, we will now tackle the challenging case of
+extending our quantum mechanics to cover continuously distributed
+observables.<br />
 <br />
 We have covered now all of the quantum mechanical postulates we need to
 cover. On the other hand, our problem solving skills, which are very
-different in quantum mechanics to just standard algebra, are still very
-limited in the wider scope of things. There are many manipulative
-techniques we have not covered which are fundamental, but far from
-trivial. Furthermore, learning these techniques will require a
+different in quantum mechanics to just standard algebraic manipulations,
+are still very limited in the wider scope of things. There are many
+manipulative techniques we have not covered which are fundamental, but
+far from trivial. Furthermore, learning these techniques will require a
 reformulation of almost everything we have done so far into a new
 notation. This switch will be strange and unwelcome at first, but sooner
 than later the reader will find that the new notation is far more useful
@@ -119,35 +119,35 @@ than confusing, and at that point they will be on a very good path
 indeed.<br />
 <br />
 The benefit of this somewhat counterintuitive approach of learning one
-way and then reformulating into a new notation is not only that we don’t
-have several factors affecting our understanding at once and causing
-trouble, but that the reader gets training to an undoubtedly
-undergraduate level without wrecking their ability to appreciate nuances
-as they grapple with difficult problems. Without a wider context of
-measurements and probabilities and state evolution within which to frame
-the mathematics in this book, it would seem like an endless barrage of
-symbols for which we have no use and no appreciation. On the other hand,
-after reading the previous chapters, we are capable of understanding why
-components are important– they are probability amplitudes; how the state
-vector is both a label and can be used as a substitute for a physical
-state; how operators are central to the measurements we achieve for
-different operators. With all this conceptual learning done, in many
-ways our task from hereon is relatively simple– change notation and
-crunch algebra without any other concerns any more! Remember what
-started things off. That <span class="math inline">\(\uspin\)</span>
-notation, which was designed to show how unimportant symbols themselves
-are, was where our discussion started, and we now come full circle to
-this idea that notation is far from sacred and must be evaluated simply
-based on pragmatic convenience. This new Dirac notation we are switching
-too will certainly make things more convenient, even though the state
-vector is still a state vector and the wavefunctions are still
-wavefunctions and the operators are still operators. Subsequently,
-looking in greater detail at the mathematical processes of quantum
-mechanics will become easier with our increased ability to engage in
-more efficient algebra. Nothing has changed. We are just switching from
-more intuitive symbols to the proper quantum mechanical convention of
-Dirac notation, which one might not have seen before but which needn’t
-be mystified.<br />
+way and then reformulating into a new notation is that the reader gets
+training to an undoubtedly undergraduate level without affecting their
+ability to appreciate nuances as they grapple with difficult problems.
+Without a wider context of measurements and probabilities and state
+evolution within which to frame the mathematics in this book, it would
+seem like an endless barrage of symbols for which we have no use and no
+full appreciation. On the other hand, after reading the previous
+chapters, we are capable of understanding why components are important–
+they are probability amplitudes; how the state vector is both a label
+and can be used as a substitute for a physical state; how operators are
+central to the measurements we achieve for different operators. With all
+this conceptual learning done, in many ways our task from hereon is
+relatively simple– change notation and crunch algebra without any other
+concerns any more!<br />
+<br />
+Recall how started things off. That <span
+class="math inline">\(\uspin\)</span> notation in Chapter 2, which was
+designed to show how unimportant symbols themselves are, was where our
+discussion started, and we now come full circle to this idea that
+notation is far from sacred and must be evaluated simply based on
+pragmatic convenience. This new Dirac Notation we are switching too will
+certainly make things more convenient, even though the state vector is
+still a state vector and the wavefunctions are still wavefunctions and
+the operators are still operators. Subsequently, looking in greater
+detail at the mathematical processes of quantum mechanics will become
+easier with our increased ability to engage in more efficient algebra.
+Nothing has changed. We are just switching from more intuitive symbols
+to the proper quantum mechanical convention of Dirac notation, which one
+might not have seen before but which needn’t be mystified.<br />
 <br />
 In addition, it is simply necessary to cover the conventional notation,
 called Dirac notation for its founder, and the pertinent techniques
@@ -166,7 +166,7 @@ maintained in previous chapters: that we are working in discrete cases.
 The next chapter will be all dealing with continuity, which contains
 some extremely difficult mathematics resulting from the mathematics in
 this chapter, so this limitation will be soon loosened. We will also be
-avoiding any thoughts about the wavefunctions being the primary
+avoiding any thoughts about the wave<em>functions</em> being the primary
 ‘tangible’ representations of abstract state vectors, because we will
 see that with Dirac’s notation comes another natural and powerful idea
 of matrix representations! We can also feel free to ignore measurements
@@ -177,9 +177,8 @@ now, the job is mainly to forget the wavefunction, and focus on the more
 explicitly state vector (and matrix) focused approach we will start
 below. We appreciate throughout that wavefunctions (and therefore
 measurement probabilities) are still obtainable, by taking the inner
-product of a state vector with the relevant input basis vectors in that
-component function transformation we have seen, so its absence is far
-from its demise.</p>
+product of a state vector with the relevant input basis vectors, as we
+have seen already, so its absence is far from its demise.</p>
 <h2 id="dirac-bra-ket-notation">Dirac Bra-Ket Notation</h2>
 <p>Our new notation begins here. Like any new notation, our job will be
 changing the way we label the objects we want to consider. The starting
@@ -193,10 +192,10 @@ class="math inline">\(\ket{\Psi}\)</span>. This called
 <strong>ket</strong> psi. We simply call it a ket instead of vector
 because Dirac notation is so ubiquitous in quantum mechanics that its
 authority over the discourse of quantum mechanics has turned the word
-ket into a common noun in itself. The ket and the state vector are one
-and the same! The only difference is that we now use the notation <span
-class="math inline">\(\ket{\Psi}\)</span> instead of the notation <span
-class="math inline">\(\Psi\)</span>.<br />
+ket into a common noun in itself. <em>The ket and the state vector are
+one and the same.</em> The only difference is that we now use the
+notation <span class="math inline">\(\ket{\Psi}\)</span> instead of the
+notation <span class="math inline">\(\Psi\)</span>.<br />
 <br />
 The space of possible physical states will now be called the ket space
 instead of the state space. Obviously, since kets are the same as state
@@ -219,16 +218,18 @@ class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}},
 An extremely important point, again, is that the ket is an abstract
 object. Recall that the state vector could not be given a form until we
 chose a specific basis. Since the ket is the same, we will here need to
-chose a basis for the ket to take a form. The key novelty of our new way
-of approaching the same ideas is that, in our bid to make our state
-vector, now ket, more ‘tangible’, we will this time try to divorce the
-ket from the idea of a wavefunction representation and replace this with
-yet another representation in bijection to the state vector– a matrix
-representation! This is because ideas of matrices will be very useful to
-us in our work and manipulation. To do this, recall that in any basis a
-constituent of any vector space has unique components in that basis,
-most often referred to as its unique expansion in that basis. This
-allows us to create a unique matrix expression of any ket: for any <span
+chose a basis for the ket to take a numerical form. The key novelty of
+our new way of approaching the same ideas is that, in our bid to make
+our state vector, now ket, more ‘tangible’, we will this time try to
+divorce the ket from the idea of a wavefunction representation and
+replace this with yet another representation in bijection to the state
+vector– a matrix representation! This is because ideas of matrices will
+be very useful to us in our work and manipulation.<br />
+<br />
+To do this, recall that in any basis a constituent of any vector space
+has unique components in that basis, most often referred to as its
+unique expansion in that basis. This allows us to create a unique matrix
+expression of any ket: for any <span
 class="math display">\[\ket{X}:=\sum_{i=1}^{n}c_{i}\ket{\alpha_{i}}\]</span>
 in the basis <span
 class="math inline">\(\setof{\ket{\alpha_{i}}}\)</span>, we can express
@@ -240,11 +241,12 @@ c_{2}\\
 c_{n}\\
 \end{bmatrix}\]</span> and this is a unique way to express the ket in
 that basis. As all kets have the same dimensions in this matrix
-expression (since the dimension of the ket space is the same so the
-number of components specifying them are the same), we can form any
-linear combinations of them since we are just summing matrices of the
-same dimensions, which is acceptable, and this matrix expression will
-not be meaningless.<br />
+expression (since the dimension of the underlying ket space is obviously
+consistent for all objects in the same ket space, so the number of
+components specifying them are the same), we can form any linear
+combinations of them since we are just summing matrices of the same
+dimensions, which is a legal matrix operation, and this matrix
+expression will not be meaningless.<br />
 <br />
 Another important point is for the inner labelling of kets: i.e- <span
 class="math display">\[\ket{\textbf{Inner Label}}.\]</span> The inner
@@ -268,14 +270,15 @@ momentum value <span class="math inline">\(\sqrt{{2mE}/{\hbar}}\)</span>
 to distinguish it from another ket with another momentum value (but
 otherwise identical characteristics). One should not be confused if
 there are numerical numbers as inner labels of kets: they are part of a
-taxonomy we have chosen ourselves. For example, in this book and
-ubiquitously in all books, convention is to denote eigenkets by the
-eigenvalue they represent. This is not to say that the label is
-physically meaningful– we could easily label each eigenket by the square
-of its eigenvalue, for example- but it is useful to remember and use
-because it makes things clear for us when we have several lines of
-algebra simultaneously. Next, we need to complete the new notation for
-the inner product.</p>
+taxonomy we have chosen ourselves. For example, a common convention is
+to denote eigenkets by the eigenvalue they represent. This is not to say
+that the label is physically meaningful– we could easily label each
+eigenket by the square of its eigenvalue, for example– but it is useful
+to remember and use because it makes things clear for us when we have
+several lines of algebra simultaneously.<br />
+<br />
+Next, we need to complete the new notation for the inner product, also
+in a matrix form.</p>
 <h3 id="bra-space-and-inner-products">Bra space and Inner Products</h3>
 <p>One operation we cannot perform with a ket alone is the all-crucial
 inner product. To define this, we first define a new vector space. This
@@ -299,7 +302,7 @@ c_{n}\\
 c^{\ast}_{1}\stab c^{\ast}_{2} \dots c^{\ast}_{n}.
 \end{bmatrix}\]</span> One sees that the relationship exhibited between
 the two vector spaces of the ket space of kets and the bra space of bras
-is bijection. This is because every ket is unique as a column vector–
+is a bijection. This is because every ket is unique as a column vector–
 due to its unique expansion in any basis set– and therefore taking the
 Hermitian adjoint will give us one single unique bra. For every element
 of the ket space there is therefore a single element in the bra space,
@@ -312,8 +315,8 @@ directly- even though they are in bijection with the state vectors
 bijection with physical states. The answer is simple– because we need
 the inner product to be a real scalar given two input states: as we have
 already seen for the last few chapters. We cannot simply multiply two
-kets because we cannot multiply two column vectors by the rules of
-matrix multiplication! Therefore, we define the bra, which is a row
+kets, because we cannot multiply two column vectors under the rules of
+matrix multiplication. Therefore, we define the bra, which is a row
 vector with the complex conjugate entries, and now if we multiply them:
 <span class="math display">\[\bra{X} \times \ket{X}\]</span> we should
 get a <span class="math inline">\(1\times n\)</span> row vector
@@ -358,11 +361,13 @@ class="math inline">\(\leftrightarrow\)</span> symbol to mean
 c\ket{X}&amp;\duac c^{\ast}\bra{X}\\
 \ket{X}+\ket{Y}&amp;\duac \bra{X}+\bra{Y}.\\
 \end{aligned}\]</span> The way we obtain this is an important algebraic
-point: by performing the operation “dagger” on any linear combination of
-kets, we immediately create a new set of bras in bijection with linear
-combinations of kets of that type, in much of a similar argument to the
-one we used originally to show the bra space is in bijection to the ket
-space.<br />
+point: by performing the operation “dagger” (conjugate then transpose)
+on any linear combination of kets, we immediately create a new set of
+bras in bijection with linear combinations of kets. bra space is in
+bijection to the ket space. The dagger operation is clearly linearly
+distributive, allowing for no ambiguity or confusions on this passage
+between the ket space and bra space, even for such arbitrary linear
+combinations.<br />
 <br />
 The expansion of bras in their basis should be clear following the above
 facts. For <span
@@ -390,7 +395,11 @@ class="math inline">\(\ket{aX+bY}:=\ket{aX}+\ket{bY}\)</span> is
 somewhat easier than for example defining <span
 class="math display">\[\ket{Z}:=\ket{aX}+\ket{bY}\]</span> every time we
 sum two kets, where a new letter in the inner label would just be
-confusing.<br />
+confusing. But similar to understanding that in the old notation <span
+class="math inline">\(\Omega\Psi\)</span> for some linear operator <span
+class="math inline">\(\Omega\)</span> was just another Hilbert space
+state vector, we can read the sum of two kets as clearly another ket in
+the same ket space.<br />
 <br />
 The inner product short-form facts are always helpful; indeed, we have
 <em>linearity in ket</em>: <span
@@ -699,14 +708,16 @@ class="math inline">\(\bra{X}{\Omega}\ket{Y}\)</span>.<br />
 <br />
 The ramifications of this fact are profound, as beginners with Dirac
 notation often get confused about which products are “bunched together”
-and must be performed first, leading to a great state of bewilderment
-when a term might have several bras, operators and kets next to each
-other. The answer is very simply that, so long as operations are being
-performed left to right, the order does not matter and the reader may
-read the multiplications in any way they like. It also immediately leads
-to theorems for entities in Dirac notation, by defining them through the
-perspective of other known products. The first example of this we will
-see is the following completeness relation.<br />
+and must be performed first, leading to possible bewilderment when a
+term might have several bras, operators and kets next to each other. The
+answer is very simply that, so long as operations are being performed
+left to right, the order does not matter and the reader may read the
+multiplications in any way they like.<br />
+<br />
+This result, surprisingly, also immediately leads to theorems for
+entities in Dirac notation, by defining them through the perspective of
+other known products. The first example of this we will see is the
+following Resolution of the Identity.<br />
 <br />
 <strong><u>The Outer Product</u></strong><br />
 <br />
@@ -761,12 +772,12 @@ class="math inline">\(n\times n\)</span> matrices. This is in fact a
 true assumption: an outer product is fundamentally meant to be treated
 as an operator. However, before we discuss that we should establish and
 prove a fundamental theorem in quantum mechanics which will be
-surprisingly useful for manipulation. This is the completeness relation,
-which results from the associative axiom, and deserves its own section
-for its importance even though the proof requires no considerable
-thought if we have the associative axiom in mind.<br />
+surprisingly useful for manipulation. This is the resolution of the
+identity, which results from the associative axiom, and deserves its own
+section for its importance even though the proof requires no
+considerable thought if we have the associative axiom in mind.<br />
 <br />
-<strong><u>The Completeness Relation</u></strong><br />
+<strong><u>The Resolution of the Identity</u></strong><br />
 <br />
 We have seen that the representation <span
 class="math display">\[\ket{X}=\northexp{X}{\talpha_{i}}\]</span> is
@@ -783,11 +794,16 @@ And this is very revealing, of course, because this is true for any
 arbitrary ket <span class="math inline">\(\ket{X}\)</span>, and
 therefore we come to the conclusion that <span
 class="math display">\[\sum_{i=1}^{n}\sop{\talpha_{i}}=1.\]</span> This
-is the most commonly written form of the completeness relation, but one
-should be aware that the 1 here represents the identity operator, rather
-than a scalar– since the sum of <span class="math inline">\(n\times
-n\)</span> matrices will give us an <span class="math inline">\(n\times
-n\)</span> matrix rather than a scalar.<br />
+is the most commonly written form of the resolution of the identity,
+which is an exceptionally useful result. One should be aware that the 1
+here represents the identity operator, rather than a scalar– since the
+sum of <span class="math inline">\(n\times n\)</span> matrices will give
+us an <span class="math inline">\(n\times n\)</span> matrix rather than
+a scalar. It is general practice not to write the identity operator
+explicitly: the reader should just get used to scalars <span
+class="math inline">\(c\)</span> representing <span
+class="math inline">\(cI\)</span> when the context clearly expects an
+operator.<br />
 <br />
 On the other hand, the more we foray into problem solving the more we
 will see of this seemingly completely useless relation. One example can
@@ -836,10 +852,8 @@ which can be anything. One example of a diagonal matrix is the identity
 matrix, which has all zero entries except the major diagonal, which is
 filled with <span class="math inline">\(1\)</span>’s.<br />
 <br />
-<strong>Theorem: Every Hermitian operator has at least one
-orthonormal</strong><br />
-<strong>eigenbasis in which its matrix representation is diagonal.
-The</strong><br />
+<strong>Theorem: Every Hermitian operator has at least one orthonormal
+eigenbasis in which its matrix representation is diagonal. The</strong>
 <strong>diagonal entries are the eigenvalues of the
 operator.</strong><br />
 <br />
@@ -888,10 +902,7 @@ class="math display">\[\sum_{k}\sop{\alpha_{k}}=1.\]</span> So for this
 “transformation operator”, we have <span
 class="math inline">\(U^{\dagger}U=1\)</span>. Similarly, <span
 class="math inline">\(U U^{\dagger}=1\)</span>. Such an operator is
-called <strong>unitary</strong>. Now consider some arbitrary operator
-which is unitary and its action on a state ket which is normalised. We
-know that for the ket <span class="math inline">\(\ket{\Psi
-}\)</span></p>
+called <strong>unitary</strong>.</p>
 <h2 id="exercises-from-chapter-6ast">Exercises from Chapter 6<span
 class="math inline">\(\ast\)</span></h2>
 <ol>
